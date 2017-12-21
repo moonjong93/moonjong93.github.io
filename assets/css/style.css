@@ -61,9 +61,13 @@ h1{
     color : #333;
     margin-bottom:0 !important;
 }
+.title h1{
+    color: rgb(100, 100, 100);
+}
 .date p{
     margin-top:0;
-    font-size:0.9em;
+    font-size:0.7em;
+    color: #333;
 }
 .tag{
     color : #fe9f9f;
@@ -167,9 +171,43 @@ h1{
     border-bottom: 1px solid #eee;
 }
 
+
+
+/* markdown */
+article.post-content{
+    font-size : 0.9em;
+    line-height: 2;
+}
+
+.post-content h2{
+    margin-left: 10px;
+    font-size: 1.4em;
+    font-weight: 400;
+    color: rgb(61, 61, 61);
+}
+.post-content h3{
+    margin-left: 10px;
+    font-size: 1.0em;
+    font-weight: 400;
+    color: rgb(61, 61, 61);
+}
+
 code{
     display: inline-block; 
     overflow: auto;
     width: 100%;
     border: 1px solid #eee;
+}
+blockquote{
+    border-left : 2px solid #eee; 
+}
+blockquote p{
+    margin-left: 10px;
+    color: #777;
+}
+
+hr{
+    border: dotted 5px;
+    border-style: none none dotted; 
+    color: #eee;
 }

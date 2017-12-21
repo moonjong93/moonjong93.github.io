@@ -6,28 +6,35 @@ categories: "개발일지"
 permalink: /development/blog/:title
 date: 2017/12/19
 ---
+* 우리는 어째서 이런 일을 하고 있는가?
+    * 딱히 할일이 없어서?
+    * 이번일의 의의
+
 정말로 firebase는 섹시하다 특히 프론트사이드의 개발자라면 자신의 기획을 표현하는데 사용한다면 정말 좋을거 같다
 
 > "firebase는 섹시하다?"
+>> 아니다?
 
 결론부터 말하자면 정말로 그렇다 위에서 언급한것과 마찬가지인데 javascript정도만 알고 있는 프론트사이드 프로그래머라면 한번쯤 꼭 사용해보는걸 추천해주고 싶다 NoSql 데이터베이스로서 따로 데이터를 스키마 같은게 없다 그냥 내가 원하는데로 push를하면 json형식의 데이터가 알아서 들어간다 그리고 알아서 임의의 key값도 설정해준다
 
 firebase의 데이터베이스를 '잘'활용하면 정말로 못할게없다 간단한 Todo웹부터 게임의 데이터베이스로서 사용할 수 도있을것이다
 
 > 진입장벽 역시 낮다
+>> 그러나 은근히 까다롭다
 
 물론 진입장벽의 낮음은 얘기해서 뭐하리 [firebase의 데이터베이스 튜토리얼](https://firebase.google.com/docs/database/web/read-and-write?hl=ko)을 참고해보자 
 
-<pre><code>return firebase.database().ref('/users/' + userId).once('value').then(function(snapshot) {
-  var username = (snapshot.val() && snapshot.val().username) || 'Anonymous';
-  // ...
-});</code></pre>
+~~~javascript
+  firebase.database().ref('/users/').once('value').then(function(snapshot) {
+    console.log(snapshot.val());
+  });
+~~~
 
-
-다른 설정도 필요없다 위와같이만 해도 데이터를 불러 오거나 쓸 수 있다 위는 데이터를 '한번'만 읽는 예제이다 여기서 중요한 얘기는 바로 <strong>한번</strong>이라는 점이다 애석하게도 firebase는 따로 서버가 있어서 비동기적인 요청을 받아들이는것이 아니다 즉 내가 처음 api키를 넣고 불러온다면 누군가 그 웹사이트를 킨 시점 부터 계~~~속 우리의 곁에 있다는 것이다
+***
+다른 설정도 필요없다 위와같이만 해도 데이터를 불러 오거나 쓸 수 있다 위는 데이터를 '한번'만 읽는 예제이다 여기서 중요한 얘기는 바로 **한번** 이라는 점이다 애석하게도 firebase는 따로 서버가 있어서 비동기적인 요청을 받아들이는것이 아니다 즉 내가 처음 api키를 넣고 불러온다면 누군가 그 웹사이트를 킨 시점 부터 계~~~속 우리의 곁에 있다는 것이다
 
 물론 게속 데이터를 연결된 상태로 있기 때문에 편리한점도 많을 것이다 이것을 잘 응용하면 가상화폐 데이터를 유기적으로 받아오는 행위나 계속해서 변하는 데이터를 담는게 가능하고 실시간으로 바뀌는 데이터 즉 리얼타임 데이터베이스로서 갖는 이점은 모든 것을 다 누릴것이다
-<strong>"그렇기에 데이터베이스 최적화는 이미 물건너간 이야기다"</strong> 사실 최적화를 고민하는 시점에서 이미 돈 걱정은 안하게 될터.... 그래서 나는 firebase를 섹시하다고 생각한다
+**"그렇기에 데이터베이스 최적화는 이미 물건너간 이야기다"**사실 최적화를 고민하는 시점에서 이미 돈 걱정은 안하게 될터.... 그래서 나는 firebase를 섹시하다고 생각한다
 
 <center>
 <img src="https://webassets.mongodb.com/_com_assets/cms/MongoDB-Logo-5c3a7405a85675366beb3a5ec4c032348c390b3f142f5e6dddf1d78e2df5cb5c.png" width="280" />
