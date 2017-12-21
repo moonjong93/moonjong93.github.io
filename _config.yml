@@ -1,0 +1,18 @@
+permalink: /:year:month:day/:title
+url: #Your url here
+baseurl: /project
+
+# variables
+name: Your Site Name
+description: Your description here
+google_verification: null
+
+
+permalink: /:categories/:title/ 
+
+# Markdown
+markdown: kramdown
+kramdown:
+  input: GFM
+  syntax_highlighter_opts:
+    disable : true
