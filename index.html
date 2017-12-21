@@ -21,7 +21,7 @@ title : Welcome
         <div class="note-list">
             <h3>글 목록 - {{ name }}</h3>
             {% for post in site.categories[name] %}
-            <div class="note" onclick="window.open('/project{{ post.url }}','_self')">
+            <div class="note" onclick="window.open('{{ post.url }}','_self')">
                 <h4>{{ post.title }}</h4>
                 <p>{{ post.date | date: '%B %d, %Y'}}</p>
                 <div class="note-content">{{ post.content }}</div>
