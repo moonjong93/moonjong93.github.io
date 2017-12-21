@@ -62,7 +62,7 @@ h1{
     margin-bottom:0 !important;
 }
 .title h1{
-    color: rgb(100, 100, 100);
+    color : #222;
 }
 .date p{
     margin-top:0;
@@ -70,8 +70,13 @@ h1{
     color: #333;
 }
 .tag{
+    border: 1px solid #fe9f9f;
+    border-radius: 28px;
     color : #fe9f9f;
-    font-size:0.8em;
+    margin-right:10px;
+    padding: 5px;
+    font-size:0.9em;
+    user-select: none;
 }
 
 
@@ -173,8 +178,12 @@ h1{
 
 
 
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans');
 /* markdown */
 article.post-content{
+    font-family: 'Noto Sans', sans-serif;
+    color: #333;
+    font-weight: 400;
     font-size : 0.9em;
     line-height: 2;
 }
@@ -191,11 +200,17 @@ article.post-content{
     font-weight: 400;
     color: rgb(61, 61, 61);
 }
-
-code{
-    display: inline-block; 
+.post-content li{
+    color: rgb(61, 61, 61);
+    font-weight: 300;
+}
+pre{
     overflow: auto;
     width: 100%;
+}
+code{
+    display: inline-block; 
+    padding: 30px;
     border: 1px solid #eee;
 }
 blockquote{
@@ -204,6 +219,11 @@ blockquote{
 blockquote p{
     margin-left: 10px;
     color: #777;
+}
+img{
+    width: 65%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 hr{

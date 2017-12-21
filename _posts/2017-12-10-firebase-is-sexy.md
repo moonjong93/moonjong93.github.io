@@ -3,9 +3,12 @@ layout: post
 title: "맨땅에서 시작하는 블로그 -1 firebase와 함께 삽질을"
 tags: ['Firebase','NoSql']
 categories: "개발일지"
+comments: true
 permalink: /development/blog/:title
 date: 2017/12/19
 ---
+그러나 나는 그에게 말했다 너무나도 힘이 든다고 하지만 그는 전혀 괘념치 않았다 그렇다 나는 그런 존재이기 때문이다
+
 * 우리는 어째서 이런 일을 하고 있는가?
     * 딱히 할일이 없어서?
     * 이번일의 의의
@@ -24,11 +27,13 @@ firebase의 데이터베이스를 '잘'활용하면 정말로 못할게없다 �
 
 물론 진입장벽의 낮음은 얘기해서 뭐하리 [firebase의 데이터베이스 튜토리얼](https://firebase.google.com/docs/database/web/read-and-write?hl=ko)을 참고해보자 
 
+
 ~~~javascript
   firebase.database().ref('/users/').once('value').then(function(snapshot) {
     console.log(snapshot.val());
   });
 ~~~
+
 
 ***
 다른 설정도 필요없다 위와같이만 해도 데이터를 불러 오거나 쓸 수 있다 위는 데이터를 '한번'만 읽는 예제이다 여기서 중요한 얘기는 바로 **한번** 이라는 점이다 애석하게도 firebase는 따로 서버가 있어서 비동기적인 요청을 받아들이는것이 아니다 즉 내가 처음 api키를 넣고 불러온다면 누군가 그 웹사이트를 킨 시점 부터 계~~~속 우리의 곁에 있다는 것이다
@@ -37,7 +42,7 @@ firebase의 데이터베이스를 '잘'활용하면 정말로 못할게없다 �
 **"그렇기에 데이터베이스 최적화는 이미 물건너간 이야기다"**사실 최적화를 고민하는 시점에서 이미 돈 걱정은 안하게 될터.... 그래서 나는 firebase를 섹시하다고 생각한다
 
 <center>
-<img src="https://webassets.mongodb.com/_com_assets/cms/MongoDB-Logo-5c3a7405a85675366beb3a5ec4c032348c390b3f142f5e6dddf1d78e2df5cb5c.png" width="280" />
+<img src="https://webassets.mongodb.com/_com_assets/cms/MongoDB-Logo-5c3a7405a85675366beb3a5ec4c032348c390b3f142f5e6dddf1d78e2df5cb5c.png"/>
 </center>
 <br />
 그러나 사용하다보면 알게될것이다 이러한 편리함이 가져다주는 불편함을.. 예를들면 데이터를 컨트롤 하는일 부터가 상당히 힘들다 적어도 나에겐 그랬다 나는 MongoDb를 주로 사용하여 node.js로 개발을 했었는데 분명 같은 Nosql임에도 클라이언트 사이드에서 다루다보니 옵저버 패턴이 적용되어있는데 데이터 접근부터 제어까지 물론 간단한 웹이라면 상관없겠지만, 상당히 어려운 일이었다. 오히려 기존에 사용하던 node.js와 MongoDb를 사용해서 만드는게 훨씬 편했다

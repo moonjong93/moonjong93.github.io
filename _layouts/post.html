@@ -9,26 +9,34 @@
 </head>
 <body>
 <div class="container">
-        <header>
-            <div class="title">
-                <h1>{{ page.title }}</h1>
-            </div>
-            <div class="date">
-                <p>{{ page.date | date: '%Y-%m-%d' }}</p>
-            </div>
-        </header>
-        <article class="post-content">
-            {{ content }}
-        </article>
-        <footer>
-            <div class="tags">
-                {% for tag in page.tags %}
-                <span class="tag">
-                    {{ tag }}
-                </span>
-                {% endfor %}
-            </div>
-        </footer>
+    <header>
+        <div class="title">
+            <h1>{{ page.title }}</h1>
+        </div>
+        <div class="date">
+            <p>{{ page.date | date: '%Y-%m-%d' }}</p>
+        </div>
+    </header>
+    <article class="post-content">
+        {{ content }}
+    </article>
+    <footer>
+        <div class="tags">
+            {% for tag in page.tags %}
+            <span class="tag">
+                {{ tag }}
+            </span>
+            {% endfor %}
+        </div>
+    </footer>
+    <br />
+    <hr />
+    <br />
+    <div class="coment">
+        {% if page.comments %}
+            {% include disqus.html %}
+        {% endif %}
+    </div>
 </div>
     <script>
         document.addEventListener("DOMContentLoaded", function(){
