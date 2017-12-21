@@ -1,0 +1,59 @@
+---
+layout: index
+title : Welcome
+---
+<!-- 아랫부분 폴문으로 그리고 옆에 사이즈로 끝 -->
+<!-- 클릭시 해당 카테고리 전부다 검색하게끔 밑에 기능 사용하면 동일하게 가능 -->
+<!-- 콘테이너 위에는 내 소개만드릭 -->
+
+<div class="container">
+    <div class="symbol-title">
+        <h2>노트 목록</h2>
+    </div>
+    {% for category in site.categories %}
+    {% assign name =  category | first %}
+    {% assign num =  site.categories[name] | size %}
+    <div class="note-container" onclick="clickNote('{{ name | replace: '.', '-'}}');">
+        <p class="note-name">{{ name }}</p>
+        <p class="note-count">{{ num }} 개</p>
+    </div>
+    <div class="note-lists {{ name | replace: '.', '-'}}">
+        <div class="note-list">
+            <h3>글 목록 - {{ name }}</h3>
+            {% for post in site.categories[name] %}
+            <div class="note" onclick="window.open('/project{{ post.url }}','_self')">
+                <h4>{{ post.title }}</h4>
+                <p>{{ post.date | date: '%B %d, %Y'}}</p>
+                <div class="note-content">{{ post.content }}</div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    {% endfor %}
+</div>
+<div id="posts-panel" onclick="TurnOff()"></div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+        document.querySelectorAll('.note-content').forEach(function(content){
+            var text = content.innerText;
+            text = text.substr(0,300);
+            content.innerHTML = text;
+        })
+    });
+    function clickNote(name){
+        if(window.innerWidth < 700){
+            document.querySelector(`.${name}`).style.width = '250px'
+        }else{
+            document.querySelector(`.${name}`).style.width = '320px'
+        }
+        document.querySelector('#posts-panel').style.display = 'block'
+    }
+    function TurnOff(){
+        document.querySelector('#posts-panel').style.display = 'none'
+        document.querySelectorAll('.note-lists').forEach(function(note){
+            note.style.width = 0;
+        })
+    }
+
+</script>
