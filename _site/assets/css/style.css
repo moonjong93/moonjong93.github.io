@@ -44,7 +44,7 @@ a:hover { text-decoration: none;}
     opacity: 0;
     max-width: 60%;
     margin : 0 auto;
-    margin-top: 50px;
+    margin-top: 20px;
     transition: opacity 1s;
 }
 #posts-sidebar{
@@ -337,6 +337,9 @@ article.post-content{
 .post-content li{
     color: rgb(61, 61, 61);
     font-weight: 300;
+}
+.post-content a{
+    color: #fe9f9f;
 }
 pre{
     overflow: auto;
