@@ -1,10 +1,9 @@
 permalink: /:year:month:day/:title
 
 # variables
-name: Your Site Name
-description: Your description here
+name: Moonjong93 blog
+description: 웹 개발을 하고 있습니다 Node.js, vue.js 등
 google_verification: null
-
 
 permalink: /:categories/:title/ 
 

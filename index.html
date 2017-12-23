@@ -17,43 +17,61 @@ title : Welcome
         <p class="note-name">{{ name }}</p>
         <p class="note-count">{{ num }} 개</p>
     </div>
-    <div class="note-lists {{ name | replace: '.', '-'}}">
-        <div class="note-list">
-            <h3>글 목록 - {{ name }}</h3>
-            {% for post in site.categories[name] %}
-            <div class="note" onclick="window.open('{{ post.url }}','_self')">
-                <h4>{{ post.title }}</h4>
-                <p>{{ post.date | date: '%Y-%m-%d' }}</p>
-                <div class="note-content">{{ post.content }}</div>
-            </div>
+    <div class="notes-list {{ name | replace: '.', '-'}}">
+        {% for post in site.categories[name] %}
+            <a href="{{ post.url }}"><h4>{{ post.title }}</h4></a>
+            <p>{{ post.date | date: '%Y-%m-%d' }}</p>
+        {% endfor %}
+    </div>
+    {% endfor %}
+    <br />
+    <div class="lately"><span class="lately-title">최근 게시글</span>
+        <div class="lately-inner">
+            {% for post in site.posts limit:5%}
+                <a class="lately-board-a" href="{{post.url}}"><p class="lately-board-p"><span class="lately-board-date">{{post.date | date: '%Y-%m-%d' }}&nbsp;-&nbsp;</span><span class="lately-board-title">{{ post.title }}</span></p></a>
             {% endfor %}
         </div>
     </div>
-    {% endfor %}
+    <br />
+    <div class="lately">
+        <span class="lately-title">최근 댓글</span>
+        <div class="lately-inner">
+            <div id="RecentComments" class="dsq-widget">
+                <script type="text/javascript" src="https://https-moonjong93-github-io.disqus.com/recent_comments_widget.js?num_items=5&hide_mods=0&hide_avatars=1&excerpt_length=80"></script>        
+            </div>
+        </div>
+    </div>
+    <br />
 </div>
-<div id="posts-panel" onclick="TurnOff()"></div>
-
 <script>
     document.addEventListener("DOMContentLoaded", function(){
-        document.querySelectorAll('.note-content').forEach(function(content){
-            var text = content.innerText;
-            text = text.substr(0,300);
-            content.innerHTML = text;
+        // for warp of li tag for a -> reply links
+        document.querySelectorAll('li.dsq-widget-item').forEach(function(me){
+            var atag = document.createElement('a');
+            atag.innerHTML = me.innerHTML;
+            atag.setAttribute('class','dsq-coment');
+            atag.setAttribute('href',me.childNodes[5].childNodes[2].href);
+            me.parentNode.insertBefore(atag, me);
+            me.remove();
         })
     });
     function clickNote(name){
-        if(window.innerWidth < 700){
-            document.querySelector(`.${name}`).style.width = '250px'
+        var height = document.querySelector('.' + name).offsetHeight;
+        if(height === 0 ){
+            document.querySelector('.' + name).style.height = '100%'
+            document.querySelector('.' + name).style.transform = 'scaleY(1)';
         }else{
-            document.querySelector(`.${name}`).style.width = '320px'
+            document.querySelector('.' + name).style.height = 0
+            document.querySelector('.' + name).style.transform = 'scaleY(0)';
         }
-        document.querySelector('#posts-panel').style.display = 'block'
+        
+        // if(window.innerWidth < 700){
+        //     document.querySelector(`.${name}`).style.width = '250px'
+        // }else{
+        //     document.querySelector(`.${name}`).style.width = '320px'
+        // }
+        // document.querySelector('#posts-panel').style.display = 'block'
     }
-    function TurnOff(){
-        document.querySelector('#posts-panel').style.display = 'none'
-        document.querySelectorAll('.note-lists').forEach(function(note){
-            note.style.width = 0;
-        })
-    }
+
 
 </script>
