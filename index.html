@@ -43,6 +43,7 @@ title : Welcome
     </div>
     <br />
 </div>
+{% include analytics.html %}
 <script>
     document.addEventListener("DOMContentLoaded", function(){
         // for warp of li tag for a -> reply links
@@ -64,13 +65,6 @@ title : Welcome
             document.querySelector('.' + name).style.height = 0
             document.querySelector('.' + name).style.transform = 'scaleY(0)';
         }
-        
-        // if(window.innerWidth < 700){
-        //     document.querySelector(`.${name}`).style.width = '250px'
-        // }else{
-        //     document.querySelector(`.${name}`).style.width = '320px'
-        // }
-        // document.querySelector('#posts-panel').style.display = 'block'
     }
 
 
