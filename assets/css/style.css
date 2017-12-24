@@ -360,6 +360,7 @@ blockquote p{
 }
 .post-content img{
     width: 65%;
+    display: block;
     margin-left: auto;
     margin-right: auto;
 }
