@@ -16,7 +16,7 @@ date: 2017/12/25
 
 이정도인데 가독성이 확실히 좋아지는것 같다, 기존에 검색결과가 약간은 네이버보다 후진?듯한 모습을 보여줬지만(하지만 편의성에서는 이부분이 훨씬 났다고 봄) 이번 업데이트로 조금은 세련된 느낌을 갖게된것 같다.
 
-![google-serach-result](/assets/img/blog/google-serach.png)
+![google-serach-result](../assets/img/blog/google-serach.png)
 
 딱히 예전 이미지를 가지고 있지 않아서 확실히 확인해보긴 어렵지만 아무튼 확실히 변하긴 했음,
 
