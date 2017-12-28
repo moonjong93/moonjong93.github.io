@@ -19,5 +19,8 @@ plugins:
   - jekyll-feed
   - jekyll-paginate
 
+feed:
+  path: ../feed.xml
+  
 paginate: 5
 paginate_path: "/:num"
