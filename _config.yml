@@ -15,7 +15,9 @@ kramdown:
     disable : true
 
 # Gems
-plugins: [jekyll-paginate]
+plugins:
+  - jekyll-feed
+  - jekyll-paginate
 
 paginate: 5
 paginate_path: "/:num"
