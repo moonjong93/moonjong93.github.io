@@ -1,9 +1,9 @@
 permalink: /:year:month:day/:title
 
+
 # variables
-name: Moonjong93 blog
-description: 웹 개발을 하고 있습니다 Node.js, vue.js 등
-google_verification: null
+name: 'MoongJong93'
+description: '웹 개발에 관한 이야기, Node.js와 Vue.js를 중점적으로 사용합니다'
 
 permalink: /:categories/:title/ 
 
@@ -13,3 +13,9 @@ kramdown:
   input: GFM
   syntax_highlighter_opts:
     disable : true
+
+# Gems
+plugins: [jekyll-paginate]
+
+paginate: 5
+paginate_path: "/:num"

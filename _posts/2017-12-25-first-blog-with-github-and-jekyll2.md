@@ -1,11 +1,12 @@
 ---
 layout: post
 title: "Jekyll로 시작하는 블로그 - 중간"
+subscript: "블로그 입문기 두 번째 이야기"
 tags: ['Jekyll','Blog']
 categories: "개발일지"
 comments: true
 permalink: /development/blog/:title
-date: 2017/12/25
+date: 2017/12/26
 ---
 ## 1. 웹 개발은 디자인 부터
 어느정도 프로토타입은 정해두었다. 사실 처음과 지금의 결과물은 상당히 다르다 처음엔 노트형식의 디자인을 기획하게 되었다.

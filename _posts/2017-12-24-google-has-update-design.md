@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "구글의 검색창이 업데이트 되었다"
+subscript: "아무 소식없이 바뀌는 구글의 디자인"
 tags: ['Google','Design']
 categories: "기록"
 comments: true

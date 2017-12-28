@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Jekyll로 시작하는 블로그 - 프롤로그"
+subscript: "블로그 입문 그 첫 번째 이야기"
 tags: ['Jekyll','Blog']
 categories: "개발일지"
 comments: true

@@ -5,25 +5,28 @@ title : Welcome
 <!-- 아랫부분 폴문으로 그리고 옆에 사이즈로 끝 -->
 <!-- 클릭시 해당 카테고리 전부다 검색하게끔 밑에 기능 사용하면 동일하게 가능 -->
 <!-- 콘테이너 위에는 내 소개만드릭 -->
-
+<br />
+<br />
 <div class="container">
-    <div class="symbol-title">
-        <h2>노트 목록</h2>
-    </div>
-    {% for category in site.categories %}
-    {% assign name =  category | first %}
-    {% assign num =  site.categories[name] | size %}
-    <div class="note-container" onclick="clickNote('{{ name | replace: '.', '-'}}');">
-        <p class="note-name">{{ name }}</p>
-        <p class="note-count">{{ num }} 개</p>
-    </div>
-    <div class="notes-list {{ name | replace: '.', '-'}}">
-        {% for post in site.categories[name] %}
-            <a href="{{ post.url }}"><h4>{{ post.title }}</h4></a>
-            <p>{{ post.date | date: '%Y-%m-%d' }}</p>
+    <div calss="posts">
+        {% for post in paginator.posts %}
+        <div class="post">
+            <a href="{{ post.url }}"><h3 class="post-title">{{ post.title }}</h3></a>
+            <p class="post-subscript">{{ post.subscript }}</p>
+            <p class="post-date">{{ post.date | date: '%Y-%m-%d' }}</p>
+        </div>
         {% endfor %}
+        <br />
+        {%if paginator.previous_page  %}
+        <span class="paginator-button" style="float: left"><a href="{{ paginator.previous_page_path }}">PREV</a></span>
+        {% endif %}
+        
+        {%if paginator.next_page %}
+            <span class="paginator-button" style="float: right"><a href="{{ paginator.next_page_path }}"> NEXT </a></span>
+        {% endif %}
+        <br />
+        <br />
     </div>
-    {% endfor %}
     <br />
     <div class="lately"><span class="lately-title">최근 게시글</span>
         <div class="lately-inner">

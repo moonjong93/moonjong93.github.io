@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "지킬과 함께 블로그를 시작합니다!"
+subscript: "아무도 관심없는 슬픈 소식"
 tags: ['Jekyll','Blog']
 categories: "일상"
 comments: true
