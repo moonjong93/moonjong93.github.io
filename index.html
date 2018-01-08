@@ -28,13 +28,6 @@ title : Welcome
         <br />
     </div>
     <br />
-    <div class="lately"><span class="lately-title">최근 게시글</span>
-        <div class="lately-inner">
-            {% for post in site.posts limit:5%}
-                <a class="lately-board-a" href="{{post.url}}"><p class="lately-board-p"><span class="lately-board-date">{{post.date | date: '%Y-%m-%d' }}&nbsp;-&nbsp;</span><span class="lately-board-title">{{ post.title }}</span></p></a>
-            {% endfor %}
-        </div>
-    </div>
     <br />
     <div class="lately">
         <span class="lately-title">최근 댓글</span>
