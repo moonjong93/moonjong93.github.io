@@ -1,4 +1,49 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2018-01-08T17:28:13+09:00</updated><id>/</id><title type="html">MoongJong93</title><subtitle>웹 개발에 관한 이야기, Node.js와 Vue.js를 중점적으로 사용합니다</subtitle><entry><title type="html">서버리스에 관하여</title><link href="/development/tech/what-is-serverless" rel="alternate" type="text/html" title="서버리스에 관하여" /><published>2018-01-08T00:00:00+09:00</published><updated>2018-01-08T00:00:00+09:00</updated><id>/development/tech/what-is-serverless</id><content type="html" xml:base="/development/tech/what-is-serverless">&lt;p&gt;나는 최근에 firebase에 관한 얘기를 개발자들의 세미나에서 얘기한 경험이 있다,&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2018-01-10T23:58:35+09:00</updated><id>/</id><title type="html">MoongJong93</title><subtitle>웹 개발에 관한 이야기, Node.js와 Vue.js를 중점적으로 사용합니다</subtitle><entry><title type="html">리액트 입문 정리</title><link href="/study/react/first-react-learn" rel="alternate" type="text/html" title="리액트 입문 정리" /><published>2018-01-10T00:00:00+09:00</published><updated>2018-01-10T00:00:00+09:00</updated><id>/study/react/first-react-learn</id><content type="html" xml:base="/study/react/first-react-learn">&lt;h2 id=&quot;리액트를-배우려고-하는-이유&quot;&gt;리액트를 배우려고 하는 이유&lt;/h2&gt;
+&lt;p&gt;사실 웹은 Vue로도 내가 원하는 개발이 가능했다 생각보다 짧은 시간에 배울 수 있었고 나름 합리적인 프레임워크라고 생각한다, 그러나 생각보다 Vue유저가 없었다 그렇게 손해 볼일은 아니지만 나름 아쉬웠던 부분이 있다.&lt;/p&gt;
+
+&lt;p&gt;이번에 나는 새로운 프로젝트를 계획하고 있으며 앞으로도 새로운 웹을 출시하고 싶었다. 그러나 사실 대부분의 웹은 시장에 나오면 관심도 못받고 사라지기 일쑤라고 생각한다 모바일 시대이고 기회는 나름 모바일에 있다고 생각이 들었다. 새로운 프로젝트는 그냥 게시판 형식의 간단한 웹이었는데 직접 개발을 하고 나니 ‘과연 누가 이 사이트에 들어올까?’라는 고민이 들었다.&lt;/p&gt;
+
+&lt;p&gt;그래서 첫번째로 찾은 대안은 Framework7이었다 Vue를 지원하는 Cordova기반의 javascript 하이브리드 앱 프레임워크이다.&lt;img src=&quot;/assets/img/postsImg/framework7-logo.png&quot; alt=&quot;프레임워크7의 로고&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;열심히 따라서 만들어 봤지만 예제부터가 제대로 동작하지 않았다 머터리얼css를 사용한 예제에선 상단바가 잘못나오는 오류가 나왔다.&lt;/p&gt;
+
+&lt;p&gt;그래서 다시 기웃댄게 안드로이드 웹뷰 시스템이었는데 솔직히 그냥 안드로이드를 입문하는게 차라리 더 났다는 결론까지 내렸다 그리고 PWA로 앱을 포팅하는 것은 상당히 마음에 들지만 구독 모델이나 결제 같은게 일단은 지원하지 않기에 별로였다.&lt;/p&gt;
+
+&lt;p&gt;그래서 찾은 것이 &lt;strong&gt;‘React native’&lt;/strong&gt; 그러나 리액트는 생각보다 어려운 문법 처럼 보였다..크흠…&lt;/p&gt;
+
+&lt;h2 id=&quot;정리를-해보자&quot;&gt;정리를 해보자&lt;/h2&gt;
+&lt;p&gt;오늘 Udemy에 할인 중인 강좌를 하나 구매해서 약 33강의 까지 들었다 해당 강좌를 진행하는 분도 지금까지 배운게 리액트에 기초라고 말씀하셨으며 다음 장으로는 React Redux가 시작된다고 한다. 나름 합리적인 데이터의 관리를 위해서라고 했으니 데이터 관리가 쉬워질까? 라는 생각도 들지만&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;아마도 그럴것 같진않다.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;hr /&gt;
+&lt;p&gt;JSX는 자바스크립트의 문법이라기 보다는 react의 문법이며 babel을 통해 컴파일하면 react.createElemnt(~~~~)등으로 변환되는 것으로 봐서 JSX는 갓갓 문법이다&lt;/p&gt;
+
+&lt;p&gt;ReactDom은 내가 현재 웹을 다루고 있기에 사용하고 있으며 React native에서는 ReactView를 다루게 된다.
+Dom은 실제 우리에게 보여지는 Html을 뜻하며 React의 문법으로 Html을 컨트롤 할 수 있다.&lt;/p&gt;
+
+&lt;p&gt;React는 이벤트의 발생을 기존 Html에서 했던것과 비슷하게 감지한다 예를들면 onClick등의 이벤트는 똑같으며 이벤트 받는것고 기존에 했던것과 동일했다,&lt;/p&gt;
+
+&lt;p&gt;State가 바뀌면 render가 다시된다는 것이 중요해 보였으며 constactor에 props를 super(props)로 해주는 것은 솔직히 잘 이해가 되지 않았지만 클래스의 생성자를 위해서 사용한다고 이해하게되었다.&lt;/p&gt;
+
+&lt;p&gt;문법적 설탕 -&amp;gt; Syntax sugar 문법 개꿀 이라는 뜻인것 같고 예를 들면 내가 선언할 변수의 이름과 받아올 오브젝트의 이름이 같아면 그냥 ({video})라고만 해줘도 알아서 const video에 해당 오브젝트를 대입시켜준다.&lt;/p&gt;
+
+&lt;p&gt;사실 위와 같은 부분을 익히는 것도 중요하지만 결국엔 필요한 기능을 적재적소에 찾는것이 중요한것 같다&lt;/p&gt;
+
+&lt;p&gt;lodash를 사용해 함수의 시간초를 주는 것도 마지막에 설명하였는데 신기한점은 먼저 선언되었던 function명으로 똑같이 상수 함수를 만들었다는 점이다 그런데도 동작한다는 것이 오히려 이해가 안되게 만들었지만 이것 또한 하나의 패턴으로 기억해야 할 것같 다.&lt;/p&gt;
+
+&lt;h2 id=&quot;입문-난이도는&quot;&gt;입문 난이도는?&lt;/h2&gt;
+&lt;p&gt;솔직히 내가 먼저 Vue나 Andgular를 접해보지 않았다면 이게 무슨 개소리야 하고 껏겠지만 다행히 Vue를 접하고 입문해서 그런지 아니면 내가 평소에 서점에서 react 책만보이면 잠깐 잠깐 보던게 도움이 된지는 모르겠지만,&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;상당히 합리적인 프레임워크라는 생각이 들었다.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;react는-어디에서나-사용되고-있다&quot;&gt;React는 어디에서나 사용되고 있다&lt;/h2&gt;
+&lt;p&gt;사실 리액트를 배워야겠다고 마음먹게된 가장 큰 이유가 이것이다. 내가 자주 시청하는 트위치부터 자주쓰는 에버노트…그리고 papago번역기 까지 Dom의 변화가 자주있는 앱이라면 대부분 리액트를 사용 중이다.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;그들이 사용하는 데에는 이유가 있다고 생각했다.&lt;/strong&gt;&lt;/p&gt;</content><author><name></name></author><category term="React" /><category term="Learn" /><summary type="html">리액트를 배우려고 하는 이유 사실 웹은 Vue로도 내가 원하는 개발이 가능했다 생각보다 짧은 시간에 배울 수 있었고 나름 합리적인 프레임워크라고 생각한다, 그러나 생각보다 Vue유저가 없었다 그렇게 손해 볼일은 아니지만 나름 아쉬웠던 부분이 있다.</summary></entry><entry><title type="html">서버리스에 관하여</title><link href="/development/tech/what-is-serverless" rel="alternate" type="text/html" title="서버리스에 관하여" /><published>2018-01-08T00:00:00+09:00</published><updated>2018-01-08T00:00:00+09:00</updated><id>/development/tech/what-is-serverless</id><content type="html" xml:base="/development/tech/what-is-serverless">&lt;p&gt;나는 최근에 firebase에 관한 얘기를 개발자들의 세미나에서 얘기한 경험이 있다,&lt;/p&gt;
 &lt;blockquote&gt;
   &lt;p&gt;서버리스의 대표적 선두주자이면서 상당히 관리하기 편리하기에 서버에 지식이 없는 사람도 쉽게 입문해서 자신이 원하는 앱을 만들어 낼 수 있기에 지금처럼 변화가 빠른 세상에서 빠르게 개발하기에는 정말 최고의 서비스&lt;/p&gt;
 &lt;/blockquote&gt;
