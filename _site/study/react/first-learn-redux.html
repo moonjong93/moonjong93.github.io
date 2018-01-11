@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" href="/assets/img/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <meta name="description" content="모바일앱 개발을 위해 리듁스에 입문했다">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Redux 입문 정리">
+    <meta property="og:description" content="Moonjong93의 블로그를 한눈에 볼 수 있습니다">
+    <link rel="canonical" href="https://moonjong93.github.io">
+    
+    <title>MoonJong93 :: Redux 입문 정리</title>
+</head>
+<body>
+<!-- <div class="info">
+    <span><img src="/assets/img/profile.png" width="35"></span>
+    <span>Moonjong - 블로그</span>
+</div> -->
+<div class="home">
+    <a href="/">MoongJong93</a>
+    <a href="/about">About</a>
+</div>
+<header>
+    <div class="title">
+        <h1>Redux 입문 정리</h1>
+        <p>2018-01-11</p>
+    </div>
+</header>
+<div class="container">
+    <article class="post-content">
+        <h2 id="udemy-강좌를-보고">Udemy 강좌를 보고</h2>
+<p>상당히 어렵다 아니 사실 어느정도의 흐름은 알겠는데 ‘정말로 필요해! 무조건 있어야해’라는 생각은 들지 않았다.</p>
+
+<h2 id="redux는-스테이트-컨테이너이다">Redux는 스테이트 컨테이너이다</h2>
+<p>데이터를 담당하는 모든 부분을 맡는다 거기다가 Action까지 관리하게 되는데 사실 데이터를 담당하는거 까지는 쉽게 이해했지만 Actions을 관리한다니..크흠 이게 가장 이해가 안되고있는 부분이다.</p>
+
+<p>그동안 당연히 모든 이벤트를 한 컴포넌트에서 관리하던 것과는 달리 Action을 담당하는 파일이 하나가 있고 또 데이터만을 담는 곳이 따로있는데 이해하려면 시간이 조금 걸릴듯 하다</p>
+
+<h2 id="메인-컴포넌트는-가벼워진다">메인 컴포넌트는 가벼워진다</h2>
+<p>그렇다 데이터와 이벤트를 전부 Conatiner 컴포넌트 안에서 관리하고 이런 이벤트를 전부 reducers나 actions에서 관리하기에 이 프로젝트의 최상위 컴포넌트인 app.js는 가벼워진다</p>
+
+<blockquote>
+  <p>왜 리액트에서 Redux가 필수인지 약간은 느끼게 되었다.</p>
+</blockquote>
+
+<h2 id="신기한-es6">신기한 es6</h2>
+<p>그전 까지 바닐라 스크립트로만 작성을 했던 탓에 es6는 생각보다 신기하다.</p>
+
+<p>function을 생성할때 function(state = null) 이라고 한다면 처음 생성될때 null로 생성할 수 있다는 부분도 신기하다.</p>
+
+<h2 id="어이없는-실수">어이없는 실수</h2>
+<p>es6 문법에 익숙하지 않은 탓에 어이없는 실수로 시간을 허비했는데 action을 담당하는 스크립트에선 export default가 아닌 export로 해당 함수를 내보냈다 나는 당연히 ‘export하면 default지!’라는 생각에 export default fetchWeather라고 했는데 크흠.. 이 부분을 찾는데 시간을 해맷다.</p>
+
+<h2 id="솔직히-모르겠다">솔직히 모르겠다!!!</h2>
+<p>하면 할 수록 드는 생각은 웹은 Vue..로..그리고 네이티브 앱은 react native로 해야지… 라는 생각이 든다 물론 아직 개발 플로우를 전혀 익히지 않은 탓도 있고 내 개인 프로젝트를 하지 않아서 그런것도 있지만 쉬운 프레임워크는 아니라고 생각한다.</p>
+
+<p>물론 그렇다고 Vue가 마냥 쉬운것은 아니다 Vue도 초반엔 엄청 쉽다가 결국은 데이터 관리 부분에서 React와 같은 어려움을 맞이하는데</p>
+
+<p>React는 React를 입문하자 마자 이런 산을 만나니 조금 더 어렵다고 생각이 드는것 같다</p>
+
+
+    </article>
+    <footer>
+        <div class="tags">
+            
+            <span class="tag">
+                Redux
+            </span>
+            
+            <span class="tag">
+                Learn
+            </span>
+            
+        </div>
+        <br />
+        <div class="profile">
+    <img class="borderhalf" src="/assets/img/profile.png" alt="profile" width="40">
+    <p>' 게임 불감증이 있어 게임은 30분 밖에 못합니다 그때부터 였을까요.....프로그래밍을 시작한게 '</p>
+    <p>Node.js로 오버워치 데이터 제공 웹을 만들면서 웹 개발에 입문, Node.js, Vue.js를 사용해 웹 개발을 하고 있습니다</p>
+</div>
+        <br />
+        
+            <span class="arow"><a href="/study/react/first-react-learn">▲ 이전 - 리액트 입문 정리</a></span>
+        
+        
+    </footer>
+    <br />
+    <hr />
+    <br />
+    <div class="coment">
+        
+            <div id="disqus_thread"></div>
+<script>
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://https-moonjong93-github-io.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+                            
+        
+    </div>
+</div>
+<footer id="copy">
+    ⓒ 2017. Moonjong93 all rights reserved.
+</footer>
+    <script>
+        document.addEventListener("DOMContentLoaded", function(){
+            document.getElementsByClassName('container')[0].style.opacity = 1;
+        });
+    </script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-111530519-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-111530519-1');
+</script>
+
+</body>
+</html>
