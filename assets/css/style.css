@@ -230,8 +230,8 @@ footer#copy{
 /* markdown */
 article.post-content{
     font-family: 'Noto Sans', sans-serif;
-    color: rgb(27, 31, 41);
-    font-weight: 300;
+    color: rgb(27, 32, 45);
+    font-weight: 500;
     font-size : 1.2rem;
     line-height: 2;
     width: 95%;
@@ -240,13 +240,13 @@ article.post-content{
 .post-content h2{
     margin-left: 10px;
     font-size: 1.4em;
-    font-weight: 400;
+    font-weight: 700;
     color: rgb(61, 61, 61);
 }
 .post-content h3{
     margin-left: 10px;
     font-size: 1.0em;
-    font-weight: 400;
+    font-weight: 700;
     color: rgb(61, 61, 61);
 }
 .post-content li{
