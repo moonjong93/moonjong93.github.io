@@ -1,4 +1,56 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2018-03-09T15:44:54+09:00</updated><id>/</id><title type="html">MoongJong93</title><subtitle>웹 개발에 관한 이야기, Node.js와 Vue.js를 중점적으로 사용합니다</subtitle><entry><title type="html">aws를 사용해 serverless 프로젝트를 구성하며 느낀점</title><link href="/development/serverless/serverless-with-amazon-make-some-problem" rel="alternate" type="text/html" title="aws를 사용해 serverless 프로젝트를 구성하며 느낀점" /><published>2018-03-01T00:00:00+09:00</published><updated>2018-03-01T00:00:00+09:00</updated><id>/development/serverless/serverless-with-amazon-make-some-problem</id><content type="html" xml:base="/development/serverless/serverless-with-amazon-make-some-problem">&lt;h2 id=&quot;serverless&quot;&gt;Serverless?&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2018-03-12T20:56:15+09:00</updated><id>/</id><title type="html">MoongJong93</title><subtitle>웹 개발에 관한 이야기, Node.js와 Vue.js를 중점적으로 사용합니다</subtitle><entry><title type="html">Google의 WEBP는 이미지의 용량을 얼마나 줄여줄까?</title><link href="/development/serverless/Google-webp-how-many-less" rel="alternate" type="text/html" title="Google의 WEBP는 이미지의 용량을 얼마나 줄여줄까?" /><published>2018-03-12T00:00:00+09:00</published><updated>2018-03-12T00:00:00+09:00</updated><id>/development/serverless/Google-webp-how-many-less</id><content type="html" xml:base="/development/serverless/Google-webp-how-many-less">&lt;h2 id=&quot;google-webp란&quot;&gt;Google WEBP란?&lt;/h2&gt;
+&lt;p&gt;Google에서 독자적으로 만든 이미지 확장자를 뜻한다, 자세한 내용은 &lt;a href=&quot;https://ko.wikipedia.org/wiki/WebP&quot;&gt;위키피디아&lt;/a&gt;에서 확인 가능하다.&lt;/p&gt;
+
+&lt;p&gt;간단히 정리하자면 VP8 영상 코덱 기술을 활용해 이미지의 용량을 기존 .jepg에 비하여 약 10~80%까지 줄여주는 새로운 이미지 확장자를 말한다&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;그러나 2010년에 개발되어 벌써 8년이란 시간이 흘렀기에…&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;용량을-신경써야하는-이유&quot;&gt;용량을 신경써야하는 이유&lt;/h2&gt;
+&lt;p&gt;일반적인 블로그나, 웹서비스를 만든다면 물론 전혀 신경쓰지 않아도 될 부분일것 같다. 하지만 내가 지금 만들고 있는 서비스는 용량에 상당히 민감하기 때문에 나 역시 서버 비용을 부담해야하는 개인 개발자 입장에선 당연 용량을 신경 쓸 수밖에 없었다.&lt;/p&gt;
+
+&lt;p&gt;이미지를 불러오거나 갤러리형식으로 만들 수 있으며 내가 올리고 싶은 이미지를 얼마든지 올릴 수 있는 그런 형식의 웹을 만들고 있는데,&lt;/p&gt;
+
+&lt;p&gt;대략적인 예측으로는 썸네일의 다운로드 수가 만약 100이라면 실제로 클릭하는 이미지는 약 2~5개 내외가 될 것 같았다.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;그러나 .png확장자 기준 250*166의 이미지 용량이 약 115kb에 달했다.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;어쩌면-적을-수-있는-용량&quot;&gt;어쩌면 적을 수 있는 용량&lt;/h2&gt;
+&lt;p&gt;115kb라고 해봤자 그렇게 큰 용량은 아님에 분명하다 하지만 이런 세세한 부분을 고민해야 아낄 수 있다고 생각했고&lt;/p&gt;
+
+&lt;p&gt;.jpeg이미지 확장자로 동일 이미지를 변경해보았다.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;16kb약 1/7이 절약되었다.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;그러나-나는-이것도-만족하기-싫었다&quot;&gt;그러나 나는 이것도 만족하기 싫었다.&lt;/h2&gt;
+&lt;p&gt;Node.js입문 이후 가장 오래 고민했던 것은&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;어떻게 하면 내 서버를 적게 쓰게 만들까?&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;라는 고민이었다, 너무나도 싫었다 같은 데이터를 가져오기 위해 내 서버를 들락거리는 사용자를 보고만 있을 수 없었다..&lt;/p&gt;
+
+&lt;p&gt;이게 내가 처음 웹에 입문해서 했던 고민이었다, 당시 내가 알고 있던 유일한 기술은 ‘쿠키’하나 였는데 (Local Storage를 몰랐다) 저장해야 할 텍스트가 약 3만자가 넘었다, 이를 저장하기 위해 gzip으로 압축하고 그것도 모자라서 쿠키 사이사이에 쪼개서 넣었던 기억이 난다.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;그만큼 내 서버를 조금만 쓰게 하고 싶었다.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;그 고민은 아직도 마찬가지다&lt;/p&gt;
+
+&lt;h2 id=&quot;물론-서버는-이제-비싸지만은-않다&quot;&gt;물론 서버는 이제 비싸지만은 않다.&lt;/h2&gt;
+&lt;p&gt;서버는 점점 저렴해지고, 점점 빨라지며 편해지기 까지 하고 있다. 이런 고민은 어쩌면 별거 아닌 고민일 수 있다.&lt;/p&gt;
+
+&lt;p&gt;하지만 앞서 언급했던것과 마찬가지로 내가 진행하는 프로젝트에선 썸네일이 가장 중요하지만 사용자는 직접적으로 썸네일을 다운받을 일이 없이 없기에 WEBP를 사용 하기로 했다.&lt;/p&gt;
+
+&lt;h2 id=&quot;그래서-webp는-동일-이미지-용량이-얼마나-줄었나&quot;&gt;그래서 WEBP는 동일 이미지 용량이 얼마나 줄었나?&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/img/postsImg/webp-how-many-less/one.png&quot; alt=&quot;비교 이미지&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;기존 .png 확장자 대비 약 1/12나 줄어든것을 확인 할 수 있었다. .jpeg 확장자 대비해서도 약 4kb가 줄어들며 확실히 효과적이었다.&lt;/p&gt;</content><author><name></name></author><category term="개발" /><category term="aws" /><category term="serverless" /><category term="image" /><summary type="html">Google WEBP란? Google에서 독자적으로 만든 이미지 확장자를 뜻한다, 자세한 내용은 위키피디아에서 확인 가능하다.</summary></entry><entry><title type="html">aws를 사용해 serverless 프로젝트를 구성하며 느낀점</title><link href="/development/serverless/serverless-with-amazon-make-some-problem" rel="alternate" type="text/html" title="aws를 사용해 serverless 프로젝트를 구성하며 느낀점" /><published>2018-03-01T00:00:00+09:00</published><updated>2018-03-01T00:00:00+09:00</updated><id>/development/serverless/serverless-with-amazon-make-some-problem</id><content type="html" xml:base="/development/serverless/serverless-with-amazon-make-some-problem">&lt;h2 id=&quot;serverless&quot;&gt;Serverless?&lt;/h2&gt;
 &lt;p&gt;서버리스란 말 그대로 서버가없는 서비스를 구성하는 프로젝트를 말한다 나는 현재 lambda를 사용해 개발을 하고 있으며 서버리스 프레임워크 serverless http를 이용해 개발을 하고 있다.&lt;/p&gt;
 
 &lt;h2 id=&quot;맞닦드린-문제들&quot;&gt;맞닦드린 문제들&lt;/h2&gt;
@@ -433,22 +485,4 @@ title : &quot;hello&quot; // 이 부분을 수정해서 가능해진다
 
 &lt;p&gt;사실 Jekyll이 사용하는 Ruby는 정말 생소한 언어였다 물론 오며가며 들어본 경험은 있다 그러나 일본의 개발자가 만들었다는 얘기 정도기에 거의 모르는 수준이었다 그러나 약 3일간의 투자로 이 블로그를 만들 수 있게 되었다.&lt;/p&gt;
 
-&lt;p&gt;Jekyll의 가이드는 사실 &lt;a href=&quot;https://jekyllrb-ko.github.io/&quot;&gt;지킬의 공식문서&lt;/a&gt;만 보면 모든게 이해가 가능하다, 그리고 레퍼런스 삼을 테마를 하나 구하면 좋은데 나는 엄청 심플한 &lt;a href=&quot;http://jekyllthemes.org/themes/windows-95/&quot;&gt;windows95-Theme&lt;/a&gt;를 레퍼런스 삼아 작업을 했다.&lt;/p&gt;</content><author><name></name></author><category term="Jekyll" /><category term="Blog" /><summary type="html">1. 시작은 창대하였으나 끝은 미약하다</summary></entry><entry><title type="html">구글의 검색창이 업데이트 되었다</title><link href="/record/google-has-update-design" rel="alternate" type="text/html" title="구글의 검색창이 업데이트 되었다" /><published>2017-12-25T00:00:00+09:00</published><updated>2017-12-25T00:00:00+09:00</updated><id>/record/google-has-update-design</id><content type="html" xml:base="/record/google-has-update-design">&lt;p&gt;며칠전 구글 검색 결과의 디자인이 조금 변경되었다, 아마 가독성을 높이기 위한 업데이트인것 같은데 요약해보자면,&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;폰트변경
-    &lt;ul&gt;
-      &lt;li&gt;Apple SD Gothic Neo으로 변경&lt;/li&gt;
-      &lt;li&gt;Font-Weight 역시 400으로 업데이트&lt;/li&gt;
-      &lt;li&gt;#1967d2 색상으로 약간 밝은&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;이정도인데 가독성이 확실히 좋아지는것 같다, 기존에 검색결과가 약간은 네이버보다 후진?듯한 모습을 보여줬지만(하지만 편의성에서는 이부분이 훨씬 났다고 봄) 이번 업데이트로 조금은 세련된 느낌을 갖게된것 같다.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/img/postsImg/google-serach.png&quot; alt=&quot;google-serach-result&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;딱히 예전 이미지를 가지고 있지 않아서 확실히 확인해보긴 어렵지만 아무튼 확실히 변하긴 했음,&lt;/p&gt;
-
-&lt;p&gt;가끔 이런 업데이트를 보면 웹디자인의 변화가 너무 빠르다고 생각이 든다, 불과 2년전 만든 웹사이트만 봐도(업데이트가 전혀 안되었다면) 약간은 올드하다고 느껴지는데 지금은 머터리얼 디자인이 유행이라면 당장 한달뒤에는 어떤 디자인이 유행을 할까?&lt;/p&gt;</content><author><name></name></author><category term="Google" /><category term="Design" /><summary type="html">며칠전 구글 검색 결과의 디자인이 조금 변경되었다, 아마 가독성을 높이기 위한 업데이트인것 같은데 요약해보자면,</summary></entry></feed>
+&lt;p&gt;Jekyll의 가이드는 사실 &lt;a href=&quot;https://jekyllrb-ko.github.io/&quot;&gt;지킬의 공식문서&lt;/a&gt;만 보면 모든게 이해가 가능하다, 그리고 레퍼런스 삼을 테마를 하나 구하면 좋은데 나는 엄청 심플한 &lt;a href=&quot;http://jekyllthemes.org/themes/windows-95/&quot;&gt;windows95-Theme&lt;/a&gt;를 레퍼런스 삼아 작업을 했다.&lt;/p&gt;</content><author><name></name></author><category term="Jekyll" /><category term="Blog" /><summary type="html">1. 시작은 창대하였으나 끝은 미약하다</summary></entry></feed>
