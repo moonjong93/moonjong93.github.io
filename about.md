@@ -17,12 +17,13 @@ title : '문종민 설명서'
 ## 경험
 - Unity 강좌를 진행함
 - OVERDOC의 메인 개발을 맡아 게임 오버워치의 데이터를 크롤링 하는 서버를 만듬
-    - [OVERDOC 개발 이야기](https://moonjong93.github.io/career/development-overwatch-crawler)
+    - [OVERDOC 개발 이야기](../career/development-overwatch-crawler)
 - 첫 외주 '사내 웹 개발'의 풀 스텍 개발자로 개발을 진행
-    - [사내 웹 개발 이야기](https://moonjong93.github.io/career/develop-realtime-game)
+    - [사내 웹 개발 이야기](../career/develop-realtime-game)
 - 일본에서 외노자 생활 시작 2017.10 ~ 
 - 숙박관리 회사에 프리랜서로 일을 시작
     - 개인 체크인 시스템 (PWA + firebase) 개발
+        - [체크인 시스템 개발 이야기](../career/development-checkin)
     - Fullpage기반 회사 소개 페이지 개발중
 - 개인 프로젝트 TAC.photos 개발중
 
