@@ -4,7 +4,6 @@ title : '문종민 설명서'
 ---
 
 ## 문종민?
-- 서울특별시 강동구 암사동 성모병원 출생(우량아)
 - 서울디자인고 졸업
 - 군입대 12사단 모 부대 (겨울에 눈 2미터가 내림)
 - 전역후 뭐할꺼냐는 후임 질문에 급하게 프로그래머라고 대답
@@ -26,14 +25,15 @@ title : '문종민 설명서'
         - [체크인 시스템 개발 이야기](../career/development-checkin)
     - Fullpage기반 회사 소개 페이지 개발중
 - 개인 프로젝트 TAC.photos 개발중
+    - [Tac.photos 개발 이야기](../career/tac-photos-develop-after)
 
 
 ## 스킬
+- Vue.js
 - 서버리스
 - aws ( route53, ec, lambda... )
 - 클라우드 컴퓨팅 개발경험
 - Node.js
-- Vue.js
 - React Native with expo
 - Mongodb
 - Firebase
