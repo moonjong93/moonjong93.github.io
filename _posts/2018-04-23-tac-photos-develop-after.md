@@ -4,7 +4,7 @@ title: "Tac.photos를 개발이야기 - 배운게 많다"
 subscript: "SPA와 serverless-http 그리고 s3"
 tags: ['Node.js','S3','Lambda','vue.js']
 categories: "커리어"
-comments: false
+comments: true
 permalink: /career/:title
 date: 2018/04/23
 ---

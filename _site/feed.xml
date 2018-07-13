@@ -1,4 +1,231 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.7.3">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2018-05-16T00:44:51+09:00</updated><id>/</id><title type="html">MoongJong93</title><subtitle>웹 개발에 관한 이야기, Node.js와 Vue.js를 사용하는 개발자</subtitle><entry><title type="html">Tac.photos를 개발이야기 - 배운게 많다</title><link href="/career/tac-photos-develop-after" rel="alternate" type="text/html" title="Tac.photos를 개발이야기 - 배운게 많다" /><published>2018-04-23T00:00:00+09:00</published><updated>2018-04-23T00:00:00+09:00</updated><id>/career/tac-photos-develop-after</id><content type="html" xml:base="/career/tac-photos-develop-after">&lt;h2 id=&quot;시작하기-앞서&quot;&gt;시작하기 앞서&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.7.3">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2018-07-13T23:54:22+09:00</updated><id>/</id><title type="html">MoongJong93</title><subtitle>웹 개발에 관한 이야기, Node.js와 Vue.js를 사용하는 개발자</subtitle><entry><title type="html">MongoDb를 처음 접한 내가, 잘못이해했던 RDS</title><link href="/study/I-was-wrong-understand-RDS" rel="alternate" type="text/html" title="MongoDb를 처음 접한 내가, 잘못이해했던 RDS" /><published>2018-07-13T00:00:00+09:00</published><updated>2018-07-13T00:00:00+09:00</updated><id>/study/I-was-wrong-understand-RDS</id><content type="html" xml:base="/study/I-was-wrong-understand-RDS">&lt;h2 id=&quot;mongodb를-접하다&quot;&gt;MongoDb를 접하다&lt;/h2&gt;
+&lt;p&gt;그랬다. MognoDb’이하 몽고디비’를 접했었다. 그것은 내가 샀던 Node.js 책에서 저자가 정말 너무나도 추천을 했었고 당시 유행했던 ‘MEAN STACK’ 프로젝트의 구성요소 때문이기도 했었다.&lt;/p&gt;
+
+&lt;p&gt;몽고디비는 정말로 핫했고 지금도 물론 너무나도 좋은 데이터베이스임에 분명하다 NoSql중 단연 으뜸이기도 하다&lt;/p&gt;
+
+&lt;p&gt;Oracle, Mysql, Ms Sql, PostgreSQL, MongoDb라는 순위를 &lt;a href=&quot;https://db-engines.com/en/ranking&quot;&gt;데이터베이스 랭킹&lt;/a&gt;에서 확인 할 수 있다.&lt;/p&gt;
+
+&lt;h3 id=&quot;mongodb가-가진-장점의-이해&quot;&gt;MongoDb가 가진 장점의 이해&lt;/h3&gt;
+&lt;p&gt;나는 당시에 Nosql이 가진 가장 큰 장점은 ‘확장성’이라고 생각했다. 단지 확장성 하나 때문에 Mysql을 안사용하고 몽고디비를 써야겠다고 생각했다. 그러나 이것은 정말로 큰 오해였다.&lt;/p&gt;
+
+&lt;h2 id=&quot;mysql에-관심을-가지게된-계기부터&quot;&gt;Mysql에 관심을 가지게된 계기부터&lt;/h2&gt;
+&lt;p&gt;나는 사실 서버도 좋아하고 프론트엔드도 좋아하는 어쩌면 잡 개발자라고 할수 있다 사실 아직은 이렇다할 정체성을 가지지 못하고 있다. 두개다 재밌기 때문인데.&lt;/p&gt;
+
+&lt;p&gt;최근 면접에서 단연코 많이 하는 질문은 ‘RDS’에 관한 이해였다.&lt;/p&gt;
+
+&lt;p&gt;RDS는 중요했다. 웹을 지탱하는 데이터베이스 중 그것은 단연 으뜸이다.&lt;/p&gt;
+
+&lt;p&gt;그러나 나는 사실 이런 RDS에 대해 자세히 이해하지 못했었는데 그것은 전혀 관심이 없기 때문이었다.&lt;/p&gt;
+
+&lt;p&gt;그러나 다음 면접을 위해선 반드시 공부해야겠다고 생각했고 최근까지도 RDS로 토이프로젝트를 만들며 배워보고있다.&lt;/p&gt;
+
+&lt;h2 id=&quot;rds의-확장성&quot;&gt;RDS의 확장성&lt;/h2&gt;
+&lt;p&gt;정말 확장성이 없을까?&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;그렇다&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;내 개념에선 적어도 그랬다. 왜냐면 애초에 테이블을 ‘설계’해야하고 이 테이블은 사실상 바뀌기 힘들었기 때문이다.&lt;/p&gt;
+
+&lt;p&gt;Nosql을 예를 들자면 그냥 도큐먼트에 새로운 객체 하나만 추가하면 만들어지는 데이터베이스 와는 정반대로&lt;/p&gt;
+
+&lt;p&gt;‘수정’을 해야한다고 생각했기 때문이다.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;그러나 그것은 잘못된 이해였다.
+RDS를 반대로 이해한것이다.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;데이터베이스의-정규화&quot;&gt;데이터베이스의 정규화&lt;/h2&gt;
+&lt;p&gt;‘정규화’를 이해하지 못했기 때문에 확장성이 없다고 판단한것이었다. 데이터베이스의 정규화란 몇가지의 형식이 있으며 정말로 간단하게 설명하자면&lt;/p&gt;
+
+&lt;p&gt;기존에 내가 이해했던 RDS란 하나의 테이블의 모든 데이터를 꾸겨넣는다고 생각했다.&lt;/p&gt;
+
+&lt;p&gt;예를 들어 성적에 관한 데이터베이스를 만든다면&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;이름&lt;/th&gt;
+      &lt;th&gt;국어&lt;/th&gt;
+      &lt;th&gt;영어&lt;/th&gt;
+      &lt;th&gt;수학&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;종민&lt;/td&gt;
+      &lt;td&gt;100&lt;/td&gt;
+      &lt;td&gt;90&lt;/td&gt;
+      &lt;td&gt;100&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;준형&lt;/td&gt;
+      &lt;td&gt;12&lt;/td&gt;
+      &lt;td&gt;32&lt;/td&gt;
+      &lt;td&gt;22&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;와 같은 형식으로 만들었을 것이다.&lt;/p&gt;
+
+&lt;h3 id=&quot;그러나-정규화를-이해하고-나선-조금-달라진다&quot;&gt;그러나 정규화를 이해하고 나선 조금 달라진다.&lt;/h3&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;이름&lt;/th&gt;
+      &lt;th&gt;id&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;종민&lt;/td&gt;
+      &lt;td&gt;1&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;준형&lt;/td&gt;
+      &lt;td&gt;0&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;이라는 테이블을 하나 만들고&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;pub_id&lt;/th&gt;
+      &lt;th&gt;국어&lt;/th&gt;
+      &lt;th&gt;영어&lt;/th&gt;
+      &lt;th&gt;수학&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;0&lt;/td&gt;
+      &lt;td&gt;100&lt;/td&gt;
+      &lt;td&gt;90&lt;/td&gt;
+      &lt;td&gt;100&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;1&lt;/td&gt;
+      &lt;td&gt;12&lt;/td&gt;
+      &lt;td&gt;32&lt;/td&gt;
+      &lt;td&gt;22&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;과 같이 만들것이다.&lt;/p&gt;
+
+&lt;p&gt;pub_id란 위의 종민 준형의 id값을 가리키는 Foreign key’FK’가 된다.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;즉 관계형 데이터베이스를 관계정 데이터베이스 답게 이해하게 된것이다.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;이제는-확장성에-대해서-고민할-필요가-없다&quot;&gt;이제는 확장성에 대해서 고민할 필요가 없다.&lt;/h2&gt;
+&lt;p&gt;혹시 아직도 RDS의 확장성에 대해서 고민할 수 있을까? 절대로 그래선 안된다.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;만약 내가 새로운 데이터를 추가하고 싶다면 원 테이블을 고민하는게 아니라 새로운 테이블을 만들어 관계를 추가하면 되기 때문이다.&lt;/p&gt;
+&lt;/blockquote&gt;</content><author><name></name></author><category term="RDS" /><category term="Mysql" /><summary type="html">MongoDb를 접하다 그랬다. MognoDb’이하 몽고디비’를 접했었다. 그것은 내가 샀던 Node.js 책에서 저자가 정말 너무나도 추천을 했었고 당시 유행했던 ‘MEAN STACK’ 프로젝트의 구성요소 때문이기도 했었다.</summary></entry><entry><title type="html">Firestore 이해하기</title><link href="/development/firestore-knowlage" rel="alternate" type="text/html" title="Firestore 이해하기" /><published>2018-06-25T00:00:00+09:00</published><updated>2018-06-25T00:00:00+09:00</updated><id>/development/firestore-knowlage</id><content type="html" xml:base="/development/firestore-knowlage">&lt;h2 id=&quot;순서&quot;&gt;순서&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;Firebase의 등장 배경&lt;/li&gt;
+  &lt;li&gt;그래서 등장한 Firestore&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;firebase의-등장-배경&quot;&gt;Firebase의 등장 배경&lt;/h2&gt;
+&lt;p&gt;정말 간단히 말하자면 클라이언트 개발자의 새로운 개발을 위해 생겼다고 볼 수 있다. 지금은 물론 구글의 인수 이후로 정말 날개를 단듯 MLkit이라던지 내부적으로도 많은 업데이트를 진행하고 있지만 기본적인 출발은 ‘시작을 빠르게’라는 취지로 누구나 웹 개발, 앱 개발을 더 이상 서버까지 고민하지 말고 만들자. 라는 출발이었다&lt;/p&gt;
+
+&lt;p&gt;그 출발은 괜찮았다 Firebase(이하 ‘파이어베이스’)의 요금은 정말로 합리적이었으며 내부적으로 제공하는 Storage와 Authentications등은 데이터베이스 하나로 파이어베이스를 사용하는 것이 아니라 그 외에 부가적인 부분에서도 많은 이득을 챙길 수 있게 되었다.&lt;/p&gt;
+
+&lt;p&gt;나와 같은 경우 처음 파이어베이스에 대해서 듣게 되었을땐 ‘정말로 이런 서비스가 가능한가?’라는 의문도 품었었다.&lt;/p&gt;
+
+&lt;p&gt;그러나 매끄럽게 가능했다. 파이어베이스 실시간 데이터베이스는 더욱 더 그러했다. 별다른 서버사이드 코드없이도 이제 프로토타입 그리고 어느정도 규모있는 앱까지는 충분히 만들어 볼만 했다.&lt;/p&gt;
+
+&lt;h3 id=&quot;어느정도에-주목하자&quot;&gt;‘어느정도’에 주목하자&lt;/h3&gt;
+&lt;p&gt;물론 이 글을 읽는 당신이 개인 개발자고 개인으로서 결과물이 어느정도 훌륭해서 금전적인 이득을 얻는 수준의 ‘규모’에서는 전혀 문제될게 없었다.&lt;/p&gt;
+
+&lt;p&gt;그래서인지 해외에서도 개인이 앱을 만들어 먹고사는 ‘개인 개발자’에게 있어서는 정말로 괜찮은 서비스이었다.&lt;/p&gt;
+
+&lt;p&gt;왜 ‘규모’에 대해서 언급하냐면 Firebase의 데이터베이스는 괘랄하다 못해서 사실 별로였다.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;blockquote&gt;
+    &lt;p&gt;아니 괜찮다며;;&lt;/p&gt;
+  &lt;/blockquote&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;아니 정말 괜찮은 서비스임에 분명했지만, Query의 부재 그리고 속도 등의 이슈로 규모가 조금 있는 서비스라면 사용을 자제하는것이 좋다고 생각이 들었다.&lt;/p&gt;
+
+&lt;h1 id=&quot;그래서-등장한-firestore&quot;&gt;그래서 등장한 Firestore&lt;/h1&gt;
+&lt;p&gt;지금은 물론 ‘Beta’서비스 이긴 하지만 말 그대로 ‘등 - 장’했다.&lt;/p&gt;
+
+&lt;p&gt;모름지기 개발자라면 ‘프레임워크, 라이브러리에 대한 의존성이 없어야해!’라고 말씀하셨던 선배님의 말씀이 떠오르지만 Firestore(이하 ‘파이어스토어’)에는 조금 의존을 해보고 싶었다.&lt;/p&gt;
+
+&lt;p&gt;그동안 존재하지 않았던 Query와 더욱 더 강력해진 Rule과 이제 더 이상은 파이어베이스를 사용하지 않아도 괜찮다!&lt;/p&gt;
+
+&lt;p&gt;파이어스토어의 몇가지 특징을 얘기하자면&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;빠른 NosSql 데이터 베이스
+    &lt;ul&gt;
+      &lt;li&gt;콜렉션과 도큐먼트 기반의 확장성이 용이한 데이터 베이스 설계&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Query의 사용이 가능함 (Admin-sdk에서는 기능이 더욱 강함 ‘Skip’ 등)&lt;/li&gt;
+  &lt;li&gt;파이어베이스부터 단련된 Rule!&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;등을 대표적으로 얘기할 수 있는데&lt;/p&gt;
+
+&lt;p&gt;이런 데이터베이스를 서버사이드 코드 없이 사용할 수 있다는것은 정말 개발자로 하여금 많은 일을 가능하게 만든다.&lt;/p&gt;
+
+&lt;p&gt;가령 기존 파이어베이스로 게시판을 만든다고 했다면 당연히 하지말라고 얘기했을 것이다 차라리 페이스북의 &lt;a href=&quot;https://graphql.org/learn/&quot;&gt;GraphQL&lt;/a&gt;을 사용하라고 하고싶었다.&lt;/p&gt;
+
+&lt;p&gt;그러나 이번엔 다르다 빠른 NoSql의 데이터베이스는 기존 정적인 게시판이 아닌 정말 넓은 확장성을 자랑하는 게시판을 만들 수도 있으며&lt;/p&gt;
+
+&lt;p&gt;게시판에서 빠질수 없는 검색등의 기능도 향상된 Query로 만들수 있으며&lt;/p&gt;
+
+&lt;p&gt;거기다가 Functions의 연동을 통한다면 기존에 우리가 사용하던 데이터베이스들에 내장되어있던 Skip등의 기능이 사용가능하다는 점이 있다.&lt;/p&gt;
+
+&lt;h3 id=&quot;내가-생각하는-가장-중요한-rule&quot;&gt;내가 생각하는 가장 중요한 ‘Rule’&lt;/h3&gt;
+&lt;p&gt;그러나 파이어베이스, 스토어 사용에 있어서 가장 중요한 점은 Rule이다 바로 Rule이 Rule을 어떻게 사용하느냐에 따라 여러분의 서비스는 굳이 의미 없는 파이어스토어 사용이 될 수 도있으며 반대로 매우 매끄러운 사용이 가능해진다&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;고작 Rule하나로?&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;그렇다 Rule은 상당히 중요하다. Rule이 파이어스토어의 존재 이유라고 할수 있을 정도로 중요하다. 예를들자면 당신의 블로그에 설정은 당신만이 할 수 있어야만 한다. 이것을 서버사이드에서 처리하자면&lt;/p&gt;
+
+&lt;p&gt;요즘 유행하는 Token방식의 인증으로 매기자면 Token 내부에 예를들면 ‘isAdmin’이라는 변수를 만들어놓고 새로 들어온 요청에 한해서 이것을 검증을 해서 그 다음 로직을 실행…..하게 해야한다.&lt;/p&gt;
+
+&lt;p&gt;그러나 파이어스토어는 이런 검증을 Rule에서 해결 가능하다. 요청하는 유저의 UID값을 받아온 뒤 Rule 내부에서 또 다시 Get을 한다음에 해당 블로그의 주인만 가려놓고 만약 맞다면 Allow를 아니라면 딱히 코드를 작성하지 않아도 Permission 에러를 뿜으며 실행되지 않을것이다.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;응? 적고 보니까 Token 방식이 더 간단하네?&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;그렇다 당신이 ‘서버사이드’를 조금 공부했다면 사실 위에 방법이 더욱 쉬울 것이다. 나도 그랬다 사실 처음엔 이해가 안됐고 오히려 개발 시간이 서버를 갖는 것보다 오래 걸리기 때문에 짜증도 났다.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;그러나 분명한건 이것은 서버의 관리 없이도 돌아간다는 점이다.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;간혹 ‘서버리스’에 대해서 언급하면 꼭&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;그걸 왜함?? 어차피 서버 규모 커지면 그냥 서버가 더 이득임&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;라는 말을 찾아 볼 수 있는데 서버 개발자의 월급은 하늘에서 떨어지는줄 아는 사람이 많다. 생각보다 서버개발자의 임금은 높다. 데이터베이스를 매끄럽게 설계해야하는 그들은 당연히 받아가야할 임금을 받아가는 것이고 아까는 정말 단순하게 Token으로 인증하는 것을 말했지만 실제 데이터베이스 설계에선 어쩌면 더욱 많은 절차가 필요할지도 모른다.&lt;/p&gt;
+
+&lt;h2 id=&quot;그래서&quot;&gt;그래서&lt;/h2&gt;
+&lt;p&gt;일단 함 써보세요 진짜 Rule만 잘 이해하면 이만한 서버리스 프로젝트가 없을겁니다.&lt;/p&gt;
+
+&lt;p&gt;그러나 최근 AWS에 &lt;a href=&quot;https://aws.amazon.com/ko/appsync/&quot;&gt;AppSync&lt;/a&gt;가 GraphQL을 도입해 비슷한 서비스를 하고 있으니 한번 찾아보시는 것도 추천합니다.&lt;/p&gt;</content><author><name></name></author><category term="서버리스" /><category term="Firebase" /><category term="Firestore" /><summary type="html">순서 Firebase의 등장 배경 그래서 등장한 Firestore</summary></entry><entry><title type="html">Tac.photos를 개발이야기 - 배운게 많다</title><link href="/career/tac-photos-develop-after" rel="alternate" type="text/html" title="Tac.photos를 개발이야기 - 배운게 많다" /><published>2018-04-23T00:00:00+09:00</published><updated>2018-04-23T00:00:00+09:00</updated><id>/career/tac-photos-develop-after</id><content type="html" xml:base="/career/tac-photos-develop-after">&lt;h2 id=&quot;시작하기-앞서&quot;&gt;시작하기 앞서&lt;/h2&gt;
 &lt;p&gt;올해에 들어 SPA를 접하고 여러가지 개발을 하면서 꼭 개인프로젝트 하나를 해야겠다는 생각을 했다. 시작은 정말 거대 했다.&lt;/p&gt;
 
 &lt;p&gt;애초에 계획은&lt;/p&gt;
@@ -451,97 +678,4 @@
 
 &lt;p&gt;물론 그렇다고 Vue가 마냥 쉬운것은 아니다 Vue도 초반엔 엄청 쉽다가 결국은 데이터 관리 부분에서 React와 같은 어려움을 맞이하는데&lt;/p&gt;
 
-&lt;p&gt;React는 React를 입문하자 마자 이런 산을 만나니 조금 더 어렵다고 생각이 드는것 같다&lt;/p&gt;</content><author><name></name></author><category term="Redux" /><category term="Learn" /><summary type="html">Udemy 강좌를 보고 상당히 어렵다 아니 사실 어느정도의 흐름은 알겠는데 ‘정말로 필요해! 무조건 있어야해’라는 생각은 들지 않았다.</summary></entry><entry><title type="html">리액트 입문 정리</title><link href="/study/react/first-react-learn" rel="alternate" type="text/html" title="리액트 입문 정리" /><published>2018-01-10T00:00:00+09:00</published><updated>2018-01-10T00:00:00+09:00</updated><id>/study/react/first-react-learn</id><content type="html" xml:base="/study/react/first-react-learn">&lt;h2 id=&quot;리액트를-배우려고-하는-이유&quot;&gt;리액트를 배우려고 하는 이유&lt;/h2&gt;
-&lt;p&gt;사실 웹은 Vue로도 내가 원하는 개발이 가능했다 생각보다 짧은 시간에 배울 수 있었고 나름 합리적인 프레임워크라고 생각한다, 그러나 생각보다 Vue유저가 없었다 그렇게 손해 볼일은 아니지만 나름 아쉬웠던 부분이 있다.&lt;/p&gt;
-
-&lt;p&gt;이번에 나는 새로운 프로젝트를 계획하고 있으며 앞으로도 새로운 웹을 출시하고 싶었다. 그러나 사실 대부분의 웹은 시장에 나오면 관심도 못받고 사라지기 일쑤라고 생각한다 모바일 시대이고 기회는 나름 모바일에 있다고 생각이 들었다. 새로운 프로젝트는 그냥 게시판 형식의 간단한 웹이었는데 직접 개발을 하고 나니 ‘과연 누가 이 사이트에 들어올까?’라는 고민이 들었다.&lt;/p&gt;
-
-&lt;p&gt;그래서 첫번째로 찾은 대안은 Framework7이었다 Vue를 지원하는 Cordova기반의 javascript 하이브리드 앱 프레임워크이다.&lt;img src=&quot;/assets/img/postsImg/framework7-logo.png&quot; alt=&quot;프레임워크7의 로고&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;열심히 따라서 만들어 봤지만 예제부터가 제대로 동작하지 않았다 머터리얼css를 사용한 예제에선 상단바가 잘못나오는 오류가 나왔다.&lt;/p&gt;
-
-&lt;p&gt;그래서 다시 기웃댄게 안드로이드 웹뷰 시스템이었는데 솔직히 그냥 안드로이드를 입문하는게 차라리 더 났다는 결론까지 내렸다 그리고 PWA로 앱을 포팅하는 것은 상당히 마음에 들지만 구독 모델이나 결제 같은게 일단은 지원하지 않기에 별로였다.&lt;/p&gt;
-
-&lt;p&gt;그래서 찾은 것이 &lt;strong&gt;‘React native’&lt;/strong&gt; 그러나 리액트는 생각보다 어려운 문법 처럼 보였다..크흠…&lt;/p&gt;
-
-&lt;h2 id=&quot;정리를-해보자&quot;&gt;정리를 해보자&lt;/h2&gt;
-&lt;p&gt;오늘 Udemy에 할인 중인 강좌를 하나 구매해서 약 33강의 까지 들었다 해당 강좌를 진행하는 분도 지금까지 배운게 리액트에 기초라고 말씀하셨으며 다음 장으로는 React Redux가 시작된다고 한다. 나름 합리적인 데이터의 관리를 위해서라고 했으니 데이터 관리가 쉬워질까? 라는 생각도 들지만&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;아마도 그럴것 같진않다.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;hr /&gt;
-&lt;p&gt;JSX는 자바스크립트의 문법이라기 보다는 react의 문법이며 babel을 통해 컴파일하면 react.createElemnt(~~~~)등으로 변환되는 것으로 봐서 JSX는 갓갓 문법이다&lt;/p&gt;
-
-&lt;p&gt;ReactDom은 내가 현재 웹을 다루고 있기에 사용하고 있으며 React native에서는 ReactView를 다루게 된다.
-Dom은 실제 우리에게 보여지는 Html을 뜻하며 React의 문법으로 Html을 컨트롤 할 수 있다.&lt;/p&gt;
-
-&lt;p&gt;React는 이벤트의 발생을 기존 Html에서 했던것과 비슷하게 감지한다 예를들면 onClick등의 이벤트는 똑같으며 이벤트 받는것고 기존에 했던것과 동일했다,&lt;/p&gt;
-
-&lt;p&gt;State가 바뀌면 render가 다시된다는 것이 중요해 보였으며 constactor에 props를 super(props)로 해주는 것은 솔직히 잘 이해가 되지 않았지만 클래스의 생성자를 위해서 사용한다고 이해하게되었다.&lt;/p&gt;
-
-&lt;p&gt;문법적 설탕 -&amp;gt; Syntax sugar 문법 개꿀 이라는 뜻인것 같고 예를 들면 내가 선언할 변수의 이름과 받아올 오브젝트의 이름이 같아면 그냥 ({video})라고만 해줘도 알아서 const video에 해당 오브젝트를 대입시켜준다.&lt;/p&gt;
-
-&lt;p&gt;사실 위와 같은 부분을 익히는 것도 중요하지만 결국엔 필요한 기능을 적재적소에 찾는것이 중요한것 같다&lt;/p&gt;
-
-&lt;p&gt;lodash를 사용해 함수의 시간초를 주는 것도 마지막에 설명하였는데 신기한점은 먼저 선언되었던 function명으로 똑같이 상수 함수를 만들었다는 점이다 그런데도 동작한다는 것이 오히려 이해가 안되게 만들었지만 이것 또한 하나의 패턴으로 기억해야 할 것같 다.&lt;/p&gt;
-
-&lt;h2 id=&quot;입문-난이도는&quot;&gt;입문 난이도는?&lt;/h2&gt;
-&lt;p&gt;솔직히 내가 먼저 Vue나 Andgular를 접해보지 않았다면 이게 무슨 개소리야 하고 껏겠지만 다행히 Vue를 접하고 입문해서 그런지 아니면 내가 평소에 서점에서 react 책만보이면 잠깐 잠깐 보던게 도움이 된지는 모르겠지만,&lt;/p&gt;
-&lt;blockquote&gt;
-  &lt;p&gt;상당히 합리적인 프레임워크라는 생각이 들었다.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h2 id=&quot;react는-어디에서나-사용되고-있다&quot;&gt;React는 어디에서나 사용되고 있다&lt;/h2&gt;
-&lt;p&gt;사실 리액트를 배워야겠다고 마음먹게된 가장 큰 이유가 이것이다. 내가 자주 시청하는 트위치부터 자주쓰는 에버노트…그리고 papago번역기 까지 Dom의 변화가 자주있는 앱이라면 대부분 리액트를 사용 중이다.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;그들이 사용하는 데에는 이유가 있다고 생각했다.&lt;/strong&gt;&lt;/p&gt;</content><author><name></name></author><category term="React" /><category term="Learn" /><summary type="html">리액트를 배우려고 하는 이유 사실 웹은 Vue로도 내가 원하는 개발이 가능했다 생각보다 짧은 시간에 배울 수 있었고 나름 합리적인 프레임워크라고 생각한다, 그러나 생각보다 Vue유저가 없었다 그렇게 손해 볼일은 아니지만 나름 아쉬웠던 부분이 있다.</summary></entry><entry><title type="html">서버리스에 관하여</title><link href="/development/tech/what-is-serverless" rel="alternate" type="text/html" title="서버리스에 관하여" /><published>2018-01-08T00:00:00+09:00</published><updated>2018-01-08T00:00:00+09:00</updated><id>/development/tech/what-is-serverless</id><content type="html" xml:base="/development/tech/what-is-serverless">&lt;p&gt;나는 최근에 firebase에 관한 얘기를 개발자들의 세미나에서 얘기한 경험이 있다,&lt;/p&gt;
-&lt;blockquote&gt;
-  &lt;p&gt;서버리스의 대표적 선두주자이면서 상당히 관리하기 편리하기에 서버에 지식이 없는 사람도 쉽게 입문해서 자신이 원하는 앱을 만들어 낼 수 있기에 지금처럼 변화가 빠른 세상에서 빠르게 개발하기에는 정말 최고의 서비스&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;의견은 다소 나뉘었는데, 그 중에서 이해가 안되는 부분이 있는데 느려터져먹었으며 그딴걸 누가 사용하냐는 다소 과격한 언행이 나오기 시작했다.
-나는 파이어베이스를 사용은 해봤냐고 묻고싶다 그리고 firebase가 과연 어떤 서비스를 제공하는지 대충이라도 알고 나의 얘기에 토를 달았으면 좋겠다.&lt;/p&gt;
-
-&lt;h2 id=&quot;1-파이어베이스가-제공하는-것&quot;&gt;1. 파이어베이스가 제공하는 것&lt;/h2&gt;
-&lt;p&gt;우선 파이어베이스가 무엇을 제공하느냐를 알아야 할 필요가 있다 파이어베이스하면 단순히 리얼타임 데이터베이스만 생각하는 사람도 많을 것이다 나도 처음엔 그랬으니까&lt;/p&gt;
-
-&lt;p&gt;그러나 파이어베이스는 단순히 데이터베이스만 제공하는 서비스가 절대로 아니다 일단 데이터베이스부터 언급하자면 데이터베이스는 실시간으로 조회되며 연결된 데이터베이스가 변경될시 observer패턴을 사용한 데이터베이스 이기에 바로바로 변경점을 해당 노드에 연결된 사용자에게 알려주는 그런 서비스다.&lt;/p&gt;
-
-&lt;p&gt;즉 요즘 유행하는 가상화폐에서 사용한다면 생각보다 큰 부하없이도 데이터베이스를 가져올 수 있다&lt;/p&gt;
-
-&lt;p&gt;그 밖에도 Authentication 서비스는 클릭 몇번과 폼데이터 입력 한번으로 google로그인과 이메일 로그인을 연동 시킬 수 있으며&lt;/p&gt;
-
-&lt;p&gt;Storage 서비스는 말그대로 파일을 서버에서 호스팅할 수 있으며&lt;/p&gt;
-
-&lt;p&gt;Hosting 서비스는 firebase deploy 한번으로 vue나 react로 작성된 앱을 별다른 설정없이도 호스팅 할 수 있고&lt;/p&gt;
-
-&lt;p&gt;마지막으로 &lt;strong&gt;functions&lt;/strong&gt; 서비스는 node.js로 작성된 코드를 업로드시켜두면 어디서나 사용할 수 있는 node.js 서버로 활용이 가능하다, 간단하게 말하자면 Nodemailer라는 모듈을 임포트 시켜 굳이 서버를 가지고 있지않아도 메일을 보낼 수 있다는 얘기다(ajax)&lt;/p&gt;
-
-&lt;p&gt;이 밖에도 보안과 유저 분석을 제공한다.&lt;/p&gt;
-
-&lt;h2 id=&quot;2-파이어베이스로-할-수-있는것&quot;&gt;2. 파이어베이스로 할 수 있는것&lt;/h2&gt;
-&lt;p&gt;사실 파이어베이스 자체를 가지고 커뮤니티를 만들겠다고 한다면 조금은 반대하고 싶다 NoSql기반의 데이터베이스는 제목 검색도 하기 힘들기 때문이다, 여기에서 누군가는 얘기한다 “그딴 쓰레기 서버 누가쓰냐고” 아니 대체 왜 제대로 알지도 않고..크흠..&lt;/p&gt;
-
-&lt;p&gt;파이어베이스 자체로서 쓴다면 사실 사용처가 제약적인건 사실이다 그러나 &lt;a href=&quot;https://console.cloud.google.com/&quot;&gt;Google Cloud Platform&lt;/a&gt;에 들어가보자 Mysql부터 많은 서비스가 제공되고있다.&lt;/p&gt;
-
-&lt;p&gt;파이어베이스 functions로 Mysql 연결후 커뮤니티를 만든다면 한글 제목도 검색되며 괜찮은 커뮤니티를 제공 할 수 있을것이다.&lt;/p&gt;
-
-&lt;h2 id=&quot;3-사용해보고-욕합시다&quot;&gt;3. 사용해보고 욕합시다&lt;/h2&gt;
-&lt;p&gt;대부분 파이어베이스가 어떤 서비스도 제공하는지도 모르며 느려터진 서비스라고 욕을하던데.. 대체 어떤 서비스가 느리다는 건지 잘모르겠다 리얼타임 데이터베이스를 정말 제자리에서 사용하고 있는건가? 리얼타임 데이터베이스가 느리다고 느꼇다면 아마도 처음부터 해당앱이 어떤 기능을 제공해야하고 어떤 데이터베이스를 사용하는지 이해하는것이 필요하다.&lt;/p&gt;
-
-&lt;h2 id=&quot;4-서버리스에-대해서&quot;&gt;4. 서버리스에 대해서&lt;/h2&gt;
-&lt;p&gt;서버는 말 그대로 서버가 존재하지 않는 서비스를 의미한다 서버가 존재하지 않는다고 서버가 없지는 않은 그러니까 말 장난인 셈인데 위에서 언급했던것과 마찬가지로 필요한 상황이 있으면 paas(platform as a service)를 사용해서 서버를 잠깐 빌려서 쓴다고 보면될것 같다.&lt;/p&gt;
-
-&lt;p&gt;대표적으로 firebase, google colud platform, aws lamda 등이 있다.&lt;/p&gt;
-
-&lt;p&gt;서버리스는 모든걸 다할 수 있는 개발자에게는 어울리지 않는 개념이다, 분명 우리들의 서버는 어제까지 잘 동작하다가 다음날 안되는 경우가 있었다. 분명 어제 까지는 구글로그인이 정말 잘되었는데 여행 출발 당일 알 수 없는 오류를 내뿜으며 로그인이 안되던 나의 앱은 여행을 포기하게 만들었다.&lt;/p&gt;
-
-&lt;p&gt;나는 분명 언급했다시피 개인개발자이다 풀스텍 개발자가 되기로 마음먹고부터는 Node.js 그리고 리눅스의 우분투부터 센토스 등등 정말 중요한것은 내가만든 앱의 재미고 설계지 언제까지 서버 때문에 포기하고 서버의 볼륨을 계산하지 못해서 서버가 끊겨 유저이탈을 경험 할 수 없었다.&lt;/p&gt;
-
-&lt;p&gt;서버리스는 스타트업 그리고 개인개발자라면 분명히 염두해 두어야한다 내가 아무리 코드를 잘짜도 사실 사용자는 별로 관심도 없다 어떤 서버를 어떻게 만들어서 잘 만들어도 그냥 앱이 정말 재미있고 좋은 앱이어야 성공한다&lt;/p&gt;
-
-&lt;p&gt;나는 상당히 많은 시간을 서버에 대한 고민을 하며 개발을 했다 그러나 개인개발자에겐 하루빨리 출시해서 결과를 보는게 중요하다고 생각한다 그러나 서버에 대한 고민 그리고 스토리지에대한 고민까지 그 모든걸 혼자서 풀어내기엔 부담스럽기 그지없다.&lt;/p&gt;
-
-&lt;p&gt;그래서 나는 paas(Platform as a Service)를 사용하고 있다&lt;/p&gt;</content><author><name></name></author><category term="server" /><category term="pass" /><category term="google colud" /><category term="firebase" /><summary type="html">나는 최근에 firebase에 관한 얘기를 개발자들의 세미나에서 얘기한 경험이 있다, 서버리스의 대표적 선두주자이면서 상당히 관리하기 편리하기에 서버에 지식이 없는 사람도 쉽게 입문해서 자신이 원하는 앱을 만들어 낼 수 있기에 지금처럼 변화가 빠른 세상에서 빠르게 개발하기에는 정말 최고의 서비스</summary></entry></feed>
+&lt;p&gt;React는 React를 입문하자 마자 이런 산을 만나니 조금 더 어렵다고 생각이 드는것 같다&lt;/p&gt;</content><author><name></name></author><category term="Redux" /><category term="Learn" /><summary type="html">Udemy 강좌를 보고 상당히 어렵다 아니 사실 어느정도의 흐름은 알겠는데 ‘정말로 필요해! 무조건 있어야해’라는 생각은 들지 않았다.</summary></entry></feed>

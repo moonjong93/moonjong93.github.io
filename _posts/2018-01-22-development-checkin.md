@@ -4,7 +4,7 @@ title: "일본에서 체크인 기능을 담은 웹을 개발했다"
 subscript: "Vue.js와 함께하는 PWA 웹 개발"
 tags: ['Node.js','functions','firebase','vue.js']
 categories: "커리어"
-comments: false
+comments: true
 permalink: /career/:title
 date: 2018/01/22
 ---

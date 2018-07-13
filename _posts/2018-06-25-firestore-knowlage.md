@@ -4,7 +4,7 @@ title: "Firestore 이해하기"
 subscript: "Firebase의 새로운 데이터베이스"
 tags: ['서버리스', 'Firebase', 'Firestore']
 categories: "개발일지"
-comments: false
+comments: true
 permalink: /development/:title
 date: 2018/06/25
 ---
