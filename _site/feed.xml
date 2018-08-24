@@ -1,4 +1,220 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.7.3">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2018-07-13T23:54:22+09:00</updated><id>/</id><title type="html">MoongJong93</title><subtitle>웹 개발에 관한 이야기, Node.js와 Vue.js를 사용하는 개발자</subtitle><entry><title type="html">MongoDb를 처음 접한 내가, 잘못이해했던 RDS</title><link href="/study/I-was-wrong-understand-RDS" rel="alternate" type="text/html" title="MongoDb를 처음 접한 내가, 잘못이해했던 RDS" /><published>2018-07-13T00:00:00+09:00</published><updated>2018-07-13T00:00:00+09:00</updated><id>/study/I-was-wrong-understand-RDS</id><content type="html" xml:base="/study/I-was-wrong-understand-RDS">&lt;h2 id=&quot;mongodb를-접하다&quot;&gt;MongoDb를 접하다&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.7.3">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2018-08-24T16:47:04+09:00</updated><id>/</id><title type="html">MoongJong93</title><subtitle>웹 개발에 관한 이야기, Node.js와 Vue.js를 사용하는 개발자</subtitle><entry><title type="html">자바스크립트의 재귀함수 어떻게 이해하면 좋을까?</title><link href="/study/How-to-understand-javascript-recursion-function" rel="alternate" type="text/html" title="자바스크립트의 재귀함수 어떻게 이해하면 좋을까?" /><published>2018-08-24T00:00:00+09:00</published><updated>2018-08-24T00:00:00+09:00</updated><id>/study/How-to-understand-javascript-recursion-function</id><content type="html" xml:base="/study/How-to-understand-javascript-recursion-function">&lt;h2 id=&quot;재귀함수-recursion-function&quot;&gt;재귀함수 (Recursion function)&lt;/h2&gt;
+&lt;p&gt;재귀함수는 말 그대로 함수 내에서 자기 자신을 다시 또 호출하면서 로직을 수행하는 함수를 말한다. 재귀함수를 응용하는데 있어서 많은 글들을 읽어봤지만 사실 그렇게 크게 와닿는 글은 없었던것 같다.&lt;/p&gt;
+
+&lt;h2 id=&quot;예제-보기&quot;&gt;예제 보기&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://msdn.microsoft.com/ko-kr/library/wwbyhkx4(v=vs.94).aspx&quot;&gt;MSDN&lt;/a&gt;의 예제를 살펴보자&lt;/p&gt;
+
+&lt;p&gt;팩토리얼에 재귀함수를 활용하는 예제인데&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;function factorial(num)
+{
+    // If the number is less than 0, reject it.
+    if (num &amp;lt; 0) {
+        return -1;
+    }
+    // If the number is 0, its factorial is 1.
+    else if (num == 0) {
+        return 1;
+    }
+    var tmp = num;
+    while (num-- &amp;gt; 2) {
+        tmp *= num;
+    }
+    return tmp;
+}
+
+var result = factorial(8);
+document.write(result);
+
+// Output: 40320
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;위와같은 팩토리얼 함수를 재귀함수로 아래와같이 만들수 있다는 내용이다.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;function factorial(num)
+{
+    // If the number is less than 0, reject it.
+    if (num &amp;lt; 0) {
+        return -1;
+    }
+    // If the number is 0, its factorial is 1.
+    else if (num == 0) {
+        return 1;
+    }
+    // Otherwise, call this recursive procedure again.
+    else {
+        return (num * factorial(num - 1));
+    }
+}
+
+var result = factorial(8);
+document.write(result);
+
+// Output: 40320
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&quot;간단한-예제-그러나-사용처는&quot;&gt;간단한 예제 그러나 사용처는?&lt;/h2&gt;
+&lt;p&gt;본인도 그랬다 물론 이해는 되지만 ‘재귀함수’를 사용하면서 얻는 이점이 무엇이 있는지 사실 이해가 잘 가지 않았다.&lt;/p&gt;
+
+&lt;p&gt;왜냐면 후자의 예제 역시 동작이 되며 모두다 같은 결과 값을 가져다 주기 때문이다.&lt;/p&gt;
+
+&lt;p&gt;그러던 도중 타인에게 문제를 받아 해결하는 과정에서 재귀함수를 사용해 꽤 간단하게 문제를 풀어냈기에 이 예제를 본다면 다른 사람도 어느정도 도움이 될것 같아서 작성하게 되었다.&lt;/p&gt;
+
+&lt;h2 id=&quot;다차원-배열을-1차원-배열로-만드는-예제&quot;&gt;다차원 배열을 1차원 배열로 만드는 예제&lt;/h2&gt;
+&lt;p&gt;다차원 배열이란 배열이 한개의 차원이 아닌 여러개의 차원이 되는 그런 배열을 뜻한다. 다차원 배열이 된 이상 배열의 크기는 그렇게 중요하지 않고 어느 부분이라도 확장될수 있다.&lt;/p&gt;
+
+&lt;p&gt;1차원 배열이란 [0,1,2,3,4,5]와 같은 배열을 말하며
+2차원 배열은 [ [1,2,3], [4,5,6] ]과 같은 배열을 말한다.&lt;/p&gt;
+
+&lt;p&gt;그러나 다 차원 배열은 저것을 넘어선 어느 부분에서건 증가가 가능해지는데 아래와 같은 배열도 다차원 배열에 속한다&lt;/p&gt;
+
+&lt;p&gt;[ 0, [1,2, [3,2,3,1], [0,1,2,3,] ],2,3,4 [1,2,3, [4, [6] ] ] ] 과 같이 보기도 힘든 배열…도 역시 다차원 배열에 속한다.&lt;/p&gt;
+
+&lt;p&gt;그러나 이런 배열들을 1차원 배열로 바꾸기 위해서는 어떻게 해야할까?&lt;/p&gt;
+
+&lt;p&gt;말 그대로 위의 배열을 [ 0, 1, 2, 3, 3, 1 …]와 같이 말이다.&lt;/p&gt;
+
+&lt;h2 id=&quot;일반적인-for문을-이용해서-푼다면&quot;&gt;일반적인 For문을 이용해서 푼다면?&lt;/h2&gt;
+&lt;p&gt;그러니까 나쁜 방법부터 생각해보자 일반적인 for문을 이용한다면 어떻게 풀 수 있을까?&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;function Solution(target){
+    
+    var result = []
+
+    // 만약 배열이 아니라면 이 함수를 종료
+    if(!Array.isArray(target))
+        return null
+
+    // 타갯의 길이 만큼 반복
+    for(var i = 0; i &amp;lt; target.legnth; i ++){
+        // 타갯의 i가 배열인지 확인
+        if( !Array.isArray(  target[i] ) ){
+            // 배열이 아니라면 1차원 배열에 삽입
+            result.push(target[i])
+        }else{
+            for(var j = 0; j &amp;lt; target[i].length; j ++){
+                if( !Array.isArray(  target[i][j] ) ){
+                    result.push(target[i][j])
+                }
+            }else{
+                .
+                .
+                .
+            }
+        }
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;와 같이 depth에 관한 정보를 모른다면 어디까지 코딩해야하는지 알 수 없다. 즉 거의 불가능에 가깝다.&lt;/p&gt;
+
+&lt;p&gt;그렇다면 어떻게 하면 효율적으로 해결할 수 있을까?&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;function Solution(target){
+    // 결과를 담을 변수
+    var result = [];
+    
+    for(var i =0 ; i &amp;lt; target.length; i++){
+        // 어레이가 아니라면 push해주고 
+        if( !Array.isArray( target[i] ) )
+            result.push( target[i] )
+        else{
+            result = result.concat( Solution( target[i] ) )
+        }
+    }
+
+    return result;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;위 처럼 해결할 수 있다.&lt;/p&gt;</content><author><name></name></author><category term="Javascript" /><category term="Recursion" /><summary type="html">재귀함수 (Recursion function) 재귀함수는 말 그대로 함수 내에서 자기 자신을 다시 또 호출하면서 로직을 수행하는 함수를 말한다. 재귀함수를 응용하는데 있어서 많은 글들을 읽어봤지만 사실 그렇게 크게 와닿는 글은 없었던것 같다.</summary></entry><entry><title type="html">나는 graphql을 이해했다</title><link href="/study/I-understand-grahpql" rel="alternate" type="text/html" title="나는 graphql을 이해했다" /><published>2018-08-16T00:00:00+09:00</published><updated>2018-08-16T00:00:00+09:00</updated><id>/study/I-understand-grahpql</id><content type="html" xml:base="/study/I-understand-grahpql">&lt;h2 id=&quot;graphql은-무엇일까&quot;&gt;Graphql은 무엇일까?&lt;/h2&gt;
+&lt;p&gt;대다수의 블로그를 보면 마치 정말 전지전능한 실제 기술같았다. 왜냐면 꼭 파이어베이스와 같이 서버리스 플랫폼에서 제공하는 플랫폼의 ‘라이벌’이라고 얘길 해서 나는 Firebase(‘이하’ 파이어베이스) 같이 별다른 설정 없이 사용할 수 있는줄 알았다.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;잘못된 이해였다&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;실제로 Graphql과 RESTfullAPI의 설계는 많은 차이를 보이지만 결국엔 내가 컨트롤 한다는 점에선 변화가 없고 대신 라우터의 관리 파라미터의 관리가 엄청 쉬워진다는 장점이 있다.&lt;/p&gt;
+
+&lt;p&gt;기존에 JWT토큰을 발행하기 위해서 /login/createjwttoken이라는 라우터에서 파라미터를 받아서 컨트롤 하기 위해서 Node.js에 새로운 라우터를 만들고……..&lt;/p&gt;
+
+&lt;p&gt;이런 행위를 하지 않고 모든 라우터를 graphql에 묶어서 관리해주면된다.&lt;/p&gt;
+
+&lt;h2 id=&quot;그럼-무엇을-잘못-이해했을까&quot;&gt;그럼 무엇을 잘못 이해했을까?&lt;/h2&gt;
+
+&lt;p&gt;나는 Graphql을 접하기전에 파이어베이스를 먼저 접했다. 파이어베이스는 별다른 설정없이 데이터를 설계하고 스키마 설계를 필요하지도 않고 단지 그냥 그저 쓸 뿐이었다.&lt;/p&gt;
+
+&lt;p&gt;난 Graphql이 그런건줄 알았다. 대다수의 블로그 글들은 Query와 Mutaion과 같은 데이터를 불러오는 예제만 기록되어있었다.&lt;/p&gt;
+
+&lt;p&gt;Node.js에서 별다른 설치없이 데이터베이스와 연결만하면 Sequlize라는 ORM 기반 모듈처럼 데이터베이스도 알아서 만들어주고 테이블도 알아서 관리해주는줄 알았다.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;그러나 완전히 반대였다.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;그러면-내가-이해한-graphql은&quot;&gt;그러면 내가 이해한 Graphql은?&lt;/h2&gt;
+
+&lt;p&gt;이번 개인프로젝트에 적극적으로 도입해서 모든 요청은 Graphql로 처리하고있다,&lt;/p&gt;
+
+&lt;p&gt;가장 이해하기 힘든 부분은 ‘로그인’에 대한 처리였는데 이걸 이해하고선 Graphql을 빨리 이해할 수 있었다.&lt;/p&gt;
+
+&lt;p&gt;우선 Graphql은 데이터베이스를 직접적으로 만들어주지 않는다. Resolver라는 부분을 통해서 요청이 들어오면 해당 요청을 검토하고 데이터를 컨트롤 해야한다.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;export default {
+    // 로그인 -&amp;gt; JWT토큰 만들어서 token을 리턴해줌 
+Query: { 
+        login: (_, {email, password}, ctx) =&amp;gt; {
+            console.log(ctx)
+            return models.User.findByEmail({email, password})
+            .then( (user) =&amp;gt; {
+                if(user.password == createHash(password)){
+                    return createJWTToken(user.id, user.displayName)
+                    .then((token) =&amp;gt; {
+                        return { token }
+                    })
+                }else{
+                    return new Error('not matched password')
+                }
+            })
+            .catch((err) =&amp;gt; {
+                return new Error('not found user')
+            })
+        },
+    },
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;위와 같이 결국 데이터를 직접 조회해서 해당 데이터를 비교후에 리턴값으로 Token이라는 기존에 저작되어있는 타입을 리턴해준다 Token의 값은 단순 String에 속한다.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;type User {
+        id: ID!
+        email: String! @isUnique
+        password: String!
+        displayName: String!
+    }
+
+type Token {
+    token: String!
+}
+
+type Query {
+    login(email: String!, password: String!): Token
+}
+
+type Mutation {
+    register(email: String!, password: String!, displayName: String!): User
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;결국엔 Json으로 들어온 객체를 통해 받아온 데이터를 활용해서 알맞는 리턴값을 구해서 만들어줘야한다는 점이다.&lt;/p&gt;
+
+&lt;p&gt;결국에 내가 생각했던 ‘연결만 하고 타입설정만 하면 끝’이라는 것과는 너무 큰 차이가 있었다.&lt;/p&gt;
+
+&lt;h2 id=&quot;graphql을-사용하면서의-이점&quot;&gt;Graphql을 사용하면서의 이점&lt;/h2&gt;
+&lt;p&gt;아무리 그래도 직접 Router를 통해서 하나하나 Post부터 시작해서 Get등 다양한 메서드를 갖는 라우터를 설계하는것보단 훨씬 작업 속도가 빨랐다.&lt;/p&gt;
+
+&lt;h2 id=&quot;graphql을-앞으로도-계속-사용할건지&quot;&gt;Graphql을 앞으로도 계속 사용할건지?&lt;/h2&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;네!&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;당장 스텍오버플로우만 봐도 그렇듯 상당히 많은 수요가있다. 그리고 막상 사용해보니 처음 이해할때만 조금 어려웠고 막상 이해하고 나니 파일관리도 편하고 기본적으로 Apollo 라는 모듈을 사용할땐 서버를 별다른 설정을 하지 않아도 테스트할 수 있게 서버를 만들어줘서 상당히 편리했다.&lt;/p&gt;</content><author><name></name></author><category term="graphql" /><category term="mysql" /><summary type="html">Graphql은 무엇일까? 대다수의 블로그를 보면 마치 정말 전지전능한 실제 기술같았다. 왜냐면 꼭 파이어베이스와 같이 서버리스 플랫폼에서 제공하는 플랫폼의 ‘라이벌’이라고 얘길 해서 나는 Firebase(‘이하’ 파이어베이스) 같이 별다른 설정 없이 사용할 수 있는줄 알았다.</summary></entry><entry><title type="html">MongoDb를 처음 접한 내가, 잘못이해했던 RDS</title><link href="/study/I-was-wrong-understand-RDS" rel="alternate" type="text/html" title="MongoDb를 처음 접한 내가, 잘못이해했던 RDS" /><published>2018-07-13T00:00:00+09:00</published><updated>2018-07-13T00:00:00+09:00</updated><id>/study/I-was-wrong-understand-RDS</id><content type="html" xml:base="/study/I-was-wrong-understand-RDS">&lt;h2 id=&quot;mongodb를-접하다&quot;&gt;MongoDb를 접하다&lt;/h2&gt;
 &lt;p&gt;그랬다. MognoDb’이하 몽고디비’를 접했었다. 그것은 내가 샀던 Node.js 책에서 저자가 정말 너무나도 추천을 했었고 당시 유행했던 ‘MEAN STACK’ 프로젝트의 구성요소 때문이기도 했었다.&lt;/p&gt;
 
 &lt;p&gt;몽고디비는 정말로 핫했고 지금도 물론 너무나도 좋은 데이터베이스임에 분명하다 NoSql중 단연 으뜸이기도 하다&lt;/p&gt;
@@ -607,75 +823,4 @@ RDS를 반대로 이해한것이다.&lt;/p&gt;
 
 &lt;p&gt;높이도 조절이 가능하다 나는 가장 높은위치에서 1단계 낮은 단계를 사용한다.&lt;/p&gt;
 
-&lt;p&gt;방금 사와서 바로 작성하기에 아직은 정확히 모르지만 지금 잠깐 글을 쓰며 사용하면서 느끼는거지만 목이 정말 편하다&lt;/p&gt;</content><author><name></name></author><category term="일상" /><category term="지름" /><summary type="html">일본에 와서 좋은점은 아마도 한국과는 다르게 직접 가서 사는것과 인터넷으로 주문하는게 그렇게 큰 차이가 나지 않기에 오프라인에서도 편하게 구매 할 수 있다는 점이다.</summary></entry><entry><title type="html">해피해킹 키보드 개봉기</title><link href="/life/I-buy-the-hhkb-keyboard" rel="alternate" type="text/html" title="해피해킹 키보드 개봉기" /><published>2018-01-13T00:00:00+09:00</published><updated>2018-01-13T00:00:00+09:00</updated><id>/life/I-buy-the-hhkb-keyboard</id><content type="html" xml:base="/life/I-buy-the-hhkb-keyboard">&lt;h2 id=&quot;왜-해피해킹인가&quot;&gt;왜 해피해킹인가?&lt;/h2&gt;
-&lt;p&gt;사실 별다른 이유는 없었다 그러나 이전에 레오폴드의 fc660m을 써본 경험이 있었다 그때도 해피해킹을 구매하고 싶었지만 너무 비싼 가격탓에 구매를 할 수 없었다,&lt;/p&gt;
-
-&lt;p&gt;그러던 중 일본으로 워킹홀리데이를 오게되었는데 원래는 도착하자마자 구매하고 싶었지만 여태 미루다가 드디어 구매하게 되었다.&lt;/p&gt;
-
-&lt;h2 id=&quot;어디서&quot;&gt;어디서?&lt;/h2&gt;
-&lt;p&gt;구매는 사실 고민을 많이했다 아마존에서 약 2만4천엔에 판매하고 있고 내 기억이 맞다면 직접 빅카메라에서 구매한다면 조금더 비쌋다고 생각했다 그러나 오늘 샤워를 하다가 언제까지 사고싶은걸 미룰텐가..라는 생각이 들어서 그냥 씻고 나와서 구매하게 되었다.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;결정을 내린건 불과 30분도 되지 않았다&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;금액은 약 18,772엔에 구매하게 되었다 한국돈으로 약 18만원에 육박하는데(네이버 환율 기준) 내 국민카드에선 약 18만4천원이 빠져나갔으니 얼추 수수료가 약 4천원이 빠져나간 셈이다 물론 일본돈으로 구매했다면 그렇지 않았겟지만&lt;/p&gt;
-
-&lt;p&gt;내가 갔던 빅카메라는 visa카드 구매시 약 5%의 할인을 해주고 있었기에 망설이지 않고 구매하게 되었다. 만약 구매 예정을 하고 있다면 꼭 비자 카드와 함께 여권을 가져가시길…&lt;/p&gt;
-
-&lt;h2 id=&quot;개봉기&quot;&gt;개봉기&lt;/h2&gt;
-&lt;p&gt;&lt;img src=&quot;/assets/img/postsImg/happy-hacking/1.jpeg&quot; alt=&quot;개봉사진1&quot; /&gt;
-박스&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/img/postsImg/happy-hacking/2.jpeg&quot; alt=&quot;개봉사진2&quot; /&gt;
-개봉후&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/img/postsImg/happy-hacking/3.jpeg&quot; alt=&quot;개봉사진3&quot; /&gt;
-옆면&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/img/postsImg/happy-hacking/4.jpeg&quot; alt=&quot;개봉사진4&quot; /&gt;
-앞면&lt;/p&gt;
-
-&lt;p&gt;무각으로 할지 그리고 흰색으로 할지 고민을 많이했는데 어차피 때탈거 같아서 검정색으로 구매하게 되었다 해당 매장에는 아쉽게도 블루투스가 모델이 없어서 비교해보기는 어려웠다 어차피 집에 두고 쓸거라 크게 염두하지 않았지만 아쉬움이 남는다&lt;/p&gt;
-
-&lt;h2 id=&quot;초기세팅&quot;&gt;초기세팅&lt;/h2&gt;
-&lt;p&gt;나는 해피해킹을 맥에서 쓰고있기에 아래와 같이 사용하고 있다
-&lt;img src=&quot;/assets/img/postsImg/happy-hacking/5.jpeg&quot; alt=&quot;해피해킹 스위치&quot; /&gt;
-옆면&lt;/p&gt;
-
-&lt;p&gt;2번 3번만 켜두어서 딜리트키가 백스페이스로 작동하며 그 외에는 기존에 사용하던 맥의 키보드와는 다를게 없어서 상당히 편하다&lt;/p&gt;
-
-&lt;p&gt;##어른 에게도 선물이 필요하다
-근 1년동안은 거의 내게는 선물을 하지 않고 살았던것 같다 간만에 나에게 선물을 해주니 작업 의욕도 높아지고 좋다&lt;/p&gt;
-
-&lt;p&gt;다음달에는 팜프레스를…&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/img/postsImg/happy-hacking/6.jpeg&quot; alt=&quot;실제 사용모습&quot; /&gt; 아무튼 이것으로 짧은 개봉기를 마칩니당&lt;/p&gt;</content><author><name></name></author><category term="해피해킹" /><category term="키보드" /><summary type="html">왜 해피해킹인가? 사실 별다른 이유는 없었다 그러나 이전에 레오폴드의 fc660m을 써본 경험이 있었다 그때도 해피해킹을 구매하고 싶었지만 너무 비싼 가격탓에 구매를 할 수 없었다,</summary></entry><entry><title type="html">Redux 입문 정리</title><link href="/study/react/first-learn-redux" rel="alternate" type="text/html" title="Redux 입문 정리" /><published>2018-01-11T00:00:00+09:00</published><updated>2018-01-11T00:00:00+09:00</updated><id>/study/react/first-learn-redux</id><content type="html" xml:base="/study/react/first-learn-redux">&lt;h2 id=&quot;udemy-강좌를-보고&quot;&gt;Udemy 강좌를 보고&lt;/h2&gt;
-&lt;p&gt;상당히 어렵다 아니 사실 어느정도의 흐름은 알겠는데 ‘정말로 필요해! 무조건 있어야해’라는 생각은 들지 않았다.&lt;/p&gt;
-
-&lt;h2 id=&quot;redux는-스테이트-컨테이너이다&quot;&gt;Redux는 스테이트 컨테이너이다&lt;/h2&gt;
-&lt;p&gt;데이터를 담당하는 모든 부분을 맡는다 거기다가 Action까지 관리하게 되는데 사실 데이터를 담당하는거 까지는 쉽게 이해했지만 Actions을 관리한다니..크흠 이게 가장 이해가 안되고있는 부분이다.&lt;/p&gt;
-
-&lt;p&gt;그동안 당연히 모든 이벤트를 한 컴포넌트에서 관리하던 것과는 달리 Action을 담당하는 파일이 하나가 있고 또 데이터만을 담는 곳이 따로있는데 이해하려면 시간이 조금 걸릴듯 하다&lt;/p&gt;
-
-&lt;h2 id=&quot;메인-컴포넌트는-가벼워진다&quot;&gt;메인 컴포넌트는 가벼워진다&lt;/h2&gt;
-&lt;p&gt;그렇다 데이터와 이벤트를 전부 Conatiner 컴포넌트 안에서 관리하고 이런 이벤트를 전부 reducers나 actions에서 관리하기에 이 프로젝트의 최상위 컴포넌트인 app.js는 가벼워진다&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;왜 리액트에서 Redux가 필수인지 약간은 느끼게 되었다.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h2 id=&quot;신기한-es6&quot;&gt;신기한 es6&lt;/h2&gt;
-&lt;p&gt;그전 까지 바닐라 스크립트로만 작성을 했던 탓에 es6는 생각보다 신기하다.&lt;/p&gt;
-
-&lt;p&gt;function을 생성할때 function(state = null) 이라고 한다면 처음 생성될때 null로 생성할 수 있다는 부분도 신기하다.&lt;/p&gt;
-
-&lt;h2 id=&quot;어이없는-실수&quot;&gt;어이없는 실수&lt;/h2&gt;
-&lt;p&gt;es6 문법에 익숙하지 않은 탓에 어이없는 실수로 시간을 허비했는데 action을 담당하는 스크립트에선 export default가 아닌 export로 해당 함수를 내보냈다 나는 당연히 ‘export하면 default지!’라는 생각에 export default fetchWeather라고 했는데 크흠.. 이 부분을 찾는데 시간을 해맷다.&lt;/p&gt;
-
-&lt;h2 id=&quot;솔직히-모르겠다&quot;&gt;솔직히 모르겠다!!!&lt;/h2&gt;
-&lt;p&gt;하면 할 수록 드는 생각은 웹은 Vue..로..그리고 네이티브 앱은 react native로 해야지… 라는 생각이 든다 물론 아직 개발 플로우를 전혀 익히지 않은 탓도 있고 내 개인 프로젝트를 하지 않아서 그런것도 있지만 쉬운 프레임워크는 아니라고 생각한다.&lt;/p&gt;
-
-&lt;p&gt;물론 그렇다고 Vue가 마냥 쉬운것은 아니다 Vue도 초반엔 엄청 쉽다가 결국은 데이터 관리 부분에서 React와 같은 어려움을 맞이하는데&lt;/p&gt;
-
-&lt;p&gt;React는 React를 입문하자 마자 이런 산을 만나니 조금 더 어렵다고 생각이 드는것 같다&lt;/p&gt;</content><author><name></name></author><category term="Redux" /><category term="Learn" /><summary type="html">Udemy 강좌를 보고 상당히 어렵다 아니 사실 어느정도의 흐름은 알겠는데 ‘정말로 필요해! 무조건 있어야해’라는 생각은 들지 않았다.</summary></entry></feed>
+&lt;p&gt;방금 사와서 바로 작성하기에 아직은 정확히 모르지만 지금 잠깐 글을 쓰며 사용하면서 느끼는거지만 목이 정말 편하다&lt;/p&gt;</content><author><name></name></author><category term="일상" /><category term="지름" /><summary type="html">일본에 와서 좋은점은 아마도 한국과는 다르게 직접 가서 사는것과 인터넷으로 주문하는게 그렇게 큰 차이가 나지 않기에 오프라인에서도 편하게 구매 할 수 있다는 점이다.</summary></entry></feed>
