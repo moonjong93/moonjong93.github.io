@@ -1,4 +1,601 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.7.3">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2018-08-24T16:47:04+09:00</updated><id>/</id><title type="html">MoongJong93</title><subtitle>웹 개발에 관한 이야기, Node.js와 Vue.js를 사용하는 개발자</subtitle><entry><title type="html">자바스크립트의 재귀함수 어떻게 이해하면 좋을까?</title><link href="/study/How-to-understand-javascript-recursion-function" rel="alternate" type="text/html" title="자바스크립트의 재귀함수 어떻게 이해하면 좋을까?" /><published>2018-08-24T00:00:00+09:00</published><updated>2018-08-24T00:00:00+09:00</updated><id>/study/How-to-understand-javascript-recursion-function</id><content type="html" xml:base="/study/How-to-understand-javascript-recursion-function">&lt;h2 id=&quot;재귀함수-recursion-function&quot;&gt;재귀함수 (Recursion function)&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.7.3">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2018-10-29T15:52:32+09:00</updated><id>/</id><title type="html">MoongJong93</title><subtitle>웹 개발에 관한 이야기, Node.js와 Vue.js를 사용하는 개발자</subtitle><entry><title type="html">남궁성 자바스크립트 기초 세미나 정리</title><link href="/study/namgungsung_beginer_javascript_semina" rel="alternate" type="text/html" title="남궁성 자바스크립트 기초 세미나 정리" /><published>2018-10-27T00:00:00+09:00</published><updated>2018-10-27T00:00:00+09:00</updated><id>/study/namgungsung_beginer_javascript_semina</id><content type="html" xml:base="/study/namgungsung_beginer_javascript_semina">&lt;h2 id=&quot;남궁성-자바스크립트에-참가하다&quot;&gt;남궁성 자바스크립트에 참가하다.&lt;/h2&gt;
+&lt;p&gt;예전에 ‘난 정말 자바를 공부한적이 없다구요’라는 책을 보고 남궁성 자바라는 카페를 가입했었는데 어쩌다보니 자바는 전혀 하지 않고 Jvacsript만 주로 하게되었는데 운 좋게 남궁성님이 운영하는 세미나가 있어서 참가하게 되었다.&lt;/p&gt;
+
+&lt;p&gt;물론 처음엔 늦게 신청해서 아쉽게도 참가권에서 밀려났지만 운이 좋게도 한자리 비어서 진행하게되었다.&lt;/p&gt;
+
+&lt;p&gt;이 글은 내가 이 세미나를 들으며 정리하며 내용을 담기로 했다.&lt;/p&gt;
+
+&lt;h2 id=&quot;목차&quot;&gt;목차&lt;/h2&gt;
+&lt;ol&gt;
+  &lt;li&gt;Javascript 역사&lt;/li&gt;
+  &lt;li&gt;개발도구의 종류와 장단점 - VS code, Webstorm, Atom 등&lt;/li&gt;
+  &lt;li&gt;변수의 타입과 선언&lt;/li&gt;
+  &lt;li&gt;입력과 출력&lt;/li&gt;
+  &lt;li&gt;연산자 - new, typeof, instanceof&lt;/li&gt;
+  &lt;li&gt;조건문과 반복문 - for each, for in&lt;/li&gt;
+  &lt;li&gt;배열&lt;/li&gt;
+  &lt;li&gt;내장객체 형변환함수, ““와 new String(““)의 차이&lt;/li&gt;
+  &lt;li&gt;함수
+    &lt;ul&gt;
+      &lt;li&gt;함수 기본&lt;/li&gt;
+      &lt;li&gt;매개변수&lt;/li&gt;
+      &lt;li&gt;변수의 스코프&lt;/li&gt;
+      &lt;li&gt;클로져&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;DOM과 이벤트 처리&lt;/li&gt;
+  &lt;li&gt;객체와 생성자
+    &lt;ul&gt;
+      &lt;li&gt;생성자와 this&lt;/li&gt;
+      &lt;li&gt;prototype&lt;/li&gt;
+      &lt;li&gt;constructor&lt;/li&gt;
+      &lt;li&gt;js에서의 다형성&lt;/li&gt;
+      &lt;li&gt;상속&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;javascript의-역사&quot;&gt;Javascript의 역사&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;1995년에 Eredan Eich가 발명, ECMA가 1997년에 표준화 했음&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;HTML이 원래는 하이퍼링크만 주어진 단순한 문서였는데 이를 동적으로 변화하기 위해서 Javascript로 만들어졌음&lt;/p&gt;
+
+&lt;p&gt;원래 개발당시에는 OOP를 고려하지 않았지만 현재는 상당히 많은 부분에서 사용중이고 현재는 이를 넘어서 함수형 언어가 되었음.&lt;/p&gt;
+
+&lt;p&gt;현재는 Javascirpt가 안쓰이는 곳이 없다. 보안, 출판, Indesign은 Javascript로 책을 자동화로 만들게끔 도와준다.&lt;/p&gt;
+
+&lt;p&gt;실무에선 Jquery를 많이 쓰이는데 탈피해서 자바스크립트 본연으로 돌아가서 JS를 사용하는 경우가 많아지고 있음&lt;/p&gt;
+
+&lt;p&gt;오늘 세미나에서는 JAVA와 js의 차이점에서 대해서 많이 둘거고 실습을 위주로 진행함&lt;/p&gt;
+
+&lt;p&gt;ECMA5와 ECMA6의 차이는 OOP를 추가했다는 점이며 오늘은 ECMA5위주로 진행을 함&lt;/p&gt;
+
+&lt;p&gt;Javascript에서 window 의미하는것은 브라우저를 뜻함&lt;/p&gt;
+&lt;h2 id=&quot;개발도구의-종류와-장단점&quot;&gt;개발도구의 종류와 장단점&lt;/h2&gt;
+
+&lt;h2 id=&quot;변수의-타입과-선언&quot;&gt;변수의 타입과 선언&lt;/h2&gt;
+&lt;h3 id=&quot;hoisting&quot;&gt;hoisting&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;변수나 함수 선언이 스코프에서 최상단으로 옮겨가는 것
+```javascript
+num = 5;
+var num2 = 1
+console.log(num2);
+var num;
+console.log(num);&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;//여기서 num의 선언을 최상단으로 자동으로 올려줌&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;권장하지 않는 프로그래밍임
+
+### Scope
+- 함수 내부가 아니면 전부 전역 (var)
+- 전역 선언에 경우 브라우저에 변수가 저장된다.
+- 지역 변수는 함수 내부에 선언된 선언이 지역변수로 저장된다.
+- 변수 선언을 함수든 어디서든 안하면 전역으로 선언됨
+
+```javascript
+function sum(a, b){
+    var result = 0;
+    gResult = 0;
+    
+    for(var i=0; i&amp;lt; arguments.length; i++){
+        gResult += arguments[i];
+        console.log(i);
+    }
+    //var i는 호이스팅에 의해서 최상단으로 올라가게됨
+}
+
+console.log(gResult) //undefined
+sum(10, 50)
+// 0
+// 1
+console.log(gResult) // 60;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;// false인지 ture인지 확인하려면 그냥 타입에 !!해보면됨
+console.log(!!undefined);
+// false
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&quot;연산자&quot;&gt;연산자&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;’==’ ‘===’의 차이 ==는 값비교 ===는 타입까지 비교
+    &lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;var num = new Number(0);
+var num1 = 0;
+console.log(num === num1)
+// false
+// 타입이 다르다 new Number는 객체이기 때문
+&lt;/code&gt;&lt;/pre&gt;
+  &lt;/li&gt;
+  &lt;li&gt;결론 ==는 쓰지마라
+    &lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;var num = new Number(0);
+var num1 = 0;
+console.log(num == num1);
+// true
+&lt;/code&gt;&lt;/pre&gt;
+    &lt;p&gt;여기에서 num을 자동으로 형변환을 시키기 때문에 좋지 않다.&lt;/p&gt;
+    &lt;h2 id=&quot;조건문과-반복문&quot;&gt;조건문과 반복문&lt;/h2&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;배열&quot;&gt;배열&lt;/h2&gt;
+&lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;var arr = [1,2,3,4,5];
+arr[6] = 100;
+
+console.log(arr);
+//1,2,3,4,5, ,100
+
+for(var i in arr) console.log(arr[i]);
+// empty, undefined는 건너뜀 in의 특징임
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;var arr = [1, 10, 20, 11, 12 ,30];
+arr.sort() // 는 사전 정렬이라서 제대로 되지않음
+// 그래서 이렇게함
+arr.sort( (a, b) =&amp;gt; a - b);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&quot;dom&quot;&gt;DOM&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;DOM은 기본적으로 노드로 생성된다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;난-정말-자바를-공부한적이-없다구요&quot;&gt;난 정말 자바를 공부한적이 없다구요&lt;/h2&gt;
+&lt;p&gt;찾아보니 남궁성님이 안쓰셨다. 잘못알고 왔다. 망했다.&lt;/p&gt;
+
+&lt;h2 id=&quot;후기&quot;&gt;후기&lt;/h2&gt;
+&lt;p&gt;이 글을 읽은 사람이라면 누구나 왜 목차랑 인마 달라 이자식아 라는 생각을 하실 수 있다 그렇다 목차와 다르게 세미나가 진행됐다.&lt;/p&gt;
+
+&lt;p&gt;그리고 시간이 모자라서 DOM의 이벤트는 하지 않고 지나갔다.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;괜히 갔나 후회 했다&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;솔직히 말하면 시간을 버렸고 돈을 버렸다고 생각했다. 기존에 전부 알던 내용이고 복습을 할거면 MSDN을 볼것이고 그것마저도 아니라면 많은 자바스크립트 교재를 한번 훑어보는게 좋다고 생각한다.&lt;/p&gt;
+
+&lt;p&gt;물론 초보자 입장에선 이 강좌가 어떻게 다가올진 모르겠다. 좋다고 생각하는 사람도 있을것이고 그럴것 같다&lt;/p&gt;
+
+&lt;p&gt;그러나 현재 프론트엔드나 자바스크립트 개발을 보자면 es5 기준으로 프로그래밍을 하는 경우는 전혀 없다고 확신한다.&lt;/p&gt;
+
+&lt;p&gt;타입스크립트, ES6(바밸을 통한)면 모를까 상당히 안타까운 시간이었고 설명 자체도 본인이 가져오신 교재를 통해 읽는 것만 반복되는 느낌이었다.&lt;/p&gt;
+
+&lt;p&gt;자바를 알고 있는 사람을 전제하에 세미나가 진행된다고 하셨는데 어느정도 자바를 아는 사람이라면 굳이 세미나를 참가하지 않고 변수 선언 등…을 살펴보기는게 좋지 않을까?&lt;/p&gt;
+
+&lt;p&gt;완전 초보자가 듣기에는 너무 급하게 지나가서 내 옆자리 분은 실제로 제대로 이해하지 못하고 지나갔고 조금 경험이 있는 개발자는 시간이 아깝다고 느끼며 지나갔다.&lt;/p&gt;
+
+&lt;p&gt;이도저도 아닌 세미나였어서 더 이상 쓸 말이 없다.&lt;/p&gt;
+
+&lt;p&gt;책을 사시는것을 추천한다.&lt;/p&gt;</content><author><name></name></author><category term="Javascript" /><category term="beginer" /><summary type="html">남궁성 자바스크립트에 참가하다. 예전에 ‘난 정말 자바를 공부한적이 없다구요’라는 책을 보고 남궁성 자바라는 카페를 가입했었는데 어쩌다보니 자바는 전혀 하지 않고 Jvacsript만 주로 하게되었는데 운 좋게 남궁성님이 운영하는 세미나가 있어서 참가하게 되었다.</summary></entry><entry><title type="html">타입스크립트 코리아 강좌 정리</title><link href="/study/hello-typescript" rel="alternate" type="text/html" title="타입스크립트 코리아 강좌 정리" /><published>2018-10-26T00:00:00+09:00</published><updated>2018-10-26T00:00:00+09:00</updated><id>/study/hello-typescript</id><content type="html" xml:base="/study/hello-typescript">&lt;h1 id=&quot;목차&quot;&gt;목차&lt;/h1&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;typescript 에 관하여
+    &lt;ul&gt;
+      &lt;li&gt;compiler&lt;/li&gt;
+      &lt;li&gt;IDE 활용&lt;/li&gt;
+      &lt;li&gt;compile option&lt;/li&gt;
+      &lt;li&gt;typescript basic types&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;개발 환경 구축
+    &lt;ul&gt;
+      &lt;li&gt;Node.js 설치&lt;/li&gt;
+      &lt;li&gt;Browser 설치&lt;/li&gt;
+      &lt;li&gt;typescript compiler 설치&lt;/li&gt;
+      &lt;li&gt;IDE 설치&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Compiler Options&lt;/li&gt;
+  &lt;li&gt;typescript Basic tpyes&lt;/li&gt;
+  &lt;li&gt;var, let, const&lt;/li&gt;
+  &lt;li&gt;
+    &lt;h2 id=&quot;type-assersions&quot;&gt;Type assersions&lt;/h2&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h1 id=&quot;1-typescirpt-에-관하여&quot;&gt;1. Typescirpt 에 관하여&lt;/h1&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;tpyscript 는 자바스크립트를 포함한 언어&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;타입스크립트는 ‘Compiled Language’이다&lt;/li&gt;
+  &lt;li&gt;자바스크립트는 ‘Interpreted Language’이다&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;그러나 엄밀히 따지자면 컴파일 언어라고 보기는 힘들고 메타 프로그래밍이라고도 하며, 트랜스파일(바밸 등) 언어라고도 보기도한다.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Compiled&lt;/th&gt;
+      &lt;th&gt;Interpreted&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;컴파일이 필요&lt;/td&gt;
+      &lt;td&gt;컴파일이 필요없음&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;컴파일러가 필요&lt;/td&gt;
+      &lt;td&gt;컴파일러가 필요없음&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;컴파일하는 시점이 있음&lt;/td&gt;
+      &lt;td&gt;컴파일하는 시점이 없음&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;컴파일된 결과물 실행&lt;/td&gt;
+      &lt;td&gt;코드 자체를 실행&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;컴파일 언어는 최적화 과정을 거침 * 특히 타입스크립트는 타입을 체크하는 과정을 거침&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;정적타입-언어-vs-동적-타입-언어&quot;&gt;정적타입 언어 VS 동적 타입 언어&lt;/h2&gt;
+
+&lt;h3 id=&quot;정적타입-언어&quot;&gt;정적타입 언어&lt;/h3&gt;
+
+&lt;p&gt;미리 타입을 정의 해놓고 사용함&lt;/p&gt;
+
+&lt;h3 id=&quot;동적-타입언어&quot;&gt;동적 타입언어&lt;/h3&gt;
+
+&lt;p&gt;타입이 정의되어 있지 않고 자유럽게 변화가 가능&lt;/p&gt;
+
+&lt;p&gt;타입스크립트는 정적타입 언어의 장점을 자바스크립트에 결합한 언어이다.&lt;/p&gt;
+
+&lt;h2 id=&quot;traditional-compiled-language&quot;&gt;Traditional Compiled Language&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;컴파일 언어라고 한다&lt;/li&gt;
+  &lt;li&gt;C, C++, go 등&lt;/li&gt;
+  &lt;li&gt;일반적으로 실행시 기계어로 바꾸는 방식(인터프리터 언어)보다 빠르다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;TS =&amp;gt; JS&lt;/p&gt;
+
+&lt;p&gt;이 강좌에서 배우는 것은 컴파일은 어떤 역할을 하는지 어떤 도구들이 있고 올바르게 사용하는 방법과, 타입스크립트 자체를 이해&lt;/p&gt;
+
+&lt;h1 id=&quot;2-개발-환경-구축&quot;&gt;2. 개발 환경 구축&lt;/h1&gt;
+
+&lt;h2 id=&quot;nodejs-설치&quot;&gt;Node.js 설치&lt;/h2&gt;
+
+&lt;p&gt;강좌 외적으로 저는 Node.js 의 버전을 자유롭게 바꾸다보니 NVM 사용을 권장합니다. 예) Lambda 에서 지원하는 버전과 React 에서 지원하는 버전이 전혀 다르면서 생기는 문제 등등&lt;/p&gt;
+
+&lt;p&gt;curl 을 이용해 설치&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;curl -o https://raw.githubusercontent.com/creationix/nvm/v0.26.1/install.sh | bash
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&quot;browser-설치&quot;&gt;Browser 설치&lt;/h2&gt;
+
+&lt;p&gt;Chrome, firefox 와 같이 검사가 있는 브라우저를 추천 함&lt;/p&gt;
+
+&lt;h2 id=&quot;tpyscript-compiler-설치&quot;&gt;Tpyscript compiler 설치&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;npm i typescript -g // 전역으로 설치됩니다
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&quot;ide-설치&quot;&gt;IDE 설치&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://visualstudio.microsoft.com/ko/?rr=https%3A%2F%2Fwww.google.co.kr%2F&quot;&gt;vscode(무료)&lt;/a&gt;, intelliJ(유료)&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;visual studio code 는 Typscript 로 만들어졌다.&lt;/li&gt;
+  &lt;li&gt;타입스크립트 지원이 강력하다&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;tsc-init&quot;&gt;tsc init&lt;/h2&gt;
+
+&lt;p&gt;tsc 설정 파일을 init 함
+target, module, strict 정도가 기본 설정으로 되어있음.&lt;/p&gt;
+
+&lt;h2 id=&quot;ts-lint&quot;&gt;ts lint&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;npm i tslint -D
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;tslint –init&lt;/p&gt;
+
+&lt;h1 id=&quot;3-compiler-options&quot;&gt;3. Compiler Options&lt;/h1&gt;
+&lt;h2 id=&quot;tsconfig&quot;&gt;tsconfig&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;http://json.schemastore.org/tsconfig&quot;&gt;ts config 가이드&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;최상위-프로퍼티&quot;&gt;최상위 프로퍼티&lt;/h2&gt;
+&lt;ol&gt;
+  &lt;li&gt;CompileOnSave: 파일 저장시 자동 컴파일, Visual studio에서 사용 가능&lt;/li&gt;
+  &lt;li&gt;extends: v2.1 new spec&lt;/li&gt;
+  &lt;li&gt;compileOptions
+    &lt;ul&gt;
+      &lt;li&gt;다양한 옵션이 제공됨&lt;/li&gt;
+      &lt;li&gt;typeRoots: 배열 안에 들어있는 경로들 아래에 모듈만 가져옴&lt;/li&gt;
+      &lt;li&gt;types: 배열 안에 모듈, ./node_modules/@types/ 안의 모듈 이름에서 찾아옴&lt;/li&gt;
+      &lt;li&gt;typeRoots, types와 함께 사용하지 않음&lt;/li&gt;
+      &lt;li&gt;target: 컴파일 해서 어떤 자바스크립트 버전으로 downgrade 시킬거냐 기본은 es3이다&lt;/li&gt;
+      &lt;li&gt;lib: 기본 type definition 라이브러리를 어떤 것을 사용할 것이냐
+        &lt;ul&gt;
+          &lt;li&gt;lib를 지정하지 않을때&lt;/li&gt;
+          &lt;li&gt;target이 ‘es3’이고 디폴트로 lib.d.ts를 사용함&lt;/li&gt;
+          &lt;li&gt;target이 ‘es5’이면, 디폴트로 dom, es5, scripthost를 사용함&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;outDir: 소스 구조의 전부를 컴파일 하려면 사용&lt;/li&gt;
+      &lt;li&gt;outFile: 구조 상관없이 컴파일 하려면 사용&lt;/li&gt;
+      &lt;li&gt;module: 결과물이 어떤 js파일을 쓸건지 target이 es6면 es6가 기본값, es6가 아니면 ‘commonjs’가 기본값&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;files:
+    &lt;ul&gt;
+      &lt;li&gt;상대 혹은 절대 경로의 리스트 배열&lt;/li&gt;
+      &lt;li&gt;exclude 보다 우선순위 높음&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;include
+    &lt;ul&gt;
+      &lt;li&gt;exclude 보다 우선순위 낮음&lt;/li&gt;
+      &lt;li&gt;*같은걸 사용하면 .ts / .tsx 등 설정한 것만 include 함&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;exclude
+    &lt;ul&gt;
+      &lt;li&gt;설정 안하면 기본 4가지를 설정 (node_modules, browser_components, jspm_packages, outDIr)를 기본적으로 제외&lt;/li&gt;
+      &lt;li&gt;outDir은 항상 제외&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h1 id=&quot;4-typescript-basic-type&quot;&gt;4. typescript basic type&lt;/h1&gt;
+&lt;ul&gt;
+  &lt;li&gt;Typescript에서 프로그램 작성을 위해 기본 제공하는 데이터 타입&lt;/li&gt;
+  &lt;li&gt;Javscript 기보 자료형을 포함
+    &lt;ul&gt;
+      &lt;li&gt;ECMAScript 표준에 따른 기본 자료형은 6가지&lt;/li&gt;
+      &lt;li&gt;Boolean&lt;/li&gt;
+      &lt;li&gt;String&lt;/li&gt;
+      &lt;li&gt;Null&lt;/li&gt;
+      &lt;li&gt;Undefined&lt;/li&gt;
+      &lt;li&gt;Symbol&lt;/li&gt;
+      &lt;li&gt;Array: Object형&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;프로그래밍을 도울 몇가리 타입이 더 제공됨
+    &lt;ul&gt;
+      &lt;li&gt;Any&lt;/li&gt;
+      &lt;li&gt;Void&lt;/li&gt;
+      &lt;li&gt;Never&lt;/li&gt;
+      &lt;li&gt;Enum&lt;/li&gt;
+      &lt;li&gt;Tuple: Object&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;literal&quot;&gt;literal?&lt;/h2&gt;
+&lt;p&gt;값자체가 변하지 않는 값을 의미함
+상수와 다른 것은 상수는 가리키는 포인터가 고정이라는 것이고, 리터럴은 그 자체가 값이자 리터럴&lt;/p&gt;
+
+&lt;h2 id=&quot;권장-소문자를-사용해라&quot;&gt;권장 소문자를 사용해라&lt;/h2&gt;
+&lt;p&gt;new Number(5) -&amp;gt; number(5);&lt;/p&gt;
+
+&lt;p&gt;new Boolean(false) -&amp;gt; boolrean(false);&lt;/p&gt;
+
+&lt;h2 id=&quot;any&quot;&gt;Any&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;어떤 타입이든 상관없음&lt;/li&gt;
+  &lt;li&gt;그러나 권장하지 않음 (이걸 쓸꺼면 그냥 es6바밸 문법을 사용해라)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;tuple&quot;&gt;Tuple&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;배열인데 한가지 타입이 아닐 경우&lt;/li&gt;
+  &lt;li&gt;객체&lt;/li&gt;
+  &lt;li&gt;사용할때 주의가 필요함&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;5-var-let-const&quot;&gt;5. var, let, const&lt;/h1&gt;
+&lt;ul&gt;
+  &lt;li&gt;var
+    &lt;ul&gt;
+      &lt;li&gt;es5&lt;/li&gt;
+      &lt;li&gt;함수 스코프&lt;/li&gt;
+      &lt;li&gt;호이스팅이 가능&lt;/li&gt;
+      &lt;li&gt;재선언 가능&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;let, const
+    &lt;ul&gt;
+      &lt;li&gt;es6&lt;/li&gt;
+      &lt;li&gt;블록 스코프&lt;/li&gt;
+      &lt;li&gt;호이스팅 불가능&lt;/li&gt;
+      &lt;li&gt;재선언 불가&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;var 말고 let, const를 사용하자&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;let-const-차이점&quot;&gt;let, const 차이점&lt;/h2&gt;
+&lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;let a: string = &quot;에이&quot;;
+let a = &quot;에이&quot;; //자동으로 String으로 타입을 맞춰줌
+
+const b: string = &quot;비&quot;;
+const b = &quot;비&quot;; //별도의 타입을 만들어 주지 않음
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=&quot;6-type-assersions&quot;&gt;6. Type assersions&lt;/h1&gt;
+&lt;ul&gt;
+  &lt;li&gt;형변환과는 다름
+    &lt;ul&gt;
+      &lt;li&gt;형변형은 실제 데이터 구조를 바꿔줌&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;‘타입이 이것이다’라고 컴파일러에게 알려주는 것을 의미함
+    &lt;ul&gt;
+      &lt;li&gt;그래서 작성자가 100% 신뢰하는 것이 중요하다.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;문법적으로는 두가지 방법이 있다
+    &lt;ul&gt;
+      &lt;li&gt;변수 as 강제할 타입&lt;/li&gt;
+      &lt;li&gt;
+        &lt;강제할 타입=&quot;&quot;&gt;변수
+```javascript
+let a: any = &quot;this is a string&quot;;
+let b: number = (someValue as a).length;
+```
+
+&lt;/강제할&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;타입-별칭&quot;&gt;타입 별칭&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;인터페이스와 유사해 보임&lt;/li&gt;
+  &lt;li&gt;Primitive, Union Type, Tuple&lt;/li&gt;
+  &lt;li&gt;기타 직접 작성해야하는 타입을 다른 이름에 저장할 수 있다.&lt;/li&gt;
+  &lt;li&gt;만들어진 타입의 refer로 사용하는 것이지 타입을 만드는것은 아니다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;union&quot;&gt;Union&lt;/h3&gt;
+&lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;let a: any;
+let b: string | number;
+
+b = &quot;스트링&quot;;
+b = 0;
+
+//만약 사례가 복잡하다면?
+
+function test(arg: string | number): string | number {
+    return arg;
+}
+//위와 같이 작성할때마다 해주는게 힘들다보니 사용함
+type StringOrNumber = string | number; //이게 union타입
+
+function test(arg: StringOrNumber): StringOrNumber {
+    return arg
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&quot;interface&quot;&gt;interface&lt;/h3&gt;
+&lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;
+//interface가 없다면
+const person: {name: string; age: number} = {
+    name: 'MrMoon',
+    age: 12
+};
+
+//interface를 사용한다면
+interface Person{
+    name: string;
+    age: number
+}
+const person: Person = {
+    name: 'mrMoon',
+    age: 12
+}
+
+// 주요 사용처
+function hello(p: Person): void {
+    console.log(`안녕하세요 ${p.name} 입니다`)
+}
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&quot;interface-optional&quot;&gt;interface optional&lt;/h3&gt;
+&lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;interface Person {
+    name: string;
+    age?: number; //age를 강제하지 않음
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&quot;indexable-type&quot;&gt;indexable type&lt;/h3&gt;
+&lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;interface Person {
+    name: string;
+    [index: string]: string;
+}
+const person : Person = {
+    name: &quot;mark&quot;;
+}
+person.anybody = &quot;Anna&quot;;
+
+//여기서 접근하는 index를 어레이로 선언했기 때문에 가능 함
+interface Person2 {
+    [index: number]: string;
+}
+
+const p2: Person2 = {};
+p2[0] = &quot;hi&quot;;
+p2[100] = &quot;hello&quot;;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;위와 같이 array에 string이나 number로 interface를 만들어줄 순 있지만 array는 아님&lt;/p&gt;
+
+&lt;h2 id=&quot;interface-in-funciton&quot;&gt;interface in funciton&lt;/h2&gt;
+&lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;interface Person {
+    name: string;
+    hello(): string;
+}
+
+const person: Person = {
+    name: 'mark',
+    hello(): string{
+        return 'hello world';
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&quot;class-implements-interface&quot;&gt;class implements interface&lt;/h2&gt;
+&lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;interface IPerson {
+    name: string;
+    hello(): void;
+}
+
+class Person implements IPerson {
+    name: string = null;
+
+    constructor(name: string) {
+        this.name = name;
+    }
+    hi(): void {
+        console.log('This is hi');
+    }
+    hello(): void {
+        console.log(`hello i am ${name}`);
+    }
+    
+}
+
+const person: IPerson = new Person(&quot;moon&quot;);
+const person: Person = new Person(&quot;moon&quot;);
+//두가지 모두 사용 가능하다
+&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;IPerson의 타입을 가지고 있는 person은 interface에서 정의하지 않은 hi 함수에 접근할 수 없다.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;string-or-number&quot;&gt;string OR number&lt;/h2&gt;
+&lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;interface StringArray {
+    [index: number]: string;
+}
+
+const sa: StringArray = {};
+sa[100] = '백';
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&quot;extends&quot;&gt;extends&lt;/h2&gt;
+&lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;interface City extends Person {
+    position: {}
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;!-- 여기서부터 class부터 나가면 될듯 --&gt;</content><author><name></name></author><category term="Typescript" /><category term="beginer" /><summary type="html">목차</summary></entry><entry><title type="html">자바스크립트의 재귀함수 어떻게 이해하면 좋을까?</title><link href="/study/How-to-understand-javascript-recursion-function" rel="alternate" type="text/html" title="자바스크립트의 재귀함수 어떻게 이해하면 좋을까?" /><published>2018-08-24T00:00:00+09:00</published><updated>2018-08-24T00:00:00+09:00</updated><id>/study/How-to-understand-javascript-recursion-function</id><content type="html" xml:base="/study/How-to-understand-javascript-recursion-function">&lt;h2 id=&quot;재귀함수-recursion-function&quot;&gt;재귀함수 (Recursion function)&lt;/h2&gt;
 &lt;p&gt;재귀함수는 말 그대로 함수 내에서 자기 자신을 다시 또 호출하면서 로직을 수행하는 함수를 말한다. 재귀함수를 응용하는데 있어서 많은 글들을 읽어봤지만 사실 그렇게 크게 와닿는 글은 없었던것 같다.&lt;/p&gt;
 
 &lt;h2 id=&quot;예제-보기&quot;&gt;예제 보기&lt;/h2&gt;
@@ -727,100 +1324,4 @@ RDS를 반대로 이해한것이다.&lt;/p&gt;
 &lt;p&gt;아마도 그래서 서버리스를 배워보고 싶었던 생각이 강했던것 같다.&lt;/p&gt;
 
 &lt;h2 id=&quot;결론&quot;&gt;결론&lt;/h2&gt;
-&lt;p&gt;aws 에서 serverless-http를 사용해서 구성하시려면 그냥 리전을 es-east-01에서 하세요.&lt;/p&gt;</content><author><name></name></author><category term="개발" /><category term="aws" /><category term="serverless" /><summary type="html">Serverless? 서버리스란 말 그대로 서버가없는 서비스를 구성하는 프로젝트를 말한다 나는 현재 lambda를 사용해 개발을 하고 있으며 서버리스 프레임워크 serverless http를 이용해 개발을 하고 있다.</summary></entry><entry><title type="html">일본에서 체크인 기능을 담은 웹을 개발했다</title><link href="/career/development-checkin" rel="alternate" type="text/html" title="일본에서 체크인 기능을 담은 웹을 개발했다" /><published>2018-01-22T00:00:00+09:00</published><updated>2018-01-22T00:00:00+09:00</updated><id>/career/development-checkin</id><content type="html" xml:base="/career/development-checkin">&lt;h2 id=&quot;일본은-왜&quot;&gt;일본은 왜?&lt;/h2&gt;
-&lt;p&gt;문득 그냥 가고 싶었다 그래서 정말 이유 없이 왔다.&lt;/p&gt;
-
-&lt;p&gt;그렇게 온 일본에서 처음으로 맡은 프로젝트 체크인 기능을 4개 국어로 만들어 달라.&lt;/p&gt;
-
-&lt;p&gt;일본어, 중국어, 영어, 한국어까지
-&lt;img src=&quot;/assets/img/postsImg/language-fplus.png&quot; alt=&quot;완성사진&quot; /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;필요-했던-부분&quot;&gt;필요 했던 부분&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;메일 서버&lt;/li&gt;
-  &lt;li&gt;https 호스팅
-    &lt;ul&gt;
-      &lt;li&gt;firebase는 갓갓 호스팅&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;이미지 서버&lt;/li&gt;
-  &lt;li&gt;관리하기 쉬운 서버…&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;그니까 서버는 운용되는데 서버르 관리하기 꺼려한다고 전달 받았을때 바로 서버리스가 생각났다. 거기다가 firebase의 실시간 데이터베이스까지 사용한다면 걱정할게 없었다.&lt;/p&gt;
-
-&lt;h2 id=&quot;메일&quot;&gt;메일&lt;/h2&gt;
-&lt;p&gt;&lt;a href=&quot;https://www.mailgun.com/&quot;&gt;메일건&lt;/a&gt;을 이용해 메일을 발송하고 있다 처음 테스트 당시에는 google 계정으로 보냈었는데 생각보다 속도도 느리고 거디가다 찾아보니 발송 제한까지 있기에 따로 메일서버를 사용했다.&lt;/p&gt;
-
-&lt;p&gt;가격은 상당히 저렴하며 월 10,000건 까지는 무료이기에 테스트에는 이정도의 조건은 없는것 같다.&lt;/p&gt;
-
-&lt;p&gt;거기다가 딱히 어렵지 않게 적용할 수 있었고 STMP를 사용해 메일을 발송하면 끝 이었다.&lt;/p&gt;
-
-&lt;p&gt;메일을 발송하는 부분은 &lt;a href=&quot;https://nodemailer.com/about/&quot;&gt;Nodemailer&lt;/a&gt;를 사용했다.&lt;/p&gt;
-
-&lt;p&gt;그러나 메일 발송에서 별도의 서버를 운용하는게 꺼려진다고 하기에 firebase의 functions를 활용해 REST 형식의 웹으로 개발을하게 되었다.&lt;/p&gt;
-
-&lt;h2 id=&quot;https-적용은&quot;&gt;https 적용은?&lt;/h2&gt;
-&lt;p&gt;사실 나는 Nginx나 Apache서버를 사용해본 경험은 있지만 ssl을 적용하거나 했던일은 아예 없었다.&lt;/p&gt;
-
-&lt;p&gt;그래서 위와 같은 개발환경에선 ssl을 적용하는게 얼마나 어려울지는 모르겠지만 REST 형식의 프론트엔드만 호스팅하면되기 때문에 상당히 간단했다.&lt;/p&gt;
-
-&lt;p&gt;firebase의 정적웹 호스팅을 이용했는데 그냥 배포만 하면 자동으로 ssl을 적용해서 만들어줬기 때문에 따로 신경쓸 부분은 크게 없었다.&lt;/p&gt;
-
-&lt;h2 id=&quot;언어는&quot;&gt;언어는?&lt;/h2&gt;
-&lt;p&gt;언어는 JSON 형식으로 개발해 router로 나누어서 concat해서 각 언어에 맞게 불러오게 설계했다.&lt;/p&gt;
-
-&lt;p&gt;제일 기본은 당연히 영어로 개발하고 해당 영어를 다른 국적의 직원들이 번역해줘서 상당히 빠르게 끝날 수 있었다.&lt;/p&gt;
-
-&lt;p&gt;다음에 내가 다국적 서비스를 할 기회가 생긴다면 다시 한번 적용해볼만 한것 같다.&lt;/p&gt;
-
-&lt;h2 id=&quot;그-외에&quot;&gt;그 외에&lt;/h2&gt;
-&lt;p&gt;이미지 서버나 그외 부분 역시 firebase를 활용해 해결했다. 클라이언트가 특히 디자인에 많이 신경써달라고 했기 때문에 내가할 수 있는 최소한의 시간을 서버로 사용하고&lt;/p&gt;
-
-&lt;p&gt;나머지는 프론트엔드 개발에 사용하게 되었다. 가령 사진을 촬영시 현재 보여지는 이미지가 다르게 나와야 한다거나 하는 자잘한 요구사항이 있었기에 생각보다 시간이 꽤 걸리는 작업이었다.&lt;/p&gt;
-
-&lt;h2 id=&quot;마치며&quot;&gt;마치며.&lt;/h2&gt;
-&lt;p&gt;클라이언트가 자신이 무엇을 만들고 싶어하는지 모르는건 정말 개발자로 하여금 힘들게 한다, 자신이 무엇을 원하는지도 무엇을 만들어야 하는지도 모르는데… 더군다나 모자란 일본어로 소통하느냐고 나름 애를 먹었다.&lt;/p&gt;
-
-&lt;p&gt;그러나 모자란 일본어로도 이 프로젝트를 정말 잘 끝냈기에 나름 자신감도 생기고 괜찮은 클라리언트(자신이 무엇을 만들고 싶어하는지도 모르지만 사람이 괜찮았다)를 만나 다행이었다.&lt;/p&gt;</content><author><name></name></author><category term="Node.js" /><category term="functions" /><category term="firebase" /><category term="vue.js" /><summary type="html">일본은 왜? 문득 그냥 가고 싶었다 그래서 정말 이유 없이 왔다.</summary></entry><entry><title type="html">노트북 거치대를 구매했다</title><link href="/life/new-laptop-stnad" rel="alternate" type="text/html" title="노트북 거치대를 구매했다" /><published>2018-01-21T00:00:00+09:00</published><updated>2018-01-21T00:00:00+09:00</updated><id>/life/new-laptop-stnad</id><content type="html" xml:base="/life/new-laptop-stnad">&lt;p&gt;일본에 와서 좋은점은 아마도 한국과는 다르게 직접 가서 사는것과 인터넷으로 주문하는게 그렇게 큰 차이가 나지 않기에 오프라인에서도 편하게 구매 할 수 있다는 점이다.&lt;/p&gt;
-
-&lt;p&gt;기존에 쓰던 노트북 거치대는 처음에 살땐 정말 괜찮아 보였다.
-&lt;img src=&quot;/assets/img/postsImg/nextstand/1.jpeg&quot; alt=&quot;개봉사진&quot; /&gt;
-각도 조절도 가능하고 무엇보다 튼튼하다는 생각이 들었고 한국에서도 잘 사용했다, 그러나 이것은 내가 평소에는 데스크탑을 사용하고 정말 가끔 노트북을 사용할때 이야기 였다.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/img/postsImg/nextstand/2.jpeg&quot; alt=&quot;개봉사진&quot; /&gt;
-일본에서 자취중인 지금은 책상이 예전과는 1/3도 안되는 수준 때문에 키보드의 자리가 남지않아 손목이 아파왔다 하루 10시간이 넘게 노트북을 바라보고 있는 입장에서 손목만 아프면 다행이겠지만 점점 목이 아파져오고 있었다.&lt;/p&gt;
-
-&lt;p&gt;인터넷을 검색 하던중 괜찮은 거치대를 발견했다.&lt;/p&gt;
-
-&lt;p&gt;오사카 덴덴타운을 돌아다닌 덕에 하나 구매를 할 수있었다.
-바로 NEXT STAND의 제품인데 한국 돈으로 약 2만원에 구매 할 수 있었다.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/img/postsImg/nextstand/3.jpeg&quot; alt=&quot;개봉사진&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;2만원의 가격을 가진 패키지 치고는 나름 깔끔하게 포장이 잘 되어있었다.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/img/postsImg/nextstand/4.jpeg&quot; alt=&quot;개봉사진&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;파우치가 함께 동봉되어 있다 제품의 무게는 약 500g이라는데 체감은 더 가볍게 느껴진다&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/img/postsImg/nextstand/5.jpeg&quot; alt=&quot;개봉사진&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;제품의 옆면 약해보이는 느낌이 강했지만 직접 만져보면 튼튼하다는 생각이 들었다&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/img/postsImg/nextstand/6.jpeg&quot; alt=&quot;개봉사진&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;실제 거치대 위에 노트북을 올려놨을때 느낌 상당히 편하다 작업 공간도 많이 늘어났다 손목도 안아프고 목도 안아프다&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/img/postsImg/nextstand/7.jpeg&quot; alt=&quot;개봉사진&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;옆으로 조금만 넘어가도 떨어질것 같아 보이지만 오히려 그렇지 않다 지렛대의 원리로 쎄개 잡아주고 밑에는 스프링으로 잡아주기에 안전하다&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/img/postsImg/nextstand/9.jpeg&quot; alt=&quot;개봉사진&quot; /&gt;
-테스트를 해보고자 약 90도 까지 돌려봤지만 전혀 흔들림도 없었다 처음 노트북을 올릴때 ‘딱’소리가 나는데 아마 그 덕분인듯 하다&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/img/postsImg/nextstand/8.jpeg&quot; alt=&quot;개봉사진&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;높이도 조절이 가능하다 나는 가장 높은위치에서 1단계 낮은 단계를 사용한다.&lt;/p&gt;
-
-&lt;p&gt;방금 사와서 바로 작성하기에 아직은 정확히 모르지만 지금 잠깐 글을 쓰며 사용하면서 느끼는거지만 목이 정말 편하다&lt;/p&gt;</content><author><name></name></author><category term="일상" /><category term="지름" /><summary type="html">일본에 와서 좋은점은 아마도 한국과는 다르게 직접 가서 사는것과 인터넷으로 주문하는게 그렇게 큰 차이가 나지 않기에 오프라인에서도 편하게 구매 할 수 있다는 점이다.</summary></entry></feed>
+&lt;p&gt;aws 에서 serverless-http를 사용해서 구성하시려면 그냥 리전을 es-east-01에서 하세요.&lt;/p&gt;</content><author><name></name></author><category term="개발" /><category term="aws" /><category term="serverless" /><summary type="html">Serverless? 서버리스란 말 그대로 서버가없는 서비스를 구성하는 프로젝트를 말한다 나는 현재 lambda를 사용해 개발을 하고 있으며 서버리스 프레임워크 serverless http를 이용해 개발을 하고 있다.</summary></entry></feed>
