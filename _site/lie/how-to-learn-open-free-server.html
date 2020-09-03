@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" href="/assets/img/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <meta name="description" content="지인하고.. 즐겼습니다 ㅠㅠ">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="어떻게 프리서버를 만드는것을 배웠는지">
+    <meta property="og:description" content="Moonjong93의 블로그를 한눈에 볼 수 있습니다">
+    <link rel="canonical" href="https://moonjong93.github.io">
+	<link rel="stylesheet"
+	href="/assets/css/hljs/default.css">
+	<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.2/build/highlight.min.js"></script>
+    <title>어떻게 프리서버를 만드는것을 배웠는지</title>
+</head>
+<body>
+<div class="home">
+    <a href="/">MoongJong93</a>
+    <a href="/about">About</a>
+</div>
+<header>
+    <div class="title">
+        <h1>어떻게 프리서버를 만드는것을 배웠는지</h1>
+        <p>2020-09-03</p>
+    </div>
+</header>
+<div class="container">
+    <article class="post-content">
+        <p>프리서버 운영은 엄연한 불법 행위 입니다.</p>
+
+<blockquote>
+  <p>저작권법 제101조의4(프로그램코드역분석) ① 정당한 권한에 의하여 프로그램을 이용하는 자 또는 그의 허락을 받은 자는 호환에 필요한 정보를 쉽게 얻을 수 없고 그 획득이 불가피한 경우에는 해당 프로그램의 호환에 필요한 부분에 한하여 프로그램의 저작재산권자의 허락을 받지 아니하고 프로그램코드역분석을 할 수 있다.</p>
+</blockquote>
+
+<p>라고 <a href="https://namu.wiki/w/%ED%94%84%EB%A6%AC%EC%84%9C%EB%B2%84">나무위키</a>에서 설명하고 있습니다.</p>
+
+<h2 id="프리서버라는-말을-접하게된-계기">프리서버라는 말을 접하게된 계기</h2>
+
+<p>초등학교 시절 거상에 흠뻑빠져 있었다. 사냥에는 흥미가 없고 하루종일 짐꾼과 돌아다니면서 벼를 팔아 시세 차익을 내거나 한양에서 장사를 하거나 하는 행위를 주로 했다.</p>
+
+<p>장사를 계속 하다보니까 자연스레 친구가 많이 생겼는데 어느날 한 사람이 나에게 ‘프리서버’라는걸 해본적이 있냐고 물었다. 나는 당시 프리서버라는 것에 대해서 아니 프리라는 단어 자체를 영어로 쓰지 못할정도로 어린 나이 이기 때문에 그의 이야기에 흠뻑 빠졌다.</p>
+
+<ol>
+  <li>레벨업은 내가 원하는대로 마음대로</li>
+  <li>내가 가지고 싶은 장비도 마음대로</li>
+  <li>그냥 게임 자체를 내 마음대로</li>
+</ol>
+
+<h2 id="초등학교-3학년-폭풍-검색-시작">초등학교 3학년 폭풍 검색 시작</h2>
+
+<p>정확히 어떤 엔진을 사용해서 검색한지는 잘 기억이 안나지만 몇개 추려 보자면</p>
+
+<ul>
+  <li>인포마스터? (이제는 존재하지도 않는 검색 사이트)</li>
+  <li>네이버 (전혀 나오지 않음)</li>
+  <li>다음</li>
+  <li>파란</li>
+</ul>
+
+<p>등을 사용해 검색을 몇달간 계속 했다.</p>
+
+<p>그러나 초등학교 3학년의 통찰력과 이해로 무엇을 할 수 있으리.. 나는 당연히 프리서버를 구현하지 못했다.</p>
+
+<h2 id="그렇게-2년뒤-피씨방에서-라그나로크-프리서버를-하는-형들을-발견">그렇게 2년뒤 피씨방에서 라그나로크 프리서버를 하는 형들을 발견</h2>
+
+<p>아직도 기억이 난다 그 형들의 레벨업소리가 타탁! 한 마리를 잡으니 레벨이 바로 40이 되는걸 보고 말았다. 나는 불현듯 이게 프리서버라는 거구나라는 생각을 했고 뒤에서 하염없이 지켜봤다.</p>
+
+<blockquote>
+  <p>야 저리가</p>
+</blockquote>
+
+<p>나보고 거의 꺼지라는 수준의 말로 저리가라고 했지만 저 멀리서 계속 지켜봤다.</p>
+
+<p>그리고 그현들이 오는 시간에 맞춰서 피씨방에 출근했다..</p>
+
+<p>그리고 며칠 음료수를 형들의 책상에 두고 뒤에서 지켜보았다.</p>
+
+<p>그렇게 한 일주일이 지나고 나도 드디어 형들의 프리서버에 들어갈 수 있는 자격이 생겼다.</p>
+
+<p>그들은 프리서버를 운영하고 있었고 가끔 피씨방에 와서 둘이서 이것저것 게임을 고치면서 노는 학생이었다.</p>
+
+<h2 id="어떻게-구현하는지-배워야-했다">어떻게 구현하는지 배워야 했다</h2>
+
+<p>나에게는 7살 많은 형이 있었는데 내가 피씨방에서 보고 온것을 형은 믿지 못했다. 아니 게임을 참가 했다고 해도 형은 무슨 개소리냐며 비아냥대기 바뻤고 급기야 아버지에게 피씨방에 가지 못하게 하라고 얘기하기 시작했다.</p>
+
+<p>오기로 이것을 배워 형하고 피씨방에 갔을대 내가 구현한것을(? 내가 구현한것은 없는데..) 보여줘야만 했다.</p>
+
+<p>그로부터 피씨방에 조금 더 일찍 가기 시작했다.</p>
+
+<p>옆에서 형들이 하는것을 보고 따라하고 그렇게 읿주일 나도 통파일(구현이 전부 담겨있는 팩? 같은 것)을 어떻게 구하는지와 어떻게 서버를 여는지를 배우게 되었다.</p>
+
+<p>내 기억이 맞다면.</p>
+
+<ol>
+  <li>mysql을 통해 db서버를 연다</li>
+  <li>내 서버 주소를 어떤 메모장에 옮겨 적는다.</li>
+  <li>통파일 압축해제</li>
+  <li>통파일에서 나온 .bat 실행 또는 cmd에서 무슨 명령어를 입력</li>
+</ol>
+
+<p>이렇게 하면 내 서버가 열리고 실행은 또 그냥 안되고 통파일에서 나온 압축 해제된 클라이언트 폴더에 가서 세팅을 바꿔줘야 한다.</p>
+
+<p>아무튼 이렇게 해서 라그나로크 프리서버를 여는 방법을 배웠고 이후에 리니지, 바람의 나라 등을 중학교때 까지 한번 한번씩 열었었다.</p>
+
+<p>그런데 내가 성인이 되서도 mysql을 만질줄이야!</p>
+
+    </article>
+    <footer>
+        <div class="tags">
+            
+            <span class="tag">
+                자랑 아님
+            </span>
+            
+            <span class="tag">
+                엄연한 불법 행위
+            </span>
+            
+        </div>
+        <br />
+        <div class="profile">
+    <img class="borderhalf" src="/assets/img/profile.png" alt="profile" width="40">
+    <p>' 게임 불감증이 있어 게임은 30분 밖에 못합니다 그때부터 였을까요.....프로그래밍을 시작한게 '</p>
+    <p>Node.js로 오버워치 데이터 제공 웹을 만들면서 웹 개발에 입문, Node.js, Vue.js를 사용해 웹 개발을 하고 있습니다</p>
+</div>
+        <br />
+        
+            <span class="arow"><a href="/study/hello-typescript">▲ 이전 - 타입스크립트 코리아 강좌 정리</a></span>
+        
+        
+            <span class="arow"><a href="/life/jekyll-action-test">▼ 다음 - jekyll action</a></span>
+        
+    </footer>
+    <br />
+    <hr />
+    <br />
+    <div class="coment">
+        
+            <div id="disqus_thread"></div>
+<script>
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://https-moonjong93-github-io.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+                            
+        
+    </div>
+</div>
+<footer id="copy">
+    ⓒ 2017. Moonjong93 all rights reserved.
+</footer>
+    <script>
+        document.addEventListener("DOMContentLoaded", function(){
+			hljs.initHighlightingOnLoad();
+        });
+    </script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-111530519-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-111530519-1');
+</script>
+
+</body>
+</html>

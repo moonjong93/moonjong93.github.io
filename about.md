@@ -1,41 +1,35 @@
 ---
 layout : post
-title : '문종민 설명서'
+title : '문종민'
 ---
 
-## 문종민?
+## 문종민
+
+- 초등학교때 동네 pc방에서 라그나로크 프리서버 운영하던 고등학생 형에게 프리서버 운영 전수 받음
+  - [어떻게 프리서버를 만드는것을 배웠는지](../life/how-to-learn-open-free-server)
+- 장래희망 웹마스터 (당시에 되게 뭔가 멋있어 보였음)
 - 서울디자인고 졸업
-- 군입대 12사단 모 부대 (겨울에 눈 2미터가 내림)
-- 전역후 뭐할꺼냐는 후임 질문에 급하게 프로그래머라고 대답
-- 그렇게 개발자의 꿈을 꾸게됨
-- Unity 러닝센터 3기 졸업생
-- 그러나 게임은 제작하지 않음
-- 수업도중 잠깐 배운 웹이 훨씬 매력적이었음
-- 웹 개발 입문 2016.8 ~ 현재
-
-## 경험
-- Unity 강좌를 진행함
-- OVERDOC의 메인 개발을 맡아 게임 오버워치의 데이터를 크롤링 하는 서버를 만듬
-    - [OVERDOC 개발 이야기](../career/development-overwatch-crawler)
-- 첫 외주 '사내 웹 개발'의 풀 스텍 개발자로 개발을 진행
-    - [사내 웹 개발 이야기](../career/develop-realtime-game)
-- 일본에서 외노자 생활 시작 2017.10 ~ 
-- 숙박관리 회사에 프리랜서로 일을 시작
-    - 개인 체크인 시스템 (PWA + firebase) 개발
-        - [체크인 시스템 개발 이야기](../career/development-checkin)
-    - Fullpage기반 회사 소개 페이지 개발중
-- 개인 프로젝트 TAC.photos 개발중
+- 유니티 러닝 센터 3기 졸업
+  - 수업에서 배운 php를 활용한 웹이 더 재밌었음
+- vue좀 독학하다가 일본으로 워홀
+  - 파트타이머 개발자로 개발자 일을 시작
+    - [체크인 시스템 개발 이야기](../career/development-checkin)
+  - 남는 시간은 개인프로젝트 하며 시간을 보냄
     - [Tac.photos 개발 이야기](../career/tac-photos-develop-after)
+  - 집 인근에서 한인이 칼침을 맞음 -> 황급히 귀국, 당시 일하던 일본 회사에서 페이팔로 월급을 주어서 한국에서 일을 계속함
+- 넥슨에 입사
+  - 출퇴근 왕복 5시간
+  - 몇개월 채우지 못하고 퇴사 (고속 터미널 역을 왔다갔다 하는건 성격을 버리게 함)
+- 로그프레소에서 근무중 2018.11 ~
+  - angular
+  - typescript
+  - pure javascript
 
+## 관심
 
-## 스킬
-- Vue.js
+- react (개인 프로젝트는 react로 진행함)
+  - native
 - 서버리스
-- aws ( route53, ec, lambda... )
-- 클라우드 컴퓨팅 개발경험
-- Node.js
-- React Native with expo
-- Mongodb
-- Firebase
-- Javascript
-- 약간의 일본어와 영어
+  - firebase
+  - lambda
+- unity 게임 개발

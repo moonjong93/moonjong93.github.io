@@ -8,25 +8,27 @@ title : Welcome
 <br />
 <br />
 <div class="container">
-    <div calss="posts">
+    <ul class="posts">
         {% for post in paginator.posts %}
-        <div class="post">
-            <a href="{{ post.url }}"><h3 class="post-title">{{ post.title }}</h3></a>
-            <p class="post-subscript">{{ post.subscript }}</p>
-            <p class="post-date">{{ post.date | date: '%Y-%m-%d' }}</p>
-        </div>
+        <li class="post">
+			<a href="{{ post.url }}">
+				<h3 class="post-title">{{ post.title }}</h3>
+				<p class="post-subscript">{{ post.subscript }}</p>
+				<p class="post-date">{{ post.date | date: '%Y-%m-%d' }}</p>
+			</a>
+		</li>
         {% endfor %}
         <br />
         {%if paginator.previous_page  %}
-        <span class="paginator-button" style="float: left"><a href="{{ paginator.previous_page_path }}">PREV</a></span>
+        <span class="paginator-button" style="float: left"><a href="{{ paginator.previous_page_path }}"> 이전 </a></span>
         {% endif %}
         
         {%if paginator.next_page %}
-            <span class="paginator-button" style="float: right"><a href="{{ paginator.next_page_path }}"> NEXT </a></span>
+            <span class="paginator-button" style="float: right"><a href="{{ paginator.next_page_path }}"> 다음 </a></span>
         {% endif %}
         <br />
         <br />
-    </div>
+    </ul>
     <br />
     <br />
     <div class="lately">

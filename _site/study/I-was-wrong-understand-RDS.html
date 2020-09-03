@@ -11,14 +11,12 @@
     <meta property="og:title" content="MongoDb를 처음 접한 내가, 잘못이해했던 RDS">
     <meta property="og:description" content="Moonjong93의 블로그를 한눈에 볼 수 있습니다">
     <link rel="canonical" href="https://moonjong93.github.io">
-    
+	<link rel="stylesheet"
+	href="/assets/css/hljs/default.css">
+	<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.2/build/highlight.min.js"></script>
     <title>MongoDb를 처음 접한 내가, 잘못이해했던 RDS</title>
 </head>
 <body>
-<!-- <div class="info">
-    <span><img src="/assets/img/profile.png" width="35"></span>
-    <span>Moonjong - 블로그</span>
-</div> -->
 <div class="home">
     <a href="/">MoongJong93</a>
     <a href="/about">About</a>
@@ -206,7 +204,7 @@ RDS를 반대로 이해한것이다.</p>
 </footer>
     <script>
         document.addEventListener("DOMContentLoaded", function(){
-            document.getElementsByClassName('container')[0].style.opacity = 1;
+			hljs.initHighlightingOnLoad();
         });
     </script>
     <!-- Global site tag (gtag.js) - Google Analytics -->

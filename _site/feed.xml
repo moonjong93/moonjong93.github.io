@@ -1,4 +1,120 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.7.3">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2018-11-01T16:25:57+09:00</updated><id>/</id><title type="html">MoongJong93</title><subtitle>웹 개발에 관한 이야기, Node.js와 Vue.js를 사용하는 개발자</subtitle><entry><title type="html">타입스크립트 코리아 강좌 정리</title><link href="/study/hello-typescript" rel="alternate" type="text/html" title="타입스크립트 코리아 강좌 정리" /><published>2018-10-30T00:00:00+09:00</published><updated>2018-10-30T00:00:00+09:00</updated><id>/study/hello-typescript</id><content type="html" xml:base="/study/hello-typescript">&lt;h1 id=&quot;1-typescirpt-에-관하여&quot;&gt;1. Typescirpt 에 관하여&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.1.1">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2020-09-03T16:44:17+09:00</updated><id>/feed.xml</id><title type="html">MoongJong93</title><subtitle>웹 개발에 관한 이야기, Node.js와 Vue.js를 사용하는 개발자</subtitle><entry><title type="html">jekyll action</title><link href="/life/jekyll-action-test" rel="alternate" type="text/html" title="jekyll action" /><published>2020-09-03T00:00:00+09:00</published><updated>2020-09-03T00:00:00+09:00</updated><id>/life/jekyll-action-test</id><content type="html" xml:base="/life/jekyll-action-test">&lt;h2 id=&quot;빌드가-잘-된다면-블로그-글을-이어서-작성&quot;&gt;빌드가 잘 된다면 블로그 글을 이어서 작성&lt;/h2&gt;
+
+&lt;h1 id=&quot;jekyll-action&quot;&gt;jekyll action&lt;/h1&gt;
+
+&lt;p&gt;jekyll을 구성하는데 있어서 많은 불편함이 있다.&lt;/p&gt;
+
+&lt;p&gt;일단 gem 자체가 많은 permission을 요구하는것도 사실이고 설치하다가 중간에 잘못되면 그냥 블로그 안하게 되고&lt;/p&gt;
+
+&lt;p&gt;이게 한 2년은 된것 같다.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;내가 사용한 yml은 아래와 같다&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-yml&quot;&gt;name: Jekyll site CI
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Build the site in the jekyll/builder container
+      run: |
+        docker run \
+        -v $:/srv/jekyll -v $/_site:/srv/jekyll/_site \
+        jekyll/builder:latest /bin/bash -c &quot;chmod 777 /srv/jekyll &amp;amp;&amp;amp; jekyll build --future&quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;이렇게 놓고 푸시를 하면 알아서 당겨 간다.&lt;/p&gt;
+
+&lt;p&gt;위의 구문은 별도의 공부 없이고 대충 이해할 수 있는 수준이라서 별도의 설명은 안해도 될것 같다.&lt;/p&gt;
+
+&lt;p&gt;아무튼 블로그는 그냥 계속 깃헙에 작성 하는걸로 해야겠다.&lt;/p&gt;</content><author><name></name></author><category term="jekyll" /><category term="github action" /><summary type="html">빌드가 잘 된다면 블로그 글을 이어서 작성</summary></entry><entry><title type="html">어떻게 프리서버를 만드는것을 배웠는지</title><link href="/lie/how-to-learn-open-free-server" rel="alternate" type="text/html" title="어떻게 프리서버를 만드는것을 배웠는지" /><published>2020-09-03T00:00:00+09:00</published><updated>2020-09-03T00:00:00+09:00</updated><id>/lie/how-to-learn-open-free-server</id><content type="html" xml:base="/lie/how-to-learn-open-free-server">&lt;p&gt;프리서버 운영은 엄연한 불법 행위 입니다.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;저작권법 제101조의4(프로그램코드역분석) ① 정당한 권한에 의하여 프로그램을 이용하는 자 또는 그의 허락을 받은 자는 호환에 필요한 정보를 쉽게 얻을 수 없고 그 획득이 불가피한 경우에는 해당 프로그램의 호환에 필요한 부분에 한하여 프로그램의 저작재산권자의 허락을 받지 아니하고 프로그램코드역분석을 할 수 있다.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;라고 &lt;a href=&quot;https://namu.wiki/w/%ED%94%84%EB%A6%AC%EC%84%9C%EB%B2%84&quot;&gt;나무위키&lt;/a&gt;에서 설명하고 있습니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;프리서버라는-말을-접하게된-계기&quot;&gt;프리서버라는 말을 접하게된 계기&lt;/h2&gt;
+
+&lt;p&gt;초등학교 시절 거상에 흠뻑빠져 있었다. 사냥에는 흥미가 없고 하루종일 짐꾼과 돌아다니면서 벼를 팔아 시세 차익을 내거나 한양에서 장사를 하거나 하는 행위를 주로 했다.&lt;/p&gt;
+
+&lt;p&gt;장사를 계속 하다보니까 자연스레 친구가 많이 생겼는데 어느날 한 사람이 나에게 ‘프리서버’라는걸 해본적이 있냐고 물었다. 나는 당시 프리서버라는 것에 대해서 아니 프리라는 단어 자체를 영어로 쓰지 못할정도로 어린 나이 이기 때문에 그의 이야기에 흠뻑 빠졌다.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;레벨업은 내가 원하는대로 마음대로&lt;/li&gt;
+  &lt;li&gt;내가 가지고 싶은 장비도 마음대로&lt;/li&gt;
+  &lt;li&gt;그냥 게임 자체를 내 마음대로&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;초등학교-3학년-폭풍-검색-시작&quot;&gt;초등학교 3학년 폭풍 검색 시작&lt;/h2&gt;
+
+&lt;p&gt;정확히 어떤 엔진을 사용해서 검색한지는 잘 기억이 안나지만 몇개 추려 보자면&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;인포마스터? (이제는 존재하지도 않는 검색 사이트)&lt;/li&gt;
+  &lt;li&gt;네이버 (전혀 나오지 않음)&lt;/li&gt;
+  &lt;li&gt;다음&lt;/li&gt;
+  &lt;li&gt;파란&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;등을 사용해 검색을 몇달간 계속 했다.&lt;/p&gt;
+
+&lt;p&gt;그러나 초등학교 3학년의 통찰력과 이해로 무엇을 할 수 있으리.. 나는 당연히 프리서버를 구현하지 못했다.&lt;/p&gt;
+
+&lt;h2 id=&quot;그렇게-2년뒤-피씨방에서-라그나로크-프리서버를-하는-형들을-발견&quot;&gt;그렇게 2년뒤 피씨방에서 라그나로크 프리서버를 하는 형들을 발견&lt;/h2&gt;
+
+&lt;p&gt;아직도 기억이 난다 그 형들의 레벨업소리가 타탁! 한 마리를 잡으니 레벨이 바로 40이 되는걸 보고 말았다. 나는 불현듯 이게 프리서버라는 거구나라는 생각을 했고 뒤에서 하염없이 지켜봤다.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;야 저리가&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;나보고 거의 꺼지라는 수준의 말로 저리가라고 했지만 저 멀리서 계속 지켜봤다.&lt;/p&gt;
+
+&lt;p&gt;그리고 그현들이 오는 시간에 맞춰서 피씨방에 출근했다..&lt;/p&gt;
+
+&lt;p&gt;그리고 며칠 음료수를 형들의 책상에 두고 뒤에서 지켜보았다.&lt;/p&gt;
+
+&lt;p&gt;그렇게 한 일주일이 지나고 나도 드디어 형들의 프리서버에 들어갈 수 있는 자격이 생겼다.&lt;/p&gt;
+
+&lt;p&gt;그들은 프리서버를 운영하고 있었고 가끔 피씨방에 와서 둘이서 이것저것 게임을 고치면서 노는 학생이었다.&lt;/p&gt;
+
+&lt;h2 id=&quot;어떻게-구현하는지-배워야-했다&quot;&gt;어떻게 구현하는지 배워야 했다&lt;/h2&gt;
+
+&lt;p&gt;나에게는 7살 많은 형이 있었는데 내가 피씨방에서 보고 온것을 형은 믿지 못했다. 아니 게임을 참가 했다고 해도 형은 무슨 개소리냐며 비아냥대기 바뻤고 급기야 아버지에게 피씨방에 가지 못하게 하라고 얘기하기 시작했다.&lt;/p&gt;
+
+&lt;p&gt;오기로 이것을 배워 형하고 피씨방에 갔을대 내가 구현한것을(? 내가 구현한것은 없는데..) 보여줘야만 했다.&lt;/p&gt;
+
+&lt;p&gt;그로부터 피씨방에 조금 더 일찍 가기 시작했다.&lt;/p&gt;
+
+&lt;p&gt;옆에서 형들이 하는것을 보고 따라하고 그렇게 읿주일 나도 통파일(구현이 전부 담겨있는 팩? 같은 것)을 어떻게 구하는지와 어떻게 서버를 여는지를 배우게 되었다.&lt;/p&gt;
+
+&lt;p&gt;내 기억이 맞다면.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;mysql을 통해 db서버를 연다&lt;/li&gt;
+  &lt;li&gt;내 서버 주소를 어떤 메모장에 옮겨 적는다.&lt;/li&gt;
+  &lt;li&gt;통파일 압축해제&lt;/li&gt;
+  &lt;li&gt;통파일에서 나온 .bat 실행 또는 cmd에서 무슨 명령어를 입력&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;이렇게 하면 내 서버가 열리고 실행은 또 그냥 안되고 통파일에서 나온 압축 해제된 클라이언트 폴더에 가서 세팅을 바꿔줘야 한다.&lt;/p&gt;
+
+&lt;p&gt;아무튼 이렇게 해서 라그나로크 프리서버를 여는 방법을 배웠고 이후에 리니지, 바람의 나라 등을 중학교때 까지 한번 한번씩 열었었다.&lt;/p&gt;
+
+&lt;p&gt;그런데 내가 성인이 되서도 mysql을 만질줄이야!&lt;/p&gt;</content><author><name></name></author><category term="자랑 아님" /><category term="엄연한 불법 행위" /><summary type="html">프리서버 운영은 엄연한 불법 행위 입니다.</summary></entry><entry><title type="html">타입스크립트 코리아 강좌 정리</title><link href="/study/hello-typescript" rel="alternate" type="text/html" title="타입스크립트 코리아 강좌 정리" /><published>2018-10-30T00:00:00+09:00</published><updated>2018-10-30T00:00:00+09:00</updated><id>/study/hello-typescript</id><content type="html" xml:base="/study/hello-typescript">&lt;h1 id=&quot;1-typescirpt-에-관하여&quot;&gt;1. Typescirpt 에 관하여&lt;/h1&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;tpyscript 는 자바스크립트를 포함한 프로그래밍 언어&lt;/p&gt;
@@ -1621,7 +1737,7 @@ RDS를 반대로 이해한것이다.&lt;/p&gt;
 &lt;h2 id=&quot;그래서&quot;&gt;그래서&lt;/h2&gt;
 &lt;p&gt;일단 함 써보세요 진짜 Rule만 잘 이해하면 이만한 서버리스 프로젝트가 없을겁니다.&lt;/p&gt;
 
-&lt;p&gt;그러나 최근 AWS에 &lt;a href=&quot;https://aws.amazon.com/ko/appsync/&quot;&gt;AppSync&lt;/a&gt;가 GraphQL을 도입해 비슷한 서비스를 하고 있으니 한번 찾아보시는 것도 추천합니다.&lt;/p&gt;</content><author><name></name></author><category term="서버리스" /><category term="Firebase" /><category term="Firestore" /><summary type="html">순서 Firebase의 등장 배경 그래서 등장한 Firestore</summary></entry><entry><title type="html">Tac.photos를 개발이야기 - 배운게 많다</title><link href="/career/tac-photos-develop-after" rel="alternate" type="text/html" title="Tac.photos를 개발이야기 - 배운게 많다" /><published>2018-04-23T00:00:00+09:00</published><updated>2018-04-23T00:00:00+09:00</updated><id>/career/tac-photos-develop-after</id><content type="html" xml:base="/career/tac-photos-develop-after">&lt;h2 id=&quot;시작하기-앞서&quot;&gt;시작하기 앞서&lt;/h2&gt;
+&lt;p&gt;그러나 최근 AWS에 &lt;a href=&quot;https://aws.amazon.com/ko/appsync/&quot;&gt;AppSync&lt;/a&gt;가 GraphQL을 도입해 비슷한 서비스를 하고 있으니 한번 찾아보시는 것도 추천합니다.&lt;/p&gt;</content><author><name></name></author><category term="개발일지" /><category term="서버리스" /><category term="Firebase" /><category term="Firestore" /><summary type="html">순서 Firebase의 등장 배경 그래서 등장한 Firestore</summary></entry><entry><title type="html">Tac.photos를 개발이야기 - 배운게 많다</title><link href="/career/tac-photos-develop-after" rel="alternate" type="text/html" title="Tac.photos를 개발이야기 - 배운게 많다" /><published>2018-04-23T00:00:00+09:00</published><updated>2018-04-23T00:00:00+09:00</updated><id>/career/tac-photos-develop-after</id><content type="html" xml:base="/career/tac-photos-develop-after">&lt;h2 id=&quot;시작하기-앞서&quot;&gt;시작하기 앞서&lt;/h2&gt;
 &lt;p&gt;올해에 들어 SPA를 접하고 여러가지 개발을 하면서 꼭 개인프로젝트 하나를 해야겠다는 생각을 했다. 시작은 정말 거대 했다.&lt;/p&gt;
 
 &lt;p&gt;애초에 계획은&lt;/p&gt;
@@ -1756,7 +1872,7 @@ RDS를 반대로 이해한것이다.&lt;/p&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;이번 프로젝트로 정말 많은걸 배웠다.&lt;/p&gt;
-&lt;/blockquote&gt;</content><author><name></name></author><category term="Node.js" /><category term="S3" /><category term="Lambda" /><category term="vue.js" /><summary type="html">시작하기 앞서 올해에 들어 SPA를 접하고 여러가지 개발을 하면서 꼭 개인프로젝트 하나를 해야겠다는 생각을 했다. 시작은 정말 거대 했다.</summary></entry><entry><title type="html">AWS의 S3에 CNAME을 연결하기</title><link href="/AWS/how-to-Interlink-s3-and-cname" rel="alternate" type="text/html" title="AWS의 S3에 CNAME을 연결하기" /><published>2018-03-29T00:00:00+09:00</published><updated>2018-03-29T00:00:00+09:00</updated><id>/AWS/how-to-Interlink-s3-and-cname</id><content type="html" xml:base="/AWS/how-to-Interlink-s3-and-cname">&lt;h2 id=&quot;왜&quot;&gt;왜?&lt;/h2&gt;
+&lt;/blockquote&gt;</content><author><name></name></author><category term="커리어" /><category term="Node.js" /><category term="S3" /><category term="Lambda" /><category term="vue.js" /><summary type="html">시작하기 앞서 올해에 들어 SPA를 접하고 여러가지 개발을 하면서 꼭 개인프로젝트 하나를 해야겠다는 생각을 했다. 시작은 정말 거대 했다.</summary></entry><entry><title type="html">AWS의 S3에 CNAME을 연결하기</title><link href="/AWS/how-to-Interlink-s3-and-cname" rel="alternate" type="text/html" title="AWS의 S3에 CNAME을 연결하기" /><published>2018-03-29T00:00:00+09:00</published><updated>2018-03-29T00:00:00+09:00</updated><id>/AWS/how-to-Interlink-s3-and-cname</id><content type="html" xml:base="/AWS/how-to-Interlink-s3-and-cname">&lt;h2 id=&quot;왜&quot;&gt;왜?&lt;/h2&gt;
 &lt;p&gt;버킷을 처음 생성해 그 도메인 그대로 사용하면 상당히 긴 도메인이 나온다. 내가 만들고 있는 프로젝트에 이미지를 공유하는게 주된 목적인데 EX)https://s3.amazonaws.com/test.tac.photos/DASNKFDSANf134ia9s90fd.jpeg 이렇게나 긴 도메인은 보기도 힘들고 복사해서도 길이가 너무 길어서 편하자고 사용한 내 웹사이트에서 오히려&lt;/p&gt;
 
 &lt;blockquote&gt;
@@ -1814,97 +1930,4 @@ RDS를 반대로 이해한것이다.&lt;/p&gt;
   &lt;p&gt;만약 기존에 사용중인 S3 버킷이 있다면.&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;그러나 제일 처음부터 한다면 위에 나와있는 대로 하는게 좋을것 같다.&lt;/p&gt;</content><author><name></name></author><category term="AWS" /><category term="S3" /><category term="DNS" /><summary type="html">왜? 버킷을 처음 생성해 그 도메인 그대로 사용하면 상당히 긴 도메인이 나온다. 내가 만들고 있는 프로젝트에 이미지를 공유하는게 주된 목적인데 EX)https://s3.amazonaws.com/test.tac.photos/DASNKFDSANf134ia9s90fd.jpeg 이렇게나 긴 도메인은 보기도 힘들고 복사해서도 길이가 너무 길어서 편하자고 사용한 내 웹사이트에서 오히려</summary></entry><entry><title type="html">Google의 WEBP는 이미지의 용량을 얼마나 줄여줄까?</title><link href="/development/serverless/Google-webp-how-many-less" rel="alternate" type="text/html" title="Google의 WEBP는 이미지의 용량을 얼마나 줄여줄까?" /><published>2018-03-12T00:00:00+09:00</published><updated>2018-03-12T00:00:00+09:00</updated><id>/development/serverless/Google-webp-how-many-less</id><content type="html" xml:base="/development/serverless/Google-webp-how-many-less">&lt;h2 id=&quot;google-webp란&quot;&gt;Google WEBP란?&lt;/h2&gt;
-&lt;p&gt;Google에서 독자적으로 만든 이미지 확장자를 뜻한다, 자세한 내용은 &lt;a href=&quot;https://ko.wikipedia.org/wiki/WebP&quot;&gt;위키피디아&lt;/a&gt;에서 확인 가능하다.&lt;/p&gt;
-
-&lt;p&gt;간단히 정리하자면 VP8 영상 코덱 기술을 활용해 이미지의 용량을 기존 .jepg에 비하여 약 10~80%까지 줄여주는 새로운 이미지 확장자를 말한다&lt;/p&gt;
-&lt;blockquote&gt;
-  &lt;p&gt;그러나 2010년에 개발되어 벌써 8년이란 시간이 흘렀기에…&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h2 id=&quot;용량을-신경써야하는-이유&quot;&gt;용량을 신경써야하는 이유&lt;/h2&gt;
-&lt;p&gt;일반적인 블로그나, 웹서비스를 만든다면 물론 전혀 신경쓰지 않아도 될 부분일것 같다. 하지만 내가 지금 만들고 있는 서비스는 용량에 상당히 민감하기 때문에 나 역시 서버 비용을 부담해야하는 개인 개발자 입장에선 당연 용량을 신경 쓸 수밖에 없었다.&lt;/p&gt;
-
-&lt;p&gt;이미지를 불러오거나 갤러리형식으로 만들 수 있으며 내가 올리고 싶은 이미지를 얼마든지 올릴 수 있는 그런 형식의 웹을 만들고 있는데,&lt;/p&gt;
-
-&lt;p&gt;대략적인 예측으로는 썸네일의 다운로드 수가 만약 100이라면 실제로 클릭하는 이미지는 약 2~5개 내외가 될 것 같았다.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;그러나 .png확장자 기준 250*166의 이미지 용량이 약 115kb에 달했다.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h2 id=&quot;어쩌면-적을-수-있는-용량&quot;&gt;어쩌면 적을 수 있는 용량&lt;/h2&gt;
-&lt;p&gt;115kb라고 해봤자 그렇게 큰 용량은 아님에 분명하다 하지만 이런 세세한 부분을 고민해야 아낄 수 있다고 생각했고&lt;/p&gt;
-
-&lt;p&gt;.jpeg이미지 확장자로 동일 이미지를 변경해보았다.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;16kb약 1/7이 절약되었다.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h2 id=&quot;그러나-나는-이것도-만족하기-싫었다&quot;&gt;그러나 나는 이것도 만족하기 싫었다.&lt;/h2&gt;
-&lt;p&gt;Node.js입문 이후 가장 오래 고민했던 것은&lt;/p&gt;
-&lt;blockquote&gt;
-  &lt;p&gt;어떻게 하면 내 서버를 적게 쓰게 만들까?&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;라는 고민이었다, 너무나도 싫었다 같은 데이터를 가져오기 위해 내 서버를 들락거리는 사용자를 보고만 있을 수 없었다..&lt;/p&gt;
-
-&lt;p&gt;이게 내가 처음 웹에 입문해서 했던 고민이었다, 당시 내가 알고 있던 유일한 기술은 ‘쿠키’하나 였는데 (Local Storage를 몰랐다) 저장해야 할 텍스트가 약 3만자가 넘었다, 이를 저장하기 위해 gzip으로 압축하고 그것도 모자라서 쿠키 사이사이에 쪼개서 넣었던 기억이 난다.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;그만큼 내 서버를 조금만 쓰게 하고 싶었다.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;그 고민은 아직도 마찬가지다&lt;/p&gt;
-
-&lt;h2 id=&quot;물론-서버는-이제-비싸지만은-않다&quot;&gt;물론 서버는 이제 비싸지만은 않다.&lt;/h2&gt;
-&lt;p&gt;서버는 점점 저렴해지고, 점점 빨라지며 편해지기 까지 하고 있다. 이런 고민은 어쩌면 별거 아닌 고민일 수 있다.&lt;/p&gt;
-
-&lt;p&gt;하지만 앞서 언급했던것과 마찬가지로 내가 진행하는 프로젝트에선 썸네일이 가장 중요하지만 사용자는 직접적으로 썸네일을 다운받을 일이 없이 없기에 WEBP를 사용 하기로 했다.&lt;/p&gt;
-
-&lt;h2 id=&quot;그래서-webp는-동일-이미지-용량이-얼마나-줄었나&quot;&gt;그래서 WEBP는 동일 이미지 용량이 얼마나 줄었나?&lt;/h2&gt;
-&lt;p&gt;&lt;img src=&quot;/assets/img/postsImg/webp-how-many-less/one.png&quot; alt=&quot;비교 이미지&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;기존 .png 확장자 대비 약 1/12나 줄어든것을 확인 할 수 있었다. .jpeg 확장자 대비해서도 약 4kb가 줄어들며 확실히 효과적이었다.&lt;/p&gt;</content><author><name></name></author><category term="개발" /><category term="aws" /><category term="serverless" /><category term="image" /><summary type="html">Google WEBP란? Google에서 독자적으로 만든 이미지 확장자를 뜻한다, 자세한 내용은 위키피디아에서 확인 가능하다.</summary></entry><entry><title type="html">aws를 사용해 serverless 프로젝트를 구성하며 느낀점</title><link href="/development/serverless/serverless-with-amazon-make-some-problem" rel="alternate" type="text/html" title="aws를 사용해 serverless 프로젝트를 구성하며 느낀점" /><published>2018-03-01T00:00:00+09:00</published><updated>2018-03-01T00:00:00+09:00</updated><id>/development/serverless/serverless-with-amazon-make-some-problem</id><content type="html" xml:base="/development/serverless/serverless-with-amazon-make-some-problem">&lt;h2 id=&quot;serverless&quot;&gt;Serverless?&lt;/h2&gt;
-&lt;p&gt;서버리스란 말 그대로 서버가없는 서비스를 구성하는 프로젝트를 말한다 나는 현재 lambda를 사용해 개발을 하고 있으며 서버리스 프레임워크 serverless http를 이용해 개발을 하고 있다.&lt;/p&gt;
-
-&lt;h2 id=&quot;맞닦드린-문제들&quot;&gt;맞닦드린 문제들&lt;/h2&gt;
-&lt;p&gt;이번은 es6(es2015)를 사용해 개발을 하고있다 특히 프론트도 vue로 하다보니 es6에 익숙해지는게 필요했다. babel을 사용해 dev프로젝트로 서비스를 가동하면 아무런 문제도 없던게 serverless-http사용해 aws lambda에 업로드하면 {forbidden:none} 에러를 뿜기 시작햇다.&lt;/p&gt;
-
-&lt;p&gt;문제를 찾기위해 열심히 뒤졌지만 생각보다 관련 정보는 나오지 않았는데, 정말 사소한 이유였다 aws lambda는 es6문법에서 async await를 적용하지 않는다는 점이다,&lt;/p&gt;
-
-&lt;p&gt;그렇다 모든 코드를 바꿔야했다.&lt;/p&gt;
-
-&lt;p&gt;그 밖에도 mongodb의 연결이 안되어서 문제가 생긴경우도 있는데 이는 config파일을 제대로 읽지 못해 발생했다.&lt;/p&gt;
-
-&lt;p&gt;exports.~~~라는 문법을 사용해서 해당 문제가 발생했다.&lt;/p&gt;
-
-&lt;p&gt;나름 엄격한 체제를 가지고 있기 때문에 기존에 가동되던 코드도 lambda에 업로드를 하면 안되는 경우가 너무 많았다. 아무튼 지금은 어느정도 중심을 잡은것 같다&lt;/p&gt;
-
-&lt;h2 id=&quot;route53을-설정하기&quot;&gt;Route53을 설정하기.&lt;/h2&gt;
-&lt;p&gt;쉽지 않은 일이었다. 그냥 배포된 주소로 접근하면 정말 잘 되던게 꼭 api.pikiidea.com이라고 쓰면 forbidden… 구글링 결과 api의 키를 줘야한다 뭘 해야한다 이걸 해야한다…..~~ 그러나 나의 실수는 serverless-http의 공식문서를 제대로 안 읽어서 생긴 문제였다.
-&lt;a href=&quot;https://serverless.com/blog/serverless-api-gateway-domain/&quot;&gt;serverless-http에서 도메인을 설정하기&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;여기서 잘 읽어보면 us-east-01에서만 작동한다고 잠깐 언급이 되는데 이 부분을 제대로 읽지않아 하루를 왜 안돼지? 왜???? 도쿄리전 때문이라는 것을 알기 까지 생각보다 긴~시간을 보냈다.&lt;/p&gt;
-
-&lt;h2 id=&quot;그럼에도-serverless&quot;&gt;그럼에도 serverless&lt;/h2&gt;
-&lt;p&gt;서버리스를 처음 접한건 firebase functions를 사용하면서 였다, 당시에 간단한 정보를 크롤링해서 가져오는게 필요했는데 서버를 구성하기에는 귀찮고, 귀찮은것 만이 아니라 관리도 해야하기에 정말로 하기가 싫었다.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;blockquote&gt;
-    &lt;p&gt;그래서 발견하게 된것은 firebase functions&lt;/p&gt;
-  &lt;/blockquote&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;몇줄의 코드만으로 내가 원하는 기능을 추가할 수 있었다. 가령 이미지의 리사이즈나 업로드까지도 간편하게 추가가 가능했다.&lt;/p&gt;
-
-&lt;p&gt;그 이후부터는 서버리스가 메인인 프로젝트를 해보고 싶었다.&lt;/p&gt;
-
-&lt;h2 id=&quot;serverless의-유지보수는-간단하다&quot;&gt;serverless의 유지보수는 간단하다&lt;/h2&gt;
-&lt;p&gt;예전에 vultr를 사용해서 서버를 가동할땐 간혹 오류가 생기면 서버가 뻣어버리는 경우가 잦았다. 나같은 개인 개발자는 서버까지 신경쓰며 거기다가 디자인까지 해야하는 경우인데 이런 경우가 생기면 그냥 프로젝트를 접고 싶은 마음이 점점 커져가고 포기한 프로젝트도 많아졌다.&lt;/p&gt;
-
-&lt;p&gt;아마도 그래서 서버리스를 배워보고 싶었던 생각이 강했던것 같다.&lt;/p&gt;
-
-&lt;h2 id=&quot;결론&quot;&gt;결론&lt;/h2&gt;
-&lt;p&gt;aws 에서 serverless-http를 사용해서 구성하시려면 그냥 리전을 es-east-01에서 하세요.&lt;/p&gt;</content><author><name></name></author><category term="개발" /><category term="aws" /><category term="serverless" /><summary type="html">Serverless? 서버리스란 말 그대로 서버가없는 서비스를 구성하는 프로젝트를 말한다 나는 현재 lambda를 사용해 개발을 하고 있으며 서버리스 프레임워크 serverless http를 이용해 개발을 하고 있다.</summary></entry></feed>
+&lt;p&gt;그러나 제일 처음부터 한다면 위에 나와있는 대로 하는게 좋을것 같다.&lt;/p&gt;</content><author><name></name></author><category term="개발일지" /><category term="AWS" /><category term="S3" /><category term="DNS" /><summary type="html">왜? 버킷을 처음 생성해 그 도메인 그대로 사용하면 상당히 긴 도메인이 나온다. 내가 만들고 있는 프로젝트에 이미지를 공유하는게 주된 목적인데 EX)https://s3.amazonaws.com/test.tac.photos/DASNKFDSANf134ia9s90fd.jpeg 이렇게나 긴 도메인은 보기도 힘들고 복사해서도 길이가 너무 길어서 편하자고 사용한 내 웹사이트에서 오히려</summary></entry></feed>

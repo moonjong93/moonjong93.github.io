@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" href="/assets/img/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <meta name="description" content="과연 이게 잘 되나">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="jekyll action">
+    <meta property="og:description" content="Moonjong93의 블로그를 한눈에 볼 수 있습니다">
+    <link rel="canonical" href="https://moonjong93.github.io">
+	<link rel="stylesheet"
+	href="/assets/css/hljs/default.css">
+	<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.2/build/highlight.min.js"></script>
+    <title>jekyll action</title>
+</head>
+<body>
+<div class="home">
+    <a href="/">MoongJong93</a>
+    <a href="/about">About</a>
+</div>
+<header>
+    <div class="title">
+        <h1>jekyll action</h1>
+        <p>2020-09-03</p>
+    </div>
+</header>
+<div class="container">
+    <article class="post-content">
+        <h2 id="빌드가-잘-된다면-블로그-글을-이어서-작성">빌드가 잘 된다면 블로그 글을 이어서 작성</h2>
+
+<h1 id="jekyll-action">jekyll action</h1>
+
+<p>jekyll을 구성하는데 있어서 많은 불편함이 있다.</p>
+
+<p>일단 gem 자체가 많은 permission을 요구하는것도 사실이고 설치하다가 중간에 잘못되면 그냥 블로그 안하게 되고</p>
+
+<p>이게 한 2년은 된것 같다.</p>
+
+<hr />
+
+<p>내가 사용한 yml은 아래와 같다</p>
+
+<pre><code class="language-yml">name: Jekyll site CI
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Build the site in the jekyll/builder container
+      run: |
+        docker run \
+        -v $:/srv/jekyll -v $/_site:/srv/jekyll/_site \
+        jekyll/builder:latest /bin/bash -c "chmod 777 /srv/jekyll &amp;&amp; jekyll build --future"
+</code></pre>
+
+<p>이렇게 놓고 푸시를 하면 알아서 당겨 간다.</p>
+
+<p>위의 구문은 별도의 공부 없이고 대충 이해할 수 있는 수준이라서 별도의 설명은 안해도 될것 같다.</p>
+
+<p>아무튼 블로그는 그냥 계속 깃헙에 작성 하는걸로 해야겠다.</p>
+
+    </article>
+    <footer>
+        <div class="tags">
+            
+            <span class="tag">
+                jekyll
+            </span>
+            
+            <span class="tag">
+                github action
+            </span>
+            
+        </div>
+        <br />
+        <div class="profile">
+    <img class="borderhalf" src="/assets/img/profile.png" alt="profile" width="40">
+    <p>' 게임 불감증이 있어 게임은 30분 밖에 못합니다 그때부터 였을까요.....프로그래밍을 시작한게 '</p>
+    <p>Node.js로 오버워치 데이터 제공 웹을 만들면서 웹 개발에 입문, Node.js, Vue.js를 사용해 웹 개발을 하고 있습니다</p>
+</div>
+        <br />
+        
+            <span class="arow"><a href="/lie/how-to-learn-open-free-server">▲ 이전 - 어떻게 프리서버를 만드는것을 배웠는지</a></span>
+        
+        
+    </footer>
+    <br />
+    <hr />
+    <br />
+    <div class="coment">
+        
+    </div>
+</div>
+<footer id="copy">
+    ⓒ 2017. Moonjong93 all rights reserved.
+</footer>
+    <script>
+        document.addEventListener("DOMContentLoaded", function(){
+			hljs.initHighlightingOnLoad();
+        });
+    </script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-111530519-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-111530519-1');
+</script>
+
+</body>
+</html>
