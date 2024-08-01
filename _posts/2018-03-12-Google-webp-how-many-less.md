@@ -5,7 +5,7 @@ subscript: "WEBP를 쓰면 얼마나 이-득일까?"
 tags: ["개발", "aws", "serverless", "image"]
 categories: "개발"
 comments: true
-permalink: /development/serverless/:title
+permalink: /develop/serverless/:title
 date: 2018/03/12
 ---
 

@@ -5,7 +5,7 @@ subscript: "성능 최적화의 길"
 tags: ["grid", "typescript"]
 categories: "개발"
 comments: true
-permalink: /development/blog/:title
+permalink: /develop/blog/:title
 date: 2022/12/20
 ---
 

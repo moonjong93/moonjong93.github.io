@@ -5,7 +5,7 @@ subscript: "Firebase의 새로운 데이터베이스"
 tags: ["서버리스", "Firebase", "Firestore"]
 categories: "개발"
 comments: true
-permalink: /development/:title
+permalink: /develop/:title
 date: 2018/06/25
 ---
 

@@ -5,7 +5,7 @@ subscript: "기능을 개선 시키기 위한 것들"
 tags: ["grid", "typescript"]
 categories: "개발"
 comments: true
-permalink: /development/blog/:title
+permalink: /develop/blog/:title
 date: 2023/03/02
 ---
 

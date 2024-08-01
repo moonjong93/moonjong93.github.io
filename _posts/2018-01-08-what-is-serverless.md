@@ -5,7 +5,7 @@ subscript: "firebase는 갓갓베이스입니다"
 tags: ["server", "pass", "google colud", "firebase"]
 categories: "개발"
 comments: true
-permalink: /development/tech/:title
+permalink: /develop/tech/:title
 date: 2018/01/08
 ---
 

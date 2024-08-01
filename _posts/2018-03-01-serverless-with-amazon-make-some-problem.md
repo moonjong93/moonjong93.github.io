@@ -5,7 +5,7 @@ subscript: "아니 리전때문에 안된다는게 말이 되냐고"
 tags: ["개발", "aws", "serverless"]
 categories: "개발"
 comments: true
-permalink: /development/serverless/:title
+permalink: /develop/serverless/:title
 date: 2018/03/01
 ---
 

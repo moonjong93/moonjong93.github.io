@@ -5,7 +5,7 @@ subscript: "SDK화 하면서 겪은 고충"
 tags: ["grid", "typescript"]
 categories: "개발"
 comments: true
-permalink: /development/blog/:title
+permalink: /develop/blog/:title
 date: 2022/12/20
 ---
 

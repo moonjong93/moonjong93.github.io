@@ -1,4 +1,58 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-08-01T16:20:33+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">종민</title><subtitle>개발로그 및 일상</subtitle><entry><title type="html">심심한 블로그 2.0</title><link href="http://localhost:4000/%EA%B0%9C%EB%B0%9C/rebuild-blog/" rel="alternate" type="text/html" title="심심한 블로그 2.0" /><published>2023-03-09T00:00:00+09:00</published><updated>2023-03-09T00:00:00+09:00</updated><id>http://localhost:4000/%EA%B0%9C%EB%B0%9C/rebuild-blog</id><content type="html" xml:base="http://localhost:4000/%EA%B0%9C%EB%B0%9C/rebuild-blog/"><![CDATA[<h2 id="블로그를-개편하자">블로그를 개편하자</h2>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-08-01T22:53:17+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">종민</title><subtitle>개발로그 및 일상</subtitle><entry><title type="html">플루터로 앱을 개발하면 어떨끼?</title><link href="http://localhost:4000/develop/%ED%94%8C%EB%A3%A8%ED%84%B0%EB%A1%9C-%EA%B0%9C%EB%B0%9C%ED%95%98%EB%A9%B0-%EB%8A%90%EB%82%80%EC%A0%90" rel="alternate" type="text/html" title="플루터로 앱을 개발하면 어떨끼?" /><published>2024-08-01T00:00:00+09:00</published><updated>2024-08-01T00:00:00+09:00</updated><id>http://localhost:4000/develop/%ED%94%8C%EB%A3%A8%ED%84%B0%EB%A1%9C-%EA%B0%9C%EB%B0%9C%ED%95%98%EB%A9%B0-%EB%8A%90%EB%82%80%EC%A0%90</id><content type="html" xml:base="http://localhost:4000/develop/%ED%94%8C%EB%A3%A8%ED%84%B0%EB%A1%9C-%EA%B0%9C%EB%B0%9C%ED%95%98%EB%A9%B0-%EB%8A%90%EB%82%80%EC%A0%90"><![CDATA[<h2 id="플루터로-무엇을-했는가">플루터로 무엇을 했는가?</h2>
+
+<p>두개의 앱을 안드로이드 마켓에 올려 출시했다.
+하나의 앱은 yolkTalk 지금보면 부끄럽지만 처음 sqlite를 접하고 이런 저런 기능도 생각하며 만들었는데 하다보니 이런게 좋을것 같고 저게 좋을것 같고 여러가지 생각이 들다가 일단 올해안에 하나라도 출시해보자 라는 생각으로 달렸고 마무리 하게되었다.
+단순한 메모앱인데 나는 가끔 카카오톡에서 내방에서 메모를 하곤하는데 그것을 위해서 만들었다.</p>
+
+<p>또 다른 하나는 MBTI-모여라 순전히 어그로성 앱 같지만 과연 나는 어느정도 I이고 어느정도 E인가가 궁금해져서 만들기 시작했다. 그러다 앱이 허전해보였고 커뮤니티로 방향을 틀어서 Supabase를 써서 서버사이드를 개발 했는데 과연 사용자가 있을지는 잘 모르겠다.</p>
+
+<h2 id="플루터를-사용-하며-느낀점">플루터를 사용 하며 느낀점</h2>
+
+<h3 id="편리하다">편리하다</h3>
+
+<p>말 그대로다 편리하다. 일단 개발 환경을 갖추는데 정말 대애충 가이드만 대애충 보고 따라해도 된다. 심지어 <code>VSCODE</code>를 사용한다면 더 쉽게 개발이 가능하다 그냥 확장 프로그램 깔고 가상 에뮬레이터만있으면 F5누르고 바로 시작이 가능한정도.</p>
+
+<h3 id="개발이-쉽다">개발이 쉽다</h3>
+
+<p>나는 프론트엔드 개발자로서 약간의 C# 경험이 있는 개발자이다. 나의 관점에서 본다면 위젯의 구조만 이해한다면 누구나 개발하기 쉽다고할 수 있다. 거기다가 <code>ChatGPT</code>와 같은 도구를 이용한다면 더욱 쉽게 개발할 수 있다. 이건 정말 큰 장점인것 같다.</p>
+
+<h3 id="디버그도-쉽다">디버그도 쉽다</h3>
+
+<p>개발을 하다보면 항상 마주치는 디버그 문제에서 정말 자유롭다 그냥 <code>VSCODE</code>에서 해당 구문에 브레이크를 걸고 <code>console</code>에 해당 멤버 변수를 부른다던가 하는 모든 동작이 가능하기에 디버그도 쉽다.</p>
+
+<h3 id="이것저것-다준다">이것저것 다준다</h3>
+
+<p>다준다고 표현하는게 맞을지는 모르지만 일단 <code>Flutter</code>는 거의 모든 기능을 다 포함하고 있다. 아마 <code>React native</code>를 사용해봤다면 알겠지만 상당히 많은 부분을 직접 설치해야한다. 이것은 정말 큰 편안함이다. 대부분의 위젯이 준비되었다. 대부분의 기능도 준비되어있다. <code>navigation</code>부터 내가 개발하며 필요한 모든 기본 도구가 주어져서 그것만 생각하면서 개발을 하면된다.</p>
+
+<h3 id="dart는-굳이-배워야할까">Dart는 굳이 배워야할까..</h3>
+
+<p>차라리 <code>GO</code>나 <code>Rust</code>같이 요즘 유행타는 언어라면 모를까. 굳이 <code>Flutter</code>하나 만을 위해서 <code>Dart</code>를 배워야한다는 것은 별로 좋은 선택은 아닌것 같다. 오히려 깊이있게 <code>Javascript</code>를 파본다거나 하는게 더 미래에 있어서 좋을것 같은데 굳이 하나의 공부 방향을 늘리는것은 좋은것 같지 않다. 어디까지나 나는 프론트엔드 개발자로서 드는 생각이다.</p>
+
+<h2 id="앞으로-플루터를-쓸-의향이-있는지">앞으로 플루터를 쓸 의향이 있는지?</h2>
+
+<p>이 부분이 정말 고민이 많이 되는 부분이다. <code>Flutter</code>를 사용해서 처음 개발을 진행하면서 새로운 언어도 사용하고 새로운 위젯의 구조를 보면서</p>
+
+<blockquote>
+  <p>내가 그동안 생각했던 개발과는 또 많이 다른 재미가 있네…</p>
+</blockquote>
+
+<p>라는 생각을 했었다. 그러나 개발하면 개발할수록 고민이 많이 되는 부분이다. 내가 고민하는 포인트는 아래와 같다.</p>
+
+<ul>
+  <li>나의 커리어와 연관이 있을까?</li>
+  <li>과연 개발 생산성이 빠른것일까?</li>
+  <li><code>Dart</code>를 또 써먹을 곳이 있을까?</li>
+</ul>
+
+<p>물론 깊이있게 사용해본것은 아니라서 그렇게 큰 고민을 할 필요는 없을지도 모르지만. 만약 내가 프론트엔드 개발자로서 개발을 하다가 <code>React Native</code>로 앱을 만든 경험이 있다면 분명 비슷한 부분도 많을것이고 또 사용하면서 이점도 많을것이다 하지만 <code>Flutter</code>는 그렇지 않다.</p>
+
+<p>개발 생산성 자체는 정말 빠르지만 고민해야할 부분이있다. 나는 정말 간단한 앱을 위주로 만들었다는 점이다. 처음에 속도를 받아 앱의 프로토타입까지 뽑는건 정말 빠르다. 정말 놀랄정도니까 그러나 앱의 크기가 커지면 커질수록 고민을 해야하는 부분이 많다. 전역으로 상태를 관리한다거나, 데이터를 처리하는 과정이나 기타 등등 이런 부분들을 파고들다 보면 <code>Bloc</code> 이라던지 어떤 키워드들을 보게 되는데 아무래도 사용자가 많아서 이미 성숙한 <code>React</code>에 비하면 아쉬움이 많은 부분이다.</p>
+
+<p>마지막으로 Dart를 써먹을 만한 곳이 있을까? 지금은 Web도 어느정도 커버할 수 있다고는 하지만 그렇게 생각해보면 <code>C# Blazor</code>나 <code>C#의 Xamarin</code>과 같이 정말 기대되던 프레임워크들이 있었다. Dart도 그런 부분이지 않을까? 근데 딱히 <code>Dart</code>를 다른곳에 쓸만한 곳은 없다. 그러나 <code>C#</code>을 공부한다면 Unity도 해볼 수 있고 윈도우의 확장 프로그램도 만들어볼 수 있다. 하지만 아직까지 <code>Dart</code>는 크게 사용할 곳이 없다.</p>
+
+<h3 id="그래서-쓴다는건지">그래서 쓴다는건지…</h3>
+
+<p>아마도 쓸것 같다. 아예 안쓰지는 않을것 같은데 정말 간단한 앱에 한해서는 계속해서 사용할것 같다. 기본적으로 제공하는 위젯이 너무 매력이있고 개발 시간을 단축시켜준다. 그러나 앱의 크기가 커지고 무거워 진다면 많이 고민해볼것 같다.</p>]]></content><author><name></name></author><category term="개발" /><summary type="html"><![CDATA[플루터로 무엇을 했는가?]]></summary></entry><entry><title type="html">심심한 블로그 2.0</title><link href="http://localhost:4000/%EA%B0%9C%EB%B0%9C/rebuild-blog/" rel="alternate" type="text/html" title="심심한 블로그 2.0" /><published>2023-03-09T00:00:00+09:00</published><updated>2023-03-09T00:00:00+09:00</updated><id>http://localhost:4000/%EA%B0%9C%EB%B0%9C/rebuild-blog</id><content type="html" xml:base="http://localhost:4000/%EA%B0%9C%EB%B0%9C/rebuild-blog/"><![CDATA[<h2 id="블로그를-개편하자">블로그를 개편하자</h2>
 
 <p>오래되고 오래되었다… 중간에 잠깐 그냥 노션에 하면 어떨까? 했지만 방문자 추적도 안되고 무엇보다 검색에 허용도 안되고.. 사실 재미도 없다. 그런 이유로 블로그를 개편해보자.</p>
 
@@ -28,7 +82,7 @@
 <ul class="task-list">
   <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />블로그 디자인 변경</li>
   <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />페이지네이션 없애기</li>
-</ul>]]></content><author><name></name></author><category term="개발" /><summary type="html"><![CDATA[블로그를 개편하자]]></summary></entry><entry><title type="html">그리드에 편집 기능 끼얹기</title><link href="http://localhost:4000/development/blog/added-edit-mode-on-grid" rel="alternate" type="text/html" title="그리드에 편집 기능 끼얹기" /><published>2023-03-02T00:00:00+09:00</published><updated>2023-03-02T00:00:00+09:00</updated><id>http://localhost:4000/development/blog/added-edit-mode-on-grid</id><content type="html" xml:base="http://localhost:4000/development/blog/added-edit-mode-on-grid"><![CDATA[<h2 id="목차">목차</h2>
+</ul>]]></content><author><name></name></author><category term="개발" /><summary type="html"><![CDATA[블로그를 개편하자]]></summary></entry><entry><title type="html">그리드에 편집 기능 끼얹기</title><link href="http://localhost:4000/develop/blog/added-edit-mode-on-grid" rel="alternate" type="text/html" title="그리드에 편집 기능 끼얹기" /><published>2023-03-02T00:00:00+09:00</published><updated>2023-03-02T00:00:00+09:00</updated><id>http://localhost:4000/develop/blog/added-edit-mode-on-grid</id><content type="html" xml:base="http://localhost:4000/develop/blog/added-edit-mode-on-grid"><![CDATA[<h2 id="목차">목차</h2>
 
 <ol>
   <li>왜 필요한가?</li>
@@ -123,7 +177,7 @@
 
 <ul>
   <li>그냥 javascript의 map을 사용했다면 어떨까?</li>
-</ul>]]></content><author><name></name></author><category term="개발" /><category term="grid" /><category term="typescript" /><summary type="html"><![CDATA[목차]]></summary></entry><entry><title type="html">어떤 컴포넌트가 사용하기 편헐까?</title><link href="http://localhost:4000/development/blog/what-components-easy-use" rel="alternate" type="text/html" title="어떤 컴포넌트가 사용하기 편헐까?" /><published>2022-12-20T00:00:00+09:00</published><updated>2022-12-20T00:00:00+09:00</updated><id>http://localhost:4000/development/blog/what-components-easy-use</id><content type="html" xml:base="http://localhost:4000/development/blog/what-components-easy-use"><![CDATA[<p>회사에서 angular-sdk를 맡아서 공통적으로 사용하는 컴포넌트를 sdk화 시키는 작업을 맡은지 1년이 좀 넘었다. 그동안 회사에서 사용하는 컴포넌트들을 리빌딩하면서 느낀점을 적어보려고 한다.</p>
+</ul>]]></content><author><name></name></author><category term="개발" /><category term="grid" /><category term="typescript" /><summary type="html"><![CDATA[목차]]></summary></entry><entry><title type="html">어떤 컴포넌트가 사용하기 편헐까?</title><link href="http://localhost:4000/develop/blog/what-components-easy-use" rel="alternate" type="text/html" title="어떤 컴포넌트가 사용하기 편헐까?" /><published>2022-12-20T00:00:00+09:00</published><updated>2022-12-20T00:00:00+09:00</updated><id>http://localhost:4000/develop/blog/what-components-easy-use</id><content type="html" xml:base="http://localhost:4000/develop/blog/what-components-easy-use"><![CDATA[<p>회사에서 angular-sdk를 맡아서 공통적으로 사용하는 컴포넌트를 sdk화 시키는 작업을 맡은지 1년이 좀 넘었다. 그동안 회사에서 사용하는 컴포넌트들을 리빌딩하면서 느낀점을 적어보려고 한다.</p>
 
 <ol>
   <li>이것도 있으면 편하겠지?</li>
@@ -213,7 +267,7 @@
 
 <h3 id="그래서-새로운-select는-어떻게-만들었는가">그래서 새로운 select는 어떻게 만들었는가</h3>
 
-<p>아주 간단하게 만들었다. <code>string[]</code> 타입을 받아서 그대로 드롭다운에 표시하고 그것을 클릭하면 클릭한 index를 전달하는 것이다. 오히려 나도 이렇게 사용해보니.. 이렇게 쓰는게 훨씬 편했다.</p>]]></content><author><name></name></author><category term="개발" /><category term="grid" /><category term="typescript" /><summary type="html"><![CDATA[회사에서 angular-sdk를 맡아서 공통적으로 사용하는 컴포넌트를 sdk화 시키는 작업을 맡은지 1년이 좀 넘었다. 그동안 회사에서 사용하는 컴포넌트들을 리빌딩하면서 느낀점을 적어보려고 한다.]]></summary></entry><entry><title type="html">가상 그리드 만들기</title><link href="http://localhost:4000/development/blog/why-made-grid-with-virtual-scroll" rel="alternate" type="text/html" title="가상 그리드 만들기" /><published>2022-12-20T00:00:00+09:00</published><updated>2022-12-20T00:00:00+09:00</updated><id>http://localhost:4000/development/blog/why-made-grid-with-virtual-scroll</id><content type="html" xml:base="http://localhost:4000/development/blog/why-made-grid-with-virtual-scroll"><![CDATA[<h3 id="데이터-그리드">데이터 그리드</h3>
+<p>아주 간단하게 만들었다. <code>string[]</code> 타입을 받아서 그대로 드롭다운에 표시하고 그것을 클릭하면 클릭한 index를 전달하는 것이다. 오히려 나도 이렇게 사용해보니.. 이렇게 쓰는게 훨씬 편했다.</p>]]></content><author><name></name></author><category term="개발" /><category term="grid" /><category term="typescript" /><summary type="html"><![CDATA[회사에서 angular-sdk를 맡아서 공통적으로 사용하는 컴포넌트를 sdk화 시키는 작업을 맡은지 1년이 좀 넘었다. 그동안 회사에서 사용하는 컴포넌트들을 리빌딩하면서 느낀점을 적어보려고 한다.]]></summary></entry><entry><title type="html">가상 그리드 만들기</title><link href="http://localhost:4000/develop/blog/why-made-grid-with-virtual-scroll" rel="alternate" type="text/html" title="가상 그리드 만들기" /><published>2022-12-20T00:00:00+09:00</published><updated>2022-12-20T00:00:00+09:00</updated><id>http://localhost:4000/develop/blog/why-made-grid-with-virtual-scroll</id><content type="html" xml:base="http://localhost:4000/develop/blog/why-made-grid-with-virtual-scroll"><![CDATA[<h3 id="데이터-그리드">데이터 그리드</h3>
 
 <p>어떤 데이터를 보여주기 위한 ‘표’ 테이블이라고도 할 수 있다.</p>
 
@@ -1924,144 +1978,4 @@ type Mutation {
   <p>네!</p>
 </blockquote>
 
-<p>당장 스텍오버플로우만 봐도 그렇듯 상당히 많은 수요가있다. 그리고 막상 사용해보니 처음 이해할때만 조금 어려웠고 막상 이해하고 나니 파일관리도 편하고 기본적으로 Apollo 라는 모듈을 사용할땐 서버를 별다른 설정을 하지 않아도 테스트할 수 있게 서버를 만들어줘서 상당히 편리했다.</p>]]></content><author><name></name></author><category term="개발" /><category term="graphql" /><category term="mysql" /><summary type="html"><![CDATA[Graphql은 무엇일까?]]></summary></entry><entry><title type="html">MongoDb를 처음 접한 내가, 잘못이해했던 RDS</title><link href="http://localhost:4000/study/I-was-wrong-understand-RDS" rel="alternate" type="text/html" title="MongoDb를 처음 접한 내가, 잘못이해했던 RDS" /><published>2018-07-13T00:00:00+09:00</published><updated>2018-07-13T00:00:00+09:00</updated><id>http://localhost:4000/study/I-was-wrong-understand-RDS</id><content type="html" xml:base="http://localhost:4000/study/I-was-wrong-understand-RDS"><![CDATA[<h2 id="mongodb를-접하다">MongoDb를 접하다</h2>
-
-<p>그랬다. MognoDb’이하 몽고디비’를 접했었다. 그것은 내가 샀던 Node.js 책에서 저자가 정말 너무나도 추천을 했었고 당시 유행했던 ‘MEAN STACK’ 프로젝트의 구성요소 때문이기도 했었다.</p>
-
-<p>몽고디비는 정말로 핫했고 지금도 물론 너무나도 좋은 데이터베이스임에 분명하다 NoSql중 단연 으뜸이기도 하다</p>
-
-<p>Oracle, Mysql, Ms Sql, PostgreSQL, MongoDb라는 순위를 <a href="https://db-engines.com/en/ranking">데이터베이스 랭킹</a>에서 확인 할 수 있다.</p>
-
-<h3 id="mongodb가-가진-장점의-이해">MongoDb가 가진 장점의 이해</h3>
-
-<p>나는 당시에 Nosql이 가진 가장 큰 장점은 ‘확장성’이라고 생각했다. 단지 확장성 하나 때문에 Mysql을 안사용하고 몽고디비를 써야겠다고 생각했다. 그러나 이것은 정말로 큰 오해였다.</p>
-
-<h2 id="mysql에-관심을-가지게된-계기부터">Mysql에 관심을 가지게된 계기부터</h2>
-
-<p>나는 사실 서버도 좋아하고 프론트엔드도 좋아하는 어쩌면 잡 개발자라고 할수 있다 사실 아직은 이렇다할 정체성을 가지지 못하고 있다. 두개다 재밌기 때문인데.</p>
-
-<p>최근 면접에서 단연코 많이 하는 질문은 ‘RDS’에 관한 이해였다.</p>
-
-<p>RDS는 중요했다. 웹을 지탱하는 데이터베이스 중 그것은 단연 으뜸이다.</p>
-
-<p>그러나 나는 사실 이런 RDS에 대해 자세히 이해하지 못했었는데 그것은 전혀 관심이 없기 때문이었다.</p>
-
-<p>그러나 다음 면접을 위해선 반드시 공부해야겠다고 생각했고 최근까지도 RDS로 토이프로젝트를 만들며 배워보고있다.</p>
-
-<h2 id="rds의-확장성">RDS의 확장성</h2>
-
-<p>정말 확장성이 없을까?</p>
-
-<blockquote>
-  <p>그렇다</p>
-</blockquote>
-
-<p>내 개념에선 적어도 그랬다. 왜냐면 애초에 테이블을 ‘설계’해야하고 이 테이블은 사실상 바뀌기 힘들었기 때문이다.</p>
-
-<p>Nosql을 예를 들자면 그냥 도큐먼트에 새로운 객체 하나만 추가하면 만들어지는 데이터베이스 와는 정반대로</p>
-
-<p>‘수정’을 해야한다고 생각했기 때문이다.</p>
-
-<blockquote>
-  <p>그러나 그것은 잘못된 이해였다.
-RDS를 반대로 이해한것이다.</p>
-</blockquote>
-
-<h2 id="데이터베이스의-정규화">데이터베이스의 정규화</h2>
-
-<p>‘정규화’를 이해하지 못했기 때문에 확장성이 없다고 판단한것이었다. 데이터베이스의 정규화란 몇가지의 형식이 있으며 정말로 간단하게 설명하자면</p>
-
-<p>기존에 내가 이해했던 RDS란 하나의 테이블의 모든 데이터를 꾸겨넣는다고 생각했다.</p>
-
-<p>예를 들어 성적에 관한 데이터베이스를 만든다면</p>
-
-<table>
-  <thead>
-    <tr>
-      <th>이름</th>
-      <th>국어</th>
-      <th>영어</th>
-      <th>수학</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>종민</td>
-      <td>100</td>
-      <td>90</td>
-      <td>100</td>
-    </tr>
-    <tr>
-      <td>준형</td>
-      <td>12</td>
-      <td>32</td>
-      <td>22</td>
-    </tr>
-  </tbody>
-</table>
-
-<p>와 같은 형식으로 만들었을 것이다.</p>
-
-<h3 id="그러나-정규화를-이해하고-나선-조금-달라진다">그러나 정규화를 이해하고 나선 조금 달라진다.</h3>
-
-<table>
-  <thead>
-    <tr>
-      <th>이름</th>
-      <th>id</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>종민</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <td>준형</td>
-      <td>0</td>
-    </tr>
-  </tbody>
-</table>
-
-<p>이라는 테이블을 하나 만들고</p>
-
-<table>
-  <thead>
-    <tr>
-      <th>pub_id</th>
-      <th>국어</th>
-      <th>영어</th>
-      <th>수학</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>0</td>
-      <td>100</td>
-      <td>90</td>
-      <td>100</td>
-    </tr>
-    <tr>
-      <td>1</td>
-      <td>12</td>
-      <td>32</td>
-      <td>22</td>
-    </tr>
-  </tbody>
-</table>
-
-<p>과 같이 만들것이다.</p>
-
-<p>pub_id란 위의 종민 준형의 id값을 가리키는 Foreign key’FK’가 된다.</p>
-
-<blockquote>
-  <p>즉 관계형 데이터베이스를 관계정 데이터베이스 답게 이해하게 된것이다.</p>
-</blockquote>
-
-<h2 id="이제는-확장성에-대해서-고민할-필요가-없다">이제는 확장성에 대해서 고민할 필요가 없다.</h2>
-
-<p>혹시 아직도 RDS의 확장성에 대해서 고민할 수 있을까? 절대로 그래선 안된다.</p>
-
-<blockquote>
-  <p>만약 내가 새로운 데이터를 추가하고 싶다면 원 테이블을 고민하는게 아니라 새로운 테이블을 만들어 관계를 추가하면 되기 때문이다.</p>
-</blockquote>]]></content><author><name></name></author><category term="개발" /><category term="RDS" /><category term="Mysql" /><summary type="html"><![CDATA[MongoDb를 접하다]]></summary></entry></feed>
+<p>당장 스텍오버플로우만 봐도 그렇듯 상당히 많은 수요가있다. 그리고 막상 사용해보니 처음 이해할때만 조금 어려웠고 막상 이해하고 나니 파일관리도 편하고 기본적으로 Apollo 라는 모듈을 사용할땐 서버를 별다른 설정을 하지 않아도 테스트할 수 있게 서버를 만들어줘서 상당히 편리했다.</p>]]></content><author><name></name></author><category term="개발" /><category term="graphql" /><category term="mysql" /><summary type="html"><![CDATA[Graphql은 무엇일까?]]></summary></entry></feed>

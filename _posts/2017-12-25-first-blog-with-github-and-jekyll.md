@@ -5,7 +5,7 @@ subscript: "블로그 입문 그 첫 번째 이야기"
 tags: ["Jekyll", "Blog"]
 categories: "개발"
 comments: true
-permalink: /development/blog/:title
+permalink: /develop/blog/:title
 date: 2017/12/25
 ---
 
