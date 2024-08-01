@@ -1,35 +1,66 @@
 <!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="shortcut icon" href="/assets/img/favicon.ico" type="image/x-icon" />
-    <link rel="stylesheet" href="/assets/css/style.css">
-    <meta name="description" content="S3에 도메인 지정이 필요하다">
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="AWS의 S3에 CNAME을 연결하기">
-    <meta property="og:description" content="Moonjong93의 블로그를 한눈에 볼 수 있습니다">
-    <link rel="canonical" href="https://moonjong93.github.io">
-	<link rel="stylesheet"
-	href="/assets/css/hljs/default.css">
-	<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.2/build/highlight.min.js"></script>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      rel="shortcut icon"
+      href="/assets/img/favicon.ico"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" href="/assets/css/style.css" />
+    <meta name="description" content="S3에 도메인 지정이 필요하다" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="AWS의 S3에 CNAME을 연결하기" />
+    <meta
+      property="og:description"
+      content="Moonjong93의 블로그를 한눈에 볼 수 있습니다"
+    />
+    <link rel="canonical" href="https://moonjong93.github.io" />
+    <link rel="stylesheet" href="/assets/css/hljs/default.css" />
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.2/build/highlight.min.js"></script>
     <title>AWS의 S3에 CNAME을 연결하기</title>
-</head>
-<body>
-<div class="home">
-    <a href="/">MoongJong93</a>
-    <a href="/about">About</a>
+  </head>
+  <body>
+    <div class="home">
+  <div class="home-items">
+    <a href="/">
+      <img src="/assets/img/favicon48.png" alt="얼굴 아이콘" width="24" />
+    </a>
+    <ul>
+      <li>
+        <a class="home-link" href="/about">소개</a>
+      </li>
+      <li>
+        <a class="home-link" href="/category/개발">개발</a>
+      </li>
+      <li>
+        <a class="home-link" href="/category/일상">일상</a>
+      </li>
+    </ul>
+  </div>
 </div>
-<header>
-    <div class="title">
+
+    <header>
+      <div class="title">
+        <p></p>
         <h1>AWS의 S3에 CNAME을 연결하기</h1>
         <p>2018-03-29</p>
-    </div>
-</header>
-<div class="container">
-    <article class="post-content">
-        <h2 id="왜">왜?</h2>
+        <div class="tags">
+          
+          <span class="tag"> AWS </span>
+          
+          <span class="tag"> S3 </span>
+          
+          <span class="tag"> DNS </span>
+          
+        </div>
+      </div>
+    </header>
+    <div class="container">
+      <article class="markdown-body"><h2 id="왜">왜?</h2>
+
 <p>버킷을 처음 생성해 그 도메인 그대로 사용하면 상당히 긴 도메인이 나온다. 내가 만들고 있는 프로젝트에 이미지를 공유하는게 주된 목적인데 EX)https://s3.amazonaws.com/test.tac.photos/DASNKFDSANf134ia9s90fd.jpeg 이렇게나 긴 도메인은 보기도 힘들고 복사해서도 길이가 너무 길어서 편하자고 사용한 내 웹사이트에서 오히려</p>
 
 <blockquote>
@@ -39,7 +70,9 @@
 <p>라는 불편함을 느낄것 같았다.</p>
 
 <h2 id="준비">준비</h2>
+
 <p>우선 버킷의 생성이 필요하다.</p>
+
 <ol>
   <li>내가 원하는 도메인을 구매한다.
     <ul>
@@ -57,6 +90,7 @@
 <p>이렇게 구매와 생성이 끝났다면 거의 모든일을 해냈다.</p>
 
 <h2 id="어떻게">어떻게?</h2>
+
 <ol>
   <li>버킷에 접속한다. (AWS 관리페이지를 통해서)</li>
   <li>내가 만든 버킷에 들어간다.</li>
@@ -82,81 +116,78 @@
 </ol>
 
 <h2 id="마치며">마치며</h2>
+
 <p>물론 요청을 리다이렉션해서 2개의 버킷을 생성후 하나는 오로지 리다이렉션 정보만 담게도 설정이 가능하다.</p>
+
 <blockquote>
   <p>만약 기존에 사용중인 S3 버킷이 있다면.</p>
 </blockquote>
 
 <p>그러나 제일 처음부터 한다면 위에 나와있는 대로 하는게 좋을것 같다.</p>
-
-
-    </article>
-    <footer>
-        <div class="tags">
-            
-            <span class="tag">
-                AWS
-            </span>
-            
-            <span class="tag">
-                S3
-            </span>
-            
-            <span class="tag">
-                DNS
-            </span>
-            
-        </div>
+</article>
+      <footer>
         <br />
         <div class="profile">
-    <img class="borderhalf" src="/assets/img/profile.png" alt="profile" width="40">
-    <p>' 게임 불감증이 있어 게임은 30분 밖에 못합니다 그때부터 였을까요.....프로그래밍을 시작한게 '</p>
-    <p>Node.js로 오버워치 데이터 제공 웹을 만들면서 웹 개발에 입문, Node.js, Vue.js를 사용해 웹 개발을 하고 있습니다</p>
+  <img
+    class="borderhalf"
+    src="/assets/img/profile.png"
+    alt="profile-icon"
+    width="40"
+  />
+  <p>여기까지 읽어주셔서 감사합니다.</p>
+
+  <!-- TODO 한글자씩 증가하는 느낌으로.. blink 끝에 달고 -->
+  <!-- <p>' 게임 불감증이 있어 게임은 30분 밖에 못합니다 그때부터 였을까요.....프로그래밍을 시작한게 '</p>
+    <p>Node.js로 오버워치 데이터 제공 웹을 만들면서 웹 개발에 입문, Node.js, Vue.js를 사용해 웹 개발을 하고 있습니다</p> -->
 </div>
+
+<script></script>
+
         <br />
         
-            <span class="arow"><a href="/development/serverless/Google-webp-how-many-less">▲ 이전 - Google의 WEBP는 이미지의 용량을 얼마나 줄여줄까?</a></span>
+        <span class="arrow"
+          >▲ 이전 -
+          <a href="/development/serverless/Google-webp-how-many-less">Google의 WEBP는 이미지의 용량을 얼마나 줄여줄까?</a></span
+        >
+         
+        <span class="arrow"
+          >▼ 다음 -
+          <a href="/career/tac-photos-develop-after">Tac.photos를 개발이야기 - 배운게 많다</a></span
+        >
         
-        
-            <span class="arow"><a href="/career/tac-photos-develop-after">▼ 다음 - Tac.photos를 개발이야기 - 배운게 많다</a></span>
-        
-    </footer>
-    <br />
-    <hr />
-    <br />
-    <div class="coment">
-        
-            <div id="disqus_thread"></div>
-<script>
-/**
-*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
-/*
-var disqus_config = function () {
-this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
-this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-};
-*/
-(function() { // DON'T EDIT BELOW THIS LINE
-var d = document, s = d.createElement('script');
-s.src = 'https://https-moonjong93-github-io.disqus.com/embed.js';
-s.setAttribute('data-timestamp', +new Date());
-(d.head || d.body).appendChild(s);
-})();
-</script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-
-                            
-        
-    </div>
+      </footer>
+      <br />
+      <div class="coment"><div id="comment-light">
+  <script
+    src="https://utteranc.es/client.js"
+    repo="moonjong93/moonjong93.github.io"
+    issue-term="pathname"
+    theme="github-light"
+    crossorigin="anonymous"
+    async
+  ></script>
 </div>
-<footer id="copy">
+
+<div id="comment-dark">
+  <script
+    src="https://utteranc.es/client.js"
+    repo="moonjong93/moonjong93.github.io"
+    issue-term="pathname"
+    theme="github-dark"
+    crossorigin="anonymous"
+    async
+  ></script>
+</div>
+</div>
+      <br />
+    </div>
+    <footer id="copy">
     ⓒ 2017. Moonjong93 all rights reserved.
 </footer>
     <script>
-        document.addEventListener("DOMContentLoaded", function(){
-			hljs.initHighlightingOnLoad();
-        });
+      document.addEventListener("DOMContentLoaded", function () {
+        hljs.initHighlightingOnLoad();
+      });
     </script>
     <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-111530519-1"></script>
@@ -168,5 +199,5 @@ s.setAttribute('data-timestamp', +new Date());
   gtag('config', 'UA-111530519-1');
 </script>
 
-</body>
+  </body>
 </html>

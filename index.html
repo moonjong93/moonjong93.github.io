@@ -1,69 +1,74 @@
 ---
 layout: index
-title : Welcome
+title: 홈
 ---
+
 <!-- 아랫부분 폴문으로 그리고 옆에 사이즈로 끝 -->
 <!-- 클릭시 해당 카테고리 전부다 검색하게끔 밑에 기능 사용하면 동일하게 가능 -->
 <!-- 콘테이너 위에는 내 소개만드릭 -->
-<br />
-<br />
 <div class="container">
-    <ul class="posts">
-        {% for post in paginator.posts %}
-        <li class="post">
-			<a href="{{ post.url }}">
-				<h3 class="post-title">{{ post.title }}</h3>
-				<p class="post-subscript">{{ post.subscript }}</p>
-				<p class="post-date">{{ post.date | date: '%Y-%m-%d' }}</p>
-			</a>
-		</li>
-        {% endfor %}
-        <br />
-        {%if paginator.previous_page  %}
-        <span class="paginator-button" style="float: left"><a href="{{ paginator.previous_page_path }}"> 이전 </a></span>
-        {% endif %}
-        
-        {%if paginator.next_page %}
-            <span class="paginator-button" style="float: right"><a href="{{ paginator.next_page_path }}"> 다음 </a></span>
-        {% endif %}
-        <br />
-        <br />
-    </ul>
+  <ul class="posts">
+    {% for post in paginator.posts %}
+    <li class="post">
+      <p class="post-subscript">
+        <a href="{{ site.baseurl }}/category/{{post.categories}}"
+          >{{ post.categories }}</a
+        >
+      </p>
+      <a href="{{ post.url }}">
+        <h3 class="post-title">{{ post.title }}</h3>
+      </a>
+      <p class="post-subscript">{{ post.subscript }}</p>
+      <p class="post-date">{{ post.date | date: '%Y-%m-%d' }}</p>
+    </li>
+    {% endfor %}
     <br />
-    <br />
-    <div class="lately">
-        <span class="lately-title">최근 댓글</span>
-        <div class="lately-inner">
-            <div id="RecentComments" class="dsq-widget">
-                <script type="text/javascript" src="https://https-moonjong93-github-io.disqus.com/recent_comments_widget.js?num_items=5&hide_mods=0&hide_avatars=1&excerpt_length=80"></script>        
-            </div>
-        </div>
+    <div class="paginator">
+      {%if paginator.previous_page %}
+      <a style="float: left" href="{{ paginator.previous_page_path }}">
+        이전
+      </a>
+      {% endif %} {%if paginator.next_page %}
+      <a style="float: right" href="{{ paginator.next_page_path }}"> 다음 </a>
     </div>
-    <br />
+    {% endif %}
+  </ul>
+  <br />
+  <br />
+  <!-- <div class="lately">
+    <div class="lately-title">최근 댓글</div>
+    <div class="lately-inner">
+      <div id="RecentComments" class="dsq-widget">
+        <script
+          type="text/javascript"
+          src="https://https-moonjong93-github-io.disqus.com/recent_comments_widget.js?num_items=5&hide_mods=0&hide_avatars=1&excerpt_length=80"
+        ></script>
+      </div>
+    </div>
+  </div> -->
+  <br />
 </div>
 {% include analytics.html %}
-<script>
-    document.addEventListener("DOMContentLoaded", function(){
-        // for warp of li tag for a -> reply links
-        document.querySelectorAll('li.dsq-widget-item').forEach(function(me){
-            var atag = document.createElement('a');
-            atag.innerHTML = me.innerHTML;
-            atag.setAttribute('class','dsq-coment');
-            atag.setAttribute('href',me.childNodes[5].childNodes[2].href);
-            me.parentNode.insertBefore(atag, me);
-            me.remove();
-        })
+<!-- <script>
+  document.addEventListener("DOMContentLoaded", function () {
+    // for warp of li tag for a -> reply links
+    document.querySelectorAll("li.dsq-widget-item").forEach(function (me) {
+      var atag = document.createElement("a");
+      atag.innerHTML = me.innerHTML;
+      atag.setAttribute("class", "dsq-coment");
+      atag.setAttribute("href", me.childNodes[5].childNodes[2].href);
+      me.parentNode.insertBefore(atag, me);
+      me.remove();
     });
-    function clickNote(name){
-        var height = document.querySelector('.' + name).offsetHeight;
-        if(height === 0 ){
-            document.querySelector('.' + name).style.height = '100%'
-            document.querySelector('.' + name).style.transform = 'scaleY(1)';
-        }else{
-            document.querySelector('.' + name).style.height = 0
-            document.querySelector('.' + name).style.transform = 'scaleY(0)';
-        }
+  });
+  function clickNote(name) {
+    var height = document.querySelector("." + name).offsetHeight;
+    if (height === 0) {
+      document.querySelector("." + name).style.height = "100%";
+      document.querySelector("." + name).style.transform = "scaleY(1)";
+    } else {
+      document.querySelector("." + name).style.height = 0;
+      document.querySelector("." + name).style.transform = "scaleY(0)";
     }
-
-
-</script>
+  }
+</script> -->

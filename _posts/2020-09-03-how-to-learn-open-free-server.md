@@ -1,9 +1,9 @@
 ---
 layout: post
 title: "어떻게 프리서버를 만드는것을 배웠는지"
-subscript: "지인하고.. 즐겼습니다 ㅠㅠ"
-tags: ['자랑 아님', '엄연한 불법 행위']
-categories: ""
+subscript: "초등학생때 음료수를 사서 주면서 배운 방법"
+tags: ["자랑 아님"]
+categories: "개발"
 comments: true
 permalink: /lie/:title
 date: 2020/09/03

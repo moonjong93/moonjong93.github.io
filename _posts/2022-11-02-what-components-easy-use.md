@@ -1,13 +1,14 @@
 ---
 layout: post
 title: "어떤 컴포넌트가 사용하기 편헐까?"
-subscript: "첫 개인 프로젝트"
-tags: ['grid','typescript']
-categories: "개발일지"
+subscript: "SDK화 하면서 겪은 고충"
+tags: ["grid", "typescript"]
+categories: "개발"
 comments: true
 permalink: /development/blog/:title
 date: 2022/12/20
 ---
+
 회사에서 angular-sdk를 맡아서 공통적으로 사용하는 컴포넌트를 sdk화 시키는 작업을 맡은지 1년이 좀 넘었다. 그동안 회사에서 사용하는 컴포넌트들을 리빌딩하면서 느낀점을 적어보려고 한다.
 
 1. 이것도 있으면 편하겠지?
@@ -57,8 +58,8 @@ date: 2022/12/20
 
 ```tsx
 type SelectItems<T> = {
-	name: string;
-	value: T;
+  name: string;
+  value: T;
 }[];
 ```
 
@@ -67,17 +68,16 @@ type SelectItems<T> = {
 ```tsx
 type ItemChangeEvent<T> = {
   value: T;
-}
+};
 ```
 
 클릭을 하면 value를 직접 보내주는건데 이렇게 보면 어떤게 문제가 되는지 잘 이해하기 어렵지만.. 왜 굳이 이벤트와 아이템 프로퍼티가 다른지에 대한 설명을 해보자면
 
 내가 원하는 select 컴포넌트는 어떤 배열을 보내던간에 name 프로퍼티에 대한 키를 보내고 (이때 name에 대한 프로퍼티를 새로 받음) value에 대한 키를 보내고 이 키를 가지고 아무 배열 형태의 데이터를 가져오더래도 이를 표시해주기 위함이었다.
 
-즉 사용하기 편하게 하기위해 여러가지 프로퍼티를 받아야 했었는데. 이를 가지고 회사 외부에서 SDK관련 교육을 할때 가장 많이 받은 질문이 이거였다. 
+즉 사용하기 편하게 하기위해 여러가지 프로퍼티를 받아야 했었는데. 이를 가지고 회사 외부에서 SDK관련 교육을 할때 가장 많이 받은 질문이 이거였다.
 
 > Select가 아무것도 안보여요..
-> 
 
 그래서 나는 대답했다 문서를 보시면 이렇게 받아서 이렇게 보고.....
 

@@ -1,35 +1,64 @@
 <!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="shortcut icon" href="/assets/img/favicon.ico" type="image/x-icon" />
-    <link rel="stylesheet" href="/assets/css/style.css">
-    <meta name="description" content="graphql을 만능 라이브러리라고 잘못 이해했던 개발자">
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="나는 graphql을 이해했다">
-    <meta property="og:description" content="Moonjong93의 블로그를 한눈에 볼 수 있습니다">
-    <link rel="canonical" href="https://moonjong93.github.io">
-	<link rel="stylesheet"
-	href="/assets/css/hljs/default.css">
-	<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.2/build/highlight.min.js"></script>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      rel="shortcut icon"
+      href="/assets/img/favicon.ico"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" href="/assets/css/style.css" />
+    <meta name="description" content="graphql을 만능 라이브러리라고 잘못 이해했던 개발자" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="나는 graphql을 이해했다" />
+    <meta
+      property="og:description"
+      content="Moonjong93의 블로그를 한눈에 볼 수 있습니다"
+    />
+    <link rel="canonical" href="https://moonjong93.github.io" />
+    <link rel="stylesheet" href="/assets/css/hljs/default.css" />
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.2/build/highlight.min.js"></script>
     <title>나는 graphql을 이해했다</title>
-</head>
-<body>
-<div class="home">
-    <a href="/">MoongJong93</a>
-    <a href="/about">About</a>
+  </head>
+  <body>
+    <div class="home">
+  <div class="home-items">
+    <a href="/">
+      <img src="/assets/img/favicon48.png" alt="얼굴 아이콘" width="24" />
+    </a>
+    <ul>
+      <li>
+        <a class="home-link" href="/about">소개</a>
+      </li>
+      <li>
+        <a class="home-link" href="/category/개발">개발</a>
+      </li>
+      <li>
+        <a class="home-link" href="/category/일상">일상</a>
+      </li>
+    </ul>
+  </div>
 </div>
-<header>
-    <div class="title">
+
+    <header>
+      <div class="title">
+        <p></p>
         <h1>나는 graphql을 이해했다</h1>
         <p>2018-08-16</p>
-    </div>
-</header>
-<div class="container">
-    <article class="post-content">
-        <h2 id="graphql은-무엇일까">Graphql은 무엇일까?</h2>
+        <div class="tags">
+          
+          <span class="tag"> graphql </span>
+          
+          <span class="tag"> mysql </span>
+          
+        </div>
+      </div>
+    </header>
+    <div class="container">
+      <article class="markdown-body"><h2 id="graphql은-무엇일까">Graphql은 무엇일까?</h2>
+
 <p>대다수의 블로그를 보면 마치 정말 전지전능한 실제 기술같았다. 왜냐면 꼭 파이어베이스와 같이 서버리스 플랫폼에서 제공하는 플랫폼의 ‘라이벌’이라고 얘길 해서 나는 Firebase(‘이하’ 파이어베이스) 같이 별다른 설정 없이 사용할 수 있는줄 알았다.</p>
 
 <blockquote>
@@ -61,28 +90,28 @@
 <p>가장 이해하기 힘든 부분은 ‘로그인’에 대한 처리였는데 이걸 이해하고선 Graphql을 빨리 이해할 수 있었다.</p>
 
 <p>우선 Graphql은 데이터베이스를 직접적으로 만들어주지 않는다. Resolver라는 부분을 통해서 요청이 들어오면 해당 요청을 검토하고 데이터를 컨트롤 해야한다.</p>
+
 <pre><code class="language-javascript">export default {
-    // 로그인 -&gt; JWT토큰 만들어서 token을 리턴해줌 
-Query: { 
-        login: (_, {email, password}, ctx) =&gt; {
-            console.log(ctx)
-            return models.User.findByEmail({email, password})
-            .then( (user) =&gt; {
-                if(user.password == createHash(password)){
-                    return createJWTToken(user.id, user.displayName)
-                    .then((token) =&gt; {
-                        return { token }
-                    })
-                }else{
-                    return new Error('not matched password')
-                }
-            })
-            .catch((err) =&gt; {
-                return new Error('not found user')
-            })
-        },
+  // 로그인 -&gt; JWT토큰 만들어서 token을 리턴해줌
+  Query: {
+    login: (_, { email, password }, ctx) =&gt; {
+      console.log(ctx);
+      return models.User.findByEmail({ email, password })
+        .then((user) =&gt; {
+          if (user.password == createHash(password)) {
+            return createJWTToken(user.id, user.displayName).then((token) =&gt; {
+              return { token };
+            });
+          } else {
+            return new Error("not matched password");
+          }
+        })
+        .catch((err) =&gt; {
+          return new Error("not found user");
+        });
     },
-}
+  },
+};
 </code></pre>
 
 <p>위와 같이 결국 데이터를 직접 조회해서 해당 데이터를 비교후에 리턴값으로 Token이라는 기존에 저작되어있는 타입을 리턴해준다 Token의 값은 단순 String에 속한다.</p>
@@ -112,78 +141,80 @@ type Mutation {
 <p>결국에 내가 생각했던 ‘연결만 하고 타입설정만 하면 끝’이라는 것과는 너무 큰 차이가 있었다.</p>
 
 <h2 id="graphql을-사용하면서의-이점">Graphql을 사용하면서의 이점</h2>
+
 <p>아무리 그래도 직접 Router를 통해서 하나하나 Post부터 시작해서 Get등 다양한 메서드를 갖는 라우터를 설계하는것보단 훨씬 작업 속도가 빨랐다.</p>
 
 <h2 id="graphql을-앞으로도-계속-사용할건지">Graphql을 앞으로도 계속 사용할건지?</h2>
+
 <blockquote>
   <p>네!</p>
 </blockquote>
 
 <p>당장 스텍오버플로우만 봐도 그렇듯 상당히 많은 수요가있다. 그리고 막상 사용해보니 처음 이해할때만 조금 어려웠고 막상 이해하고 나니 파일관리도 편하고 기본적으로 Apollo 라는 모듈을 사용할땐 서버를 별다른 설정을 하지 않아도 테스트할 수 있게 서버를 만들어줘서 상당히 편리했다.</p>
-
-    </article>
-    <footer>
-        <div class="tags">
-            
-            <span class="tag">
-                graphql
-            </span>
-            
-            <span class="tag">
-                mysql
-            </span>
-            
-        </div>
+</article>
+      <footer>
         <br />
         <div class="profile">
-    <img class="borderhalf" src="/assets/img/profile.png" alt="profile" width="40">
-    <p>' 게임 불감증이 있어 게임은 30분 밖에 못합니다 그때부터 였을까요.....프로그래밍을 시작한게 '</p>
-    <p>Node.js로 오버워치 데이터 제공 웹을 만들면서 웹 개발에 입문, Node.js, Vue.js를 사용해 웹 개발을 하고 있습니다</p>
+  <img
+    class="borderhalf"
+    src="/assets/img/profile.png"
+    alt="profile-icon"
+    width="40"
+  />
+  <p>여기까지 읽어주셔서 감사합니다.</p>
+
+  <!-- TODO 한글자씩 증가하는 느낌으로.. blink 끝에 달고 -->
+  <!-- <p>' 게임 불감증이 있어 게임은 30분 밖에 못합니다 그때부터 였을까요.....프로그래밍을 시작한게 '</p>
+    <p>Node.js로 오버워치 데이터 제공 웹을 만들면서 웹 개발에 입문, Node.js, Vue.js를 사용해 웹 개발을 하고 있습니다</p> -->
 </div>
+
+<script></script>
+
         <br />
         
-            <span class="arow"><a href="/study/I-was-wrong-understand-RDS">▲ 이전 - MongoDb를 처음 접한 내가, 잘못이해했던 RDS</a></span>
+        <span class="arrow"
+          >▲ 이전 -
+          <a href="/study/I-was-wrong-understand-RDS">MongoDb를 처음 접한 내가, 잘못이해했던 RDS</a></span
+        >
+         
+        <span class="arrow"
+          >▼ 다음 -
+          <a href="/study/How-to-understand-javascript-recursion-function">자바스크립트의 재귀함수 어떻게 이해하면 좋을까?</a></span
+        >
         
-        
-            <span class="arow"><a href="/study/How-to-understand-javascript-recursion-function">▼ 다음 - 자바스크립트의 재귀함수 어떻게 이해하면 좋을까?</a></span>
-        
-    </footer>
-    <br />
-    <hr />
-    <br />
-    <div class="coment">
-        
-            <div id="disqus_thread"></div>
-<script>
-/**
-*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
-/*
-var disqus_config = function () {
-this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
-this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-};
-*/
-(function() { // DON'T EDIT BELOW THIS LINE
-var d = document, s = d.createElement('script');
-s.src = 'https://https-moonjong93-github-io.disqus.com/embed.js';
-s.setAttribute('data-timestamp', +new Date());
-(d.head || d.body).appendChild(s);
-})();
-</script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-
-                            
-        
-    </div>
+      </footer>
+      <br />
+      <div class="coment"><div id="comment-light">
+  <script
+    src="https://utteranc.es/client.js"
+    repo="moonjong93/moonjong93.github.io"
+    issue-term="pathname"
+    theme="github-light"
+    crossorigin="anonymous"
+    async
+  ></script>
 </div>
-<footer id="copy">
+
+<div id="comment-dark">
+  <script
+    src="https://utteranc.es/client.js"
+    repo="moonjong93/moonjong93.github.io"
+    issue-term="pathname"
+    theme="github-dark"
+    crossorigin="anonymous"
+    async
+  ></script>
+</div>
+</div>
+      <br />
+    </div>
+    <footer id="copy">
     ⓒ 2017. Moonjong93 all rights reserved.
 </footer>
     <script>
-        document.addEventListener("DOMContentLoaded", function(){
-			hljs.initHighlightingOnLoad();
-        });
+      document.addEventListener("DOMContentLoaded", function () {
+        hljs.initHighlightingOnLoad();
+      });
     </script>
     <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-111530519-1"></script>
@@ -195,5 +226,5 @@ s.setAttribute('data-timestamp', +new Date());
   gtag('config', 'UA-111530519-1');
 </script>
 
-</body>
+  </body>
 </html>

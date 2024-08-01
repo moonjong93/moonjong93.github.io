@@ -1,0 +1,50 @@
+article {
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+h1 {
+  font-size: 3rem;
+  line-height: 1;
+}
+
+h2 {
+  font-size: 2rem;
+  line-height: 1;
+  margin-top: 6rem;
+}
+
+.point {
+  color: var(--primary-color);
+}
+
+p {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  word-break: auto-phrase;
+}
+
+.vr2n1 {
+  display: grid;
+  grid-template-columns: 14rem auto;
+  padding-top: 2rem;
+}
+
+.job-title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-top: 2rem;
+}
+
+.job-attribute {
+  margin-top: 1rem;
+  font-size: 1.2rem;
+}
+
+.job-attribute.bold {
+  font-weight: 700;
+}
+
+li {
+  font-size: 1rem;
+}

@@ -1,95 +1,181 @@
 <!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="description" content="웹 개발자 Moongjon93의 블로그입니다, 개발을 하며 겪는일을 작성하고 있습니다">
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="Moonjong93 :: index">
-    <meta property="og:description" content="Moonjong93의 블로그를 한눈에 볼 수 있습니다">
-    <meta property="og:image" content="/assets/img/profile.png">
-    <meta property="og:url" content="https://moonjong93.github.io/">
-    <link rel="shortcut icon" href="/assets/img/favicon.ico" type="image/x-icon" />
-    <link rel="stylesheet" href="/assets/css/style.css">
-    <link rel="canonical" href="https://moonjong93.github.io">
-    <title>MoonJong93 :: Welcome</title>
-</head>
-<body>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta
+      name="description"
+      content="심심한 블로그입니다. 개발 이야기와 일상 이야기를 다루고있어요."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="심심한 블로그 :: 홈" />
+    <meta
+      property="og:description"
+      content="심심한 블로그, 개발 이야기와 일상 이야기"
+    />
+    <meta property="og:image" content="/assets/img/profile.png" />
+    <meta property="og:url" content="https://moonjong93.github.io/" />
+    <link
+      rel="shortcut icon"
+      href="/assets/img/favicon.ico"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" href="/assets/css/style.css" />
+    <link rel="canonical" href="https://moonjong93.github.io" />
+    <title>심심한 블로그 :: 홈</title>
+  </head>
+  <body>
     <div class="home">
-    <a href="/">MoongJong93</a>
-    <a href="/about">About</a>
+  <div class="home-items">
+    <a href="/">
+      <img src="/assets/img/favicon48.png" alt="얼굴 아이콘" width="24" />
+    </a>
+    <ul>
+      <li>
+        <a class="home-link" href="/about">소개</a>
+      </li>
+      <li>
+        <a class="home-link" href="/category/개발">개발</a>
+      </li>
+      <li>
+        <a class="home-link" href="/category/일상">일상</a>
+      </li>
+    </ul>
+  </div>
 </div>
-    <!-- 아랫부분 폴문으로 그리고 옆에 사이즈로 끝 -->
+ <!-- 아랫부분 폴문으로 그리고 옆에 사이즈로 끝 -->
 <!-- 클릭시 해당 카테고리 전부다 검색하게끔 밑에 기능 사용하면 동일하게 가능 -->
 <!-- 콘테이너 위에는 내 소개만드릭 -->
-<br />
-<br />
 <div class="container">
-    <ul class="posts">
-        
-        <li class="post">
-			<a href="/development/serverless/Google-webp-how-many-less">
-				<h3 class="post-title">Google의 WEBP는 이미지의 용량을 얼마나 줄여줄까?</h3>
-				<p class="post-subscript">WEBP를 쓰면 얼마나 이-득일까?</p>
-				<p class="post-date">2018-03-12</p>
-			</a>
-		</li>
-        
-        <li class="post">
-			<a href="/development/serverless/serverless-with-amazon-make-some-problem">
-				<h3 class="post-title">aws를 사용해 serverless 프로젝트를 구성하며 느낀점</h3>
-				<p class="post-subscript">아니 리전때문에 안된다는게 말이 되냐고</p>
-				<p class="post-date">2018-03-01</p>
-			</a>
-		</li>
-        
-        <li class="post">
-			<a href="/career/development-checkin">
-				<h3 class="post-title">일본에서 체크인 기능을 담은 웹을 개발했다</h3>
-				<p class="post-subscript">Vue.js와 함께하는 PWA 웹 개발</p>
-				<p class="post-date">2018-01-22</p>
-			</a>
-		</li>
-        
-        <li class="post">
-			<a href="/life/new-laptop-stnad">
-				<h3 class="post-title">노트북 거치대를 구매했다</h3>
-				<p class="post-subscript">목의 통증에서 조금은 벗어나길</p>
-				<p class="post-date">2018-01-21</p>
-			</a>
-		</li>
-        
-        <li class="post">
-			<a href="/life/I-buy-the-hhkb-keyboard">
-				<h3 class="post-title">해피해킹 키보드 개봉기</h3>
-				<p class="post-subscript">응 적응하기 너무 힘들어</p>
-				<p class="post-date">2018-01-13</p>
-			</a>
-		</li>
-        
-        <br />
-        
-        <span class="paginator-button" style="float: left"><a href="/2"> 이전 </a></span>
-        
-        
-        
-            <span class="paginator-button" style="float: right"><a href="/4"> 다음 </a></span>
-        
-        <br />
-        <br />
-    </ul>
+  <ul class="posts">
+    
+    <li class="post">
+      <p class="post-subscript">
+        <a href="/category/개발"
+          >개발</a
+        >
+      </p>
+      <a href="/development/tech/what-is-serverless">
+        <h3 class="post-title">서버리스에 관하여</h3>
+      </a>
+      <p class="post-subscript">firebase는 갓갓베이스입니다</p>
+      <p class="post-date">2018-01-08</p>
+    </li>
+    
+    <li class="post">
+      <p class="post-subscript">
+        <a href="/category/개발"
+          >개발</a
+        >
+      </p>
+      <a href="/development/blog/first-blog-with-github-and-jekyll3">
+        <h3 class="post-title">Jekyll로 시작하는 블로그 - 에필로그</h3>
+      </a>
+      <p class="post-subscript">블로그 입문기 마지막 이야기</p>
+      <p class="post-date">2017-12-26</p>
+    </li>
+    
+    <li class="post">
+      <p class="post-subscript">
+        <a href="/category/개발"
+          >개발</a
+        >
+      </p>
+      <a href="/development/blog/first-blog-with-github-and-jekyll2">
+        <h3 class="post-title">Jekyll로 시작하는 블로그 - 중간</h3>
+      </a>
+      <p class="post-subscript">블로그 입문기 두 번째 이야기</p>
+      <p class="post-date">2017-12-26</p>
+    </li>
+    
+    <li class="post">
+      <p class="post-subscript">
+        <a href="/category/개발"
+          >개발</a
+        >
+      </p>
+      <a href="/development/blog/first-blog-with-github-and-jekyll">
+        <h3 class="post-title">Jekyll로 시작하는 블로그 - 프롤로그</h3>
+      </a>
+      <p class="post-subscript">블로그 입문 그 첫 번째 이야기</p>
+      <p class="post-date">2017-12-25</p>
+    </li>
+    
+    <li class="post">
+      <p class="post-subscript">
+        <a href="/category/기록"
+          >기록</a
+        >
+      </p>
+      <a href="/record/google-has-update-design">
+        <h3 class="post-title">구글의 검색창이 업데이트 되었다</h3>
+      </a>
+      <p class="post-subscript">아무 소식없이 바뀌는 구글의 디자인</p>
+      <p class="post-date">2017-12-25</p>
+    </li>
+    
+    <li class="post">
+      <p class="post-subscript">
+        <a href="/category/일상"
+          >일상</a
+        >
+      </p>
+      <a href="/life/star-blog-with-jekyll">
+        <h3 class="post-title">지킬과 함께 블로그를 시작합니다!</h3>
+      </a>
+      <p class="post-subscript">아무도 관심없는 슬픈 소식</p>
+      <p class="post-date">2017-12-23</p>
+    </li>
+    
+    <li class="post">
+      <p class="post-subscript">
+        <a href="/category/커리어"
+          >커리어</a
+        >
+      </p>
+      <a href="/career/develop-realtime-game">
+        <h3 class="post-title">리얼타임 웹 개발</h3>
+      </a>
+      <p class="post-subscript">첫 외주 프로젝트</p>
+      <p class="post-date">2017-08-22</p>
+    </li>
+    
+    <li class="post">
+      <p class="post-subscript">
+        <a href="/category/커리어"
+          >커리어</a
+        >
+      </p>
+      <a href="/career/development-overwatch-crawler">
+        <h3 class="post-title">오버워치 공식 사이트 크롤러를 개발하다</h3>
+      </a>
+      <p class="post-subscript">첫 개인 프로젝트</p>
+      <p class="post-date">2017-03-12</p>
+    </li>
+    
     <br />
-    <br />
-    <div class="lately">
-        <span class="lately-title">최근 댓글</span>
-        <div class="lately-inner">
-            <div id="RecentComments" class="dsq-widget">
-                <script type="text/javascript" src="https://https-moonjong93-github-io.disqus.com/recent_comments_widget.js?num_items=5&hide_mods=0&hide_avatars=1&excerpt_length=80"></script>        
-            </div>
-        </div>
+    <div class="paginator">
+      
+      <a style="float: left" href="/2">
+        이전
+      </a>
+       
+  </ul>
+  <br />
+  <br />
+  <!-- <div class="lately">
+    <div class="lately-title">최근 댓글</div>
+    <div class="lately-inner">
+      <div id="RecentComments" class="dsq-widget">
+        <script
+          type="text/javascript"
+          src="https://https-moonjong93-github-io.disqus.com/recent_comments_widget.js?num_items=5&hide_mods=0&hide_avatars=1&excerpt_length=80"
+        ></script>
+      </div>
     </div>
-    <br />
+  </div> -->
+  <br />
 </div>
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-111530519-1"></script>
@@ -101,40 +187,38 @@
   gtag('config', 'UA-111530519-1');
 </script>
 
-<script>
-    document.addEventListener("DOMContentLoaded", function(){
-        // for warp of li tag for a -> reply links
-        document.querySelectorAll('li.dsq-widget-item').forEach(function(me){
-            var atag = document.createElement('a');
-            atag.innerHTML = me.innerHTML;
-            atag.setAttribute('class','dsq-coment');
-            atag.setAttribute('href',me.childNodes[5].childNodes[2].href);
-            me.parentNode.insertBefore(atag, me);
-            me.remove();
-        })
+<!-- <script>
+  document.addEventListener("DOMContentLoaded", function () {
+    // for warp of li tag for a -> reply links
+    document.querySelectorAll("li.dsq-widget-item").forEach(function (me) {
+      var atag = document.createElement("a");
+      atag.innerHTML = me.innerHTML;
+      atag.setAttribute("class", "dsq-coment");
+      atag.setAttribute("href", me.childNodes[5].childNodes[2].href);
+      me.parentNode.insertBefore(atag, me);
+      me.remove();
     });
-    function clickNote(name){
-        var height = document.querySelector('.' + name).offsetHeight;
-        if(height === 0 ){
-            document.querySelector('.' + name).style.height = '100%'
-            document.querySelector('.' + name).style.transform = 'scaleY(1)';
-        }else{
-            document.querySelector('.' + name).style.height = 0
-            document.querySelector('.' + name).style.transform = 'scaleY(0)';
-        }
+  });
+  function clickNote(name) {
+    var height = document.querySelector("." + name).offsetHeight;
+    if (height === 0) {
+      document.querySelector("." + name).style.height = "100%";
+      document.querySelector("." + name).style.transform = "scaleY(1)";
+    } else {
+      document.querySelector("." + name).style.height = 0;
+      document.querySelector("." + name).style.transform = "scaleY(0)";
     }
+  }
+</script> -->
 
-
-</script>
     <script>
-        document.addEventListener("DOMContentLoaded", function(){
-            document.getElementsByClassName('container')[0].style.opacity = 1;
-        });
+      document.addEventListener("DOMContentLoaded", function () {
+        document.getElementsByClassName("container")[0].style.opacity = 1;
+      });
     </script>
     <footer id="copy">
     ⓒ 2017. Moonjong93 all rights reserved.
-</footer>
-    <!-- Global site tag (gtag.js) - Google Analytics -->
+</footer> <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-111530519-1"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -144,5 +228,5 @@
   gtag('config', 'UA-111530519-1');
 </script>
 
-</body>
+  </body>
 </html>

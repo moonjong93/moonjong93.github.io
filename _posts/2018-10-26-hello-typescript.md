@@ -3,12 +3,11 @@ layout: post
 title: "타입스크립트 코리아 강좌 정리"
 subscript: "타입스크립트를 이해해보자"
 tags: ["Typescript", "beginer"]
-categories: ""
+categories: "개발"
 comments: true
 permalink: /study/:title
 date: 2018/10/30
 ---
-
 
 # 1. Typescirpt 에 관하여
 
@@ -93,86 +92,94 @@ npm i tslint -D
 tslint --init
 
 # 3. Compiler Options
+
 ## tsconfig
+
 [ts config 가이드](http://json.schemastore.org/tsconfig)
 
 ## 최상위 프로퍼티
+
 1. CompileOnSave: 파일 저장시 자동 컴파일, Visual studio에서 사용 가능
 2. extends: v2.1 new spec
-3. compileOptions 
-    - 다양한 옵션이 제공됨
-    - typeRoots: 배열 안에 들어있는 경로들 아래에 모듈만 가져옴
-    - types: 배열 안에 모듈, ./node_modules/@types/ 안의 모듈 이름에서 찾아옴
-    - typeRoots, types와 함께 사용하지 않음
-    - target: 컴파일 해서 어떤 자바스크립트 버전으로 downgrade 시킬거냐 기본은 es3이다
-    - lib: 기본 type definition 라이브러리를 어떤 것을 사용할 것이냐
-        - lib를 지정하지 않을때 
-        - target이 'es3'이고 디폴트로 lib.d.ts를 사용함
-        - target이 'es5'이면, 디폴트로 dom, es5, scripthost를 사용함
-    - outDir: 소스 구조의 전부를 컴파일 하려면 사용
-    - outFile: 구조 상관없이 컴파일 하려면 사용
-    - module: 결과물이 어떤 js파일을 쓸건지 target이 es6면 es6가 기본값, es6가 아니면 'commonjs'가 기본값
-4. files: 
-    - 상대 혹은 절대 경로의 리스트 배열
-    - exclude 보다 우선순위 높음
+3. compileOptions
+   - 다양한 옵션이 제공됨
+   - typeRoots: 배열 안에 들어있는 경로들 아래에 모듈만 가져옴
+   - types: 배열 안에 모듈, ./node_modules/@types/ 안의 모듈 이름에서 찾아옴
+   - typeRoots, types와 함께 사용하지 않음
+   - target: 컴파일 해서 어떤 자바스크립트 버전으로 downgrade 시킬거냐 기본은 es3이다
+   - lib: 기본 type definition 라이브러리를 어떤 것을 사용할 것이냐
+     - lib를 지정하지 않을때
+     - target이 'es3'이고 디폴트로 lib.d.ts를 사용함
+     - target이 'es5'이면, 디폴트로 dom, es5, scripthost를 사용함
+   - outDir: 소스 구조의 전부를 컴파일 하려면 사용
+   - outFile: 구조 상관없이 컴파일 하려면 사용
+   - module: 결과물이 어떤 js파일을 쓸건지 target이 es6면 es6가 기본값, es6가 아니면 'commonjs'가 기본값
+4. files:
+   - 상대 혹은 절대 경로의 리스트 배열
+   - exclude 보다 우선순위 높음
 5. include
-    - exclude 보다 우선순위 낮음
-    - *같은걸 사용하면 .ts / .tsx 등 설정한 것만 include 함
+   - exclude 보다 우선순위 낮음
+   - \*같은걸 사용하면 .ts / .tsx 등 설정한 것만 include 함
 6. exclude
-    - 설정 안하면 기본 4가지를 설정 (node_modules, browser_components, jspm_packages, outDIr)를 기본적으로 제외
-    - outDir은 항상 제외
-
-
+   - 설정 안하면 기본 4가지를 설정 (node_modules, browser_components, jspm_packages, outDIr)를 기본적으로 제외
+   - outDir은 항상 제외
 
 # 4. typescript basic type
+
 - Typescript에서 프로그램 작성을 위해 기본 제공하는 데이터 타입
 - Javscript 기보 자료형을 포함
-    - ECMAScript 표준에 따른 기본 자료형은 6가지
-    - Boolean
-    - String
-    - Null
-    - Undefined
-    - Symbol
-    - Array: Object형
+  - ECMAScript 표준에 따른 기본 자료형은 6가지
+  - Boolean
+  - String
+  - Null
+  - Undefined
+  - Symbol
+  - Array: Object형
 - 프로그래밍을 도울 몇가리 타입이 더 제공됨
-    - Any
-    - Void
-    - Never
-    - Enum
-    - Tuple: Object
+  - Any
+  - Void
+  - Never
+  - Enum
+  - Tuple: Object
 
 ## literal?
+
 값자체가 변하지 않는 값을 의미함
 상수와 다른 것은 상수는 가리키는 포인터가 고정이라는 것이고, 리터럴은 그 자체가 값이자 리터럴
 
 ## 권장 소문자를 사용해라
+
 new Number(5) -> number(5);
 
 new Boolean(false) -> boolrean(false);
 
 ## Any
-- 어떤 타입이든 상관없음 
+
+- 어떤 타입이든 상관없음
 - 그러나 권장하지 않음 (이걸 쓸꺼면 그냥 es6바밸 문법을 사용해라)
 
 ## Tuple
+
 - 배열인데 한가지 타입이 아닐 경우
 - 객체
 - 사용할때 주의가 필요함
 
 # 5. var, let, const
+
 - var
-    - es5
-    - 함수 스코프
-    - 호이스팅이 가능
-    - 재선언 가능
+  - es5
+  - 함수 스코프
+  - 호이스팅이 가능
+  - 재선언 가능
 - let, const
-    - es6
-    - 블록 스코프
-    - 호이스팅 불가능
-    - 재선언 불가
+  - es6
+  - 블록 스코프
+  - 호이스팅 불가능
+  - 재선언 불가
 - var 말고 let, const를 사용하자
 
 ## let, const 차이점
+
 ```javascript
 let a: string = "에이";
 let a = "에이"; //자동으로 String으로 타입을 맞춰줌
@@ -182,25 +189,29 @@ const b = "비"; //별도의 타입을 만들어 주지 않음
 ```
 
 # 6. Type assersions
+
 - 형변환과는 다름
-    - 형변형은 실제 데이터 구조를 바꿔줌
+  - 형변형은 실제 데이터 구조를 바꿔줌
 - '타입이 이것이다'라고 컴파일러에게 알려주는 것을 의미함
-    - 그래서 작성자가 100% 신뢰하는 것이 중요하다.
+  - 그래서 작성자가 100% 신뢰하는 것이 중요하다.
 - 문법적으로는 두가지 방법이 있다
-    - 변수 as 강제할 타입
-    - <강제할 타입>변수
+  - 변수 as 강제할 타입
+  - <강제할 타입>변수
+
 ```javascript
 let a: any = "this is a string";
 let b: number = (someValue as a).length;
 ```
 
 ## 타입 별칭
+
 - 인터페이스와 유사해 보임
 - Primitive, Union Type, Tuple
 - 기타 직접 작성해야하는 타입을 다른 이름에 저장할 수 있다.
 - 만들어진 타입의 refer로 사용하는 것이지 타입을 만드는것은 아니다.
 
 ### Union
+
 ```javascript
 let a: any;
 let b: string | number;
@@ -211,51 +222,52 @@ b = 0;
 //만약 사례가 복잡하다면?
 
 function test(arg: string | number): string | number {
-    return arg;
+  return arg;
 }
 //위와 같이 작성할때마다 해주는게 힘들다보니 사용함
 type StringOrNumber = string | number; //이게 union타입
 
 function test(arg: StringOrNumber): StringOrNumber {
-    return arg
+  return arg;
 }
 ```
 
 ### interface
-```javascript
 
+```javascript
 //interface가 없다면
-const person: {name: string; age: number} = {
-    name: 'MrMoon',
-    age: 12
+const person: { name: string, age: number } = {
+  name: "MrMoon",
+  age: 12,
 };
 
 //interface를 사용한다면
-interface Person{
-    name: string;
-    age: number
+interface Person {
+  name: string;
+  age: number;
 }
 const person: Person = {
-    name: 'mrMoon',
-    age: 12
-}
+  name: "mrMoon",
+  age: 12,
+};
 
 // 주요 사용처
 function hello(p: Person): void {
-    console.log(`안녕하세요 ${p.name} 입니다`)
+  console.log(`안녕하세요 ${p.name} 입니다`);
 }
-
 ```
 
 ### interface optional
+
 ```javascript
 interface Person {
-    name: string;
-    age?: number; //age를 강제하지 않음
+  name: string;
+  age?: number; //age를 강제하지 않음
 }
 ```
 
 ### indexable type
+
 ```javascript
 interface Person {
     name: string;
@@ -279,76 +291,81 @@ p2[100] = "hello";
 위와 같이 array에 string이나 number로 interface를 만들어줄 순 있지만 array는 아님
 
 ## interface in funciton
+
 ```javascript
 interface Person {
-    name: string;
-    hello(): string;
+  name: string;
+  hello(): string;
 }
 
 const person: Person = {
-    name: 'mark',
-    hello(): string{
-        return 'hello world';
-    }
-}
+  name: "mark",
+  hello(): string {
+    return "hello world";
+  },
+};
 ```
 
 ## class implements interface
+
 ```javascript
 interface IPerson {
-    name: string;
-    hello(): void;
+  name: string;
+  hello(): void;
 }
 
 class Person implements IPerson {
-    name: string = null;
+  name: string = null;
 
-    constructor(name: string) {
-        this.name = name;
-    }
-    hi(): void {
-        console.log('This is hi');
-    }
-    hello(): void {
-        console.log(`hello i am ${name}`);
-    }
-    
+  constructor(name: string) {
+    this.name = name;
+  }
+  hi(): void {
+    console.log("This is hi");
+  }
+  hello(): void {
+    console.log(`hello i am ${name}`);
+  }
 }
 
 const person: IPerson = new Person("moon");
 const person: Person = new Person("moon");
 //두가지 모두 사용 가능하다
 ```
->IPerson의 타입을 가지고 있는 person은 interface에서 정의하지 않은 hi 함수에 접근할 수 없다.
+
+> IPerson의 타입을 가지고 있는 person은 interface에서 정의하지 않은 hi 함수에 접근할 수 없다.
 
 ## string OR number
+
 ```javascript
 interface StringArray {
-    [index: number]: string;
+  [index: number]: string;
 }
 
 const sa: StringArray = {};
-sa[100] = '백';
+sa[100] = "백";
 ```
 
 # 7. 클래스
 
 ## class
+
 ```javascript
 class Person {
-    name: string;
-    age: number;
-    // 모든 프로퍼티는 public
-    constructor(name: string) {
-        this.name = name
-    }
+  name: string;
+  age: number;
+  // 모든 프로퍼티는 public
+  constructor(name: string) {
+    this.name = name;
+  }
 
-    // 할당하지 않는 변수는 undefined가 되어서 나오지 않음
-    // 그래서 = null이라고 해주는게 일단 좋음 (기본적인 프로그래밍 방식)
+  // 할당하지 않는 변수는 undefined가 되어서 나오지 않음
+  // 그래서 = null이라고 해주는게 일단 좋음 (기본적인 프로그래밍 방식)
 }
 
-const person = new Person('Mark');
+const person = new Person("Mark");
 ```
+
 1. 생성사 함수가 없으면 디폴트 생성자가 불린다.
 1. 클래스의 프로퍼티 혹은 멤버 변수가 정의되어 있지만, 값을 대입하지 않으면 undefined이다.
 1. 접근 제어자는 public이 디폴트 이다.
@@ -366,8 +383,8 @@ const person = new Person('Mark');
 
 1. 디폴트 값은 public 이고 private 로 선언한 프로퍼티 접근 불가능 (c#과 흡사)
 
-
 ## protected
+
 private는 부모 클래스건 어디서건 절대로 접근이 안되는 반면에 protected는 부모에서는 접근이 가능함
 
 ```javascript
@@ -397,6 +414,7 @@ const person: Child = new Child();
 ```
 
 ## 클래스와 메서드
+
 ```javascript
 class Person {
     // protected _name: string = 'amark';
@@ -434,6 +452,7 @@ child.hello();
 - 클래스를 상속받아서 사용하려면 꼭 constructor 에서 super()를 해줘야함
 
 ## 클래스의 getter, setter
+
 ```javascript
 
 interface IPerson {
@@ -454,7 +473,7 @@ class Person implements IPerson{
     get name() {
         return this._name;
     }
-    
+
     set name(name: string) {
         this._name = name;
     }
@@ -478,6 +497,7 @@ person.getName();
 ```
 
 ## class의 static 프로퍼티, 메서드
+
 ```javascript
 class Person {
     public static HEIGHT: number;
@@ -500,9 +520,9 @@ Person.Talk(); // 동일함
 - public static은 의미가 있음
 - private static의 의미는 고민이 필요함
 
-
 ## Anstract Class - 미완된 클래스
-```javascript 
+
+```javascript
 abstract class APerson {
     protected _name: string = 'Mark';
     abstract setName(name: string): void;
@@ -511,6 +531,7 @@ abstract class APerson {
 ```
 
 ## class와 private constructor
+
 ```javascript
 // 싱글톤 예제
 class Perference {
@@ -523,7 +544,7 @@ class Perference {
         return Preference.Instance;
     }
     private constructor() {
-        
+
     }
 
     hello() {
@@ -536,6 +557,7 @@ p.hello();
 ```
 
 ## class와 readonly
+
 ```javascript
 class Person {
     private readonly _name: string = null;
@@ -544,39 +566,43 @@ class Person {
 
 - readonly는 get, set중에 get만 있는것과 흡사하다.
 
-
 # 8. generic
+
 - any -> generic
 - 제네릭을 쓰는 가장 큰 이유는 템플릿 라이브러리 (cpp)처럼 타입을 변수로 주고 싶을때 사용함
 
 ```javascript
 function hello<T>(message: T): T {
-    return message;
+  return message;
 }
 
-hello<string>('hello moon');
-hello<string>('hello moon').length;//문자열의 내장 함수도 사용가능
-hello<number>(35);
+hello < string > "hello moon";
+hello < string > "hello moon".length; //문자열의 내장 함수도 사용가능
+hello < number > 35;
 
 const a: string[] = [];
 const b: Array<string> = [];
 ```
+
 - 메시지가 number, string에 상관없이 가능함
 - 장점은 any로 사용하면 헬퍼같은게 제대로 작동이 되지 않는데 제네릭은 정상 작동함
 
 ## generic 인자
+
 ```javascript
-function hello<T>(message: T[]): T{
-    return message[0]
+function hello<T>(message: T[]): T {
+  return message[0];
 }
 ```
+
 - T의 array 형태로도 사용할 수 있다.
 
 ## generic class
+
 ```javascript
 class Person<T> {
     private _name: T;
-    
+
     constructor(name: T) {
         this._name = name;
     }
@@ -585,9 +611,11 @@ class Person<T> {
 const mark = new Person('Mark');
 new Person<number>('Mark'); //error!
 ```
+
 - name의 타입이 설정하는 대로 되어줌
 
 ## generic with extends
+
 ```javascript
 class Person<T extends string | number> {
     private _name: T;
@@ -601,6 +629,7 @@ const mark = new Person('mark');
 ```
 
 ## generic with multiple type
+
 ```javascript
 class Person<T, K> {
     private _name: T;
@@ -616,7 +645,9 @@ const mark = new Person('mark', 35);
 ```
 
 ## type lookup system
+
 - 2.1 버전에 나옴
+
 ```javascript
 interface Person {
     name: string;
@@ -646,13 +677,13 @@ getProperty(person, 'name');
 setProperty(person, 'name', 'anda');
 ```
 
-- 상당히 자주 쓰일것 같음 
+- 상당히 자주 쓰일것 같음
 - // type Test = keyof Person; 이 부분이 좀 중요한것 같은데 keyof Person을 해줬기 때문에 Test는 리터럴로 name, age 프로퍼티를 갖게 되는것
-
 
 # 9. iterator
 
 ## for...of
+
 - es3
   - for (var i=...)
 - es5
@@ -663,6 +694,7 @@ setProperty(person, 'name', 'anda');
     - 원칙적으로는 배열에서만 사용 가능
 
 ## for...in
+
 - 배열을 순회할 때는 사용하지 말것
   - index가 number가 아니라 string으로 나온다.
   - 배열의 프로퍼티를 순회할 수도 있따.
@@ -673,9 +705,11 @@ setProperty(person, 'name', 'anda');
   - for(const prop of Object.keys(obj))도 사용할 수 있음
 
 ## target es3 forEach
+
 - 트렌스파일시에 es3인데도 lib에서 잘못 판단되어서 적용이 안되고 es5 기준으로 생성됨
 
 ## Sysmbol.iterator
+
 - 프로퍼티이며, 함수가 구현되어있으면, iterable 이라고 한다.
 - Array, Map, Set, String, Int32Array, Unit32Array, etc, 에는 내장된 구현체가 있으므로 이터러블 하다.
 - 그냥 객체는 이터러블하지 않다.
@@ -687,6 +721,7 @@ setProperty(person, 'name', 'anda');
   - Symbol.iterator를 구현하면 사용 가능
 
 ## custom iterable
+
 ```javascript
 class CustomIterable implements Iterable<string> {
     private _array: Array<string> = ['first', 'second'];
@@ -711,11 +746,12 @@ for (const item of cIterable) {
     console.log(item);
 }
 ```
+
 - 배열의 이터레이터를 돌면 예 for of 객체의 for을 돌리면 커스텀한 for of 로 돌리면 class 내부에 있는 배열도 사용 가능하기에 사용함.
 - 사실 무슨 말 인지..
 
-
 # 10. Decorator
+
 - Class
 - Method
 - Property
@@ -723,26 +759,24 @@ for (const item of cIterable) {
 
 - 모든 decorator 는 function이다
 
-
 ## class decorator
+
 ```javascript
 function hello(constructorFn: Function) {
-    console.log(constructorFn);
+  console.log(constructorFn);
 }
 
 function helloFactory(show: boolean) {
-    if (show)
-      return hello;
-    else
-      return null;
+  if (show) return hello;
+  else return null;
 }
 
 @helloFactory(false)
-class Person {
-
-}
+class Person {}
 ```
+
 ## class decorator expert
+
 ```javascript
 function hello(constructorFn: Function) {
     constructorFn.prototype.hello = function() :void {
@@ -764,67 +798,64 @@ const p = new Person();
 
 ```javascript
 function editable(canBeEditable: boolean) {
-    return function(target: any, propName: string, description: PropertyDescriptor) {
-        console.log(target);
-        console.log(propName);
-        console.log(description);
+  return function (
+    target: any,
+    propName: string,
+    description: PropertyDescriptor
+  ) {
+    console.log(target);
+    console.log(propName);
+    console.log(description);
 
-        description.writable = canBeEditable;
-    }
+    description.writable = canBeEditable;
+  };
 }
 
 class Person {
+  constructor() {
+    console.log("new Person ()");
+  }
 
-    constructor() {
-        console.log('new Person ()');
-    }
-
-    @editable(false)
-    hello(): void {
-        console.log('hello');
-    }
-
+  @editable(false)
+  hello(): void {
+    console.log("hello");
+  }
 }
 
 const p = new Person();
 p.hello();
 
-p.hello = function() {
-    console.log('world');
-}
+p.hello = function () {
+  console.log("world");
+};
 p.hello();
-
 ```
-
 
 ## property decorator
 
 ```javascript
 function writetable(canBeWriteable: boolean) {
-    return function(target: any, propName: string): any {
-        console.log(target);
-        console.log(propName);
+  return function (target: any, propName: string): any {
+    console.log(target);
+    console.log(propName);
 
-        return {
-            writetable: canBeWriteable
-        }
-    }
+    return {
+      writetable: canBeWriteable,
+    };
+  };
 }
 
-
 class Person {
+  @writetable(true)
+  name: string = "Mark";
 
-    @writetable(true)
-    name: string = 'Mark';
+  constructor() {
+    console.log("new Person ()");
+  }
 
-    constructor() {
-        console.log('new Person ()');
-    }
-
-    hello(): void {
-        console.log('hello');
-    }
-
+  hello(): void {
+    console.log("hello");
+  }
 }
 
 const p = new Person();
@@ -832,6 +863,7 @@ console.log(p.name);
 ```
 
 ## parameter decorator
+
 ```javascript
 function printInfo(target: any, methodName: string, paramIndex: number) {
     console.log(target);
@@ -861,9 +893,10 @@ class Person {
 
 - 개인적으로 decorator는 예를들면 프레임워크를 만들때나 어떠한 모듈을 만들때 변수 검증 등을 하는데 사용하면 요긴하게 쓰일것 같다는 생각이 들었다.
 
-
 # 11. Type Inference
+
 ## 타입 추론
+
 - 기본적으로 타입을 명시적으로 스지 않을 때 추론하는 방법에 대한 규칙
   - 명시적으로 쓰는 것은 타입 추론이 아니라 코드를 읽기 좋게 하는 지름길
 - let은 기본적으로 우리가아는 기본 자료형으로 추론
@@ -880,35 +913,36 @@ class Person {
 
 ```javascript
 const aaray1 = []; // any type으로 추론함
-const array2 = ['a', 'b'] // array string
-const array3 = ['a', 1, 'cone'] // union type으로 추론함
+const array2 = ["a", "b"]; // array string
+const array3 = ["a", 1, "cone"]; // union type으로 추론함
 
 class Animal {
-    name: string;
+  name: string;
 }
 
 class Dog extends Aniaml {
-    dog: string;
+  dog: string;
 }
 
 class Cat extends Animal {
-    cat: string;
+  cat: string;
 }
 
 const array4 = [new Dog(), new Cat()]; // union dog | cat
 ```
 
 ## 리턴 타입 추론
+
 ```javascript
-function hello(message: string | number) { 
-    // 리터럴 타입의 world이거나 0을 추론
-    if(message === 'world')
-      return 'world'
-    else
-      return 0
+function hello(message: string | number) {
+  // 리터럴 타입의 world이거나 0을 추론
+  if (message === "world") return "world";
+  else return 0;
 }
 ```
+
 ## 유니온 타입과 가드
+
 ```javascript
 interface Person {
     name: string;
@@ -931,13 +965,10 @@ function hello(obj: Person | Car) {
 }
 ```
 
-
 ## 마치며
+
 약 11개의 챕터이자 강좌는 14개인 타입스크립트 코리아에서 만든 이 강좌는 [유튜브](https://www.youtube.com/watch?v=PFBRhxjIBUM&list=PLV6pYUAZ-ZoHx0OjUduzaFSZ4_cUqXLm0)에서 확인하실 수 있습니다.
 
 타입스크립트를 막연하게 어렵다고만 생각했었는데 오히려 프로그램을 작성하는데 있어서 더욱더 안정성이 있다는것은 이 강좌를 통해서 확실히 알게되었다.
 
 실제로 직접 가서 참여한 세미나보다도 상당히 훌륭했고 예제들 역시 상당히 훌륭했다.
-
-
-

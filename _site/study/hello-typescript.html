@@ -1,35 +1,63 @@
 <!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="shortcut icon" href="/assets/img/favicon.ico" type="image/x-icon" />
-    <link rel="stylesheet" href="/assets/css/style.css">
-    <meta name="description" content="타입스크립트를 이해해보자">
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="타입스크립트 코리아 강좌 정리">
-    <meta property="og:description" content="Moonjong93의 블로그를 한눈에 볼 수 있습니다">
-    <link rel="canonical" href="https://moonjong93.github.io">
-	<link rel="stylesheet"
-	href="/assets/css/hljs/default.css">
-	<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.2/build/highlight.min.js"></script>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      rel="shortcut icon"
+      href="/assets/img/favicon.ico"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" href="/assets/css/style.css" />
+    <meta name="description" content="타입스크립트를 이해해보자" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="타입스크립트 코리아 강좌 정리" />
+    <meta
+      property="og:description"
+      content="Moonjong93의 블로그를 한눈에 볼 수 있습니다"
+    />
+    <link rel="canonical" href="https://moonjong93.github.io" />
+    <link rel="stylesheet" href="/assets/css/hljs/default.css" />
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.2/build/highlight.min.js"></script>
     <title>타입스크립트 코리아 강좌 정리</title>
-</head>
-<body>
-<div class="home">
-    <a href="/">MoongJong93</a>
-    <a href="/about">About</a>
+  </head>
+  <body>
+    <div class="home">
+  <div class="home-items">
+    <a href="/">
+      <img src="/assets/img/favicon48.png" alt="얼굴 아이콘" width="24" />
+    </a>
+    <ul>
+      <li>
+        <a class="home-link" href="/about">소개</a>
+      </li>
+      <li>
+        <a class="home-link" href="/category/개발">개발</a>
+      </li>
+      <li>
+        <a class="home-link" href="/category/일상">일상</a>
+      </li>
+    </ul>
+  </div>
 </div>
-<header>
-    <div class="title">
+
+    <header>
+      <div class="title">
+        <p></p>
         <h1>타입스크립트 코리아 강좌 정리</h1>
         <p>2018-10-30</p>
-    </div>
-</header>
-<div class="container">
-    <article class="post-content">
-        <h1 id="1-typescirpt-에-관하여">1. Typescirpt 에 관하여</h1>
+        <div class="tags">
+          
+          <span class="tag"> Typescript </span>
+          
+          <span class="tag"> beginer </span>
+          
+        </div>
+      </div>
+    </header>
+    <div class="container">
+      <article class="markdown-body"><h1 id="1-typescirpt-에-관하여">1. Typescirpt 에 관하여</h1>
 
 <blockquote>
   <p>tpyscript 는 자바스크립트를 포함한 프로그래밍 언어</p>
@@ -141,10 +169,13 @@ target, module, strict 정도가 기본 설정으로 되어있음.</p>
 <p>tslint –init</p>
 
 <h1 id="3-compiler-options">3. Compiler Options</h1>
+
 <h2 id="tsconfig">tsconfig</h2>
+
 <p><a href="http://json.schemastore.org/tsconfig">ts config 가이드</a></p>
 
 <h2 id="최상위-프로퍼티">최상위 프로퍼티</h2>
+
 <ol>
   <li>CompileOnSave: 파일 저장시 자동 컴파일, Visual studio에서 사용 가능</li>
   <li>extends: v2.1 new spec</li>
@@ -188,6 +219,7 @@ target, module, strict 정도가 기본 설정으로 되어있음.</p>
 </ol>
 
 <h1 id="4-typescript-basic-type">4. typescript basic type</h1>
+
 <ul>
   <li>Typescript에서 프로그램 작성을 위해 기본 제공하는 데이터 타입</li>
   <li>Javscript 기보 자료형을 포함
@@ -213,21 +245,25 @@ target, module, strict 정도가 기본 설정으로 되어있음.</p>
 </ul>
 
 <h2 id="literal">literal?</h2>
+
 <p>값자체가 변하지 않는 값을 의미함
 상수와 다른 것은 상수는 가리키는 포인터가 고정이라는 것이고, 리터럴은 그 자체가 값이자 리터럴</p>
 
 <h2 id="권장-소문자를-사용해라">권장 소문자를 사용해라</h2>
+
 <p>new Number(5) -&gt; number(5);</p>
 
 <p>new Boolean(false) -&gt; boolrean(false);</p>
 
 <h2 id="any">Any</h2>
+
 <ul>
   <li>어떤 타입이든 상관없음</li>
   <li>그러나 권장하지 않음 (이걸 쓸꺼면 그냥 es6바밸 문법을 사용해라)</li>
 </ul>
 
 <h2 id="tuple">Tuple</h2>
+
 <ul>
   <li>배열인데 한가지 타입이 아닐 경우</li>
   <li>객체</li>
@@ -235,6 +271,7 @@ target, module, strict 정도가 기본 설정으로 되어있음.</p>
 </ul>
 
 <h1 id="5-var-let-const">5. var, let, const</h1>
+
 <ul>
   <li>var
     <ul>
@@ -256,6 +293,7 @@ target, module, strict 정도가 기본 설정으로 되어있음.</p>
 </ul>
 
 <h2 id="let-const-차이점">let, const 차이점</h2>
+
 <pre><code class="language-javascript">let a: string = "에이";
 let a = "에이"; //자동으로 String으로 타입을 맞춰줌
 
@@ -264,6 +302,7 @@ const b = "비"; //별도의 타입을 만들어 주지 않음
 </code></pre>
 
 <h1 id="6-type-assersions">6. Type assersions</h1>
+
 <ul>
   <li>형변환과는 다름
     <ul>
@@ -280,17 +319,18 @@ const b = "비"; //별도의 타입을 만들어 주지 않음
       <li>변수 as 강제할 타입</li>
       <li>
         <강제할 타입="">변수
-```javascript
-let a: any = "this is a string";
-let b: number = (someValue as a).length;
-```
 
 </강제할>
       </li>
     </ul>
   </li>
 </ul>
+<pre><code class="language-javascript">let a: any = "this is a string";
+let b: number = (someValue as a).length;
+</code></pre>
+
 <h2 id="타입-별칭">타입 별칭</h2>
+
 <ul>
   <li>인터페이스와 유사해 보임</li>
   <li>Primitive, Union Type, Tuple</li>
@@ -299,6 +339,7 @@ let b: number = (someValue as a).length;
 </ul>
 
 <h3 id="union">Union</h3>
+
 <pre><code class="language-javascript">let a: any;
 let b: string | number;
 
@@ -308,49 +349,50 @@ b = 0;
 //만약 사례가 복잡하다면?
 
 function test(arg: string | number): string | number {
-    return arg;
+  return arg;
 }
 //위와 같이 작성할때마다 해주는게 힘들다보니 사용함
 type StringOrNumber = string | number; //이게 union타입
 
 function test(arg: StringOrNumber): StringOrNumber {
-    return arg
+  return arg;
 }
 </code></pre>
 
 <h3 id="interface">interface</h3>
-<pre><code class="language-javascript">
-//interface가 없다면
-const person: {name: string; age: number} = {
-    name: 'MrMoon',
-    age: 12
+
+<pre><code class="language-javascript">//interface가 없다면
+const person: { name: string, age: number } = {
+  name: "MrMoon",
+  age: 12,
 };
 
 //interface를 사용한다면
-interface Person{
-    name: string;
-    age: number
+interface Person {
+  name: string;
+  age: number;
 }
 const person: Person = {
-    name: 'mrMoon',
-    age: 12
-}
+  name: "mrMoon",
+  age: 12,
+};
 
 // 주요 사용처
 function hello(p: Person): void {
-    console.log(`안녕하세요 ${p.name} 입니다`)
+  console.log(`안녕하세요 ${p.name} 입니다`);
 }
-
 </code></pre>
 
 <h3 id="interface-optional">interface optional</h3>
+
 <pre><code class="language-javascript">interface Person {
-    name: string;
-    age?: number; //age를 강제하지 않음
+  name: string;
+  age?: number; //age를 강제하지 않음
 }
 </code></pre>
 
 <h3 id="indexable-type">indexable type</h3>
+
 <pre><code class="language-javascript">interface Person {
     name: string;
     [index: string]: string;
@@ -373,74 +415,79 @@ p2[100] = "hello";
 <p>위와 같이 array에 string이나 number로 interface를 만들어줄 순 있지만 array는 아님</p>
 
 <h2 id="interface-in-funciton">interface in funciton</h2>
+
 <pre><code class="language-javascript">interface Person {
-    name: string;
-    hello(): string;
+  name: string;
+  hello(): string;
 }
 
 const person: Person = {
-    name: 'mark',
-    hello(): string{
-        return 'hello world';
-    }
-}
+  name: "mark",
+  hello(): string {
+    return "hello world";
+  },
+};
 </code></pre>
 
 <h2 id="class-implements-interface">class implements interface</h2>
+
 <pre><code class="language-javascript">interface IPerson {
-    name: string;
-    hello(): void;
+  name: string;
+  hello(): void;
 }
 
 class Person implements IPerson {
-    name: string = null;
+  name: string = null;
 
-    constructor(name: string) {
-        this.name = name;
-    }
-    hi(): void {
-        console.log('This is hi');
-    }
-    hello(): void {
-        console.log(`hello i am ${name}`);
-    }
-    
+  constructor(name: string) {
+    this.name = name;
+  }
+  hi(): void {
+    console.log("This is hi");
+  }
+  hello(): void {
+    console.log(`hello i am ${name}`);
+  }
 }
 
 const person: IPerson = new Person("moon");
 const person: Person = new Person("moon");
 //두가지 모두 사용 가능하다
 </code></pre>
+
 <blockquote>
   <p>IPerson의 타입을 가지고 있는 person은 interface에서 정의하지 않은 hi 함수에 접근할 수 없다.</p>
 </blockquote>
 
 <h2 id="string-or-number">string OR number</h2>
+
 <pre><code class="language-javascript">interface StringArray {
-    [index: number]: string;
+  [index: number]: string;
 }
 
 const sa: StringArray = {};
-sa[100] = '백';
+sa[100] = "백";
 </code></pre>
 
 <h1 id="7-클래스">7. 클래스</h1>
 
 <h2 id="class">class</h2>
-<pre><code class="language-javascript">class Person {
-    name: string;
-    age: number;
-    // 모든 프로퍼티는 public
-    constructor(name: string) {
-        this.name = name
-    }
 
-    // 할당하지 않는 변수는 undefined가 되어서 나오지 않음
-    // 그래서 = null이라고 해주는게 일단 좋음 (기본적인 프로그래밍 방식)
+<pre><code class="language-javascript">class Person {
+  name: string;
+  age: number;
+  // 모든 프로퍼티는 public
+  constructor(name: string) {
+    this.name = name;
+  }
+
+  // 할당하지 않는 변수는 undefined가 되어서 나오지 않음
+  // 그래서 = null이라고 해주는게 일단 좋음 (기본적인 프로그래밍 방식)
 }
 
-const person = new Person('Mark');
+const person = new Person("Mark");
 </code></pre>
+
 <ol>
   <li>생성사 함수가 없으면 디폴트 생성자가 불린다.</li>
   <li>클래스의 프로퍼티 혹은 멤버 변수가 정의되어 있지만, 값을 대입하지 않으면 undefined이다.</li>
@@ -462,6 +509,7 @@ const person = new Person('Mark');
 </ol>
 
 <h2 id="protected">protected</h2>
+
 <p>private는 부모 클래스건 어디서건 절대로 접근이 안되는 반면에 protected는 부모에서는 접근이 가능함</p>
 
 <pre><code class="language-javascript">class Person {
@@ -490,6 +538,7 @@ const person: Child = new Child();
 </code></pre>
 
 <h2 id="클래스와-메서드">클래스와 메서드</h2>
+
 <pre><code class="language-javascript">class Person {
     // protected _name: string = 'amark';
     // private _age: number = null;
@@ -528,6 +577,7 @@ child.hello();
 </ul>
 
 <h2 id="클래스의-getter-setter">클래스의 getter, setter</h2>
+
 <pre><code class="language-javascript">
 interface IPerson {
     getName();
@@ -547,7 +597,7 @@ class Person implements IPerson{
     get name() {
         return this._name;
     }
-    
+
     set name(name: string) {
         this._name = name;
     }
@@ -571,6 +621,7 @@ person.getName();
 </code></pre>
 
 <h2 id="class의-static-프로퍼티-메서드">class의 static 프로퍼티, 메서드</h2>
+
 <pre><code class="language-javascript">class Person {
     public static HEIGHT: number;
 
@@ -595,6 +646,7 @@ Person.Talk(); // 동일함
 </ul>
 
 <h2 id="anstract-class---미완된-클래스">Anstract Class - 미완된 클래스</h2>
+
 <pre><code class="language-javascript">abstract class APerson {
     protected _name: string = 'Mark';
     abstract setName(name: string): void;
@@ -603,6 +655,7 @@ Person.Talk(); // 동일함
 </code></pre>
 
 <h2 id="class와-private-constructor">class와 private constructor</h2>
+
 <pre><code class="language-javascript">// 싱글톤 예제
 class Perference {
     private static Instance: Perference = null;
@@ -614,7 +667,7 @@ class Perference {
         return Preference.Instance;
     }
     private constructor() {
-        
+
     }
 
     hello() {
@@ -627,6 +680,7 @@ p.hello();
 </code></pre>
 
 <h2 id="class와-readonly">class와 readonly</h2>
+
 <pre><code class="language-javascript">class Person {
     private readonly _name: string = null;
 }
@@ -637,40 +691,45 @@ p.hello();
 </ul>
 
 <h1 id="8-generic">8. generic</h1>
+
 <ul>
   <li>any -&gt; generic</li>
   <li>제네릭을 쓰는 가장 큰 이유는 템플릿 라이브러리 (cpp)처럼 타입을 변수로 주고 싶을때 사용함</li>
 </ul>
 
 <pre><code class="language-javascript">function hello&lt;T&gt;(message: T): T {
-    return message;
+  return message;
 }
 
-hello&lt;string&gt;('hello moon');
-hello&lt;string&gt;('hello moon').length;//문자열의 내장 함수도 사용가능
-hello&lt;number&gt;(35);
+hello &lt; string &gt; "hello moon";
+hello &lt; string &gt; "hello moon".length; //문자열의 내장 함수도 사용가능
+hello &lt; number &gt; 35;
 
 const a: string[] = [];
 const b: Array&lt;string&gt; = [];
 </code></pre>
+
 <ul>
   <li>메시지가 number, string에 상관없이 가능함</li>
   <li>장점은 any로 사용하면 헬퍼같은게 제대로 작동이 되지 않는데 제네릭은 정상 작동함</li>
 </ul>
 
 <h2 id="generic-인자">generic 인자</h2>
-<pre><code class="language-javascript">function hello&lt;T&gt;(message: T[]): T{
-    return message[0]
+
+<pre><code class="language-javascript">function hello&lt;T&gt;(message: T[]): T {
+  return message[0];
 }
 </code></pre>
+
 <ul>
   <li>T의 array 형태로도 사용할 수 있다.</li>
 </ul>
 
 <h2 id="generic-class">generic class</h2>
+
 <pre><code class="language-javascript">class Person&lt;T&gt; {
     private _name: T;
-    
+
     constructor(name: T) {
         this._name = name;
     }
@@ -679,11 +738,13 @@ const b: Array&lt;string&gt; = [];
 const mark = new Person('Mark');
 new Person&lt;number&gt;('Mark'); //error!
 </code></pre>
+
 <ul>
   <li>name의 타입이 설정하는 대로 되어줌</li>
 </ul>
 
 <h2 id="generic-with-extends">generic with extends</h2>
+
 <pre><code class="language-javascript">class Person&lt;T extends string | number&gt; {
     private _name: T;
 
@@ -696,6 +757,7 @@ const mark = new Person('mark');
 </code></pre>
 
 <h2 id="generic-with-multiple-type">generic with multiple type</h2>
+
 <pre><code class="language-javascript">class Person&lt;T, K&gt; {
     private _name: T;
     private _age: K;
@@ -710,80 +772,122 @@ const mark = new Person('mark', 35);
 </code></pre>
 
 <h2 id="type-lookup-system">type lookup system</h2>
+
 <ul>
-  <li>2.1 버전에 나옴
-```javascript
-interface Person {
-  name: string;
-  age: number;
-}</li>
+  <li>2.1 버전에 나옴</li>
 </ul>
 
-<p>// type Test = keyof Person;</p>
+<pre><code class="language-javascript">interface Person {
+    name: string;
+    age: number;
+}
 
-<p>// function getProperty(obj, key) {
+// type Test = keyof Person;
+
+// function getProperty(obj, key) {
 //     return obj[key]; //가끔이 key가 없을땐 undefined 에러를 뿜는데 (나도 겪음) 이걸 해결하는데 lookup system
-// }</p>
+// }
 
-<p>function getProperty&lt;T, K extends keyof T&gt;(obj: T, key: K): T[K]{
+function getProperty&lt;T, K extends keyof T&gt;(obj: T, key: K): T[K]{
     return obj[key];
-}</p>
+}
 
-<p>function setProperty&lt;T, K extends keyof T&gt;(obj: T, key: K, value: T[K]): T[K]{
+function setProperty&lt;T, K extends keyof T&gt;(obj: T, key: K, value: T[K]): T[K]{
     obj[key] = value
-}</p>
+}
 
-<p>const person: Person = {
-    name: ‘Mark’,
+const person: Person = {
+    name: 'Mark',
     age: 35
-}</p>
+}
 
-<p>getProperty(person, ‘name’);
-setProperty(person, ‘name’, ‘anda’);</p>
-<pre><code>
-- 상당히 자주 쓰일것 같음 
-- // type Test = keyof Person; 이 부분이 좀 중요한것 같은데 keyof Person을 해줬기 때문에 Test는 리터럴로 name, age 프로퍼티를 갖게 되는것
+getProperty(person, 'name');
+setProperty(person, 'name', 'anda');
+</code></pre>
 
+<ul>
+  <li>상당히 자주 쓰일것 같음</li>
+  <li>// type Test = keyof Person; 이 부분이 좀 중요한것 같은데 keyof Person을 해줬기 때문에 Test는 리터럴로 name, age 프로퍼티를 갖게 되는것</li>
+</ul>
 
-# 9. iterator
+<h1 id="9-iterator">9. iterator</h1>
 
-## for...of
-- es3
-  - for (var i=...)
-- es5
-  - array.forEach
-    - break 를 할 수 없었따.
-- es6
-  - for of
-    - 원칙적으로는 배열에서만 사용 가능
+<h2 id="forof">for…of</h2>
 
-## for...in
-- 배열을 순회할 때는 사용하지 말것
-  - index가 number가 아니라 string으로 나온다.
-  - 배열의 프로퍼티를 순회할 수도 있따.
-  - prototype 체인의 프로퍼티를 순회할 수도 있다.
-  - 루프가 무작위로 수회할 수도 있다.
-  - for of를 쓸 것
-- 객체를 순회할 때
-  - for(const prop of Object.keys(obj))도 사용할 수 있음
+<ul>
+  <li>es3
+    <ul>
+      <li>for (var i=…)</li>
+    </ul>
+  </li>
+  <li>es5
+    <ul>
+      <li>array.forEach
+        <ul>
+          <li>break 를 할 수 없었따.</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>es6
+    <ul>
+      <li>for of
+        <ul>
+          <li>원칙적으로는 배열에서만 사용 가능</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
 
-## target es3 forEach
-- 트렌스파일시에 es3인데도 lib에서 잘못 판단되어서 적용이 안되고 es5 기준으로 생성됨
+<h2 id="forin">for…in</h2>
 
-## Sysmbol.iterator
-- 프로퍼티이며, 함수가 구현되어있으면, iterable 이라고 한다.
-- Array, Map, Set, String, Int32Array, Unit32Array, etc, 에는 내장된 구현체가 있으므로 이터러블 하다.
-- 그냥 객체는 이터러블하지 않다.
-- 이터레이터를 통해 이터러블한 객체의 Symbol.iterator함수를 호출한다.
-- traget: es3 or es5
-  - Array 에만 for..of사용 가능
-  - 일반 객체에 사용하면 오류
-- target: es6
-  - Symbol.iterator를 구현하면 사용 가능
+<ul>
+  <li>배열을 순회할 때는 사용하지 말것
+    <ul>
+      <li>index가 number가 아니라 string으로 나온다.</li>
+      <li>배열의 프로퍼티를 순회할 수도 있따.</li>
+      <li>prototype 체인의 프로퍼티를 순회할 수도 있다.</li>
+      <li>루프가 무작위로 수회할 수도 있다.</li>
+      <li>for of를 쓸 것</li>
+    </ul>
+  </li>
+  <li>객체를 순회할 때
+    <ul>
+      <li>for(const prop of Object.keys(obj))도 사용할 수 있음</li>
+    </ul>
+  </li>
+</ul>
 
-## custom iterable
-```javascript
-class CustomIterable implements Iterable&lt;string&gt; {
+<h2 id="target-es3-foreach">target es3 forEach</h2>
+
+<ul>
+  <li>트렌스파일시에 es3인데도 lib에서 잘못 판단되어서 적용이 안되고 es5 기준으로 생성됨</li>
+</ul>
+
+<h2 id="sysmboliterator">Sysmbol.iterator</h2>
+
+<ul>
+  <li>프로퍼티이며, 함수가 구현되어있으면, iterable 이라고 한다.</li>
+  <li>Array, Map, Set, String, Int32Array, Unit32Array, etc, 에는 내장된 구현체가 있으므로 이터러블 하다.</li>
+  <li>그냥 객체는 이터러블하지 않다.</li>
+  <li>이터레이터를 통해 이터러블한 객체의 Symbol.iterator함수를 호출한다.</li>
+  <li>traget: es3 or es5
+    <ul>
+      <li>Array 에만 for..of사용 가능</li>
+      <li>일반 객체에 사용하면 오류</li>
+    </ul>
+  </li>
+  <li>target: es6
+    <ul>
+      <li>Symbol.iterator를 구현하면 사용 가능</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="custom-iterable">custom iterable</h2>
+
+<pre><code class="language-javascript">class CustomIterable implements Iterable&lt;string&gt; {
     private _array: Array&lt;string&gt; = ['first', 'second'];
 
     [Symbol.iterator]() {
@@ -806,12 +910,14 @@ for (const item of cIterable) {
     console.log(item);
 }
 </code></pre>
+
 <ul>
   <li>배열의 이터레이터를 돌면 예 for of 객체의 for을 돌리면 커스텀한 for of 로 돌리면 class 내부에 있는 배열도 사용 가능하기에 사용함.</li>
   <li>사실 무슨 말 인지..</li>
 </ul>
 
 <h1 id="10-decorator">10. Decorator</h1>
+
 <ul>
   <li>Class</li>
   <li>Method</li>
@@ -823,23 +929,22 @@ for (const item of cIterable) {
 </ul>
 
 <h2 id="class-decorator">class decorator</h2>
+
 <pre><code class="language-javascript">function hello(constructorFn: Function) {
-    console.log(constructorFn);
+  console.log(constructorFn);
 }
 
 function helloFactory(show: boolean) {
-    if (show)
-      return hello;
-    else
-      return null;
+  if (show) return hello;
+  else return null;
 }
 
 @helloFactory(false)
-class Person {
-
-}
+class Person {}
 </code></pre>
+
 <h2 id="class-decorator-expert">class decorator expert</h2>
+
 <pre><code class="language-javascript">function hello(constructorFn: Function) {
     constructorFn.prototype.hello = function() :void {
         console.log('hello');
@@ -859,65 +964,63 @@ const p = new Person();
 <h2 id="method-decorator">method decorator</h2>
 
 <pre><code class="language-javascript">function editable(canBeEditable: boolean) {
-    return function(target: any, propName: string, description: PropertyDescriptor) {
-        console.log(target);
-        console.log(propName);
-        console.log(description);
+  return function (
+    target: any,
+    propName: string,
+    description: PropertyDescriptor
+  ) {
+    console.log(target);
+    console.log(propName);
+    console.log(description);
 
-        description.writable = canBeEditable;
-    }
+    description.writable = canBeEditable;
+  };
 }
 
 class Person {
+  constructor() {
+    console.log("new Person ()");
+  }
 
-    constructor() {
-        console.log('new Person ()');
-    }
-
-    @editable(false)
-    hello(): void {
-        console.log('hello');
-    }
-
+  @editable(false)
+  hello(): void {
+    console.log("hello");
+  }
 }
 
 const p = new Person();
 p.hello();
 
-p.hello = function() {
-    console.log('world');
-}
+p.hello = function () {
+  console.log("world");
+};
 p.hello();
-
 </code></pre>
 
 <h2 id="property-decorator">property decorator</h2>
 
 <pre><code class="language-javascript">function writetable(canBeWriteable: boolean) {
-    return function(target: any, propName: string): any {
-        console.log(target);
-        console.log(propName);
+  return function (target: any, propName: string): any {
+    console.log(target);
+    console.log(propName);
 
-        return {
-            writetable: canBeWriteable
-        }
-    }
+    return {
+      writetable: canBeWriteable,
+    };
+  };
 }
 
-
 class Person {
+  @writetable(true)
+  name: string = "Mark";
 
-    @writetable(true)
-    name: string = 'Mark';
+  constructor() {
+    console.log("new Person ()");
+  }
 
-    constructor() {
-        console.log('new Person ()');
-    }
-
-    hello(): void {
-        console.log('hello');
-    }
-
+  hello(): void {
+    console.log("hello");
+  }
 }
 
 const p = new Person();
@@ -925,6 +1028,7 @@ console.log(p.name);
 </code></pre>
 
 <h2 id="parameter-decorator">parameter decorator</h2>
+
 <pre><code class="language-javascript">function printInfo(target: any, methodName: string, paramIndex: number) {
     console.log(target);
     console.log(methodName);
@@ -956,7 +1060,9 @@ class Person {
 </ul>
 
 <h1 id="11-type-inference">11. Type Inference</h1>
+
 <h2 id="타입-추론">타입 추론</h2>
+
 <ul>
   <li>기본적으로 타입을 명시적으로 스지 않을 때 추론하는 방법에 대한 규칙
     <ul>
@@ -986,34 +1092,35 @@ class Person {
 <h2 id="배열-타입-추론">배열 타입 추론</h2>
 
 <pre><code class="language-javascript">const aaray1 = []; // any type으로 추론함
-const array2 = ['a', 'b'] // array string
-const array3 = ['a', 1, 'cone'] // union type으로 추론함
+const array2 = ["a", "b"]; // array string
+const array3 = ["a", 1, "cone"]; // union type으로 추론함
 
 class Animal {
-    name: string;
+  name: string;
 }
 
 class Dog extends Aniaml {
-    dog: string;
+  dog: string;
 }
 
 class Cat extends Animal {
-    cat: string;
+  cat: string;
 }
 
 const array4 = [new Dog(), new Cat()]; // union dog | cat
 </code></pre>
 
 <h2 id="리턴-타입-추론">리턴 타입 추론</h2>
-<pre><code class="language-javascript">function hello(message: string | number) { 
-    // 리터럴 타입의 world이거나 0을 추론
-    if(message === 'world')
-      return 'world'
-    else
-      return 0
+
+<pre><code class="language-javascript">function hello(message: string | number) {
+  // 리터럴 타입의 world이거나 0을 추론
+  if (message === "world") return "world";
+  else return 0;
 }
 </code></pre>
+
 <h2 id="유니온-타입과-가드">유니온 타입과 가드</h2>
+
 <pre><code class="language-javascript">interface Person {
     name: string;
     age: number;
@@ -1036,76 +1143,76 @@ function hello(obj: Person | Car) {
 </code></pre>
 
 <h2 id="마치며">마치며</h2>
+
 <p>약 11개의 챕터이자 강좌는 14개인 타입스크립트 코리아에서 만든 이 강좌는 <a href="https://www.youtube.com/watch?v=PFBRhxjIBUM&amp;list=PLV6pYUAZ-ZoHx0OjUduzaFSZ4_cUqXLm0">유튜브</a>에서 확인하실 수 있습니다.</p>
 
 <p>타입스크립트를 막연하게 어렵다고만 생각했었는데 오히려 프로그램을 작성하는데 있어서 더욱더 안정성이 있다는것은 이 강좌를 통해서 확실히 알게되었다.</p>
 
 <p>실제로 직접 가서 참여한 세미나보다도 상당히 훌륭했고 예제들 역시 상당히 훌륭했다.</p>
-
-
-    </article>
-    <footer>
-        <div class="tags">
-            
-            <span class="tag">
-                Typescript
-            </span>
-            
-            <span class="tag">
-                beginer
-            </span>
-            
-        </div>
+</article>
+      <footer>
         <br />
         <div class="profile">
-    <img class="borderhalf" src="/assets/img/profile.png" alt="profile" width="40">
-    <p>' 게임 불감증이 있어 게임은 30분 밖에 못합니다 그때부터 였을까요.....프로그래밍을 시작한게 '</p>
-    <p>Node.js로 오버워치 데이터 제공 웹을 만들면서 웹 개발에 입문, Node.js, Vue.js를 사용해 웹 개발을 하고 있습니다</p>
+  <img
+    class="borderhalf"
+    src="/assets/img/profile.png"
+    alt="profile-icon"
+    width="40"
+  />
+  <p>여기까지 읽어주셔서 감사합니다.</p>
+
+  <!-- TODO 한글자씩 증가하는 느낌으로.. blink 끝에 달고 -->
+  <!-- <p>' 게임 불감증이 있어 게임은 30분 밖에 못합니다 그때부터 였을까요.....프로그래밍을 시작한게 '</p>
+    <p>Node.js로 오버워치 데이터 제공 웹을 만들면서 웹 개발에 입문, Node.js, Vue.js를 사용해 웹 개발을 하고 있습니다</p> -->
 </div>
+
+<script></script>
+
         <br />
         
-            <span class="arow"><a href="/study/namgungsung_beginer_javascript_semina">▲ 이전 - 남궁성 자바스크립트 기초 세미나 정리</a></span>
+        <span class="arrow"
+          >▲ 이전 -
+          <a href="/study/namgungsung_beginer_javascript_semina">남궁성 자바스크립트 기초 세미나 정리</a></span
+        >
+         
+        <span class="arrow"
+          >▼ 다음 -
+          <a href="/lie/how-to-learn-open-free-server">어떻게 프리서버를 만드는것을 배웠는지</a></span
+        >
         
-        
-            <span class="arow"><a href="/lie/how-to-learn-open-free-server">▼ 다음 - 어떻게 프리서버를 만드는것을 배웠는지</a></span>
-        
-    </footer>
-    <br />
-    <hr />
-    <br />
-    <div class="coment">
-        
-            <div id="disqus_thread"></div>
-<script>
-/**
-*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
-/*
-var disqus_config = function () {
-this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
-this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-};
-*/
-(function() { // DON'T EDIT BELOW THIS LINE
-var d = document, s = d.createElement('script');
-s.src = 'https://https-moonjong93-github-io.disqus.com/embed.js';
-s.setAttribute('data-timestamp', +new Date());
-(d.head || d.body).appendChild(s);
-})();
-</script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-
-                            
-        
-    </div>
+      </footer>
+      <br />
+      <div class="coment"><div id="comment-light">
+  <script
+    src="https://utteranc.es/client.js"
+    repo="moonjong93/moonjong93.github.io"
+    issue-term="pathname"
+    theme="github-light"
+    crossorigin="anonymous"
+    async
+  ></script>
 </div>
-<footer id="copy">
+
+<div id="comment-dark">
+  <script
+    src="https://utteranc.es/client.js"
+    repo="moonjong93/moonjong93.github.io"
+    issue-term="pathname"
+    theme="github-dark"
+    crossorigin="anonymous"
+    async
+  ></script>
+</div>
+</div>
+      <br />
+    </div>
+    <footer id="copy">
     ⓒ 2017. Moonjong93 all rights reserved.
 </footer>
     <script>
-        document.addEventListener("DOMContentLoaded", function(){
-			hljs.initHighlightingOnLoad();
-        });
+      document.addEventListener("DOMContentLoaded", function () {
+        hljs.initHighlightingOnLoad();
+      });
     </script>
     <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-111530519-1"></script>
@@ -1117,5 +1224,5 @@ s.setAttribute('data-timestamp', +new Date());
   gtag('config', 'UA-111530519-1');
 </script>
 
-</body>
+  </body>
 </html>

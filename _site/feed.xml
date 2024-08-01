@@ -1,449 +1,767 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.1.1">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2020-09-03T16:44:17+09:00</updated><id>/feed.xml</id><title type="html">MoongJong93</title><subtitle>웹 개발에 관한 이야기, Node.js와 Vue.js를 사용하는 개발자</subtitle><entry><title type="html">jekyll action</title><link href="/life/jekyll-action-test" rel="alternate" type="text/html" title="jekyll action" /><published>2020-09-03T00:00:00+09:00</published><updated>2020-09-03T00:00:00+09:00</updated><id>/life/jekyll-action-test</id><content type="html" xml:base="/life/jekyll-action-test">&lt;h2 id=&quot;빌드가-잘-된다면-블로그-글을-이어서-작성&quot;&gt;빌드가 잘 된다면 블로그 글을 이어서 작성&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-08-01T14:31:26+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">종민</title><subtitle>개발로그 및 일상</subtitle><entry><title type="html">심심한 블로그 2.0</title><link href="http://localhost:4000/%EA%B0%9C%EB%B0%9C/rebuild-blog/" rel="alternate" type="text/html" title="심심한 블로그 2.0" /><published>2023-03-09T00:00:00+09:00</published><updated>2023-03-09T00:00:00+09:00</updated><id>http://localhost:4000/%EA%B0%9C%EB%B0%9C/rebuild-blog</id><content type="html" xml:base="http://localhost:4000/%EA%B0%9C%EB%B0%9C/rebuild-blog/"><![CDATA[<h2 id="블로그를-개편하자">블로그를 개편하자</h2>
+
+<p>오래되고 오래되었다… 중간에 잠깐 그냥 노션에 하면 어떨까? 했지만 방문자 추적도 안되고 무엇보다 검색에 허용도 안되고.. 사실 재미도 없다. 그런 이유로 블로그를 개편해보자.</p>
+
+<h2 id="문제점">문제점</h2>
+
+<h3 id="1-쓸데없는-정보들">1. 쓸데없는 정보들</h3>
+
+<p>글을 쓰기 위해 블로그에 설정해야할게 너무 많다.</p>
+
+<ol>
+  <li>타이틀</li>
+  <li>설명</li>
+  <li>태그</li>
+  <li>카테고리</li>
+  <li>코멘트 여부</li>
+  <li>퍼머링크</li>
+  <li>작성 일자
+위의 목록만해도 총 7줄이 넘어가는데 사실 title말고 필요한 정보가 있을까? 아니 없다고 봐도 무방하다.</li>
+</ol>
+
+<h3 id="2-글도-몇개-없는데-쓸데없이-있는-페이져">2. 글도 몇개 없는데 쓸데없이 있는 페이져</h3>
+
+<p>그땐 페이져가 있어야 했을것 같았다 5년전만해도 이게 뭔가 멋있어 보였달까? 근데 어차피 잘 들어오지도 않는 페이지에 이게 무슨 낭비람? 내가 평생 글을써도 500개 미만일텐데 굳이 이렇게 할필요가 있나 싶다. 그땐 이거 만들어보려고 지킬에서 엄청나게 고민하면서 문서를 찾았었는데</p>
+
+<h2 id="todo-list">TODO List!</h2>
+
+<ul class="task-list">
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />블로그 디자인 변경</li>
+  <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />페이지네이션 없애기</li>
+</ul>]]></content><author><name></name></author><category term="개발" /><summary type="html"><![CDATA[블로그를 개편하자]]></summary></entry><entry><title type="html">그리드에 편집 기능 끼얹기</title><link href="http://localhost:4000/development/blog/added-edit-mode-on-grid" rel="alternate" type="text/html" title="그리드에 편집 기능 끼얹기" /><published>2023-03-02T00:00:00+09:00</published><updated>2023-03-02T00:00:00+09:00</updated><id>http://localhost:4000/development/blog/added-edit-mode-on-grid</id><content type="html" xml:base="http://localhost:4000/development/blog/added-edit-mode-on-grid"><![CDATA[<h2 id="목차">목차</h2>
+
+<ol>
+  <li>왜 필요한가?</li>
+  <li>필요한 기능
+    <ul>
+      <li>복사 후 붙여넣기 (테이블과 같은 정형 데이터는 ,등으로 분류)</li>
+      <li>하나의 셀 편집 기능</li>
+    </ul>
+  </li>
+  <li>어떻게 구현했는지?
+    <ul>
+      <li>복사 후 붙여넣기
+        <ul>
+          <li>붙여넣기 한 text를 , 또는 \t 단위로 잘라냄 개행은 \n</li>
+        </ul>
+      </li>
+      <li>편집기능
+        <ul>
+          <li>가지고 있는 Position에 TextInput 끼어넣기</li>
+        </ul>
+      </li>
+      <li>원본데이터 업데이트 및 컴포넌트 사용하는 곳에 업데이트 알림
+        <ul>
+          <li>javascript의 깊은 복사와… 얇은 복사의 슬픔</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>이때와 지금과 다른점
+    <ul>
+      <li>map을 사용하면 어떨까?</li>
+    </ul>
+  </li>
+</ol>
+
+<h3 id="왜-필요한가">왜 필요한가?</h3>
+
+<p>JDBC로 mariaDB 또는 mysql의 데이터베이스 연결 후 데이터를 추가하거나 업데이트하는 일이 필요해졌다. 그 데이터의 양이 1개 2개 라면 상관없지만 적게는 100개 많게는 10,000개 이상의 데이터를 데이터베이스에 직접 적재하는 과정이 필요했고 이 데이터를 클라이언트에서 추가해서 배열 형식으로 보내주면 서버는 이를받아 데이터베이스에 직접 추가하는 방식이었다.</p>
+
+<h3 id="필요한-기능">필요한 기능</h3>
+
+<p><strong>선행기능</strong></p>
+
+<ul>
+  <li>셀 선택 기능
+    <ul>
+      <li>붙여넣거나 편집할 위치를 알기 위해 선택하는 셀 자체의 위치를 알아야한다.</li>
+    </ul>
+  </li>
+  <li>드래그 선택
+    <ul>
+      <li>드래그 한 영역의 범위를 알아야 선택된 영역의 범위를 덮을 수 있다.</li>
+    </ul>
+  </li>
+</ul>
+
+<p><strong>아무</strong> <strong>웹사이트 내의 있는 테이블 데이터를 복사 할 수 있어야 했다.</strong></p>
 
-&lt;h1 id=&quot;jekyll-action&quot;&gt;jekyll action&lt;/h1&gt;
+<p>테이블은 \t, \n, \, 등으로 개행 등을 구분한다.</p>
 
-&lt;p&gt;jekyll을 구성하는데 있어서 많은 불편함이 있다.&lt;/p&gt;
+<ul>
+  <li>\n은 하나의 배열 공간을 차지하고</li>
+  <li>\t는 하나의 컬럼값의 해당하므로 객체안의 데이터이다</li>
+  <li>\,은 오브젝트안의 값이다.</li>
+</ul>
 
-&lt;p&gt;일단 gem 자체가 많은 permission을 요구하는것도 사실이고 설치하다가 중간에 잘못되면 그냥 블로그 안하게 되고&lt;/p&gt;
+<p><strong>편집기능은 쉬워야 한다.</strong></p>
 
-&lt;p&gt;이게 한 2년은 된것 같다.&lt;/p&gt;
+<ul>
+  <li>사용자의 특정 키 입력에 따라 수정 모드로 진입, 나가기 할 수 있어야한다.
+    <ul>
+      <li>enter, esc 등</li>
+      <li>알파벳의 키코드</li>
+    </ul>
+  </li>
+</ul>
 
-&lt;hr /&gt;
+<p><strong>원본 데이터를 업데이트 및 컴포넌트 사용자가 알아야 한다.</strong></p>
 
-&lt;p&gt;내가 사용한 yml은 아래와 같다&lt;/p&gt;
+<ul>
+  <li>편집시 변경 점을 알려주어야 함</li>
+</ul>
 
-&lt;pre&gt;&lt;code class=&quot;language-yml&quot;&gt;name: Jekyll site CI
+<h3 id="구현을-하며-문제점">구현을 하며 문제점</h3>
 
-on:
-  push:
-    branches: [ master ]
-  pull_request:
-    branches: [ master ]
+<ul>
+  <li>javascript의 복사는 주소만 카피하므로 변경 데이터를 비교하는데 어려움이 있다.</li>
+  <li>한글의 자모음이 끝나는 부분에서 enter키의 타이밍은 영문과 다르다.</li>
+</ul>
 
-jobs:
-  build:
+<h3 id="이때의-코드를-변경하고-싶은것">이때의 코드를 변경하고 싶은것</h3>
 
-    runs-on: ubuntu-latest
+<ul>
+  <li>그냥 javascript의 map을 사용했다면 어떨까?</li>
+</ul>]]></content><author><name></name></author><category term="개발" /><category term="grid" /><category term="typescript" /><summary type="html"><![CDATA[목차]]></summary></entry><entry><title type="html">어떤 컴포넌트가 사용하기 편헐까?</title><link href="http://localhost:4000/development/blog/what-components-easy-use" rel="alternate" type="text/html" title="어떤 컴포넌트가 사용하기 편헐까?" /><published>2022-12-20T00:00:00+09:00</published><updated>2022-12-20T00:00:00+09:00</updated><id>http://localhost:4000/development/blog/what-components-easy-use</id><content type="html" xml:base="http://localhost:4000/development/blog/what-components-easy-use"><![CDATA[<p>회사에서 angular-sdk를 맡아서 공통적으로 사용하는 컴포넌트를 sdk화 시키는 작업을 맡은지 1년이 좀 넘었다. 그동안 회사에서 사용하는 컴포넌트들을 리빌딩하면서 느낀점을 적어보려고 한다.</p>
 
-    steps:
-    - uses: actions/checkout@v2
-    - name: Build the site in the jekyll/builder container
-      run: |
-        docker run \
-        -v $:/srv/jekyll -v $/_site:/srv/jekyll/_site \
-        jekyll/builder:latest /bin/bash -c &quot;chmod 777 /srv/jekyll &amp;amp;&amp;amp; jekyll build --future&quot;
-&lt;/code&gt;&lt;/pre&gt;
+<ol>
+  <li>이것도 있으면 편하겠지?</li>
+  <li>사용자가 사용할때 굳이 위에서 두번 타입을 바꿀 필요 없게 하면 쓰기 더 편하지 않을까?</li>
+</ol>
 
-&lt;p&gt;이렇게 놓고 푸시를 하면 알아서 당겨 간다.&lt;/p&gt;
+<p>위의 얘기를 몇가지의 사례를 가지고</p>
 
-&lt;p&gt;위의 구문은 별도의 공부 없이고 대충 이해할 수 있는 수준이라서 별도의 설명은 안해도 될것 같다.&lt;/p&gt;
+<h2 id="이것도-있으면-편하겠지">이것도 있으면 편하겠지?</h2>
 
-&lt;p&gt;아무튼 블로그는 그냥 계속 깃헙에 작성 하는걸로 해야겠다.&lt;/p&gt;</content><author><name></name></author><category term="jekyll" /><category term="github action" /><summary type="html">빌드가 잘 된다면 블로그 글을 이어서 작성</summary></entry><entry><title type="html">어떻게 프리서버를 만드는것을 배웠는지</title><link href="/lie/how-to-learn-open-free-server" rel="alternate" type="text/html" title="어떻게 프리서버를 만드는것을 배웠는지" /><published>2020-09-03T00:00:00+09:00</published><updated>2020-09-03T00:00:00+09:00</updated><id>/lie/how-to-learn-open-free-server</id><content type="html" xml:base="/lie/how-to-learn-open-free-server">&lt;p&gt;프리서버 운영은 엄연한 불법 행위 입니다.&lt;/p&gt;
+<p>컴포넌트를 만들다보면 이런저런 많은 기능이 들어가는 경우가 수두룩 했었다. 특히 그리드에선 그랬는데 <code>virtaul scroll</code> 기능을 추가한 그리드라는 얘기가 무성할 정도로 결국은 많은 기능이 필요했었다. 기억에 남는 몇개의 기능을 얘기해보자면</p>
 
-&lt;blockquote&gt;
-  &lt;p&gt;저작권법 제101조의4(프로그램코드역분석) ① 정당한 권한에 의하여 프로그램을 이용하는 자 또는 그의 허락을 받은 자는 호환에 필요한 정보를 쉽게 얻을 수 없고 그 획득이 불가피한 경우에는 해당 프로그램의 호환에 필요한 부분에 한하여 프로그램의 저작재산권자의 허락을 받지 아니하고 프로그램코드역분석을 할 수 있다.&lt;/p&gt;
-&lt;/blockquote&gt;
+<ol>
+  <li>IP 국기 플래그 추가</li>
+  <li>너비 조절 사용자 지정(너비 지정한 것을 저장하여야 함)</li>
+  <li>컬럼 드롭다운 사용자 지정</li>
+</ol>
 
-&lt;p&gt;라고 &lt;a href=&quot;https://namu.wiki/w/%ED%94%84%EB%A6%AC%EC%84%9C%EB%B2%84&quot;&gt;나무위키&lt;/a&gt;에서 설명하고 있습니다.&lt;/p&gt;
+<p>등의 기능이 있었는데 이 기능을 추가하기 위해 <code>컴포넌트 내부</code> 에서 몇가지 작업이 필요했었다. 가령 ip 국기를 추가하기 위해서 ip-table을 탐색해서 확인해야하고 이 로직이 그리드 자체에 들어간것이다.</p>
 
-&lt;h2 id=&quot;프리서버라는-말을-접하게된-계기&quot;&gt;프리서버라는 말을 접하게된 계기&lt;/h2&gt;
+<p>애초에 이 그리드는 <code>가상 스크롤</code>주제를 가지고 시작한 그리드이다. 근데 이 그리드에서 기능이 여러가지 필요해서 붙이다보니 이벤트 부터 시작해서 <code>총 12개의 파일</code>로 구성된 그리드가 되어버린 것이다.</p>
 
-&lt;p&gt;초등학교 시절 거상에 흠뻑빠져 있었다. 사냥에는 흥미가 없고 하루종일 짐꾼과 돌아다니면서 벼를 팔아 시세 차익을 내거나 한양에서 장사를 하거나 하는 행위를 주로 했다.&lt;/p&gt;
+<p>이렇게 했을때 문제는 다음과 같다.</p>
 
-&lt;p&gt;장사를 계속 하다보니까 자연스레 친구가 많이 생겼는데 어느날 한 사람이 나에게 ‘프리서버’라는걸 해본적이 있냐고 물었다. 나는 당시 프리서버라는 것에 대해서 아니 프리라는 단어 자체를 영어로 쓰지 못할정도로 어린 나이 이기 때문에 그의 이야기에 흠뻑 빠졌다.&lt;/p&gt;
+<ol>
+  <li>컴포넌트의 새로운 기능이 추가될때마다 점점 하나의 컴포넌트가 가져야할 코드가 많아짐</li>
+  <li>당연히 유지보수 어려움</li>
+  <li>코드가 길어짐에 따라서 <code>본연</code>의 기능인 가상 스크롤 기능을 확실히 체크하기 어려움 (QA쪽에도 부하가..)</li>
+</ol>
 
-&lt;ol&gt;
-  &lt;li&gt;레벨업은 내가 원하는대로 마음대로&lt;/li&gt;
-  &lt;li&gt;내가 가지고 싶은 장비도 마음대로&lt;/li&gt;
-  &lt;li&gt;그냥 게임 자체를 내 마음대로&lt;/li&gt;
-&lt;/ol&gt;
+<p>그렇다면 어떻게 했어야 했을까?</p>
 
-&lt;h2 id=&quot;초등학교-3학년-폭풍-검색-시작&quot;&gt;초등학교 3학년 폭풍 검색 시작&lt;/h2&gt;
+<h3 id="컴포넌트는-그-자체로-둬야-아름답다">컴포넌트는 그 자체로 둬야 아름답다</h3>
 
-&lt;p&gt;정확히 어떤 엔진을 사용해서 검색한지는 잘 기억이 안나지만 몇개 추려 보자면&lt;/p&gt;
+<p>컴포넌트는 그 자체로 두어야 한다. <code>가상화 스크롤</code> 이라는 기능에 촛점을 맞췄다면 그것을 만들면 그만인것이다. 그렇지만 항상 기능이 이것저것 따라온다면 아래와 같이 문제를 풀어야 할것이다.</p>
 
-&lt;ul&gt;
-  &lt;li&gt;인포마스터? (이제는 존재하지도 않는 검색 사이트)&lt;/li&gt;
-  &lt;li&gt;네이버 (전혀 나오지 않음)&lt;/li&gt;
-  &lt;li&gt;다음&lt;/li&gt;
-  &lt;li&gt;파란&lt;/li&gt;
-&lt;/ul&gt;
+<ul>
+  <li>가상화 스크롤에 들어간 row의 dom을 직접 template기능으로 줄 수 있으면 될것 (이후에는 필요한 기능을 확장해서 사용)</li>
+  <li>너비 조절시 이벤트로 너비 조절된 데이터를 전달</li>
+</ul>
 
-&lt;p&gt;등을 사용해 검색을 몇달간 계속 했다.&lt;/p&gt;
+<p>위와 같이 스크롤 기능을 제외하고 특별한 기능이 필요하다면 그에 필요한 <code>재료</code> 를 전달하면 된다. 그렇게되면 특정한 상황에서도 큰 변화 없이 컴포넌트는 <code>유지</code> 될 수 있다.</p>
 
-&lt;p&gt;그러나 초등학교 3학년의 통찰력과 이해로 무엇을 할 수 있으리.. 나는 당연히 프리서버를 구현하지 못했다.&lt;/p&gt;
+<h2 id="select-컴포넌트로-보는-사용자-친화-적인-개발이-오히려-불편함을-가져다-준-경우">select 컴포넌트로 보는 사용자 친화? 적인 개발이 오히려 불편함을 가져다 준 경우</h2>
 
-&lt;h2 id=&quot;그렇게-2년뒤-피씨방에서-라그나로크-프리서버를-하는-형들을-발견&quot;&gt;그렇게 2년뒤 피씨방에서 라그나로크 프리서버를 하는 형들을 발견&lt;/h2&gt;
+<p>어느날 우리 회사 제품에 select 컴포넌트가 필요해졌다. SDK에서 받아야 할 프로퍼티는 아래와 같았다.</p>
 
-&lt;p&gt;아직도 기억이 난다 그 형들의 레벨업소리가 타탁! 한 마리를 잡으니 레벨이 바로 40이 되는걸 보고 말았다. 나는 불현듯 이게 프리서버라는 거구나라는 생각을 했고 뒤에서 하염없이 지켜봤다.&lt;/p&gt;
+<ul>
+  <li>보여줘야 할 목록의 이름</li>
+  <li>어떤게 선택되었는지 보낼 이벤트</li>
+</ul>
 
-&lt;blockquote&gt;
-  &lt;p&gt;야 저리가&lt;/p&gt;
-&lt;/blockquote&gt;
+<p>이렇게 사용하는 컴포넌트였는데. (검색 기능 등 이런것은 제외하고)</p>
 
-&lt;p&gt;나보고 거의 꺼지라는 수준의 말로 저리가라고 했지만 저 멀리서 계속 지켜봤다.&lt;/p&gt;
+<p>아래와 같이 프로퍼티를 받았다.</p>
 
-&lt;p&gt;그리고 그현들이 오는 시간에 맞춰서 피씨방에 출근했다..&lt;/p&gt;
+<pre><code class="language-tsx">type SelectItems&lt;T&gt; = {
+  name: string;
+  value: T;
+}[];
+</code></pre>
 
-&lt;p&gt;그리고 며칠 음료수를 형들의 책상에 두고 뒤에서 지켜보았다.&lt;/p&gt;
+<p>그리고 이벤트의 타입은 아래와 같았다</p>
 
-&lt;p&gt;그렇게 한 일주일이 지나고 나도 드디어 형들의 프리서버에 들어갈 수 있는 자격이 생겼다.&lt;/p&gt;
+<pre><code class="language-tsx">type ItemChangeEvent&lt;T&gt; = {
+  value: T;
+};
+</code></pre>
 
-&lt;p&gt;그들은 프리서버를 운영하고 있었고 가끔 피씨방에 와서 둘이서 이것저것 게임을 고치면서 노는 학생이었다.&lt;/p&gt;
+<p>클릭을 하면 value를 직접 보내주는건데 이렇게 보면 어떤게 문제가 되는지 잘 이해하기 어렵지만.. 왜 굳이 이벤트와 아이템 프로퍼티가 다른지에 대한 설명을 해보자면</p>
 
-&lt;h2 id=&quot;어떻게-구현하는지-배워야-했다&quot;&gt;어떻게 구현하는지 배워야 했다&lt;/h2&gt;
+<p>내가 원하는 select 컴포넌트는 어떤 배열을 보내던간에 name 프로퍼티에 대한 키를 보내고 (이때 name에 대한 프로퍼티를 새로 받음) value에 대한 키를 보내고 이 키를 가지고 아무 배열 형태의 데이터를 가져오더래도 이를 표시해주기 위함이었다.</p>
 
-&lt;p&gt;나에게는 7살 많은 형이 있었는데 내가 피씨방에서 보고 온것을 형은 믿지 못했다. 아니 게임을 참가 했다고 해도 형은 무슨 개소리냐며 비아냥대기 바뻤고 급기야 아버지에게 피씨방에 가지 못하게 하라고 얘기하기 시작했다.&lt;/p&gt;
+<p>즉 사용하기 편하게 하기위해 여러가지 프로퍼티를 받아야 했었는데. 이를 가지고 회사 외부에서 SDK관련 교육을 할때 가장 많이 받은 질문이 이거였다.</p>
 
-&lt;p&gt;오기로 이것을 배워 형하고 피씨방에 갔을대 내가 구현한것을(? 내가 구현한것은 없는데..) 보여줘야만 했다.&lt;/p&gt;
+<blockquote>
+  <p>Select가 아무것도 안보여요..</p>
+</blockquote>
 
-&lt;p&gt;그로부터 피씨방에 조금 더 일찍 가기 시작했다.&lt;/p&gt;
+<p>그래서 나는 대답했다 문서를 보시면 이렇게 받아서 이렇게 보고…..</p>
 
-&lt;p&gt;옆에서 형들이 하는것을 보고 따라하고 그렇게 읿주일 나도 통파일(구현이 전부 담겨있는 팩? 같은 것)을 어떻게 구하는지와 어떻게 서버를 여는지를 배우게 되었다.&lt;/p&gt;
+<p>이 대답과 정확한 select 사용방법을 설명해주기 위해서 SDK 교육의 5분정도를 할애했다는 것이다. 나에게 주어진 시간은 약 2시간이었는데 상당히 긴 시간이었다.</p>
 
-&lt;p&gt;내 기억이 맞다면.&lt;/p&gt;
+<p>그렇다 이 select 컴포넌트는 이 코드를 잘아는 <code>내부</code> 개발자만 사용하기 편하다는 것이다… 이 마져도 여러번 문서를 번갈아 가며 봐야 할 때가 많았다.</p>
 
-&lt;ol&gt;
-  &lt;li&gt;mysql을 통해 db서버를 연다&lt;/li&gt;
-  &lt;li&gt;내 서버 주소를 어떤 메모장에 옮겨 적는다.&lt;/li&gt;
-  &lt;li&gt;통파일 압축해제&lt;/li&gt;
-  &lt;li&gt;통파일에서 나온 .bat 실행 또는 cmd에서 무슨 명령어를 입력&lt;/li&gt;
-&lt;/ol&gt;
+<hr />
 
-&lt;p&gt;이렇게 하면 내 서버가 열리고 실행은 또 그냥 안되고 통파일에서 나온 압축 해제된 클라이언트 폴더에 가서 세팅을 바꿔줘야 한다.&lt;/p&gt;
+<h3 id="그래서-새로운-select는-어떻게-만들었는가">그래서 새로운 select는 어떻게 만들었는가</h3>
 
-&lt;p&gt;아무튼 이렇게 해서 라그나로크 프리서버를 여는 방법을 배웠고 이후에 리니지, 바람의 나라 등을 중학교때 까지 한번 한번씩 열었었다.&lt;/p&gt;
+<p>아주 간단하게 만들었다. <code>string[]</code> 타입을 받아서 그대로 드롭다운에 표시하고 그것을 클릭하면 클릭한 index를 전달하는 것이다. 오히려 나도 이렇게 사용해보니.. 이렇게 쓰는게 훨씬 편했다.</p>]]></content><author><name></name></author><category term="개발" /><category term="grid" /><category term="typescript" /><summary type="html"><![CDATA[회사에서 angular-sdk를 맡아서 공통적으로 사용하는 컴포넌트를 sdk화 시키는 작업을 맡은지 1년이 좀 넘었다. 그동안 회사에서 사용하는 컴포넌트들을 리빌딩하면서 느낀점을 적어보려고 한다.]]></summary></entry><entry><title type="html">가상 그리드 만들기</title><link href="http://localhost:4000/development/blog/why-made-grid-with-virtual-scroll" rel="alternate" type="text/html" title="가상 그리드 만들기" /><published>2022-12-20T00:00:00+09:00</published><updated>2022-12-20T00:00:00+09:00</updated><id>http://localhost:4000/development/blog/why-made-grid-with-virtual-scroll</id><content type="html" xml:base="http://localhost:4000/development/blog/why-made-grid-with-virtual-scroll"><![CDATA[<h3 id="데이터-그리드">데이터 그리드</h3>
 
-&lt;p&gt;그런데 내가 성인이 되서도 mysql을 만질줄이야!&lt;/p&gt;</content><author><name></name></author><category term="자랑 아님" /><category term="엄연한 불법 행위" /><summary type="html">프리서버 운영은 엄연한 불법 행위 입니다.</summary></entry><entry><title type="html">타입스크립트 코리아 강좌 정리</title><link href="/study/hello-typescript" rel="alternate" type="text/html" title="타입스크립트 코리아 강좌 정리" /><published>2018-10-30T00:00:00+09:00</published><updated>2018-10-30T00:00:00+09:00</updated><id>/study/hello-typescript</id><content type="html" xml:base="/study/hello-typescript">&lt;h1 id=&quot;1-typescirpt-에-관하여&quot;&gt;1. Typescirpt 에 관하여&lt;/h1&gt;
+<p>어떤 데이터를 보여주기 위한 ‘표’ 테이블이라고도 할 수 있다.</p>
 
-&lt;blockquote&gt;
-  &lt;p&gt;tpyscript 는 자바스크립트를 포함한 프로그래밍 언어&lt;/p&gt;
-&lt;/blockquote&gt;
+<p>내가 일하는 회사 ‘로그프레소’는 많은 ‘로그’나 ‘데이터’ 등을 가공하여 사용자에게 시각화를 통해 해당 로그가 어떤 위험이 있고 어떤 준비를 해야하는지 알려주는 제품이다.</p>
 
-&lt;ul&gt;
-  &lt;li&gt;타입스크립트는 ‘Compiled Language’이다&lt;/li&gt;
-  &lt;li&gt;자바스크립트는 ‘Interpreted Language’이다&lt;/li&gt;
-&lt;/ul&gt;
+<p>하지만 <code>&lt;table/&gt;</code> 기존 데이터 그리드 방식은 약간 문제가 많았다.</p>
 
-&lt;blockquote&gt;
-  &lt;p&gt;그러나 엄밀히 따지자면 컴파일 언어라고 보기는 힘들고 메타 프로그래밍이라고도 하며, 트랜스파일(바밸 등) 언어라고도 보기도한다.&lt;/p&gt;
-&lt;/blockquote&gt;
+<h2 id="문제점">문제점</h2>
 
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt;Compiled&lt;/th&gt;
-      &lt;th&gt;Interpreted&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;컴파일이 필요&lt;/td&gt;
-      &lt;td&gt;컴파일이 필요없음&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;컴파일러가 필요&lt;/td&gt;
-      &lt;td&gt;컴파일러가 필요없음&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;컴파일하는 시점이 있음&lt;/td&gt;
-      &lt;td&gt;컴파일하는 시점이 없음&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;컴파일된 결과물 실행&lt;/td&gt;
-      &lt;td&gt;코드 자체를 실행&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
+<p>많은 양의 데이터를 보여주면 브라우져가 죽어버리기 때문에 한페이지에 100개의 로우를 담은 페이지만을 보여주어야 한다.</p>
 
-&lt;blockquote&gt;
-  &lt;p&gt;컴파일 언어는 최적화 과정을 거침 * 특히 타입스크립트는 타입을 체크하는 과정을 거침&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h2 id=&quot;정적타입-언어-vs-동적-타입-언어&quot;&gt;정적타입 언어 VS 동적 타입 언어&lt;/h2&gt;
-
-&lt;h3 id=&quot;정적타입-언어&quot;&gt;정적타입 언어&lt;/h3&gt;
-
-&lt;p&gt;미리 타입을 정의 해놓고 사용함&lt;/p&gt;
-
-&lt;h3 id=&quot;동적-타입언어&quot;&gt;동적 타입언어&lt;/h3&gt;
-
-&lt;p&gt;타입이 정의되어 있지 않고 자유럽게 변화가 가능&lt;/p&gt;
-
-&lt;p&gt;타입스크립트는 정적타입 언어의 장점을 자바스크립트에 결합한 언어이다.&lt;/p&gt;
-
-&lt;h2 id=&quot;traditional-compiled-language&quot;&gt;Traditional Compiled Language&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;컴파일 언어라고 한다&lt;/li&gt;
-  &lt;li&gt;C, C++, go 등&lt;/li&gt;
-  &lt;li&gt;일반적으로 실행시 기계어로 바꾸는 방식(인터프리터 언어)보다 빠르다.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;TS =&amp;gt; JS&lt;/p&gt;
-
-&lt;p&gt;이 강좌에서 배우는 것은 컴파일은 어떤 역할을 하는지 어떤 도구들이 있고 올바르게 사용하는 방법과, 타입스크립트 자체를 이해&lt;/p&gt;
-
-&lt;h1 id=&quot;2-개발-환경-구축&quot;&gt;2. 개발 환경 구축&lt;/h1&gt;
-
-&lt;h2 id=&quot;nodejs-설치&quot;&gt;Node.js 설치&lt;/h2&gt;
-
-&lt;p&gt;강좌 외적으로 저는 Node.js 의 버전을 자유롭게 바꾸다보니 NVM 사용을 권장합니다. 예) Lambda 에서 지원하는 버전과 React 에서 지원하는 버전이 전혀 다르면서 생기는 문제 등등&lt;/p&gt;
-
-&lt;p&gt;curl 을 이용해 설치&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;curl -o https://raw.githubusercontent.com/creationix/nvm/v0.26.1/install.sh | bash
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&quot;browser-설치&quot;&gt;Browser 설치&lt;/h2&gt;
-
-&lt;p&gt;Chrome, firefox 와 같이 검사가 있는 브라우저를 추천 함&lt;/p&gt;
-
-&lt;h2 id=&quot;tpyscript-compiler-설치&quot;&gt;Tpyscript compiler 설치&lt;/h2&gt;
-
-&lt;pre&gt;&lt;code&gt;npm i typescript -g // 전역으로 설치됩니다
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&quot;ide-설치&quot;&gt;IDE 설치&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://visualstudio.microsoft.com/ko/?rr=https%3A%2F%2Fwww.google.co.kr%2F&quot;&gt;vscode(무료)&lt;/a&gt;, intelliJ(유료)&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;visual studio code 는 Typscript 로 만들어졌다.&lt;/li&gt;
-  &lt;li&gt;타입스크립트 지원이 강력하다&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;tsc-init&quot;&gt;tsc init&lt;/h2&gt;
-
-&lt;p&gt;tsc 설정 파일을 init 함
-target, module, strict 정도가 기본 설정으로 되어있음.&lt;/p&gt;
-
-&lt;h2 id=&quot;ts-lint&quot;&gt;ts lint&lt;/h2&gt;
-
-&lt;pre&gt;&lt;code&gt;npm i tslint -D
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;tslint –init&lt;/p&gt;
-
-&lt;h1 id=&quot;3-compiler-options&quot;&gt;3. Compiler Options&lt;/h1&gt;
-&lt;h2 id=&quot;tsconfig&quot;&gt;tsconfig&lt;/h2&gt;
-&lt;p&gt;&lt;a href=&quot;http://json.schemastore.org/tsconfig&quot;&gt;ts config 가이드&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;최상위-프로퍼티&quot;&gt;최상위 프로퍼티&lt;/h2&gt;
-&lt;ol&gt;
-  &lt;li&gt;CompileOnSave: 파일 저장시 자동 컴파일, Visual studio에서 사용 가능&lt;/li&gt;
-  &lt;li&gt;extends: v2.1 new spec&lt;/li&gt;
-  &lt;li&gt;compileOptions
-    &lt;ul&gt;
-      &lt;li&gt;다양한 옵션이 제공됨&lt;/li&gt;
-      &lt;li&gt;typeRoots: 배열 안에 들어있는 경로들 아래에 모듈만 가져옴&lt;/li&gt;
-      &lt;li&gt;types: 배열 안에 모듈, ./node_modules/@types/ 안의 모듈 이름에서 찾아옴&lt;/li&gt;
-      &lt;li&gt;typeRoots, types와 함께 사용하지 않음&lt;/li&gt;
-      &lt;li&gt;target: 컴파일 해서 어떤 자바스크립트 버전으로 downgrade 시킬거냐 기본은 es3이다&lt;/li&gt;
-      &lt;li&gt;lib: 기본 type definition 라이브러리를 어떤 것을 사용할 것이냐
-        &lt;ul&gt;
-          &lt;li&gt;lib를 지정하지 않을때&lt;/li&gt;
-          &lt;li&gt;target이 ‘es3’이고 디폴트로 lib.d.ts를 사용함&lt;/li&gt;
-          &lt;li&gt;target이 ‘es5’이면, 디폴트로 dom, es5, scripthost를 사용함&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-      &lt;li&gt;outDir: 소스 구조의 전부를 컴파일 하려면 사용&lt;/li&gt;
-      &lt;li&gt;outFile: 구조 상관없이 컴파일 하려면 사용&lt;/li&gt;
-      &lt;li&gt;module: 결과물이 어떤 js파일을 쓸건지 target이 es6면 es6가 기본값, es6가 아니면 ‘commonjs’가 기본값&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;files:
-    &lt;ul&gt;
-      &lt;li&gt;상대 혹은 절대 경로의 리스트 배열&lt;/li&gt;
-      &lt;li&gt;exclude 보다 우선순위 높음&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;include
-    &lt;ul&gt;
-      &lt;li&gt;exclude 보다 우선순위 낮음&lt;/li&gt;
-      &lt;li&gt;*같은걸 사용하면 .ts / .tsx 등 설정한 것만 include 함&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;exclude
-    &lt;ul&gt;
-      &lt;li&gt;설정 안하면 기본 4가지를 설정 (node_modules, browser_components, jspm_packages, outDIr)를 기본적으로 제외&lt;/li&gt;
-      &lt;li&gt;outDir은 항상 제외&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h1 id=&quot;4-typescript-basic-type&quot;&gt;4. typescript basic type&lt;/h1&gt;
-&lt;ul&gt;
-  &lt;li&gt;Typescript에서 프로그램 작성을 위해 기본 제공하는 데이터 타입&lt;/li&gt;
-  &lt;li&gt;Javscript 기보 자료형을 포함
-    &lt;ul&gt;
-      &lt;li&gt;ECMAScript 표준에 따른 기본 자료형은 6가지&lt;/li&gt;
-      &lt;li&gt;Boolean&lt;/li&gt;
-      &lt;li&gt;String&lt;/li&gt;
-      &lt;li&gt;Null&lt;/li&gt;
-      &lt;li&gt;Undefined&lt;/li&gt;
-      &lt;li&gt;Symbol&lt;/li&gt;
-      &lt;li&gt;Array: Object형&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;프로그래밍을 도울 몇가리 타입이 더 제공됨
-    &lt;ul&gt;
-      &lt;li&gt;Any&lt;/li&gt;
-      &lt;li&gt;Void&lt;/li&gt;
-      &lt;li&gt;Never&lt;/li&gt;
-      &lt;li&gt;Enum&lt;/li&gt;
-      &lt;li&gt;Tuple: Object&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;literal&quot;&gt;literal?&lt;/h2&gt;
-&lt;p&gt;값자체가 변하지 않는 값을 의미함
-상수와 다른 것은 상수는 가리키는 포인터가 고정이라는 것이고, 리터럴은 그 자체가 값이자 리터럴&lt;/p&gt;
-
-&lt;h2 id=&quot;권장-소문자를-사용해라&quot;&gt;권장 소문자를 사용해라&lt;/h2&gt;
-&lt;p&gt;new Number(5) -&amp;gt; number(5);&lt;/p&gt;
-
-&lt;p&gt;new Boolean(false) -&amp;gt; boolrean(false);&lt;/p&gt;
-
-&lt;h2 id=&quot;any&quot;&gt;Any&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;어떤 타입이든 상관없음&lt;/li&gt;
-  &lt;li&gt;그러나 권장하지 않음 (이걸 쓸꺼면 그냥 es6바밸 문법을 사용해라)&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;tuple&quot;&gt;Tuple&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;배열인데 한가지 타입이 아닐 경우&lt;/li&gt;
-  &lt;li&gt;객체&lt;/li&gt;
-  &lt;li&gt;사용할때 주의가 필요함&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h1 id=&quot;5-var-let-const&quot;&gt;5. var, let, const&lt;/h1&gt;
-&lt;ul&gt;
-  &lt;li&gt;var
-    &lt;ul&gt;
-      &lt;li&gt;es5&lt;/li&gt;
-      &lt;li&gt;함수 스코프&lt;/li&gt;
-      &lt;li&gt;호이스팅이 가능&lt;/li&gt;
-      &lt;li&gt;재선언 가능&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;let, const
-    &lt;ul&gt;
-      &lt;li&gt;es6&lt;/li&gt;
-      &lt;li&gt;블록 스코프&lt;/li&gt;
-      &lt;li&gt;호이스팅 불가능&lt;/li&gt;
-      &lt;li&gt;재선언 불가&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;var 말고 let, const를 사용하자&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;let-const-차이점&quot;&gt;let, const 차이점&lt;/h2&gt;
-&lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;let a: string = &quot;에이&quot;;
-let a = &quot;에이&quot;; //자동으로 String으로 타입을 맞춰줌
-
-const b: string = &quot;비&quot;;
-const b = &quot;비&quot;; //별도의 타입을 만들어 주지 않음
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h1 id=&quot;6-type-assersions&quot;&gt;6. Type assersions&lt;/h1&gt;
-&lt;ul&gt;
-  &lt;li&gt;형변환과는 다름
-    &lt;ul&gt;
-      &lt;li&gt;형변형은 실제 데이터 구조를 바꿔줌&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;‘타입이 이것이다’라고 컴파일러에게 알려주는 것을 의미함
-    &lt;ul&gt;
-      &lt;li&gt;그래서 작성자가 100% 신뢰하는 것이 중요하다.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;문법적으로는 두가지 방법이 있다
-    &lt;ul&gt;
-      &lt;li&gt;변수 as 강제할 타입&lt;/li&gt;
-      &lt;li&gt;
-        &lt;강제할 타입=&quot;&quot;&gt;변수
-```javascript
-let a: any = &quot;this is a string&quot;;
+<ol>
+  <li>마찬가지로 컬럼이 많은 경우에도 느려지고 특정 사양의 브라우저에서는 아예 꺼지기도 했기 때문에 그런 데이터는 지양하여 담아야 했다.</li>
+  <li>좌우 너비가 없이 일단 기본 고정폭인 200px로 렌더링되기 때문에 긴 문장의 경우 사용자가 좌우 너비를 넓혀야 했으며 다시 해당 데이터를 불러와도 해당 너비가 저장이 안되어서 계속해서 마우스 드레그를 통해 늘려야 했다.</li>
+</ol>
+
+<h2 id="문제-해결을-위한-기초-지식">문제 해결을 위한 기초 지식</h2>
+
+<ul>
+  <li>table은 많은 데이터가 표시되면 느려진다 (일부만 표시되어야 한다) → 가상 스크롤을 적용해야한다.</li>
+  <li>브라우저 스펙에 맞는 가상 스크롤 스펙 및 폴리필을 정해야했다.
+    <ul>
+      <li>처음 개발할 당시에는 IE11을 현역으로 사용하고있는 고객이 많았다.</li>
+    </ul>
+  </li>
+  <li>렌더링하지 않고 해당 ‘셀’의 너비 및 높이를 알기 위해서는 canvas의 <strong><code>measureText</code> 등을 알아야 했다.</strong></li>
+</ul>
+
+<h3 id="해결하면서-겪은-삽질">해결하면서 겪은 삽질</h3>
+
+<ul>
+  <li>angular에 내장된 virtual scroll은 사용하는곳이 없어 정보찾기도 어렵고 추후 별도의 플랫폼에서 사용할 수 없었다.
+    <ul>
+      <li>당시 이 기능은 angular, angularJS, react, javascript 등이 혼용된 곳에서 SDK로서 사용할 수 있었어야 했다.</li>
+    </ul>
+  </li>
+  <li><code>span</code>을 보이지 않는곳에 렌더링하고 너비를 가져오는것은 생각보다 큰 비용이 발생했다.
+    <ul>
+      <li>canvas의 <code>measureText</code> 를 사용해야만 하는 이유가 되었음</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="angular-react가-아니라-pure-typescript로-개발한-후-wrapper를-통해-angular-react를-지원하게됐던-이유">angular, react가 아니라 pure Typescript로 개발한 후 wrapper를 통해 angular, react를 지원하게됐던 이유</h3>
+
+<ul>
+  <li>회사 내부에는 React를 ‘불신’하는 개발자 분들이 많았다.</li>
+  <li>angular의 virtual scroll은 정보가 찾기 힘들었다.</li>
+  <li>일반적인 곳에서도 동작이 되어야 했다.</li>
+</ul>
+
+<p>위의 이유로 typescript를 통해 개발하게 되었다.</p>
+
+<h2 id="개발">개발</h2>
+
+<h3 id="셀의-개념을-사용한-엑셀-스프레드-시트와-같은-유틸리티로서의-개발이-필요했다">셀의 개념을 사용한 ‘엑셀’, ‘스프레드 시트’와 같은 유틸리티로서의 개발이 필요했다.</h3>
+
+<p>필요한 기능 몇개만 나열해보자면</p>
+
+<ol>
+  <li>셀 클릭한 위치에 데이터를 통한 쿼리 진행</li>
+  <li>특정 셀의 값이 사용자가 요청한 값의 범위에 들어간다면 색상을 사용자가 원하는 색으로 변경 할 수 있어야 했음 (조건부 서식과 같은?)</li>
+  <li><code>editable</code> 기능을 통해 해당 데이터 그리드가 ‘편집’이 가능해야 했다.</li>
+  <li>드레그한 셀의 범위 복사 등</li>
+</ol>
+
+<p>위와 같은 기능은 스프레드 시트에서 직접 드레그해보고 하면서 어떻게 개발하면 좋겠다고 생각했었다.</p>
+
+<h3 id="간단한-설계부터">간단한 설계부터.</h3>
+
+<p>데이터 스토어는 존재해야한다. body를 담당하는 <code>class TableBody</code>와 head를 담당하는 <code>class TableHead</code>는 데이터에 변형을 가해서는 안됐다.</p>
+
+<p>일단 Redux 패턴을 유심있게 본 결과 내린 결론인데. event가 아닌곳에서 데이터를 변형하면 이 변경이 어디에서 발생했는지 알 수 없으므로 모든 변경은 Event가 store에 전달을해서 변경해야 했다. 이구조를 변경해야 한다면 아예 설계 자체가 틀어지므로 이 부분은 확실히 변경이 없게 해두고 공식 스펙으로 정해두고 개발을 시작했다.</p>
+
+<p>간단히 얘기해 store -&gt; event -&gt; body, head와 같은 컴포넌트로 전달하는 방식이다.</p>
+
+<h3 id="비정형-데이터를-그리드에-표시하기-좋은-데이터로-만들기-위해">비정형 데이터를 그리드에 표시하기 좋은 데이터로 만들기 위해.</h3>
+
+<ul>
+  <li>각 셀은 컬럼, 로우의 id를 가지고 있는다. 이후 클릭시 해당 위치를 파악하고 데이터 정제를 하기 쉽게 하기 위함이다. <code>records[rowId][columns[columnId]</code>등으로 접근 할 수 있어야 한다.</li>
+  <li>서버에서 보내주는 데이터는 배열에 담긴 객체였다.
+    <ul>
+      <li>모든 배열을 순회하여 가장 넓은 너비를 가진 셀을 기준으로 너비 값을 store에 보내주어야 했다.</li>
+      <li>배열을 순회하며 값이 사용자가 원하는 범위의 값이라면 색으로 체크 등이 필요한것은 rowId, columnId를 통해 cell로 전달했다.</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="사용자의-스크롤-지점은-과연-어떤-부분일까">사용자의 스크롤 지점은 과연 어떤 부분일까?</h3>
+
+<ul>
+  <li>앞서 언급한 레코드의 배열을 순회하며 전체 container의 너비와 높이를 알 수 있었다.</li>
+  <li>컨테이너를 렌더링하고 그안에 클라이언트에 랜더링된 만큼에 테이블을 렌더링한다.
+    <ul>
+      <li>보여지는 부분만 렌더링 하기 위해서 스크크롤의 크기는 계산한 너비와 높이를 통해 미리 빈 element를 넣어줘서 해결한다.</li>
+    </ul>
+  </li>
+  <li>해당 테이블이 아닌 컨테이너를 스크롤 했을때 기존에 렌더링된 테이블의 row, column은 지우고 새로운 위치의 보여줘야할 위치의 row와 column을 렌더링 해야했다.</li>
+</ul>
+
+<h3 id="보여지는-부분만-렌더링-하기-위해서">보여지는 부분만 렌더링 하기 위해서</h3>
+
+<p>앞서 2번째 언급한 순회한 배열의 width와 height값을 통해 각 셀의 id를 부여했었다. 그리고 해당 id와 height값을 통해 높이에 대한 row계산을 하기위해 배열에 담아 관리했다.</p>
+
+<p>이 배열에는 0~30 → 0(row) 등과 같은 데이터가 담겨져있었는데. 스크롤한 위치에 대해 첫번째 지점과 끝 지점을 찾기위해서 이진 탐색을 통해 검색하여 ‘범위’만 찾았다.</p>
+
+<h3 id="가상그리드를-wrapping하는-angular-component를-개발">가상그리드를 wrapping하는 angular component를 개발</h3>
+
+<ul>
+  <li>angular 컴포넌트는 그리드를 그리기 위한 프로퍼티를 받는 component로 개발한다.</li>
+  <li><code>element</code>를 <code>target</code> 으로 virtual-grid.ts에 전달한다. 전체적인 꼴은 아래와 같다.
+    <pre><code class="language-jsx">this.grid = new Grid({
+			selector: this.container.nativeElement,
+			data: this.data,
+// ...생략
+</code></pre>
+  </li>
+</ul>
+
+<h2 id="개발이-끝나고-난뒤">개발이 끝나고 난뒤</h2>
+
+<ul>
+  <li>서버에서 보내준 배열을 순회할때 너무 많은 records → 1만개 이상의 데이터일때 느려짐 worker를 사용한 계산을 고려했어야 했으나 canvas api 지원 미지수</li>
+  <li>잦은 설계 변경으로 인한 리스크 난잡한 부분들이 추가되어서 리펙토링 할 시간이 없었다는게 아쉽게 느껴짐
+    <ul>
+      <li>셀에 어떤 기능이 필요해요 너비가 어떻게 필요해요 등등.</li>
+    </ul>
+  </li>
+</ul>]]></content><author><name></name></author><category term="개발" /><category term="grid" /><category term="typescript" /><summary type="html"><![CDATA[데이터 그리드]]></summary></entry><entry><title type="html">어떻게 프리서버를 만드는것을 배웠는지</title><link href="http://localhost:4000/lie/how-to-learn-open-free-server" rel="alternate" type="text/html" title="어떻게 프리서버를 만드는것을 배웠는지" /><published>2020-09-03T00:00:00+09:00</published><updated>2020-09-03T00:00:00+09:00</updated><id>http://localhost:4000/lie/how-to-learn-open-free-server</id><content type="html" xml:base="http://localhost:4000/lie/how-to-learn-open-free-server"><![CDATA[<p>프리서버 운영은 엄연한 불법 행위 입니다.</p>
+
+<blockquote>
+  <p>저작권법 제101조의4(프로그램코드역분석) ① 정당한 권한에 의하여 프로그램을 이용하는 자 또는 그의 허락을 받은 자는 호환에 필요한 정보를 쉽게 얻을 수 없고 그 획득이 불가피한 경우에는 해당 프로그램의 호환에 필요한 부분에 한하여 프로그램의 저작재산권자의 허락을 받지 아니하고 프로그램코드역분석을 할 수 있다.</p>
+</blockquote>
+
+<p>라고 <a href="https://namu.wiki/w/%ED%94%84%EB%A6%AC%EC%84%9C%EB%B2%84">나무위키</a>에서 설명하고 있습니다.</p>
+
+<h2 id="프리서버라는-말을-접하게된-계기">프리서버라는 말을 접하게된 계기</h2>
+
+<p>초등학교 시절 거상에 흠뻑빠져 있었다. 사냥에는 흥미가 없고 하루종일 짐꾼과 돌아다니면서 벼를 팔아 시세 차익을 내거나 한양에서 장사를 하거나 하는 행위를 주로 했다.</p>
+
+<p>장사를 계속 하다보니까 자연스레 친구가 많이 생겼는데 어느날 한 사람이 나에게 ‘프리서버’라는걸 해본적이 있냐고 물었다. 나는 당시 프리서버라는 것에 대해서 아니 프리라는 단어 자체를 영어로 쓰지 못할정도로 어린 나이 이기 때문에 그의 이야기에 흠뻑 빠졌다.</p>
+
+<ol>
+  <li>레벨업은 내가 원하는대로 마음대로</li>
+  <li>내가 가지고 싶은 장비도 마음대로</li>
+  <li>그냥 게임 자체를 내 마음대로</li>
+</ol>
+
+<h2 id="초등학교-3학년-폭풍-검색-시작">초등학교 3학년 폭풍 검색 시작</h2>
+
+<p>정확히 어떤 엔진을 사용해서 검색한지는 잘 기억이 안나지만 몇개 추려 보자면</p>
+
+<ul>
+  <li>인포마스터? (이제는 존재하지도 않는 검색 사이트)</li>
+  <li>네이버 (전혀 나오지 않음)</li>
+  <li>다음</li>
+  <li>파란</li>
+</ul>
+
+<p>등을 사용해 검색을 몇달간 계속 했다.</p>
+
+<p>그러나 초등학교 3학년의 통찰력과 이해로 무엇을 할 수 있으리.. 나는 당연히 프리서버를 구현하지 못했다.</p>
+
+<h2 id="그렇게-2년뒤-피씨방에서-라그나로크-프리서버를-하는-형들을-발견">그렇게 2년뒤 피씨방에서 라그나로크 프리서버를 하는 형들을 발견</h2>
+
+<p>아직도 기억이 난다 그 형들의 레벨업소리가 타탁! 한 마리를 잡으니 레벨이 바로 40이 되는걸 보고 말았다. 나는 불현듯 이게 프리서버라는 거구나라는 생각을 했고 뒤에서 하염없이 지켜봤다.</p>
+
+<blockquote>
+  <p>야 저리가</p>
+</blockquote>
+
+<p>나보고 거의 꺼지라는 수준의 말로 저리가라고 했지만 저 멀리서 계속 지켜봤다.</p>
+
+<p>그리고 그현들이 오는 시간에 맞춰서 피씨방에 출근했다..</p>
+
+<p>그리고 며칠 음료수를 형들의 책상에 두고 뒤에서 지켜보았다.</p>
+
+<p>그렇게 한 일주일이 지나고 나도 드디어 형들의 프리서버에 들어갈 수 있는 자격이 생겼다.</p>
+
+<p>그들은 프리서버를 운영하고 있었고 가끔 피씨방에 와서 둘이서 이것저것 게임을 고치면서 노는 학생이었다.</p>
+
+<h2 id="어떻게-구현하는지-배워야-했다">어떻게 구현하는지 배워야 했다</h2>
+
+<p>나에게는 7살 많은 형이 있었는데 내가 피씨방에서 보고 온것을 형은 믿지 못했다. 아니 게임을 참가 했다고 해도 형은 무슨 개소리냐며 비아냥대기 바뻤고 급기야 아버지에게 피씨방에 가지 못하게 하라고 얘기하기 시작했다.</p>
+
+<p>오기로 이것을 배워 형하고 피씨방에 갔을대 내가 구현한것을(? 내가 구현한것은 없는데..) 보여줘야만 했다.</p>
+
+<p>그로부터 피씨방에 조금 더 일찍 가기 시작했다.</p>
+
+<p>옆에서 형들이 하는것을 보고 따라하고 그렇게 읿주일 나도 통파일(구현이 전부 담겨있는 팩? 같은 것)을 어떻게 구하는지와 어떻게 서버를 여는지를 배우게 되었다.</p>
+
+<p>내 기억이 맞다면.</p>
+
+<ol>
+  <li>mysql을 통해 db서버를 연다</li>
+  <li>내 서버 주소를 어떤 메모장에 옮겨 적는다.</li>
+  <li>통파일 압축해제</li>
+  <li>통파일에서 나온 .bat 실행 또는 cmd에서 무슨 명령어를 입력</li>
+</ol>
+
+<p>이렇게 하면 내 서버가 열리고 실행은 또 그냥 안되고 통파일에서 나온 압축 해제된 클라이언트 폴더에 가서 세팅을 바꿔줘야 한다.</p>
+
+<p>아무튼 이렇게 해서 라그나로크 프리서버를 여는 방법을 배웠고 이후에 리니지, 바람의 나라 등을 중학교때 까지 한번 한번씩 열었었다.</p>
+
+<p>그런데 내가 성인이 되서도 mysql을 만질줄이야!</p>]]></content><author><name></name></author><category term="개발" /><category term="자랑 아님" /><summary type="html"><![CDATA[프리서버 운영은 엄연한 불법 행위 입니다.]]></summary></entry><entry><title type="html">타입스크립트 코리아 강좌 정리</title><link href="http://localhost:4000/study/hello-typescript" rel="alternate" type="text/html" title="타입스크립트 코리아 강좌 정리" /><published>2018-10-30T00:00:00+09:00</published><updated>2018-10-30T00:00:00+09:00</updated><id>http://localhost:4000/study/hello-typescript</id><content type="html" xml:base="http://localhost:4000/study/hello-typescript"><![CDATA[<h1 id="1-typescirpt-에-관하여">1. Typescirpt 에 관하여</h1>
+
+<blockquote>
+  <p>tpyscript 는 자바스크립트를 포함한 프로그래밍 언어</p>
+</blockquote>
+
+<ul>
+  <li>타입스크립트는 ‘Compiled Language’이다</li>
+  <li>자바스크립트는 ‘Interpreted Language’이다</li>
+</ul>
+
+<blockquote>
+  <p>그러나 엄밀히 따지자면 컴파일 언어라고 보기는 힘들고 메타 프로그래밍이라고도 하며, 트랜스파일(바밸 등) 언어라고도 보기도한다.</p>
+</blockquote>
+
+<table>
+  <thead>
+    <tr>
+      <th>Compiled</th>
+      <th>Interpreted</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>컴파일이 필요</td>
+      <td>컴파일이 필요없음</td>
+    </tr>
+    <tr>
+      <td>컴파일러가 필요</td>
+      <td>컴파일러가 필요없음</td>
+    </tr>
+    <tr>
+      <td>컴파일하는 시점이 있음</td>
+      <td>컴파일하는 시점이 없음</td>
+    </tr>
+    <tr>
+      <td>컴파일된 결과물 실행</td>
+      <td>코드 자체를 실행</td>
+    </tr>
+  </tbody>
+</table>
+
+<blockquote>
+  <p>컴파일 언어는 최적화 과정을 거침 * 특히 타입스크립트는 타입을 체크하는 과정을 거침</p>
+</blockquote>
+
+<h2 id="정적타입-언어-vs-동적-타입-언어">정적타입 언어 VS 동적 타입 언어</h2>
+
+<h3 id="정적타입-언어">정적타입 언어</h3>
+
+<p>미리 타입을 정의 해놓고 사용함</p>
+
+<h3 id="동적-타입언어">동적 타입언어</h3>
+
+<p>타입이 정의되어 있지 않고 자유럽게 변화가 가능</p>
+
+<p>타입스크립트는 정적타입 언어의 장점을 자바스크립트에 결합한 언어이다.</p>
+
+<h2 id="traditional-compiled-language">Traditional Compiled Language</h2>
+
+<ul>
+  <li>컴파일 언어라고 한다</li>
+  <li>C, C++, go 등</li>
+  <li>일반적으로 실행시 기계어로 바꾸는 방식(인터프리터 언어)보다 빠르다.</li>
+</ul>
+
+<p>TS =&gt; JS</p>
+
+<p>이 강좌에서 배우는 것은 컴파일은 어떤 역할을 하는지 어떤 도구들이 있고 올바르게 사용하는 방법과, 타입스크립트 자체를 이해</p>
+
+<h1 id="2-개발-환경-구축">2. 개발 환경 구축</h1>
+
+<h2 id="nodejs-설치">Node.js 설치</h2>
+
+<p>강좌 외적으로 저는 Node.js 의 버전을 자유롭게 바꾸다보니 NVM 사용을 권장합니다. 예) Lambda 에서 지원하는 버전과 React 에서 지원하는 버전이 전혀 다르면서 생기는 문제 등등</p>
+
+<p>curl 을 이용해 설치</p>
+
+<pre><code>curl -o https://raw.githubusercontent.com/creationix/nvm/v0.26.1/install.sh | bash
+</code></pre>
+
+<h2 id="browser-설치">Browser 설치</h2>
+
+<p>Chrome, firefox 와 같이 검사가 있는 브라우저를 추천 함</p>
+
+<h2 id="tpyscript-compiler-설치">Tpyscript compiler 설치</h2>
+
+<pre><code>npm i typescript -g // 전역으로 설치됩니다
+</code></pre>
+
+<h2 id="ide-설치">IDE 설치</h2>
+
+<p><a href="https://visualstudio.microsoft.com/ko/?rr=https%3A%2F%2Fwww.google.co.kr%2F">vscode(무료)</a>, intelliJ(유료)</p>
+
+<ul>
+  <li>visual studio code 는 Typscript 로 만들어졌다.</li>
+  <li>타입스크립트 지원이 강력하다</li>
+</ul>
+
+<h2 id="tsc-init">tsc init</h2>
+
+<p>tsc 설정 파일을 init 함
+target, module, strict 정도가 기본 설정으로 되어있음.</p>
+
+<h2 id="ts-lint">ts lint</h2>
+
+<pre><code>npm i tslint -D
+</code></pre>
+
+<p>tslint –init</p>
+
+<h1 id="3-compiler-options">3. Compiler Options</h1>
+
+<h2 id="tsconfig">tsconfig</h2>
+
+<p><a href="http://json.schemastore.org/tsconfig">ts config 가이드</a></p>
+
+<h2 id="최상위-프로퍼티">최상위 프로퍼티</h2>
+
+<ol>
+  <li>CompileOnSave: 파일 저장시 자동 컴파일, Visual studio에서 사용 가능</li>
+  <li>extends: v2.1 new spec</li>
+  <li>compileOptions
+    <ul>
+      <li>다양한 옵션이 제공됨</li>
+      <li>typeRoots: 배열 안에 들어있는 경로들 아래에 모듈만 가져옴</li>
+      <li>types: 배열 안에 모듈, ./node_modules/@types/ 안의 모듈 이름에서 찾아옴</li>
+      <li>typeRoots, types와 함께 사용하지 않음</li>
+      <li>target: 컴파일 해서 어떤 자바스크립트 버전으로 downgrade 시킬거냐 기본은 es3이다</li>
+      <li>lib: 기본 type definition 라이브러리를 어떤 것을 사용할 것이냐
+        <ul>
+          <li>lib를 지정하지 않을때</li>
+          <li>target이 ‘es3’이고 디폴트로 lib.d.ts를 사용함</li>
+          <li>target이 ‘es5’이면, 디폴트로 dom, es5, scripthost를 사용함</li>
+        </ul>
+      </li>
+      <li>outDir: 소스 구조의 전부를 컴파일 하려면 사용</li>
+      <li>outFile: 구조 상관없이 컴파일 하려면 사용</li>
+      <li>module: 결과물이 어떤 js파일을 쓸건지 target이 es6면 es6가 기본값, es6가 아니면 ‘commonjs’가 기본값</li>
+    </ul>
+  </li>
+  <li>files:
+    <ul>
+      <li>상대 혹은 절대 경로의 리스트 배열</li>
+      <li>exclude 보다 우선순위 높음</li>
+    </ul>
+  </li>
+  <li>include
+    <ul>
+      <li>exclude 보다 우선순위 낮음</li>
+      <li>*같은걸 사용하면 .ts / .tsx 등 설정한 것만 include 함</li>
+    </ul>
+  </li>
+  <li>exclude
+    <ul>
+      <li>설정 안하면 기본 4가지를 설정 (node_modules, browser_components, jspm_packages, outDIr)를 기본적으로 제외</li>
+      <li>outDir은 항상 제외</li>
+    </ul>
+  </li>
+</ol>
+
+<h1 id="4-typescript-basic-type">4. typescript basic type</h1>
+
+<ul>
+  <li>Typescript에서 프로그램 작성을 위해 기본 제공하는 데이터 타입</li>
+  <li>Javscript 기보 자료형을 포함
+    <ul>
+      <li>ECMAScript 표준에 따른 기본 자료형은 6가지</li>
+      <li>Boolean</li>
+      <li>String</li>
+      <li>Null</li>
+      <li>Undefined</li>
+      <li>Symbol</li>
+      <li>Array: Object형</li>
+    </ul>
+  </li>
+  <li>프로그래밍을 도울 몇가리 타입이 더 제공됨
+    <ul>
+      <li>Any</li>
+      <li>Void</li>
+      <li>Never</li>
+      <li>Enum</li>
+      <li>Tuple: Object</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="literal">literal?</h2>
+
+<p>값자체가 변하지 않는 값을 의미함
+상수와 다른 것은 상수는 가리키는 포인터가 고정이라는 것이고, 리터럴은 그 자체가 값이자 리터럴</p>
+
+<h2 id="권장-소문자를-사용해라">권장 소문자를 사용해라</h2>
+
+<p>new Number(5) -&gt; number(5);</p>
+
+<p>new Boolean(false) -&gt; boolrean(false);</p>
+
+<h2 id="any">Any</h2>
+
+<ul>
+  <li>어떤 타입이든 상관없음</li>
+  <li>그러나 권장하지 않음 (이걸 쓸꺼면 그냥 es6바밸 문법을 사용해라)</li>
+</ul>
+
+<h2 id="tuple">Tuple</h2>
+
+<ul>
+  <li>배열인데 한가지 타입이 아닐 경우</li>
+  <li>객체</li>
+  <li>사용할때 주의가 필요함</li>
+</ul>
+
+<h1 id="5-var-let-const">5. var, let, const</h1>
+
+<ul>
+  <li>var
+    <ul>
+      <li>es5</li>
+      <li>함수 스코프</li>
+      <li>호이스팅이 가능</li>
+      <li>재선언 가능</li>
+    </ul>
+  </li>
+  <li>let, const
+    <ul>
+      <li>es6</li>
+      <li>블록 스코프</li>
+      <li>호이스팅 불가능</li>
+      <li>재선언 불가</li>
+    </ul>
+  </li>
+  <li>var 말고 let, const를 사용하자</li>
+</ul>
+
+<h2 id="let-const-차이점">let, const 차이점</h2>
+
+<pre><code class="language-javascript">let a: string = "에이";
+let a = "에이"; //자동으로 String으로 타입을 맞춰줌
+
+const b: string = "비";
+const b = "비"; //별도의 타입을 만들어 주지 않음
+</code></pre>
+
+<h1 id="6-type-assersions">6. Type assersions</h1>
+
+<ul>
+  <li>형변환과는 다름
+    <ul>
+      <li>형변형은 실제 데이터 구조를 바꿔줌</li>
+    </ul>
+  </li>
+  <li>‘타입이 이것이다’라고 컴파일러에게 알려주는 것을 의미함
+    <ul>
+      <li>그래서 작성자가 100% 신뢰하는 것이 중요하다.</li>
+    </ul>
+  </li>
+  <li>문법적으로는 두가지 방법이 있다
+    <ul>
+      <li>변수 as 강제할 타입</li>
+      <li>
+        <강제할 타입="">변수
+
+</강제할>
+      </li>
+    </ul>
+  </li>
+</ul>
+<pre><code class="language-javascript">let a: any = "this is a string";
 let b: number = (someValue as a).length;
-```
+</code></pre>
 
-&lt;/강제할&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&quot;타입-별칭&quot;&gt;타입 별칭&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;인터페이스와 유사해 보임&lt;/li&gt;
-  &lt;li&gt;Primitive, Union Type, Tuple&lt;/li&gt;
-  &lt;li&gt;기타 직접 작성해야하는 타입을 다른 이름에 저장할 수 있다.&lt;/li&gt;
-  &lt;li&gt;만들어진 타입의 refer로 사용하는 것이지 타입을 만드는것은 아니다.&lt;/li&gt;
-&lt;/ul&gt;
+<h2 id="타입-별칭">타입 별칭</h2>
 
-&lt;h3 id=&quot;union&quot;&gt;Union&lt;/h3&gt;
-&lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;let a: any;
+<ul>
+  <li>인터페이스와 유사해 보임</li>
+  <li>Primitive, Union Type, Tuple</li>
+  <li>기타 직접 작성해야하는 타입을 다른 이름에 저장할 수 있다.</li>
+  <li>만들어진 타입의 refer로 사용하는 것이지 타입을 만드는것은 아니다.</li>
+</ul>
+
+<h3 id="union">Union</h3>
+
+<pre><code class="language-javascript">let a: any;
 let b: string | number;
 
-b = &quot;스트링&quot;;
+b = "스트링";
 b = 0;
 
 //만약 사례가 복잡하다면?
 
 function test(arg: string | number): string | number {
-    return arg;
+  return arg;
 }
 //위와 같이 작성할때마다 해주는게 힘들다보니 사용함
 type StringOrNumber = string | number; //이게 union타입
 
 function test(arg: StringOrNumber): StringOrNumber {
-    return arg
+  return arg;
 }
-&lt;/code&gt;&lt;/pre&gt;
+</code></pre>
 
-&lt;h3 id=&quot;interface&quot;&gt;interface&lt;/h3&gt;
-&lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;
-//interface가 없다면
-const person: {name: string; age: number} = {
-    name: 'MrMoon',
-    age: 12
+<h3 id="interface">interface</h3>
+
+<pre><code class="language-javascript">//interface가 없다면
+const person: { name: string, age: number } = {
+  name: "MrMoon",
+  age: 12,
 };
 
 //interface를 사용한다면
-interface Person{
-    name: string;
-    age: number
+interface Person {
+  name: string;
+  age: number;
 }
 const person: Person = {
-    name: 'mrMoon',
-    age: 12
-}
+  name: "mrMoon",
+  age: 12,
+};
 
 // 주요 사용처
 function hello(p: Person): void {
-    console.log(`안녕하세요 ${p.name} 입니다`)
+  console.log(`안녕하세요 ${p.name} 입니다`);
 }
+</code></pre>
 
-&lt;/code&gt;&lt;/pre&gt;
+<h3 id="interface-optional">interface optional</h3>
 
-&lt;h3 id=&quot;interface-optional&quot;&gt;interface optional&lt;/h3&gt;
-&lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;interface Person {
-    name: string;
-    age?: number; //age를 강제하지 않음
+<pre><code class="language-javascript">interface Person {
+  name: string;
+  age?: number; //age를 강제하지 않음
 }
-&lt;/code&gt;&lt;/pre&gt;
+</code></pre>
 
-&lt;h3 id=&quot;indexable-type&quot;&gt;indexable type&lt;/h3&gt;
-&lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;interface Person {
+<h3 id="indexable-type">indexable type</h3>
+
+<pre><code class="language-javascript">interface Person {
     name: string;
     [index: string]: string;
 }
 const person : Person = {
-    name: &quot;mark&quot;;
+    name: "mark";
 }
-person.anybody = &quot;Anna&quot;;
+person.anybody = "Anna";
 
 //여기서 접근하는 index를 어레이로 선언했기 때문에 가능 함
 interface Person2 {
@@ -451,105 +769,111 @@ interface Person2 {
 }
 
 const p2: Person2 = {};
-p2[0] = &quot;hi&quot;;
-p2[100] = &quot;hello&quot;;
-&lt;/code&gt;&lt;/pre&gt;
+p2[0] = "hi";
+p2[100] = "hello";
+</code></pre>
 
-&lt;p&gt;위와 같이 array에 string이나 number로 interface를 만들어줄 순 있지만 array는 아님&lt;/p&gt;
+<p>위와 같이 array에 string이나 number로 interface를 만들어줄 순 있지만 array는 아님</p>
 
-&lt;h2 id=&quot;interface-in-funciton&quot;&gt;interface in funciton&lt;/h2&gt;
-&lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;interface Person {
-    name: string;
-    hello(): string;
+<h2 id="interface-in-funciton">interface in funciton</h2>
+
+<pre><code class="language-javascript">interface Person {
+  name: string;
+  hello(): string;
 }
 
 const person: Person = {
-    name: 'mark',
-    hello(): string{
-        return 'hello world';
-    }
-}
-&lt;/code&gt;&lt;/pre&gt;
+  name: "mark",
+  hello(): string {
+    return "hello world";
+  },
+};
+</code></pre>
 
-&lt;h2 id=&quot;class-implements-interface&quot;&gt;class implements interface&lt;/h2&gt;
-&lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;interface IPerson {
-    name: string;
-    hello(): void;
+<h2 id="class-implements-interface">class implements interface</h2>
+
+<pre><code class="language-javascript">interface IPerson {
+  name: string;
+  hello(): void;
 }
 
 class Person implements IPerson {
-    name: string = null;
+  name: string = null;
 
-    constructor(name: string) {
-        this.name = name;
-    }
-    hi(): void {
-        console.log('This is hi');
-    }
-    hello(): void {
-        console.log(`hello i am ${name}`);
-    }
-    
+  constructor(name: string) {
+    this.name = name;
+  }
+  hi(): void {
+    console.log("This is hi");
+  }
+  hello(): void {
+    console.log(`hello i am ${name}`);
+  }
 }
 
-const person: IPerson = new Person(&quot;moon&quot;);
-const person: Person = new Person(&quot;moon&quot;);
+const person: IPerson = new Person("moon");
+const person: Person = new Person("moon");
 //두가지 모두 사용 가능하다
-&lt;/code&gt;&lt;/pre&gt;
-&lt;blockquote&gt;
-  &lt;p&gt;IPerson의 타입을 가지고 있는 person은 interface에서 정의하지 않은 hi 함수에 접근할 수 없다.&lt;/p&gt;
-&lt;/blockquote&gt;
+</code></pre>
 
-&lt;h2 id=&quot;string-or-number&quot;&gt;string OR number&lt;/h2&gt;
-&lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;interface StringArray {
-    [index: number]: string;
+<blockquote>
+  <p>IPerson의 타입을 가지고 있는 person은 interface에서 정의하지 않은 hi 함수에 접근할 수 없다.</p>
+</blockquote>
+
+<h2 id="string-or-number">string OR number</h2>
+
+<pre><code class="language-javascript">interface StringArray {
+  [index: number]: string;
 }
 
 const sa: StringArray = {};
-sa[100] = '백';
-&lt;/code&gt;&lt;/pre&gt;
+sa[100] = "백";
+</code></pre>
 
-&lt;h1 id=&quot;7-클래스&quot;&gt;7. 클래스&lt;/h1&gt;
+<h1 id="7-클래스">7. 클래스</h1>
 
-&lt;h2 id=&quot;class&quot;&gt;class&lt;/h2&gt;
-&lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;class Person {
-    name: string;
-    age: number;
-    // 모든 프로퍼티는 public
-    constructor(name: string) {
-        this.name = name
-    }
+<h2 id="class">class</h2>
 
-    // 할당하지 않는 변수는 undefined가 되어서 나오지 않음
-    // 그래서 = null이라고 해주는게 일단 좋음 (기본적인 프로그래밍 방식)
+<pre><code class="language-javascript">class Person {
+  name: string;
+  age: number;
+  // 모든 프로퍼티는 public
+  constructor(name: string) {
+    this.name = name;
+  }
+
+  // 할당하지 않는 변수는 undefined가 되어서 나오지 않음
+  // 그래서 = null이라고 해주는게 일단 좋음 (기본적인 프로그래밍 방식)
 }
 
-const person = new Person('Mark');
-&lt;/code&gt;&lt;/pre&gt;
-&lt;ol&gt;
-  &lt;li&gt;생성사 함수가 없으면 디폴트 생성자가 불린다.&lt;/li&gt;
-  &lt;li&gt;클래스의 프로퍼티 혹은 멤버 변수가 정의되어 있지만, 값을 대입하지 않으면 undefined이다.&lt;/li&gt;
-  &lt;li&gt;접근 제어자는 public이 디폴트 이다.&lt;/li&gt;
-&lt;/ol&gt;
+const person = new Person("Mark");
+</code></pre>
 
-&lt;h2 id=&quot;접근-제어자---private&quot;&gt;접근 제어자 - private&lt;/h2&gt;
+<ol>
+  <li>생성사 함수가 없으면 디폴트 생성자가 불린다.</li>
+  <li>클래스의 프로퍼티 혹은 멤버 변수가 정의되어 있지만, 값을 대입하지 않으면 undefined이다.</li>
+  <li>접근 제어자는 public이 디폴트 이다.</li>
+</ol>
 
-&lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;class Person {
+<h2 id="접근-제어자---private">접근 제어자 - private</h2>
+
+<pre><code class="language-javascript">class Person {
     private _name: string = 'Mark';
     private _age: number;
 }
 
 const person = new Person('Mark');
-&lt;/code&gt;&lt;/pre&gt;
+</code></pre>
 
-&lt;ol&gt;
-  &lt;li&gt;디폴트 값은 public 이고 private 로 선언한 프로퍼티 접근 불가능 (c#과 흡사)&lt;/li&gt;
-&lt;/ol&gt;
+<ol>
+  <li>디폴트 값은 public 이고 private 로 선언한 프로퍼티 접근 불가능 (c#과 흡사)</li>
+</ol>
 
-&lt;h2 id=&quot;protected&quot;&gt;protected&lt;/h2&gt;
-&lt;p&gt;private는 부모 클래스건 어디서건 절대로 접근이 안되는 반면에 protected는 부모에서는 접근이 가능함&lt;/p&gt;
+<h2 id="protected">protected</h2>
 
-&lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;class Person {
+<p>private는 부모 클래스건 어디서건 절대로 접근이 안되는 반면에 protected는 부모에서는 접근이 가능함</p>
+
+<pre><code class="language-javascript">class Person {
     protected _name: string = 'amark';
     private _age: number = null;
 }
@@ -572,10 +896,11 @@ class Child extends Person {
 
 const person: Child = new Child();
 
-&lt;/code&gt;&lt;/pre&gt;
+</code></pre>
 
-&lt;h2 id=&quot;클래스와-메서드&quot;&gt;클래스와 메서드&lt;/h2&gt;
-&lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;class Person {
+<h2 id="클래스와-메서드">클래스와 메서드</h2>
+
+<pre><code class="language-javascript">class Person {
     // protected _name: string = 'amark';
     // private _age: number = null;
 
@@ -589,7 +914,7 @@ const person: Child = new Child();
     }
 
     //arrow function도 가능
-    printHello = (): void =&amp;gt; {
+    printHello = (): void =&gt; {
         console.log('hello world');
     }
 }
@@ -606,14 +931,15 @@ class Child extends Person {
 const child: Child = new Child('Mark', 35);
 child.hello();
 // console : Mark Jr
-&lt;/code&gt;&lt;/pre&gt;
+</code></pre>
 
-&lt;ul&gt;
-  &lt;li&gt;클래스를 상속받아서 사용하려면 꼭 constructor 에서 super()를 해줘야함&lt;/li&gt;
-&lt;/ul&gt;
+<ul>
+  <li>클래스를 상속받아서 사용하려면 꼭 constructor 에서 super()를 해줘야함</li>
+</ul>
 
-&lt;h2 id=&quot;클래스의-getter-setter&quot;&gt;클래스의 getter, setter&lt;/h2&gt;
-&lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;
+<h2 id="클래스의-getter-setter">클래스의 getter, setter</h2>
+
+<pre><code class="language-javascript">
 interface IPerson {
     getName();
 }
@@ -632,7 +958,7 @@ class Person implements IPerson{
     get name() {
         return this._name;
     }
-    
+
     set name(name: string) {
         this._name = name;
     }
@@ -653,10 +979,11 @@ const person: IPerson = new Person('Mark', 35);
 person.getName();
 
 // interface를 활용 하면 이런식으로도 사용 가능함
-&lt;/code&gt;&lt;/pre&gt;
+</code></pre>
 
-&lt;h2 id=&quot;class의-static-프로퍼티-메서드&quot;&gt;class의 static 프로퍼티, 메서드&lt;/h2&gt;
-&lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;class Person {
+<h2 id="class의-static-프로퍼티-메서드">class의 static 프로퍼티, 메서드</h2>
+
+<pre><code class="language-javascript">class Person {
     public static HEIGHT: number;
 
     public static Talk(): void {
@@ -669,26 +996,28 @@ person.HEIGHT // 접근안됨
 
 Person.HEIGHT // 접근됨 (클래스 자체에 프로퍼티가 동적으로 생성됨)
 Person.Talk(); // 동일함
-&lt;/code&gt;&lt;/pre&gt;
+</code></pre>
 
-&lt;ul&gt;
-  &lt;li&gt;동적으로 생성된다는 얘기에 좀 집중을 해봐야 할것 같은데 변화도 가능하다는 점이다.&lt;/li&gt;
-  &lt;li&gt;리엑트할 때도 사용되는 default props 같은 경우에 사용됨&lt;/li&gt;
-  &lt;li&gt;역시 static을 너무 사용하면 좋지 않음&lt;/li&gt;
-  &lt;li&gt;public static은 의미가 있음&lt;/li&gt;
-  &lt;li&gt;private static의 의미는 고민이 필요함&lt;/li&gt;
-&lt;/ul&gt;
+<ul>
+  <li>동적으로 생성된다는 얘기에 좀 집중을 해봐야 할것 같은데 변화도 가능하다는 점이다.</li>
+  <li>리엑트할 때도 사용되는 default props 같은 경우에 사용됨</li>
+  <li>역시 static을 너무 사용하면 좋지 않음</li>
+  <li>public static은 의미가 있음</li>
+  <li>private static의 의미는 고민이 필요함</li>
+</ul>
 
-&lt;h2 id=&quot;anstract-class---미완된-클래스&quot;&gt;Anstract Class - 미완된 클래스&lt;/h2&gt;
-&lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;abstract class APerson {
+<h2 id="anstract-class---미완된-클래스">Anstract Class - 미완된 클래스</h2>
+
+<pre><code class="language-javascript">abstract class APerson {
     protected _name: string = 'Mark';
     abstract setName(name: string): void;
     // 이렇게 미완성으로 만들어 놓고 상속받거나 할때 사용 가능함
 }
-&lt;/code&gt;&lt;/pre&gt;
+</code></pre>
 
-&lt;h2 id=&quot;class와-private-constructor&quot;&gt;class와 private constructor&lt;/h2&gt;
-&lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;// 싱글톤 예제
+<h2 id="class와-private-constructor">class와 private constructor</h2>
+
+<pre><code class="language-javascript">// 싱글톤 예제
 class Perference {
     private static Instance: Perference = null;
     public static getInstance(): Perference {
@@ -699,7 +1028,7 @@ class Perference {
         return Preference.Instance;
     }
     private constructor() {
-        
+
     }
 
     hello() {
@@ -709,67 +1038,75 @@ class Perference {
 
 const p = Perference.getInstance();
 p.hello();
-&lt;/code&gt;&lt;/pre&gt;
+</code></pre>
 
-&lt;h2 id=&quot;class와-readonly&quot;&gt;class와 readonly&lt;/h2&gt;
-&lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;class Person {
+<h2 id="class와-readonly">class와 readonly</h2>
+
+<pre><code class="language-javascript">class Person {
     private readonly _name: string = null;
 }
-&lt;/code&gt;&lt;/pre&gt;
+</code></pre>
 
-&lt;ul&gt;
-  &lt;li&gt;readonly는 get, set중에 get만 있는것과 흡사하다.&lt;/li&gt;
-&lt;/ul&gt;
+<ul>
+  <li>readonly는 get, set중에 get만 있는것과 흡사하다.</li>
+</ul>
 
-&lt;h1 id=&quot;8-generic&quot;&gt;8. generic&lt;/h1&gt;
-&lt;ul&gt;
-  &lt;li&gt;any -&amp;gt; generic&lt;/li&gt;
-  &lt;li&gt;제네릭을 쓰는 가장 큰 이유는 템플릿 라이브러리 (cpp)처럼 타입을 변수로 주고 싶을때 사용함&lt;/li&gt;
-&lt;/ul&gt;
+<h1 id="8-generic">8. generic</h1>
 
-&lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;function hello&amp;lt;T&amp;gt;(message: T): T {
-    return message;
+<ul>
+  <li>any -&gt; generic</li>
+  <li>제네릭을 쓰는 가장 큰 이유는 템플릿 라이브러리 (cpp)처럼 타입을 변수로 주고 싶을때 사용함</li>
+</ul>
+
+<pre><code class="language-javascript">function hello&lt;T&gt;(message: T): T {
+  return message;
 }
 
-hello&amp;lt;string&amp;gt;('hello moon');
-hello&amp;lt;string&amp;gt;('hello moon').length;//문자열의 내장 함수도 사용가능
-hello&amp;lt;number&amp;gt;(35);
+hello &lt; string &gt; "hello moon";
+hello &lt; string &gt; "hello moon".length; //문자열의 내장 함수도 사용가능
+hello &lt; number &gt; 35;
 
 const a: string[] = [];
-const b: Array&amp;lt;string&amp;gt; = [];
-&lt;/code&gt;&lt;/pre&gt;
-&lt;ul&gt;
-  &lt;li&gt;메시지가 number, string에 상관없이 가능함&lt;/li&gt;
-  &lt;li&gt;장점은 any로 사용하면 헬퍼같은게 제대로 작동이 되지 않는데 제네릭은 정상 작동함&lt;/li&gt;
-&lt;/ul&gt;
+const b: Array&lt;string&gt; = [];
+</code></pre>
 
-&lt;h2 id=&quot;generic-인자&quot;&gt;generic 인자&lt;/h2&gt;
-&lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;function hello&amp;lt;T&amp;gt;(message: T[]): T{
-    return message[0]
+<ul>
+  <li>메시지가 number, string에 상관없이 가능함</li>
+  <li>장점은 any로 사용하면 헬퍼같은게 제대로 작동이 되지 않는데 제네릭은 정상 작동함</li>
+</ul>
+
+<h2 id="generic-인자">generic 인자</h2>
+
+<pre><code class="language-javascript">function hello&lt;T&gt;(message: T[]): T {
+  return message[0];
 }
-&lt;/code&gt;&lt;/pre&gt;
-&lt;ul&gt;
-  &lt;li&gt;T의 array 형태로도 사용할 수 있다.&lt;/li&gt;
-&lt;/ul&gt;
+</code></pre>
 
-&lt;h2 id=&quot;generic-class&quot;&gt;generic class&lt;/h2&gt;
-&lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;class Person&amp;lt;T&amp;gt; {
+<ul>
+  <li>T의 array 형태로도 사용할 수 있다.</li>
+</ul>
+
+<h2 id="generic-class">generic class</h2>
+
+<pre><code class="language-javascript">class Person&lt;T&gt; {
     private _name: T;
-    
+
     constructor(name: T) {
         this._name = name;
     }
 }
 
 const mark = new Person('Mark');
-new Person&amp;lt;number&amp;gt;('Mark'); //error!
-&lt;/code&gt;&lt;/pre&gt;
-&lt;ul&gt;
-  &lt;li&gt;name의 타입이 설정하는 대로 되어줌&lt;/li&gt;
-&lt;/ul&gt;
+new Person&lt;number&gt;('Mark'); //error!
+</code></pre>
 
-&lt;h2 id=&quot;generic-with-extends&quot;&gt;generic with extends&lt;/h2&gt;
-&lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;class Person&amp;lt;T extends string | number&amp;gt; {
+<ul>
+  <li>name의 타입이 설정하는 대로 되어줌</li>
+</ul>
+
+<h2 id="generic-with-extends">generic with extends</h2>
+
+<pre><code class="language-javascript">class Person&lt;T extends string | number&gt; {
     private _name: T;
 
     constructor(name: T) {
@@ -778,10 +1115,11 @@ new Person&amp;lt;number&amp;gt;('Mark'); //error!
 }
 
 const mark = new Person('mark');
-&lt;/code&gt;&lt;/pre&gt;
+</code></pre>
 
-&lt;h2 id=&quot;generic-with-multiple-type&quot;&gt;generic with multiple type&lt;/h2&gt;
-&lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;class Person&amp;lt;T, K&amp;gt; {
+<h2 id="generic-with-multiple-type">generic with multiple type</h2>
+
+<pre><code class="language-javascript">class Person&lt;T, K&gt; {
     private _name: T;
     private _age: K;
 
@@ -792,93 +1130,135 @@ const mark = new Person('mark');
 }
 
 const mark = new Person('mark', 35);
-&lt;/code&gt;&lt;/pre&gt;
+</code></pre>
 
-&lt;h2 id=&quot;type-lookup-system&quot;&gt;type lookup system&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;2.1 버전에 나옴
-```javascript
-interface Person {
-  name: string;
-  age: number;
-}&lt;/li&gt;
-&lt;/ul&gt;
+<h2 id="type-lookup-system">type lookup system</h2>
 
-&lt;p&gt;// type Test = keyof Person;&lt;/p&gt;
+<ul>
+  <li>2.1 버전에 나옴</li>
+</ul>
 
-&lt;p&gt;// function getProperty(obj, key) {
+<pre><code class="language-javascript">interface Person {
+    name: string;
+    age: number;
+}
+
+// type Test = keyof Person;
+
+// function getProperty(obj, key) {
 //     return obj[key]; //가끔이 key가 없을땐 undefined 에러를 뿜는데 (나도 겪음) 이걸 해결하는데 lookup system
-// }&lt;/p&gt;
+// }
 
-&lt;p&gt;function getProperty&amp;lt;T, K extends keyof T&amp;gt;(obj: T, key: K): T[K]{
+function getProperty&lt;T, K extends keyof T&gt;(obj: T, key: K): T[K]{
     return obj[key];
-}&lt;/p&gt;
+}
 
-&lt;p&gt;function setProperty&amp;lt;T, K extends keyof T&amp;gt;(obj: T, key: K, value: T[K]): T[K]{
+function setProperty&lt;T, K extends keyof T&gt;(obj: T, key: K, value: T[K]): T[K]{
     obj[key] = value
-}&lt;/p&gt;
+}
 
-&lt;p&gt;const person: Person = {
-    name: ‘Mark’,
+const person: Person = {
+    name: 'Mark',
     age: 35
-}&lt;/p&gt;
+}
 
-&lt;p&gt;getProperty(person, ‘name’);
-setProperty(person, ‘name’, ‘anda’);&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;
-- 상당히 자주 쓰일것 같음 
-- // type Test = keyof Person; 이 부분이 좀 중요한것 같은데 keyof Person을 해줬기 때문에 Test는 리터럴로 name, age 프로퍼티를 갖게 되는것
+getProperty(person, 'name');
+setProperty(person, 'name', 'anda');
+</code></pre>
 
+<ul>
+  <li>상당히 자주 쓰일것 같음</li>
+  <li>// type Test = keyof Person; 이 부분이 좀 중요한것 같은데 keyof Person을 해줬기 때문에 Test는 리터럴로 name, age 프로퍼티를 갖게 되는것</li>
+</ul>
 
-# 9. iterator
+<h1 id="9-iterator">9. iterator</h1>
 
-## for...of
-- es3
-  - for (var i=...)
-- es5
-  - array.forEach
-    - break 를 할 수 없었따.
-- es6
-  - for of
-    - 원칙적으로는 배열에서만 사용 가능
+<h2 id="forof">for…of</h2>
 
-## for...in
-- 배열을 순회할 때는 사용하지 말것
-  - index가 number가 아니라 string으로 나온다.
-  - 배열의 프로퍼티를 순회할 수도 있따.
-  - prototype 체인의 프로퍼티를 순회할 수도 있다.
-  - 루프가 무작위로 수회할 수도 있다.
-  - for of를 쓸 것
-- 객체를 순회할 때
-  - for(const prop of Object.keys(obj))도 사용할 수 있음
+<ul>
+  <li>es3
+    <ul>
+      <li>for (var i=…)</li>
+    </ul>
+  </li>
+  <li>es5
+    <ul>
+      <li>array.forEach
+        <ul>
+          <li>break 를 할 수 없었따.</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>es6
+    <ul>
+      <li>for of
+        <ul>
+          <li>원칙적으로는 배열에서만 사용 가능</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
 
-## target es3 forEach
-- 트렌스파일시에 es3인데도 lib에서 잘못 판단되어서 적용이 안되고 es5 기준으로 생성됨
+<h2 id="forin">for…in</h2>
 
-## Sysmbol.iterator
-- 프로퍼티이며, 함수가 구현되어있으면, iterable 이라고 한다.
-- Array, Map, Set, String, Int32Array, Unit32Array, etc, 에는 내장된 구현체가 있으므로 이터러블 하다.
-- 그냥 객체는 이터러블하지 않다.
-- 이터레이터를 통해 이터러블한 객체의 Symbol.iterator함수를 호출한다.
-- traget: es3 or es5
-  - Array 에만 for..of사용 가능
-  - 일반 객체에 사용하면 오류
-- target: es6
-  - Symbol.iterator를 구현하면 사용 가능
+<ul>
+  <li>배열을 순회할 때는 사용하지 말것
+    <ul>
+      <li>index가 number가 아니라 string으로 나온다.</li>
+      <li>배열의 프로퍼티를 순회할 수도 있따.</li>
+      <li>prototype 체인의 프로퍼티를 순회할 수도 있다.</li>
+      <li>루프가 무작위로 수회할 수도 있다.</li>
+      <li>for of를 쓸 것</li>
+    </ul>
+  </li>
+  <li>객체를 순회할 때
+    <ul>
+      <li>for(const prop of Object.keys(obj))도 사용할 수 있음</li>
+    </ul>
+  </li>
+</ul>
 
-## custom iterable
-```javascript
-class CustomIterable implements Iterable&amp;lt;string&amp;gt; {
-    private _array: Array&amp;lt;string&amp;gt; = ['first', 'second'];
+<h2 id="target-es3-foreach">target es3 forEach</h2>
+
+<ul>
+  <li>트렌스파일시에 es3인데도 lib에서 잘못 판단되어서 적용이 안되고 es5 기준으로 생성됨</li>
+</ul>
+
+<h2 id="sysmboliterator">Sysmbol.iterator</h2>
+
+<ul>
+  <li>프로퍼티이며, 함수가 구현되어있으면, iterable 이라고 한다.</li>
+  <li>Array, Map, Set, String, Int32Array, Unit32Array, etc, 에는 내장된 구현체가 있으므로 이터러블 하다.</li>
+  <li>그냥 객체는 이터러블하지 않다.</li>
+  <li>이터레이터를 통해 이터러블한 객체의 Symbol.iterator함수를 호출한다.</li>
+  <li>traget: es3 or es5
+    <ul>
+      <li>Array 에만 for..of사용 가능</li>
+      <li>일반 객체에 사용하면 오류</li>
+    </ul>
+  </li>
+  <li>target: es6
+    <ul>
+      <li>Symbol.iterator를 구현하면 사용 가능</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="custom-iterable">custom iterable</h2>
+
+<pre><code class="language-javascript">class CustomIterable implements Iterable&lt;string&gt; {
+    private _array: Array&lt;string&gt; = ['first', 'second'];
 
     [Symbol.iterator]() {
         var nextIndex = 0;
 
         return {
-            next: () =&amp;gt; {
+            next: () =&gt; {
                 return {
                     value: this._array[nextIndex++],
-                    done: nextIndex &amp;gt; this._array.length
+                    done: nextIndex &gt; this._array.length
                 }
             }
         }
@@ -890,42 +1270,43 @@ const cIterable = new CustomIterable();
 for (const item of cIterable) {
     console.log(item);
 }
-&lt;/code&gt;&lt;/pre&gt;
-&lt;ul&gt;
-  &lt;li&gt;배열의 이터레이터를 돌면 예 for of 객체의 for을 돌리면 커스텀한 for of 로 돌리면 class 내부에 있는 배열도 사용 가능하기에 사용함.&lt;/li&gt;
-  &lt;li&gt;사실 무슨 말 인지..&lt;/li&gt;
-&lt;/ul&gt;
+</code></pre>
 
-&lt;h1 id=&quot;10-decorator&quot;&gt;10. Decorator&lt;/h1&gt;
-&lt;ul&gt;
-  &lt;li&gt;Class&lt;/li&gt;
-  &lt;li&gt;Method&lt;/li&gt;
-  &lt;li&gt;Property&lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Parameter&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;모든 decorator 는 function이다&lt;/li&gt;
-&lt;/ul&gt;
+<ul>
+  <li>배열의 이터레이터를 돌면 예 for of 객체의 for을 돌리면 커스텀한 for of 로 돌리면 class 내부에 있는 배열도 사용 가능하기에 사용함.</li>
+  <li>사실 무슨 말 인지..</li>
+</ul>
 
-&lt;h2 id=&quot;class-decorator&quot;&gt;class decorator&lt;/h2&gt;
-&lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;function hello(constructorFn: Function) {
-    console.log(constructorFn);
+<h1 id="10-decorator">10. Decorator</h1>
+
+<ul>
+  <li>Class</li>
+  <li>Method</li>
+  <li>Property</li>
+  <li>
+    <p>Parameter</p>
+  </li>
+  <li>모든 decorator 는 function이다</li>
+</ul>
+
+<h2 id="class-decorator">class decorator</h2>
+
+<pre><code class="language-javascript">function hello(constructorFn: Function) {
+  console.log(constructorFn);
 }
 
 function helloFactory(show: boolean) {
-    if (show)
-      return hello;
-    else
-      return null;
+  if (show) return hello;
+  else return null;
 }
 
 @helloFactory(false)
-class Person {
+class Person {}
+</code></pre>
 
-}
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h2 id=&quot;class-decorator-expert&quot;&gt;class decorator expert&lt;/h2&gt;
-&lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;function hello(constructorFn: Function) {
+<h2 id="class-decorator-expert">class decorator expert</h2>
+
+<pre><code class="language-javascript">function hello(constructorFn: Function) {
     constructorFn.prototype.hello = function() :void {
         console.log('hello');
     }
@@ -937,80 +1318,79 @@ class Person {
 }
 
 const p = new Person();
-(&amp;lt;any&amp;gt;p).hello(); // 이런식으로 밖에 사용해야함
+(&lt;any&gt;p).hello(); // 이런식으로 밖에 사용해야함
 
-&lt;/code&gt;&lt;/pre&gt;
+</code></pre>
 
-&lt;h2 id=&quot;method-decorator&quot;&gt;method decorator&lt;/h2&gt;
+<h2 id="method-decorator">method decorator</h2>
 
-&lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;function editable(canBeEditable: boolean) {
-    return function(target: any, propName: string, description: PropertyDescriptor) {
-        console.log(target);
-        console.log(propName);
-        console.log(description);
+<pre><code class="language-javascript">function editable(canBeEditable: boolean) {
+  return function (
+    target: any,
+    propName: string,
+    description: PropertyDescriptor
+  ) {
+    console.log(target);
+    console.log(propName);
+    console.log(description);
 
-        description.writable = canBeEditable;
-    }
+    description.writable = canBeEditable;
+  };
 }
 
 class Person {
+  constructor() {
+    console.log("new Person ()");
+  }
 
-    constructor() {
-        console.log('new Person ()');
-    }
-
-    @editable(false)
-    hello(): void {
-        console.log('hello');
-    }
-
+  @editable(false)
+  hello(): void {
+    console.log("hello");
+  }
 }
 
 const p = new Person();
 p.hello();
 
-p.hello = function() {
-    console.log('world');
-}
+p.hello = function () {
+  console.log("world");
+};
 p.hello();
+</code></pre>
 
-&lt;/code&gt;&lt;/pre&gt;
+<h2 id="property-decorator">property decorator</h2>
 
-&lt;h2 id=&quot;property-decorator&quot;&gt;property decorator&lt;/h2&gt;
+<pre><code class="language-javascript">function writetable(canBeWriteable: boolean) {
+  return function (target: any, propName: string): any {
+    console.log(target);
+    console.log(propName);
 
-&lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;function writetable(canBeWriteable: boolean) {
-    return function(target: any, propName: string): any {
-        console.log(target);
-        console.log(propName);
-
-        return {
-            writetable: canBeWriteable
-        }
-    }
+    return {
+      writetable: canBeWriteable,
+    };
+  };
 }
-
 
 class Person {
+  @writetable(true)
+  name: string = "Mark";
 
-    @writetable(true)
-    name: string = 'Mark';
+  constructor() {
+    console.log("new Person ()");
+  }
 
-    constructor() {
-        console.log('new Person ()');
-    }
-
-    hello(): void {
-        console.log('hello');
-    }
-
+  hello(): void {
+    console.log("hello");
+  }
 }
 
 const p = new Person();
 console.log(p.name);
-&lt;/code&gt;&lt;/pre&gt;
+</code></pre>
 
-&lt;h2 id=&quot;parameter-decorator&quot;&gt;parameter decorator&lt;/h2&gt;
-&lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;function printInfo(target: any, methodName: string, paramIndex: number) {
+<h2 id="parameter-decorator">parameter decorator</h2>
+
+<pre><code class="language-javascript">function printInfo(target: any, methodName: string, paramIndex: number) {
     console.log(target);
     console.log(methodName);
     console.log(paramIndex);
@@ -1034,72 +1414,75 @@ class Person {
 
 
 // const p = new Person('Mark', 35);
-&lt;/code&gt;&lt;/pre&gt;
+</code></pre>
 
-&lt;ul&gt;
-  &lt;li&gt;개인적으로 decorator는 예를들면 프레임워크를 만들때나 어떠한 모듈을 만들때 변수 검증 등을 하는데 사용하면 요긴하게 쓰일것 같다는 생각이 들었다.&lt;/li&gt;
-&lt;/ul&gt;
+<ul>
+  <li>개인적으로 decorator는 예를들면 프레임워크를 만들때나 어떠한 모듈을 만들때 변수 검증 등을 하는데 사용하면 요긴하게 쓰일것 같다는 생각이 들었다.</li>
+</ul>
 
-&lt;h1 id=&quot;11-type-inference&quot;&gt;11. Type Inference&lt;/h1&gt;
-&lt;h2 id=&quot;타입-추론&quot;&gt;타입 추론&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;기본적으로 타입을 명시적으로 스지 않을 때 추론하는 방법에 대한 규칙
-    &lt;ul&gt;
-      &lt;li&gt;명시적으로 쓰는 것은 타입 추론이 아니라 코드를 읽기 좋게 하는 지름길&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;let은 기본적으로 우리가아는 기본 자료형으로 추론&lt;/li&gt;
-  &lt;li&gt;const는 리터럴 타입으로 추론
-    &lt;ul&gt;
-      &lt;li&gt;오브젝트 타입을 쓰지 않으면, 프로퍼티는 let 처럼 추론
-        &lt;ul&gt;
-          &lt;li&gt;const person = {name: ‘Mark’, age: 35}&lt;/li&gt;
-          &lt;li&gt;person =&amp;gt; {name:string; age: number}&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;대부분 추론은 쉽다.
-    &lt;ul&gt;
-      &lt;li&gt;단순 변수&lt;/li&gt;
-      &lt;li&gt;structing, destruction&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;array, 함수의 리턴에서는 워하는데로 얻기가 힘들다.&lt;/li&gt;
-&lt;/ul&gt;
+<h1 id="11-type-inference">11. Type Inference</h1>
 
-&lt;h2 id=&quot;배열-타입-추론&quot;&gt;배열 타입 추론&lt;/h2&gt;
+<h2 id="타입-추론">타입 추론</h2>
 
-&lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;const aaray1 = []; // any type으로 추론함
-const array2 = ['a', 'b'] // array string
-const array3 = ['a', 1, 'cone'] // union type으로 추론함
+<ul>
+  <li>기본적으로 타입을 명시적으로 스지 않을 때 추론하는 방법에 대한 규칙
+    <ul>
+      <li>명시적으로 쓰는 것은 타입 추론이 아니라 코드를 읽기 좋게 하는 지름길</li>
+    </ul>
+  </li>
+  <li>let은 기본적으로 우리가아는 기본 자료형으로 추론</li>
+  <li>const는 리터럴 타입으로 추론
+    <ul>
+      <li>오브젝트 타입을 쓰지 않으면, 프로퍼티는 let 처럼 추론
+        <ul>
+          <li>const person = {name: ‘Mark’, age: 35}</li>
+          <li>person =&gt; {name:string; age: number}</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>대부분 추론은 쉽다.
+    <ul>
+      <li>단순 변수</li>
+      <li>structing, destruction</li>
+    </ul>
+  </li>
+  <li>array, 함수의 리턴에서는 워하는데로 얻기가 힘들다.</li>
+</ul>
+
+<h2 id="배열-타입-추론">배열 타입 추론</h2>
+
+<pre><code class="language-javascript">const aaray1 = []; // any type으로 추론함
+const array2 = ["a", "b"]; // array string
+const array3 = ["a", 1, "cone"]; // union type으로 추론함
 
 class Animal {
-    name: string;
+  name: string;
 }
 
 class Dog extends Aniaml {
-    dog: string;
+  dog: string;
 }
 
 class Cat extends Animal {
-    cat: string;
+  cat: string;
 }
 
 const array4 = [new Dog(), new Cat()]; // union dog | cat
-&lt;/code&gt;&lt;/pre&gt;
+</code></pre>
 
-&lt;h2 id=&quot;리턴-타입-추론&quot;&gt;리턴 타입 추론&lt;/h2&gt;
-&lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;function hello(message: string | number) { 
-    // 리터럴 타입의 world이거나 0을 추론
-    if(message === 'world')
-      return 'world'
-    else
-      return 0
+<h2 id="리턴-타입-추론">리턴 타입 추론</h2>
+
+<pre><code class="language-javascript">function hello(message: string | number) {
+  // 리터럴 타입의 world이거나 0을 추론
+  if (message === "world") return "world";
+  else return 0;
 }
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h2 id=&quot;유니온-타입과-가드&quot;&gt;유니온 타입과 가드&lt;/h2&gt;
-&lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;interface Person {
+</code></pre>
+
+<h2 id="유니온-타입과-가드">유니온 타입과 가드</h2>
+
+<pre><code class="language-javascript">interface Person {
     name: string;
     age: number;
 }
@@ -1118,262 +1501,289 @@ function hello(obj: Person | Car) {
         obj.age;
   }
 }
-&lt;/code&gt;&lt;/pre&gt;
+</code></pre>
 
-&lt;h2 id=&quot;마치며&quot;&gt;마치며&lt;/h2&gt;
-&lt;p&gt;약 11개의 챕터이자 강좌는 14개인 타입스크립트 코리아에서 만든 이 강좌는 &lt;a href=&quot;https://www.youtube.com/watch?v=PFBRhxjIBUM&amp;amp;list=PLV6pYUAZ-ZoHx0OjUduzaFSZ4_cUqXLm0&quot;&gt;유튜브&lt;/a&gt;에서 확인하실 수 있습니다.&lt;/p&gt;
+<h2 id="마치며">마치며</h2>
 
-&lt;p&gt;타입스크립트를 막연하게 어렵다고만 생각했었는데 오히려 프로그램을 작성하는데 있어서 더욱더 안정성이 있다는것은 이 강좌를 통해서 확실히 알게되었다.&lt;/p&gt;
+<p>약 11개의 챕터이자 강좌는 14개인 타입스크립트 코리아에서 만든 이 강좌는 <a href="https://www.youtube.com/watch?v=PFBRhxjIBUM&amp;list=PLV6pYUAZ-ZoHx0OjUduzaFSZ4_cUqXLm0">유튜브</a>에서 확인하실 수 있습니다.</p>
 
-&lt;p&gt;실제로 직접 가서 참여한 세미나보다도 상당히 훌륭했고 예제들 역시 상당히 훌륭했다.&lt;/p&gt;</content><author><name></name></author><category term="Typescript" /><category term="beginer" /><summary type="html">1. Typescirpt 에 관하여</summary></entry><entry><title type="html">남궁성 자바스크립트 기초 세미나 정리</title><link href="/study/namgungsung_beginer_javascript_semina" rel="alternate" type="text/html" title="남궁성 자바스크립트 기초 세미나 정리" /><published>2018-10-27T00:00:00+09:00</published><updated>2018-10-27T00:00:00+09:00</updated><id>/study/namgungsung_beginer_javascript_semina</id><content type="html" xml:base="/study/namgungsung_beginer_javascript_semina">&lt;h2 id=&quot;남궁성-자바스크립트에-참가하다&quot;&gt;남궁성 자바스크립트에 참가하다.&lt;/h2&gt;
-&lt;p&gt;예전에 ‘난 정말 자바를 공부한적이 없다구요’라는 책을 보고 남궁성 자바라는 카페를 가입했었는데 어쩌다보니 자바는 전혀 하지 않고 Jvacsript만 주로 하게되었는데 운 좋게 남궁성님이 운영하는 세미나가 있어서 참가하게 되었다.&lt;/p&gt;
+<p>타입스크립트를 막연하게 어렵다고만 생각했었는데 오히려 프로그램을 작성하는데 있어서 더욱더 안정성이 있다는것은 이 강좌를 통해서 확실히 알게되었다.</p>
 
-&lt;p&gt;물론 처음엔 늦게 신청해서 아쉽게도 참가권에서 밀려났지만 운이 좋게도 한자리 비어서 진행하게되었다.&lt;/p&gt;
+<p>실제로 직접 가서 참여한 세미나보다도 상당히 훌륭했고 예제들 역시 상당히 훌륭했다.</p>]]></content><author><name></name></author><category term="개발" /><category term="Typescript" /><category term="beginer" /><summary type="html"><![CDATA[1. Typescirpt 에 관하여]]></summary></entry><entry><title type="html">남궁성 자바스크립트 기초 세미나 정리</title><link href="http://localhost:4000/study/namgungsung_beginer_javascript_semina" rel="alternate" type="text/html" title="남궁성 자바스크립트 기초 세미나 정리" /><published>2018-10-27T00:00:00+09:00</published><updated>2018-10-27T00:00:00+09:00</updated><id>http://localhost:4000/study/namgungsung_beginer_javascript_semina</id><content type="html" xml:base="http://localhost:4000/study/namgungsung_beginer_javascript_semina"><![CDATA[<h2 id="남궁성-자바스크립트에-참가하다">남궁성 자바스크립트에 참가하다.</h2>
 
-&lt;p&gt;이 글은 내가 이 세미나를 들으며 정리하며 내용을 담기로 했다.&lt;/p&gt;
+<p>예전에 ‘난 정말 자바를 공부한적이 없다구요’라는 책을 보고 남궁성 자바라는 카페를 가입했었는데 어쩌다보니 자바는 전혀 하지 않고 Jvacsript만 주로 하게되었는데 운 좋게 남궁성님이 운영하는 세미나가 있어서 참가하게 되었다.</p>
 
-&lt;h2 id=&quot;목차&quot;&gt;목차&lt;/h2&gt;
-&lt;ol&gt;
-  &lt;li&gt;Javascript 역사&lt;/li&gt;
-  &lt;li&gt;개발도구의 종류와 장단점 - VS code, Webstorm, Atom 등&lt;/li&gt;
-  &lt;li&gt;변수의 타입과 선언&lt;/li&gt;
-  &lt;li&gt;입력과 출력&lt;/li&gt;
-  &lt;li&gt;연산자 - new, typeof, instanceof&lt;/li&gt;
-  &lt;li&gt;조건문과 반복문 - for each, for in&lt;/li&gt;
-  &lt;li&gt;배열&lt;/li&gt;
-  &lt;li&gt;내장객체 형변환함수, ““와 new String(““)의 차이&lt;/li&gt;
-  &lt;li&gt;함수
-    &lt;ul&gt;
-      &lt;li&gt;함수 기본&lt;/li&gt;
-      &lt;li&gt;매개변수&lt;/li&gt;
-      &lt;li&gt;변수의 스코프&lt;/li&gt;
-      &lt;li&gt;클로져&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;DOM과 이벤트 처리&lt;/li&gt;
-  &lt;li&gt;객체와 생성자
-    &lt;ul&gt;
-      &lt;li&gt;생성자와 this&lt;/li&gt;
-      &lt;li&gt;prototype&lt;/li&gt;
-      &lt;li&gt;constructor&lt;/li&gt;
-      &lt;li&gt;js에서의 다형성&lt;/li&gt;
-      &lt;li&gt;상속&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
+<p>물론 처음엔 늦게 신청해서 아쉽게도 참가권에서 밀려났지만 운이 좋게도 한자리 비어서 진행하게되었다.</p>
 
-&lt;h2 id=&quot;javascript의-역사&quot;&gt;Javascript의 역사&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;1995년에 Eredan Eich가 발명, ECMA가 1997년에 표준화 했음&lt;/li&gt;
-&lt;/ul&gt;
+<p>이 글은 내가 이 세미나를 들으며 정리하며 내용을 담기로 했다.</p>
 
-&lt;p&gt;HTML이 원래는 하이퍼링크만 주어진 단순한 문서였는데 이를 동적으로 변화하기 위해서 Javascript로 만들어졌음&lt;/p&gt;
+<h2 id="목차">목차</h2>
 
-&lt;p&gt;원래 개발당시에는 OOP를 고려하지 않았지만 현재는 상당히 많은 부분에서 사용중이고 현재는 이를 넘어서 함수형 언어가 되었음.&lt;/p&gt;
+<ol>
+  <li>Javascript 역사</li>
+  <li>개발도구의 종류와 장단점 - VS code, Webstorm, Atom 등</li>
+  <li>변수의 타입과 선언</li>
+  <li>입력과 출력</li>
+  <li>연산자 - new, typeof, instanceof</li>
+  <li>조건문과 반복문 - for each, for in</li>
+  <li>배열</li>
+  <li>내장객체 형변환함수, ““와 new String(““)의 차이</li>
+  <li>함수
+    <ul>
+      <li>함수 기본</li>
+      <li>매개변수</li>
+      <li>변수의 스코프</li>
+      <li>클로져</li>
+    </ul>
+  </li>
+  <li>DOM과 이벤트 처리</li>
+  <li>객체와 생성자
+    <ul>
+      <li>생성자와 this</li>
+      <li>prototype</li>
+      <li>constructor</li>
+      <li>js에서의 다형성</li>
+      <li>상속</li>
+    </ul>
+  </li>
+</ol>
 
-&lt;p&gt;현재는 Javascirpt가 안쓰이는 곳이 없다. 보안, 출판, Indesign은 Javascript로 책을 자동화로 만들게끔 도와준다.&lt;/p&gt;
+<h2 id="javascript의-역사">Javascript의 역사</h2>
 
-&lt;p&gt;실무에선 Jquery를 많이 쓰이는데 탈피해서 자바스크립트 본연으로 돌아가서 JS를 사용하는 경우가 많아지고 있음&lt;/p&gt;
+<ul>
+  <li>1995년에 Eredan Eich가 발명, ECMA가 1997년에 표준화 했음</li>
+</ul>
 
-&lt;p&gt;오늘 세미나에서는 JAVA와 js의 차이점에서 대해서 많이 둘거고 실습을 위주로 진행함&lt;/p&gt;
+<p>HTML이 원래는 하이퍼링크만 주어진 단순한 문서였는데 이를 동적으로 변화하기 위해서 Javascript로 만들어졌음</p>
 
-&lt;p&gt;ECMA5와 ECMA6의 차이는 OOP를 추가했다는 점이며 오늘은 ECMA5위주로 진행을 함&lt;/p&gt;
+<p>원래 개발당시에는 OOP를 고려하지 않았지만 현재는 상당히 많은 부분에서 사용중이고 현재는 이를 넘어서 함수형 언어가 되었음.</p>
 
-&lt;p&gt;Javascript에서 window 의미하는것은 브라우저를 뜻함&lt;/p&gt;
-&lt;h2 id=&quot;개발도구의-종류와-장단점&quot;&gt;개발도구의 종류와 장단점&lt;/h2&gt;
+<p>현재는 Javascirpt가 안쓰이는 곳이 없다. 보안, 출판, Indesign은 Javascript로 책을 자동화로 만들게끔 도와준다.</p>
 
-&lt;h2 id=&quot;변수의-타입과-선언&quot;&gt;변수의 타입과 선언&lt;/h2&gt;
-&lt;h3 id=&quot;hoisting&quot;&gt;hoisting&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;변수나 함수 선언이 스코프에서 최상단으로 옮겨가는 것
-```javascript
-num = 5;
-var num2 = 1
+<p>실무에선 Jquery를 많이 쓰이는데 탈피해서 자바스크립트 본연으로 돌아가서 JS를 사용하는 경우가 많아지고 있음</p>
+
+<p>오늘 세미나에서는 JAVA와 js의 차이점에서 대해서 많이 둘거고 실습을 위주로 진행함</p>
+
+<p>ECMA5와 ECMA6의 차이는 OOP를 추가했다는 점이며 오늘은 ECMA5위주로 진행을 함</p>
+
+<p>Javascript에서 window 의미하는것은 브라우저를 뜻함</p>
+
+<h2 id="개발도구의-종류와-장단점">개발도구의 종류와 장단점</h2>
+
+<h2 id="변수의-타입과-선언">변수의 타입과 선언</h2>
+
+<h3 id="hoisting">hoisting</h3>
+
+<ul>
+  <li>변수나 함수 선언이 스코프에서 최상단으로 옮겨가는 것</li>
+</ul>
+
+<pre><code class="language-javascript">num = 5;
+var num2 = 1;
 console.log(num2);
 var num;
-console.log(num);&lt;/li&gt;
-&lt;/ul&gt;
+console.log(num);
 
-&lt;p&gt;//여기서 num의 선언을 최상단으로 자동으로 올려줌&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;권장하지 않는 프로그래밍임
+//여기서 num의 선언을 최상단으로 자동으로 올려줌
+</code></pre>
 
-### Scope
-- 함수 내부가 아니면 전부 전역 (var)
-- 전역 선언에 경우 브라우저에 변수가 저장된다.
-- 지역 변수는 함수 내부에 선언된 선언이 지역변수로 저장된다.
-- 변수 선언을 함수든 어디서든 안하면 전역으로 선언됨
+<p>권장하지 않는 프로그래밍임</p>
 
-```javascript
-function sum(a, b){
-    var result = 0;
-    gResult = 0;
-    
-    for(var i=0; i&amp;lt; arguments.length; i++){
-        gResult += arguments[i];
-        console.log(i);
-    }
-    //var i는 호이스팅에 의해서 최상단으로 올라가게됨
+<h3 id="scope">Scope</h3>
+
+<ul>
+  <li>함수 내부가 아니면 전부 전역 (var)</li>
+  <li>전역 선언에 경우 브라우저에 변수가 저장된다.</li>
+  <li>지역 변수는 함수 내부에 선언된 선언이 지역변수로 저장된다.</li>
+  <li>변수 선언을 함수든 어디서든 안하면 전역으로 선언됨</li>
+</ul>
+
+<pre><code class="language-javascript">function sum(a, b) {
+  var result = 0;
+  gResult = 0;
+
+  for (var i = 0; i &lt; arguments.length; i++) {
+    gResult += arguments[i];
+    console.log(i);
+  }
+  //var i는 호이스팅에 의해서 최상단으로 올라가게됨
 }
 
-console.log(gResult) //undefined
-sum(10, 50)
+console.log(gResult); //undefined
+sum(10, 50);
 // 0
 // 1
-console.log(gResult) // 60;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;// false인지 ture인지 확인하려면 그냥 타입에 !!해보면됨
+console.log(gResult); // 60;
+</code></pre>
+
+<pre><code class="language-javascript">// false인지 ture인지 확인하려면 그냥 타입에 !!해보면됨
 console.log(!!undefined);
 // false
-&lt;/code&gt;&lt;/pre&gt;
+</code></pre>
 
-&lt;h2 id=&quot;연산자&quot;&gt;연산자&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;’==’ ‘===’의 차이 ==는 값비교 ===는 타입까지 비교
-    &lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;var num = new Number(0);
+<h2 id="연산자">연산자</h2>
+
+<ul>
+  <li>’==’ ‘===’의 차이 ==는 값비교 ===는 타입까지 비교</li>
+</ul>
+
+<pre><code class="language-javascript">var num = new Number(0);
 var num1 = 0;
-console.log(num === num1)
+console.log(num === num1);
 // false
 // 타입이 다르다 new Number는 객체이기 때문
-&lt;/code&gt;&lt;/pre&gt;
-  &lt;/li&gt;
-  &lt;li&gt;결론 ==는 쓰지마라
-    &lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;var num = new Number(0);
+</code></pre>
+
+<ul>
+  <li>결론 ==는 쓰지마라</li>
+</ul>
+
+<pre><code class="language-javascript">var num = new Number(0);
 var num1 = 0;
 console.log(num == num1);
 // true
-&lt;/code&gt;&lt;/pre&gt;
-    &lt;p&gt;여기에서 num을 자동으로 형변환을 시키기 때문에 좋지 않다.&lt;/p&gt;
-    &lt;h2 id=&quot;조건문과-반복문&quot;&gt;조건문과 반복문&lt;/h2&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
+</code></pre>
 
-&lt;h2 id=&quot;배열&quot;&gt;배열&lt;/h2&gt;
-&lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;var arr = [1,2,3,4,5];
+<p>여기에서 num을 자동으로 형변환을 시키기 때문에 좋지 않다.</p>
+
+<h2 id="조건문과-반복문">조건문과 반복문</h2>
+
+<h2 id="배열">배열</h2>
+
+<pre><code class="language-javascript">var arr = [1, 2, 3, 4, 5];
 arr[6] = 100;
 
 console.log(arr);
 //1,2,3,4,5, ,100
 
-for(var i in arr) console.log(arr[i]);
+for (var i in arr) console.log(arr[i]);
 // empty, undefined는 건너뜀 in의 특징임
-&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;var arr = [1, 10, 20, 11, 12 ,30];
-arr.sort() // 는 사전 정렬이라서 제대로 되지않음
+</code></pre>
+
+<pre><code class="language-javascript">var arr = [1, 10, 20, 11, 12, 30];
+arr.sort(); // 는 사전 정렬이라서 제대로 되지않음
 // 그래서 이렇게함
-arr.sort( (a, b) =&amp;gt; a - b);
-&lt;/code&gt;&lt;/pre&gt;
+arr.sort((a, b) =&gt; a - b);
+</code></pre>
 
-&lt;h2 id=&quot;dom&quot;&gt;DOM&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;DOM은 기본적으로 노드로 생성된다.&lt;/li&gt;
-&lt;/ul&gt;
+<h2 id="dom">DOM</h2>
 
-&lt;h2 id=&quot;난-정말-자바를-공부한적이-없다구요&quot;&gt;난 정말 자바를 공부한적이 없다구요&lt;/h2&gt;
-&lt;p&gt;찾아보니 남궁성님이 안쓰셨다. 잘못알고 왔다. 망했다.&lt;/p&gt;
+<ul>
+  <li>DOM은 기본적으로 노드로 생성된다.</li>
+</ul>
 
-&lt;h2 id=&quot;후기&quot;&gt;후기&lt;/h2&gt;
-&lt;p&gt;이 글을 읽은 사람이라면 누구나 왜 목차랑 인마 달라 이자식아 라는 생각을 하실 수 있다 그렇다 목차와 다르게 세미나가 진행됐다.&lt;/p&gt;
+<h2 id="난-정말-자바를-공부한적이-없다구요">난 정말 자바를 공부한적이 없다구요</h2>
 
-&lt;p&gt;그리고 시간이 모자라서 DOM의 이벤트는 하지 않고 지나갔다.&lt;/p&gt;
+<p>찾아보니 남궁성님이 안쓰셨다. 잘못알고 왔다. 망했다.</p>
 
-&lt;blockquote&gt;
-  &lt;p&gt;괜히 갔나 후회 했다&lt;/p&gt;
-&lt;/blockquote&gt;
+<h2 id="후기">후기</h2>
 
-&lt;p&gt;솔직히 말하면 시간을 버렸고 돈을 버렸다고 생각했다. 기존에 전부 알던 내용이고 복습을 할거면 MSDN을 볼것이고 그것마저도 아니라면 많은 자바스크립트 교재를 한번 훑어보는게 좋다고 생각한다.&lt;/p&gt;
+<p>이 글을 읽은 사람이라면 누구나 왜 목차랑 인마 달라 이자식아 라는 생각을 하실 수 있다 그렇다 목차와 다르게 세미나가 진행됐다.</p>
 
-&lt;p&gt;물론 초보자 입장에선 이 강좌가 어떻게 다가올진 모르겠다. 좋다고 생각하는 사람도 있을것이고 그럴것 같다&lt;/p&gt;
+<p>그리고 시간이 모자라서 DOM의 이벤트는 하지 않고 지나갔다.</p>
 
-&lt;p&gt;그러나 현재 프론트엔드나 자바스크립트 개발을 보자면 es5 기준으로 프로그래밍을 하는 경우는 전혀 없다고 확신한다.&lt;/p&gt;
+<blockquote>
+  <p>괜히 갔나 후회 했다</p>
+</blockquote>
 
-&lt;p&gt;타입스크립트, ES6(바밸을 통한)면 모를까 상당히 안타까운 시간이었고 설명 자체도 본인이 가져오신 교재를 통해 읽는 것만 반복되는 느낌이었다.&lt;/p&gt;
+<p>솔직히 말하면 시간을 버렸고 돈을 버렸다고 생각했다. 기존에 전부 알던 내용이고 복습을 할거면 MSDN을 볼것이고 그것마저도 아니라면 많은 자바스크립트 교재를 한번 훑어보는게 좋다고 생각한다.</p>
 
-&lt;p&gt;자바를 알고 있는 사람을 전제하에 세미나가 진행된다고 하셨는데 어느정도 자바를 아는 사람이라면 굳이 세미나를 참가하지 않고 변수 선언 등…을 살펴보기는게 좋지 않을까?&lt;/p&gt;
+<p>물론 초보자 입장에선 이 강좌가 어떻게 다가올진 모르겠다. 좋다고 생각하는 사람도 있을것이고 그럴것 같다</p>
 
-&lt;p&gt;완전 초보자가 듣기에는 너무 급하게 지나가서 내 옆자리 분은 실제로 제대로 이해하지 못하고 지나갔고 조금 경험이 있는 개발자는 시간이 아깝다고 느끼며 지나갔다.&lt;/p&gt;
+<p>그러나 현재 프론트엔드나 자바스크립트 개발을 보자면 es5 기준으로 프로그래밍을 하는 경우는 전혀 없다고 확신한다.</p>
 
-&lt;p&gt;이도저도 아닌 세미나였어서 더 이상 쓸 말이 없다.&lt;/p&gt;
+<p>타입스크립트, ES6(바밸을 통한)면 모를까 상당히 안타까운 시간이었고 설명 자체도 본인이 가져오신 교재를 통해 읽는 것만 반복되는 느낌이었다.</p>
 
-&lt;p&gt;책을 사시는것을 추천한다.&lt;/p&gt;</content><author><name></name></author><category term="Javascript" /><category term="beginer" /><summary type="html">남궁성 자바스크립트에 참가하다. 예전에 ‘난 정말 자바를 공부한적이 없다구요’라는 책을 보고 남궁성 자바라는 카페를 가입했었는데 어쩌다보니 자바는 전혀 하지 않고 Jvacsript만 주로 하게되었는데 운 좋게 남궁성님이 운영하는 세미나가 있어서 참가하게 되었다.</summary></entry><entry><title type="html">자바스크립트의 재귀함수 어떻게 이해하면 좋을까?</title><link href="/study/How-to-understand-javascript-recursion-function" rel="alternate" type="text/html" title="자바스크립트의 재귀함수 어떻게 이해하면 좋을까?" /><published>2018-08-24T00:00:00+09:00</published><updated>2018-08-24T00:00:00+09:00</updated><id>/study/How-to-understand-javascript-recursion-function</id><content type="html" xml:base="/study/How-to-understand-javascript-recursion-function">&lt;h2 id=&quot;재귀함수-recursion-function&quot;&gt;재귀함수 (Recursion function)&lt;/h2&gt;
-&lt;p&gt;재귀함수는 말 그대로 함수 내에서 자기 자신을 다시 또 호출하면서 로직을 수행하는 함수를 말한다. 재귀함수를 응용하는데 있어서 많은 글들을 읽어봤지만 사실 그렇게 크게 와닿는 글은 없었던것 같다.&lt;/p&gt;
+<p>자바를 알고 있는 사람을 전제하에 세미나가 진행된다고 하셨는데 어느정도 자바를 아는 사람이라면 굳이 세미나를 참가하지 않고 변수 선언 등…을 살펴보기는게 좋지 않을까?</p>
 
-&lt;h2 id=&quot;예제-보기&quot;&gt;예제 보기&lt;/h2&gt;
-&lt;p&gt;&lt;a href=&quot;https://msdn.microsoft.com/ko-kr/library/wwbyhkx4(v=vs.94).aspx&quot;&gt;MSDN&lt;/a&gt;의 예제를 살펴보자&lt;/p&gt;
+<p>완전 초보자가 듣기에는 너무 급하게 지나가서 내 옆자리 분은 실제로 제대로 이해하지 못하고 지나갔고 조금 경험이 있는 개발자는 시간이 아깝다고 느끼며 지나갔다.</p>
 
-&lt;p&gt;팩토리얼에 재귀함수를 활용하는 예제인데&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;function factorial(num)
-{
-    // If the number is less than 0, reject it.
-    if (num &amp;lt; 0) {
-        return -1;
-    }
-    // If the number is 0, its factorial is 1.
-    else if (num == 0) {
-        return 1;
-    }
-    var tmp = num;
-    while (num-- &amp;gt; 2) {
-        tmp *= num;
-    }
-    return tmp;
+<p>이도저도 아닌 세미나였어서 더 이상 쓸 말이 없다.</p>
+
+<p>책을 사시는것을 추천한다.</p>]]></content><author><name></name></author><category term="개발" /><category term="Javascript" /><category term="beginer" /><summary type="html"><![CDATA[남궁성 자바스크립트에 참가하다.]]></summary></entry><entry><title type="html">자바스크립트의 재귀함수 어떻게 이해하면 좋을까?</title><link href="http://localhost:4000/study/How-to-understand-javascript-recursion-function" rel="alternate" type="text/html" title="자바스크립트의 재귀함수 어떻게 이해하면 좋을까?" /><published>2018-08-24T00:00:00+09:00</published><updated>2018-08-24T00:00:00+09:00</updated><id>http://localhost:4000/study/How-to-understand-javascript-recursion-function</id><content type="html" xml:base="http://localhost:4000/study/How-to-understand-javascript-recursion-function"><![CDATA[<h2 id="재귀함수-recursion-function">재귀함수 (Recursion function)</h2>
+
+<p>재귀함수는 말 그대로 함수 내에서 자기 자신을 다시 또 호출하면서 로직을 수행하는 함수를 말한다. 재귀함수를 응용하는데 있어서 많은 글들을 읽어봤지만 사실 그렇게 크게 와닿는 글은 없었던것 같다.</p>
+
+<h2 id="예제-보기">예제 보기</h2>
+
+<p><a href="https://msdn.microsoft.com/ko-kr/library/wwbyhkx4(v=vs.94).aspx">MSDN</a>의 예제를 살펴보자</p>
+
+<p>팩토리얼에 재귀함수를 활용하는 예제인데</p>
+
+<pre><code class="language-javascript">function factorial(num) {
+  // If the number is less than 0, reject it.
+  if (num &lt; 0) {
+    return -1;
+  }
+  // If the number is 0, its factorial is 1.
+  else if (num == 0) {
+    return 1;
+  }
+  var tmp = num;
+  while (num-- &gt; 2) {
+    tmp *= num;
+  }
+  return tmp;
 }
 
 var result = factorial(8);
 document.write(result);
 
 // Output: 40320
-&lt;/code&gt;&lt;/pre&gt;
+</code></pre>
 
-&lt;p&gt;위와같은 팩토리얼 함수를 재귀함수로 아래와같이 만들수 있다는 내용이다.&lt;/p&gt;
+<p>위와같은 팩토리얼 함수를 재귀함수로 아래와같이 만들수 있다는 내용이다.</p>
 
-&lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;function factorial(num)
-{
-    // If the number is less than 0, reject it.
-    if (num &amp;lt; 0) {
-        return -1;
-    }
-    // If the number is 0, its factorial is 1.
-    else if (num == 0) {
-        return 1;
-    }
-    // Otherwise, call this recursive procedure again.
-    else {
-        return (num * factorial(num - 1));
-    }
+<pre><code class="language-javascript">function factorial(num) {
+  // If the number is less than 0, reject it.
+  if (num &lt; 0) {
+    return -1;
+  }
+  // If the number is 0, its factorial is 1.
+  else if (num == 0) {
+    return 1;
+  }
+  // Otherwise, call this recursive procedure again.
+  else {
+    return num * factorial(num - 1);
+  }
 }
 
 var result = factorial(8);
 document.write(result);
 
 // Output: 40320
-&lt;/code&gt;&lt;/pre&gt;
+</code></pre>
 
-&lt;h2 id=&quot;간단한-예제-그러나-사용처는&quot;&gt;간단한 예제 그러나 사용처는?&lt;/h2&gt;
-&lt;p&gt;본인도 그랬다 물론 이해는 되지만 ‘재귀함수’를 사용하면서 얻는 이점이 무엇이 있는지 사실 이해가 잘 가지 않았다.&lt;/p&gt;
+<h2 id="간단한-예제-그러나-사용처는">간단한 예제 그러나 사용처는?</h2>
 
-&lt;p&gt;왜냐면 후자의 예제 역시 동작이 되며 모두다 같은 결과 값을 가져다 주기 때문이다.&lt;/p&gt;
+<p>본인도 그랬다 물론 이해는 되지만 ‘재귀함수’를 사용하면서 얻는 이점이 무엇이 있는지 사실 이해가 잘 가지 않았다.</p>
 
-&lt;p&gt;그러던 도중 타인에게 문제를 받아 해결하는 과정에서 재귀함수를 사용해 꽤 간단하게 문제를 풀어냈기에 이 예제를 본다면 다른 사람도 어느정도 도움이 될것 같아서 작성하게 되었다.&lt;/p&gt;
+<p>왜냐면 후자의 예제 역시 동작이 되며 모두다 같은 결과 값을 가져다 주기 때문이다.</p>
 
-&lt;h2 id=&quot;다차원-배열을-1차원-배열로-만드는-예제&quot;&gt;다차원 배열을 1차원 배열로 만드는 예제&lt;/h2&gt;
-&lt;p&gt;다차원 배열이란 배열이 한개의 차원이 아닌 여러개의 차원이 되는 그런 배열을 뜻한다. 다차원 배열이 된 이상 배열의 크기는 그렇게 중요하지 않고 어느 부분이라도 확장될수 있다.&lt;/p&gt;
+<p>그러던 도중 타인에게 문제를 받아 해결하는 과정에서 재귀함수를 사용해 꽤 간단하게 문제를 풀어냈기에 이 예제를 본다면 다른 사람도 어느정도 도움이 될것 같아서 작성하게 되었다.</p>
 
-&lt;p&gt;1차원 배열이란 [0,1,2,3,4,5]와 같은 배열을 말하며
-2차원 배열은 [ [1,2,3], [4,5,6] ]과 같은 배열을 말한다.&lt;/p&gt;
+<h2 id="다차원-배열을-1차원-배열로-만드는-예제">다차원 배열을 1차원 배열로 만드는 예제</h2>
 
-&lt;p&gt;그러나 다 차원 배열은 저것을 넘어선 어느 부분에서건 증가가 가능해지는데 아래와 같은 배열도 다차원 배열에 속한다&lt;/p&gt;
+<p>다차원 배열이란 배열이 한개의 차원이 아닌 여러개의 차원이 되는 그런 배열을 뜻한다. 다차원 배열이 된 이상 배열의 크기는 그렇게 중요하지 않고 어느 부분이라도 확장될수 있다.</p>
 
-&lt;p&gt;[ 0, [1,2, [3,2,3,1], [0,1,2,3,] ],2,3,4 [1,2,3, [4, [6] ] ] ] 과 같이 보기도 힘든 배열…도 역시 다차원 배열에 속한다.&lt;/p&gt;
+<p>1차원 배열이란 [0,1,2,3,4,5]와 같은 배열을 말하며
+2차원 배열은 [ [1,2,3], [4,5,6] ]과 같은 배열을 말한다.</p>
 
-&lt;p&gt;그러나 이런 배열들을 1차원 배열로 바꾸기 위해서는 어떻게 해야할까?&lt;/p&gt;
+<p>그러나 다 차원 배열은 저것을 넘어선 어느 부분에서건 증가가 가능해지는데 아래와 같은 배열도 다차원 배열에 속한다</p>
 
-&lt;p&gt;말 그대로 위의 배열을 [ 0, 1, 2, 3, 3, 1 …]와 같이 말이다.&lt;/p&gt;
+<p>[ 0, [1,2, [3,2,3,1], [0,1,2,3,] ],2,3,4 [1,2,3, [4, [6] ] ] ] 과 같이 보기도 힘든 배열…도 역시 다차원 배열에 속한다.</p>
 
-&lt;h2 id=&quot;일반적인-for문을-이용해서-푼다면&quot;&gt;일반적인 For문을 이용해서 푼다면?&lt;/h2&gt;
-&lt;p&gt;그러니까 나쁜 방법부터 생각해보자 일반적인 for문을 이용한다면 어떻게 풀 수 있을까?&lt;/p&gt;
+<p>그러나 이런 배열들을 1차원 배열로 바꾸기 위해서는 어떻게 해야할까?</p>
 
-&lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;function Solution(target){
-    
+<p>말 그대로 위의 배열을 [ 0, 1, 2, 3, 3, 1 …]와 같이 말이다.</p>
+
+<h2 id="일반적인-for문을-이용해서-푼다면">일반적인 For문을 이용해서 푼다면?</h2>
+
+<p>그러니까 나쁜 방법부터 생각해보자 일반적인 for문을 이용한다면 어떻게 풀 수 있을까?</p>
+
+<pre><code class="language-javascript">function Solution(target){
+
     var result = []
 
     // 만약 배열이 아니라면 이 함수를 종료
@@ -1381,13 +1791,13 @@ document.write(result);
         return null
 
     // 타갯의 길이 만큼 반복
-    for(var i = 0; i &amp;lt; target.legnth; i ++){
+    for(var i = 0; i &lt; target.legnth; i ++){
         // 타갯의 i가 배열인지 확인
         if( !Array.isArray(  target[i] ) ){
             // 배열이 아니라면 1차원 배열에 삽입
             result.push(target[i])
         }else{
-            for(var j = 0; j &amp;lt; target[i].length; j ++){
+            for(var j = 0; j &lt; target[i].length; j ++){
                 if( !Array.isArray(  target[i][j] ) ){
                     result.push(target[i][j])
                 }
@@ -1399,86 +1809,88 @@ document.write(result);
         }
     }
 }
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;와 같이 depth에 관한 정보를 모른다면 어디까지 코딩해야하는지 알 수 없다. 즉 거의 불가능에 가깝다.&lt;/p&gt;
+</code></pre>
 
-&lt;p&gt;그렇다면 어떻게 하면 효율적으로 해결할 수 있을까?&lt;/p&gt;
+<p>와 같이 depth에 관한 정보를 모른다면 어디까지 코딩해야하는지 알 수 없다. 즉 거의 불가능에 가깝다.</p>
 
-&lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;function Solution(target){
-    // 결과를 담을 변수
-    var result = [];
-    
-    for(var i =0 ; i &amp;lt; target.length; i++){
-        // 어레이가 아니라면 push해주고 
-        if( !Array.isArray( target[i] ) )
-            result.push( target[i] )
-        else{
-            result = result.concat( Solution( target[i] ) )
-        }
+<p>그렇다면 어떻게 하면 효율적으로 해결할 수 있을까?</p>
+
+<pre><code class="language-javascript">function Solution(target) {
+  // 결과를 담을 변수
+  var result = [];
+
+  for (var i = 0; i &lt; target.length; i++) {
+    // 어레이가 아니라면 push해주고
+    if (!Array.isArray(target[i])) result.push(target[i]);
+    else {
+      result = result.concat(Solution(target[i]));
     }
+  }
 
-    return result;
+  return result;
 }
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;위 처럼 해결할 수 있다.&lt;/p&gt;</content><author><name></name></author><category term="Javascript" /><category term="Recursion" /><summary type="html">재귀함수 (Recursion function) 재귀함수는 말 그대로 함수 내에서 자기 자신을 다시 또 호출하면서 로직을 수행하는 함수를 말한다. 재귀함수를 응용하는데 있어서 많은 글들을 읽어봤지만 사실 그렇게 크게 와닿는 글은 없었던것 같다.</summary></entry><entry><title type="html">나는 graphql을 이해했다</title><link href="/study/I-understand-grahpql" rel="alternate" type="text/html" title="나는 graphql을 이해했다" /><published>2018-08-16T00:00:00+09:00</published><updated>2018-08-16T00:00:00+09:00</updated><id>/study/I-understand-grahpql</id><content type="html" xml:base="/study/I-understand-grahpql">&lt;h2 id=&quot;graphql은-무엇일까&quot;&gt;Graphql은 무엇일까?&lt;/h2&gt;
-&lt;p&gt;대다수의 블로그를 보면 마치 정말 전지전능한 실제 기술같았다. 왜냐면 꼭 파이어베이스와 같이 서버리스 플랫폼에서 제공하는 플랫폼의 ‘라이벌’이라고 얘길 해서 나는 Firebase(‘이하’ 파이어베이스) 같이 별다른 설정 없이 사용할 수 있는줄 알았다.&lt;/p&gt;
+</code></pre>
 
-&lt;blockquote&gt;
-  &lt;p&gt;잘못된 이해였다&lt;/p&gt;
-&lt;/blockquote&gt;
+<p>위 처럼 해결할 수 있다.</p>]]></content><author><name></name></author><category term="개발" /><category term="Javascript" /><category term="Recursion" /><summary type="html"><![CDATA[재귀함수 (Recursion function)]]></summary></entry><entry><title type="html">나는 graphql을 이해했다</title><link href="http://localhost:4000/study/I-understand-grahpql" rel="alternate" type="text/html" title="나는 graphql을 이해했다" /><published>2018-08-16T00:00:00+09:00</published><updated>2018-08-16T00:00:00+09:00</updated><id>http://localhost:4000/study/I-understand-grahpql</id><content type="html" xml:base="http://localhost:4000/study/I-understand-grahpql"><![CDATA[<h2 id="graphql은-무엇일까">Graphql은 무엇일까?</h2>
 
-&lt;p&gt;실제로 Graphql과 RESTfullAPI의 설계는 많은 차이를 보이지만 결국엔 내가 컨트롤 한다는 점에선 변화가 없고 대신 라우터의 관리 파라미터의 관리가 엄청 쉬워진다는 장점이 있다.&lt;/p&gt;
+<p>대다수의 블로그를 보면 마치 정말 전지전능한 실제 기술같았다. 왜냐면 꼭 파이어베이스와 같이 서버리스 플랫폼에서 제공하는 플랫폼의 ‘라이벌’이라고 얘길 해서 나는 Firebase(‘이하’ 파이어베이스) 같이 별다른 설정 없이 사용할 수 있는줄 알았다.</p>
 
-&lt;p&gt;기존에 JWT토큰을 발행하기 위해서 /login/createjwttoken이라는 라우터에서 파라미터를 받아서 컨트롤 하기 위해서 Node.js에 새로운 라우터를 만들고……..&lt;/p&gt;
+<blockquote>
+  <p>잘못된 이해였다</p>
+</blockquote>
 
-&lt;p&gt;이런 행위를 하지 않고 모든 라우터를 graphql에 묶어서 관리해주면된다.&lt;/p&gt;
+<p>실제로 Graphql과 RESTfullAPI의 설계는 많은 차이를 보이지만 결국엔 내가 컨트롤 한다는 점에선 변화가 없고 대신 라우터의 관리 파라미터의 관리가 엄청 쉬워진다는 장점이 있다.</p>
 
-&lt;h2 id=&quot;그럼-무엇을-잘못-이해했을까&quot;&gt;그럼 무엇을 잘못 이해했을까?&lt;/h2&gt;
+<p>기존에 JWT토큰을 발행하기 위해서 /login/createjwttoken이라는 라우터에서 파라미터를 받아서 컨트롤 하기 위해서 Node.js에 새로운 라우터를 만들고……..</p>
 
-&lt;p&gt;나는 Graphql을 접하기전에 파이어베이스를 먼저 접했다. 파이어베이스는 별다른 설정없이 데이터를 설계하고 스키마 설계를 필요하지도 않고 단지 그냥 그저 쓸 뿐이었다.&lt;/p&gt;
+<p>이런 행위를 하지 않고 모든 라우터를 graphql에 묶어서 관리해주면된다.</p>
 
-&lt;p&gt;난 Graphql이 그런건줄 알았다. 대다수의 블로그 글들은 Query와 Mutaion과 같은 데이터를 불러오는 예제만 기록되어있었다.&lt;/p&gt;
+<h2 id="그럼-무엇을-잘못-이해했을까">그럼 무엇을 잘못 이해했을까?</h2>
 
-&lt;p&gt;Node.js에서 별다른 설치없이 데이터베이스와 연결만하면 Sequlize라는 ORM 기반 모듈처럼 데이터베이스도 알아서 만들어주고 테이블도 알아서 관리해주는줄 알았다.&lt;/p&gt;
+<p>나는 Graphql을 접하기전에 파이어베이스를 먼저 접했다. 파이어베이스는 별다른 설정없이 데이터를 설계하고 스키마 설계를 필요하지도 않고 단지 그냥 그저 쓸 뿐이었다.</p>
 
-&lt;blockquote&gt;
-  &lt;p&gt;그러나 완전히 반대였다.&lt;/p&gt;
-&lt;/blockquote&gt;
+<p>난 Graphql이 그런건줄 알았다. 대다수의 블로그 글들은 Query와 Mutaion과 같은 데이터를 불러오는 예제만 기록되어있었다.</p>
 
-&lt;h2 id=&quot;그러면-내가-이해한-graphql은&quot;&gt;그러면 내가 이해한 Graphql은?&lt;/h2&gt;
+<p>Node.js에서 별다른 설치없이 데이터베이스와 연결만하면 Sequlize라는 ORM 기반 모듈처럼 데이터베이스도 알아서 만들어주고 테이블도 알아서 관리해주는줄 알았다.</p>
 
-&lt;p&gt;이번 개인프로젝트에 적극적으로 도입해서 모든 요청은 Graphql로 처리하고있다,&lt;/p&gt;
+<blockquote>
+  <p>그러나 완전히 반대였다.</p>
+</blockquote>
 
-&lt;p&gt;가장 이해하기 힘든 부분은 ‘로그인’에 대한 처리였는데 이걸 이해하고선 Graphql을 빨리 이해할 수 있었다.&lt;/p&gt;
+<h2 id="그러면-내가-이해한-graphql은">그러면 내가 이해한 Graphql은?</h2>
 
-&lt;p&gt;우선 Graphql은 데이터베이스를 직접적으로 만들어주지 않는다. Resolver라는 부분을 통해서 요청이 들어오면 해당 요청을 검토하고 데이터를 컨트롤 해야한다.&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;export default {
-    // 로그인 -&amp;gt; JWT토큰 만들어서 token을 리턴해줌 
-Query: { 
-        login: (_, {email, password}, ctx) =&amp;gt; {
-            console.log(ctx)
-            return models.User.findByEmail({email, password})
-            .then( (user) =&amp;gt; {
-                if(user.password == createHash(password)){
-                    return createJWTToken(user.id, user.displayName)
-                    .then((token) =&amp;gt; {
-                        return { token }
-                    })
-                }else{
-                    return new Error('not matched password')
-                }
-            })
-            .catch((err) =&amp;gt; {
-                return new Error('not found user')
-            })
-        },
+<p>이번 개인프로젝트에 적극적으로 도입해서 모든 요청은 Graphql로 처리하고있다,</p>
+
+<p>가장 이해하기 힘든 부분은 ‘로그인’에 대한 처리였는데 이걸 이해하고선 Graphql을 빨리 이해할 수 있었다.</p>
+
+<p>우선 Graphql은 데이터베이스를 직접적으로 만들어주지 않는다. Resolver라는 부분을 통해서 요청이 들어오면 해당 요청을 검토하고 데이터를 컨트롤 해야한다.</p>
+
+<pre><code class="language-javascript">export default {
+  // 로그인 -&gt; JWT토큰 만들어서 token을 리턴해줌
+  Query: {
+    login: (_, { email, password }, ctx) =&gt; {
+      console.log(ctx);
+      return models.User.findByEmail({ email, password })
+        .then((user) =&gt; {
+          if (user.password == createHash(password)) {
+            return createJWTToken(user.id, user.displayName).then((token) =&gt; {
+              return { token };
+            });
+          } else {
+            return new Error("not matched password");
+          }
+        })
+        .catch((err) =&gt; {
+          return new Error("not found user");
+        });
     },
-}
-&lt;/code&gt;&lt;/pre&gt;
+  },
+};
+</code></pre>
 
-&lt;p&gt;위와 같이 결국 데이터를 직접 조회해서 해당 데이터를 비교후에 리턴값으로 Token이라는 기존에 저작되어있는 타입을 리턴해준다 Token의 값은 단순 String에 속한다.&lt;/p&gt;
+<p>위와 같이 결국 데이터를 직접 조회해서 해당 데이터를 비교후에 리턴값으로 Token이라는 기존에 저작되어있는 타입을 리턴해준다 Token의 값은 단순 String에 속한다.</p>
 
-&lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;type User {
+<pre><code class="language-javascript">type User {
         id: ID!
         email: String! @isUnique
         password: String!
@@ -1496,438 +1908,160 @@ type Query {
 type Mutation {
     register(email: String!, password: String!, displayName: String!): User
 }
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;결국엔 Json으로 들어온 객체를 통해 받아온 데이터를 활용해서 알맞는 리턴값을 구해서 만들어줘야한다는 점이다.&lt;/p&gt;
-
-&lt;p&gt;결국에 내가 생각했던 ‘연결만 하고 타입설정만 하면 끝’이라는 것과는 너무 큰 차이가 있었다.&lt;/p&gt;
-
-&lt;h2 id=&quot;graphql을-사용하면서의-이점&quot;&gt;Graphql을 사용하면서의 이점&lt;/h2&gt;
-&lt;p&gt;아무리 그래도 직접 Router를 통해서 하나하나 Post부터 시작해서 Get등 다양한 메서드를 갖는 라우터를 설계하는것보단 훨씬 작업 속도가 빨랐다.&lt;/p&gt;
-
-&lt;h2 id=&quot;graphql을-앞으로도-계속-사용할건지&quot;&gt;Graphql을 앞으로도 계속 사용할건지?&lt;/h2&gt;
-&lt;blockquote&gt;
-  &lt;p&gt;네!&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;당장 스텍오버플로우만 봐도 그렇듯 상당히 많은 수요가있다. 그리고 막상 사용해보니 처음 이해할때만 조금 어려웠고 막상 이해하고 나니 파일관리도 편하고 기본적으로 Apollo 라는 모듈을 사용할땐 서버를 별다른 설정을 하지 않아도 테스트할 수 있게 서버를 만들어줘서 상당히 편리했다.&lt;/p&gt;</content><author><name></name></author><category term="graphql" /><category term="mysql" /><summary type="html">Graphql은 무엇일까? 대다수의 블로그를 보면 마치 정말 전지전능한 실제 기술같았다. 왜냐면 꼭 파이어베이스와 같이 서버리스 플랫폼에서 제공하는 플랫폼의 ‘라이벌’이라고 얘길 해서 나는 Firebase(‘이하’ 파이어베이스) 같이 별다른 설정 없이 사용할 수 있는줄 알았다.</summary></entry><entry><title type="html">MongoDb를 처음 접한 내가, 잘못이해했던 RDS</title><link href="/study/I-was-wrong-understand-RDS" rel="alternate" type="text/html" title="MongoDb를 처음 접한 내가, 잘못이해했던 RDS" /><published>2018-07-13T00:00:00+09:00</published><updated>2018-07-13T00:00:00+09:00</updated><id>/study/I-was-wrong-understand-RDS</id><content type="html" xml:base="/study/I-was-wrong-understand-RDS">&lt;h2 id=&quot;mongodb를-접하다&quot;&gt;MongoDb를 접하다&lt;/h2&gt;
-&lt;p&gt;그랬다. MognoDb’이하 몽고디비’를 접했었다. 그것은 내가 샀던 Node.js 책에서 저자가 정말 너무나도 추천을 했었고 당시 유행했던 ‘MEAN STACK’ 프로젝트의 구성요소 때문이기도 했었다.&lt;/p&gt;
-
-&lt;p&gt;몽고디비는 정말로 핫했고 지금도 물론 너무나도 좋은 데이터베이스임에 분명하다 NoSql중 단연 으뜸이기도 하다&lt;/p&gt;
-
-&lt;p&gt;Oracle, Mysql, Ms Sql, PostgreSQL, MongoDb라는 순위를 &lt;a href=&quot;https://db-engines.com/en/ranking&quot;&gt;데이터베이스 랭킹&lt;/a&gt;에서 확인 할 수 있다.&lt;/p&gt;
-
-&lt;h3 id=&quot;mongodb가-가진-장점의-이해&quot;&gt;MongoDb가 가진 장점의 이해&lt;/h3&gt;
-&lt;p&gt;나는 당시에 Nosql이 가진 가장 큰 장점은 ‘확장성’이라고 생각했다. 단지 확장성 하나 때문에 Mysql을 안사용하고 몽고디비를 써야겠다고 생각했다. 그러나 이것은 정말로 큰 오해였다.&lt;/p&gt;
-
-&lt;h2 id=&quot;mysql에-관심을-가지게된-계기부터&quot;&gt;Mysql에 관심을 가지게된 계기부터&lt;/h2&gt;
-&lt;p&gt;나는 사실 서버도 좋아하고 프론트엔드도 좋아하는 어쩌면 잡 개발자라고 할수 있다 사실 아직은 이렇다할 정체성을 가지지 못하고 있다. 두개다 재밌기 때문인데.&lt;/p&gt;
-
-&lt;p&gt;최근 면접에서 단연코 많이 하는 질문은 ‘RDS’에 관한 이해였다.&lt;/p&gt;
-
-&lt;p&gt;RDS는 중요했다. 웹을 지탱하는 데이터베이스 중 그것은 단연 으뜸이다.&lt;/p&gt;
-
-&lt;p&gt;그러나 나는 사실 이런 RDS에 대해 자세히 이해하지 못했었는데 그것은 전혀 관심이 없기 때문이었다.&lt;/p&gt;
-
-&lt;p&gt;그러나 다음 면접을 위해선 반드시 공부해야겠다고 생각했고 최근까지도 RDS로 토이프로젝트를 만들며 배워보고있다.&lt;/p&gt;
-
-&lt;h2 id=&quot;rds의-확장성&quot;&gt;RDS의 확장성&lt;/h2&gt;
-&lt;p&gt;정말 확장성이 없을까?&lt;/p&gt;
-&lt;blockquote&gt;
-  &lt;p&gt;그렇다&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;내 개념에선 적어도 그랬다. 왜냐면 애초에 테이블을 ‘설계’해야하고 이 테이블은 사실상 바뀌기 힘들었기 때문이다.&lt;/p&gt;
-
-&lt;p&gt;Nosql을 예를 들자면 그냥 도큐먼트에 새로운 객체 하나만 추가하면 만들어지는 데이터베이스 와는 정반대로&lt;/p&gt;
-
-&lt;p&gt;‘수정’을 해야한다고 생각했기 때문이다.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;그러나 그것은 잘못된 이해였다.
-RDS를 반대로 이해한것이다.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h2 id=&quot;데이터베이스의-정규화&quot;&gt;데이터베이스의 정규화&lt;/h2&gt;
-&lt;p&gt;‘정규화’를 이해하지 못했기 때문에 확장성이 없다고 판단한것이었다. 데이터베이스의 정규화란 몇가지의 형식이 있으며 정말로 간단하게 설명하자면&lt;/p&gt;
-
-&lt;p&gt;기존에 내가 이해했던 RDS란 하나의 테이블의 모든 데이터를 꾸겨넣는다고 생각했다.&lt;/p&gt;
-
-&lt;p&gt;예를 들어 성적에 관한 데이터베이스를 만든다면&lt;/p&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt;이름&lt;/th&gt;
-      &lt;th&gt;국어&lt;/th&gt;
-      &lt;th&gt;영어&lt;/th&gt;
-      &lt;th&gt;수학&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;종민&lt;/td&gt;
-      &lt;td&gt;100&lt;/td&gt;
-      &lt;td&gt;90&lt;/td&gt;
-      &lt;td&gt;100&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;준형&lt;/td&gt;
-      &lt;td&gt;12&lt;/td&gt;
-      &lt;td&gt;32&lt;/td&gt;
-      &lt;td&gt;22&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;p&gt;와 같은 형식으로 만들었을 것이다.&lt;/p&gt;
-
-&lt;h3 id=&quot;그러나-정규화를-이해하고-나선-조금-달라진다&quot;&gt;그러나 정규화를 이해하고 나선 조금 달라진다.&lt;/h3&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt;이름&lt;/th&gt;
-      &lt;th&gt;id&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;종민&lt;/td&gt;
-      &lt;td&gt;1&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;준형&lt;/td&gt;
-      &lt;td&gt;0&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;p&gt;이라는 테이블을 하나 만들고&lt;/p&gt;
+</code></pre>
 
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt;pub_id&lt;/th&gt;
-      &lt;th&gt;국어&lt;/th&gt;
-      &lt;th&gt;영어&lt;/th&gt;
-      &lt;th&gt;수학&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;0&lt;/td&gt;
-      &lt;td&gt;100&lt;/td&gt;
-      &lt;td&gt;90&lt;/td&gt;
-      &lt;td&gt;100&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;1&lt;/td&gt;
-      &lt;td&gt;12&lt;/td&gt;
-      &lt;td&gt;32&lt;/td&gt;
-      &lt;td&gt;22&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
+<p>결국엔 Json으로 들어온 객체를 통해 받아온 데이터를 활용해서 알맞는 리턴값을 구해서 만들어줘야한다는 점이다.</p>
 
-&lt;p&gt;과 같이 만들것이다.&lt;/p&gt;
+<p>결국에 내가 생각했던 ‘연결만 하고 타입설정만 하면 끝’이라는 것과는 너무 큰 차이가 있었다.</p>
 
-&lt;p&gt;pub_id란 위의 종민 준형의 id값을 가리키는 Foreign key’FK’가 된다.&lt;/p&gt;
+<h2 id="graphql을-사용하면서의-이점">Graphql을 사용하면서의 이점</h2>
 
-&lt;blockquote&gt;
-  &lt;p&gt;즉 관계형 데이터베이스를 관계정 데이터베이스 답게 이해하게 된것이다.&lt;/p&gt;
-&lt;/blockquote&gt;
+<p>아무리 그래도 직접 Router를 통해서 하나하나 Post부터 시작해서 Get등 다양한 메서드를 갖는 라우터를 설계하는것보단 훨씬 작업 속도가 빨랐다.</p>
 
-&lt;h2 id=&quot;이제는-확장성에-대해서-고민할-필요가-없다&quot;&gt;이제는 확장성에 대해서 고민할 필요가 없다.&lt;/h2&gt;
-&lt;p&gt;혹시 아직도 RDS의 확장성에 대해서 고민할 수 있을까? 절대로 그래선 안된다.&lt;/p&gt;
+<h2 id="graphql을-앞으로도-계속-사용할건지">Graphql을 앞으로도 계속 사용할건지?</h2>
 
-&lt;blockquote&gt;
-  &lt;p&gt;만약 내가 새로운 데이터를 추가하고 싶다면 원 테이블을 고민하는게 아니라 새로운 테이블을 만들어 관계를 추가하면 되기 때문이다.&lt;/p&gt;
-&lt;/blockquote&gt;</content><author><name></name></author><category term="RDS" /><category term="Mysql" /><summary type="html">MongoDb를 접하다 그랬다. MognoDb’이하 몽고디비’를 접했었다. 그것은 내가 샀던 Node.js 책에서 저자가 정말 너무나도 추천을 했었고 당시 유행했던 ‘MEAN STACK’ 프로젝트의 구성요소 때문이기도 했었다.</summary></entry><entry><title type="html">Firestore 이해하기</title><link href="/development/firestore-knowlage" rel="alternate" type="text/html" title="Firestore 이해하기" /><published>2018-06-25T00:00:00+09:00</published><updated>2018-06-25T00:00:00+09:00</updated><id>/development/firestore-knowlage</id><content type="html" xml:base="/development/firestore-knowlage">&lt;h2 id=&quot;순서&quot;&gt;순서&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;Firebase의 등장 배경&lt;/li&gt;
-  &lt;li&gt;그래서 등장한 Firestore&lt;/li&gt;
-&lt;/ul&gt;
+<blockquote>
+  <p>네!</p>
+</blockquote>
 
-&lt;h2 id=&quot;firebase의-등장-배경&quot;&gt;Firebase의 등장 배경&lt;/h2&gt;
-&lt;p&gt;정말 간단히 말하자면 클라이언트 개발자의 새로운 개발을 위해 생겼다고 볼 수 있다. 지금은 물론 구글의 인수 이후로 정말 날개를 단듯 MLkit이라던지 내부적으로도 많은 업데이트를 진행하고 있지만 기본적인 출발은 ‘시작을 빠르게’라는 취지로 누구나 웹 개발, 앱 개발을 더 이상 서버까지 고민하지 말고 만들자. 라는 출발이었다&lt;/p&gt;
+<p>당장 스텍오버플로우만 봐도 그렇듯 상당히 많은 수요가있다. 그리고 막상 사용해보니 처음 이해할때만 조금 어려웠고 막상 이해하고 나니 파일관리도 편하고 기본적으로 Apollo 라는 모듈을 사용할땐 서버를 별다른 설정을 하지 않아도 테스트할 수 있게 서버를 만들어줘서 상당히 편리했다.</p>]]></content><author><name></name></author><category term="개발" /><category term="graphql" /><category term="mysql" /><summary type="html"><![CDATA[Graphql은 무엇일까?]]></summary></entry><entry><title type="html">MongoDb를 처음 접한 내가, 잘못이해했던 RDS</title><link href="http://localhost:4000/study/I-was-wrong-understand-RDS" rel="alternate" type="text/html" title="MongoDb를 처음 접한 내가, 잘못이해했던 RDS" /><published>2018-07-13T00:00:00+09:00</published><updated>2018-07-13T00:00:00+09:00</updated><id>http://localhost:4000/study/I-was-wrong-understand-RDS</id><content type="html" xml:base="http://localhost:4000/study/I-was-wrong-understand-RDS"><![CDATA[<h2 id="mongodb를-접하다">MongoDb를 접하다</h2>
 
-&lt;p&gt;그 출발은 괜찮았다 Firebase(이하 ‘파이어베이스’)의 요금은 정말로 합리적이었으며 내부적으로 제공하는 Storage와 Authentications등은 데이터베이스 하나로 파이어베이스를 사용하는 것이 아니라 그 외에 부가적인 부분에서도 많은 이득을 챙길 수 있게 되었다.&lt;/p&gt;
+<p>그랬다. MognoDb’이하 몽고디비’를 접했었다. 그것은 내가 샀던 Node.js 책에서 저자가 정말 너무나도 추천을 했었고 당시 유행했던 ‘MEAN STACK’ 프로젝트의 구성요소 때문이기도 했었다.</p>
 
-&lt;p&gt;나와 같은 경우 처음 파이어베이스에 대해서 듣게 되었을땐 ‘정말로 이런 서비스가 가능한가?’라는 의문도 품었었다.&lt;/p&gt;
+<p>몽고디비는 정말로 핫했고 지금도 물론 너무나도 좋은 데이터베이스임에 분명하다 NoSql중 단연 으뜸이기도 하다</p>
 
-&lt;p&gt;그러나 매끄럽게 가능했다. 파이어베이스 실시간 데이터베이스는 더욱 더 그러했다. 별다른 서버사이드 코드없이도 이제 프로토타입 그리고 어느정도 규모있는 앱까지는 충분히 만들어 볼만 했다.&lt;/p&gt;
-
-&lt;h3 id=&quot;어느정도에-주목하자&quot;&gt;‘어느정도’에 주목하자&lt;/h3&gt;
-&lt;p&gt;물론 이 글을 읽는 당신이 개인 개발자고 개인으로서 결과물이 어느정도 훌륭해서 금전적인 이득을 얻는 수준의 ‘규모’에서는 전혀 문제될게 없었다.&lt;/p&gt;
+<p>Oracle, Mysql, Ms Sql, PostgreSQL, MongoDb라는 순위를 <a href="https://db-engines.com/en/ranking">데이터베이스 랭킹</a>에서 확인 할 수 있다.</p>
 
-&lt;p&gt;그래서인지 해외에서도 개인이 앱을 만들어 먹고사는 ‘개인 개발자’에게 있어서는 정말로 괜찮은 서비스이었다.&lt;/p&gt;
+<h3 id="mongodb가-가진-장점의-이해">MongoDb가 가진 장점의 이해</h3>
 
-&lt;p&gt;왜 ‘규모’에 대해서 언급하냐면 Firebase의 데이터베이스는 괘랄하다 못해서 사실 별로였다.&lt;/p&gt;
+<p>나는 당시에 Nosql이 가진 가장 큰 장점은 ‘확장성’이라고 생각했다. 단지 확장성 하나 때문에 Mysql을 안사용하고 몽고디비를 써야겠다고 생각했다. 그러나 이것은 정말로 큰 오해였다.</p>
 
-&lt;blockquote&gt;
-  &lt;blockquote&gt;
-    &lt;p&gt;아니 괜찮다며;;&lt;/p&gt;
-  &lt;/blockquote&gt;
-&lt;/blockquote&gt;
+<h2 id="mysql에-관심을-가지게된-계기부터">Mysql에 관심을 가지게된 계기부터</h2>
 
-&lt;p&gt;아니 정말 괜찮은 서비스임에 분명했지만, Query의 부재 그리고 속도 등의 이슈로 규모가 조금 있는 서비스라면 사용을 자제하는것이 좋다고 생각이 들었다.&lt;/p&gt;
+<p>나는 사실 서버도 좋아하고 프론트엔드도 좋아하는 어쩌면 잡 개발자라고 할수 있다 사실 아직은 이렇다할 정체성을 가지지 못하고 있다. 두개다 재밌기 때문인데.</p>
 
-&lt;h1 id=&quot;그래서-등장한-firestore&quot;&gt;그래서 등장한 Firestore&lt;/h1&gt;
-&lt;p&gt;지금은 물론 ‘Beta’서비스 이긴 하지만 말 그대로 ‘등 - 장’했다.&lt;/p&gt;
+<p>최근 면접에서 단연코 많이 하는 질문은 ‘RDS’에 관한 이해였다.</p>
 
-&lt;p&gt;모름지기 개발자라면 ‘프레임워크, 라이브러리에 대한 의존성이 없어야해!’라고 말씀하셨던 선배님의 말씀이 떠오르지만 Firestore(이하 ‘파이어스토어’)에는 조금 의존을 해보고 싶었다.&lt;/p&gt;
+<p>RDS는 중요했다. 웹을 지탱하는 데이터베이스 중 그것은 단연 으뜸이다.</p>
 
-&lt;p&gt;그동안 존재하지 않았던 Query와 더욱 더 강력해진 Rule과 이제 더 이상은 파이어베이스를 사용하지 않아도 괜찮다!&lt;/p&gt;
+<p>그러나 나는 사실 이런 RDS에 대해 자세히 이해하지 못했었는데 그것은 전혀 관심이 없기 때문이었다.</p>
 
-&lt;p&gt;파이어스토어의 몇가지 특징을 얘기하자면&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;빠른 NosSql 데이터 베이스
-    &lt;ul&gt;
-      &lt;li&gt;콜렉션과 도큐먼트 기반의 확장성이 용이한 데이터 베이스 설계&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Query의 사용이 가능함 (Admin-sdk에서는 기능이 더욱 강함 ‘Skip’ 등)&lt;/li&gt;
-  &lt;li&gt;파이어베이스부터 단련된 Rule!&lt;/li&gt;
-&lt;/ul&gt;
+<p>그러나 다음 면접을 위해선 반드시 공부해야겠다고 생각했고 최근까지도 RDS로 토이프로젝트를 만들며 배워보고있다.</p>
 
-&lt;p&gt;등을 대표적으로 얘기할 수 있는데&lt;/p&gt;
+<h2 id="rds의-확장성">RDS의 확장성</h2>
+
+<p>정말 확장성이 없을까?</p>
 
-&lt;p&gt;이런 데이터베이스를 서버사이드 코드 없이 사용할 수 있다는것은 정말 개발자로 하여금 많은 일을 가능하게 만든다.&lt;/p&gt;
+<blockquote>
+  <p>그렇다</p>
+</blockquote>
 
-&lt;p&gt;가령 기존 파이어베이스로 게시판을 만든다고 했다면 당연히 하지말라고 얘기했을 것이다 차라리 페이스북의 &lt;a href=&quot;https://graphql.org/learn/&quot;&gt;GraphQL&lt;/a&gt;을 사용하라고 하고싶었다.&lt;/p&gt;
+<p>내 개념에선 적어도 그랬다. 왜냐면 애초에 테이블을 ‘설계’해야하고 이 테이블은 사실상 바뀌기 힘들었기 때문이다.</p>
 
-&lt;p&gt;그러나 이번엔 다르다 빠른 NoSql의 데이터베이스는 기존 정적인 게시판이 아닌 정말 넓은 확장성을 자랑하는 게시판을 만들 수도 있으며&lt;/p&gt;
+<p>Nosql을 예를 들자면 그냥 도큐먼트에 새로운 객체 하나만 추가하면 만들어지는 데이터베이스 와는 정반대로</p>
 
-&lt;p&gt;게시판에서 빠질수 없는 검색등의 기능도 향상된 Query로 만들수 있으며&lt;/p&gt;
+<p>‘수정’을 해야한다고 생각했기 때문이다.</p>
 
-&lt;p&gt;거기다가 Functions의 연동을 통한다면 기존에 우리가 사용하던 데이터베이스들에 내장되어있던 Skip등의 기능이 사용가능하다는 점이 있다.&lt;/p&gt;
+<blockquote>
+  <p>그러나 그것은 잘못된 이해였다.
+RDS를 반대로 이해한것이다.</p>
+</blockquote>
 
-&lt;h3 id=&quot;내가-생각하는-가장-중요한-rule&quot;&gt;내가 생각하는 가장 중요한 ‘Rule’&lt;/h3&gt;
-&lt;p&gt;그러나 파이어베이스, 스토어 사용에 있어서 가장 중요한 점은 Rule이다 바로 Rule이 Rule을 어떻게 사용하느냐에 따라 여러분의 서비스는 굳이 의미 없는 파이어스토어 사용이 될 수 도있으며 반대로 매우 매끄러운 사용이 가능해진다&lt;/p&gt;
+<h2 id="데이터베이스의-정규화">데이터베이스의 정규화</h2>
 
-&lt;blockquote&gt;
-  &lt;p&gt;고작 Rule하나로?&lt;/p&gt;
-&lt;/blockquote&gt;
+<p>‘정규화’를 이해하지 못했기 때문에 확장성이 없다고 판단한것이었다. 데이터베이스의 정규화란 몇가지의 형식이 있으며 정말로 간단하게 설명하자면</p>
 
-&lt;p&gt;그렇다 Rule은 상당히 중요하다. Rule이 파이어스토어의 존재 이유라고 할수 있을 정도로 중요하다. 예를들자면 당신의 블로그에 설정은 당신만이 할 수 있어야만 한다. 이것을 서버사이드에서 처리하자면&lt;/p&gt;
+<p>기존에 내가 이해했던 RDS란 하나의 테이블의 모든 데이터를 꾸겨넣는다고 생각했다.</p>
 
-&lt;p&gt;요즘 유행하는 Token방식의 인증으로 매기자면 Token 내부에 예를들면 ‘isAdmin’이라는 변수를 만들어놓고 새로 들어온 요청에 한해서 이것을 검증을 해서 그 다음 로직을 실행…..하게 해야한다.&lt;/p&gt;
-
-&lt;p&gt;그러나 파이어스토어는 이런 검증을 Rule에서 해결 가능하다. 요청하는 유저의 UID값을 받아온 뒤 Rule 내부에서 또 다시 Get을 한다음에 해당 블로그의 주인만 가려놓고 만약 맞다면 Allow를 아니라면 딱히 코드를 작성하지 않아도 Permission 에러를 뿜으며 실행되지 않을것이다.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;응? 적고 보니까 Token 방식이 더 간단하네?&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;그렇다 당신이 ‘서버사이드’를 조금 공부했다면 사실 위에 방법이 더욱 쉬울 것이다. 나도 그랬다 사실 처음엔 이해가 안됐고 오히려 개발 시간이 서버를 갖는 것보다 오래 걸리기 때문에 짜증도 났다.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;그러나 분명한건 이것은 서버의 관리 없이도 돌아간다는 점이다.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;간혹 ‘서버리스’에 대해서 언급하면 꼭&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;그걸 왜함?? 어차피 서버 규모 커지면 그냥 서버가 더 이득임&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;라는 말을 찾아 볼 수 있는데 서버 개발자의 월급은 하늘에서 떨어지는줄 아는 사람이 많다. 생각보다 서버개발자의 임금은 높다. 데이터베이스를 매끄럽게 설계해야하는 그들은 당연히 받아가야할 임금을 받아가는 것이고 아까는 정말 단순하게 Token으로 인증하는 것을 말했지만 실제 데이터베이스 설계에선 어쩌면 더욱 많은 절차가 필요할지도 모른다.&lt;/p&gt;
-
-&lt;h2 id=&quot;그래서&quot;&gt;그래서&lt;/h2&gt;
-&lt;p&gt;일단 함 써보세요 진짜 Rule만 잘 이해하면 이만한 서버리스 프로젝트가 없을겁니다.&lt;/p&gt;
-
-&lt;p&gt;그러나 최근 AWS에 &lt;a href=&quot;https://aws.amazon.com/ko/appsync/&quot;&gt;AppSync&lt;/a&gt;가 GraphQL을 도입해 비슷한 서비스를 하고 있으니 한번 찾아보시는 것도 추천합니다.&lt;/p&gt;</content><author><name></name></author><category term="개발일지" /><category term="서버리스" /><category term="Firebase" /><category term="Firestore" /><summary type="html">순서 Firebase의 등장 배경 그래서 등장한 Firestore</summary></entry><entry><title type="html">Tac.photos를 개발이야기 - 배운게 많다</title><link href="/career/tac-photos-develop-after" rel="alternate" type="text/html" title="Tac.photos를 개발이야기 - 배운게 많다" /><published>2018-04-23T00:00:00+09:00</published><updated>2018-04-23T00:00:00+09:00</updated><id>/career/tac-photos-develop-after</id><content type="html" xml:base="/career/tac-photos-develop-after">&lt;h2 id=&quot;시작하기-앞서&quot;&gt;시작하기 앞서&lt;/h2&gt;
-&lt;p&gt;올해에 들어 SPA를 접하고 여러가지 개발을 하면서 꼭 개인프로젝트 하나를 해야겠다는 생각을 했다. 시작은 정말 거대 했다.&lt;/p&gt;
-
-&lt;p&gt;애초에 계획은&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;로그인
-    &lt;ul&gt;
-      &lt;li&gt;Token을 활용&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Serverless
-    &lt;ul&gt;
-      &lt;li&gt;모든 부분에 Serverless 적용&lt;/li&gt;
-      &lt;li&gt;S3에 업로드 하며 당연히 썸네일도 필요할것이라 예측&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;태그 검색&lt;/li&gt;
-  &lt;li&gt;비밀 이미지&lt;/li&gt;
-  &lt;li&gt;등등..&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;등 상당히 많은 계획과 방대한 양의 기획이 있었다. 실제로 로그인도 구현했으며 이메일 인증은 AWS의 SES를 통한 메읿 발송과 Nodemailer를 활용해 나름 멋스럽게 Table단위의 폼도 적용해서 보내기 까지 만들었다..&lt;/p&gt;
-
-&lt;p&gt;그러나 결과적으로 모든걸 다 없애고 그냥 이미지 업로드만 냅두고 출시하게 되었다는 것이다… 상당히 애통하지만 몇가지 큰 이유들이 있었다.&lt;/p&gt;
-
-&lt;h3 id=&quot;누가-쓰겠어&quot;&gt;누가 쓰겠어?&lt;/h3&gt;
-&lt;p&gt;처음 계획은 이미지를 누구나 쉽게 공유하고 업로드 이후에 간단한 링크를 만들어 &lt;a href=&quot;https://imguar.com&quot;&gt;imguar&lt;/a&gt;과 같은 사이트 이지만 약간 한국의 느낌과 맞추고 싶었고 실제로 그게 정말 잘 될것 같다고 생각했다.&lt;/p&gt;
-
-&lt;p&gt;그러나 몇가지 문제에 부딪혔다.&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;비용&lt;/li&gt;
-  &lt;li&gt;디자인&lt;/li&gt;
-  &lt;li&gt;홍보&lt;/li&gt;
-  &lt;li&gt;쓰고자 하는 동기&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;이 어느것도 충족할 수 없었다. 비용에 따른 문제를 고민하면서 서버도 고민하고 거기다가 가끔 뿜어져나오는 Serverless-http 와 그외 데이터베이스 등 많은 연동에서의 오류는 어느순간 나에게 이 프로젝트를 포기하라고 소리쳤다.&lt;/p&gt;
-
-&lt;h2 id=&quot;무엇을-개발도중에-없앴나&quot;&gt;무엇을 개발도중에 없앴나?&lt;/h2&gt;
-
-&lt;p&gt;&lt;img src=&quot;http://i.tac.photos/p/rJmAmJj3M.png&quot; alt=&quot;없애버린 것들 중 하나&quot; /&gt;
-그렇게 없애버린것에는 많은 것이 있었다. 대표적으로 로그인이 그렇다 소셜로그인은 Hello.js를 통해 서버에는 오로지 유저의 Email과 어떤 종류의 소셜로 로그인 했는지만 반영해서 혹시 가입되어 있지 않는 유저라면 닉네임 설정으로 넘어가게 되었고&lt;/p&gt;
-
-&lt;p&gt;이메일 회원가입은 가입 요청과 동시에 AWS SES를 통해 이메일을 발송해서 허락이 나야만 로그인 할 수 있었다.&lt;/p&gt;
-
-&lt;p&gt;그 외에도 이미지 태깅 검색부터 상당히 많이 부분을 아니 사실 다 날렸다고 보면된다..&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;빠르게 버리는것도 도움이 된다고 생각한다.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h2 id=&quot;그래서-무엇을-했나&quot;&gt;그래서 무엇을 했나?&lt;/h2&gt;
-&lt;p&gt;하지만 이 프로젝트를 중간에 포기했더래도(물론 그러지 않았지만) 상당히 배운게 많았다 우선 SPA앱이 가지는 한계와 이것을 극복하기 위한 노력들.. 예를들면 Cloudfront에서는 Vue Router를 403즉 없는 페이지로 인식하는데 그런 페이지의 처리 부터 시작해서 ssl의 적용 그리고 서비스워커 템플릿을 이용했을때의 단점 등… 사실 배운것만 생각하면 최고의 프로젝트였다.&lt;/p&gt;
-
-&lt;h3 id=&quot;무엇을-배웠을까&quot;&gt;무엇을 배웠을까?&lt;/h3&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;SPA
-    &lt;ul&gt;
-      &lt;li&gt;라우터에 이동전 파라미터를 주고 받을때의 일&lt;/li&gt;
-      &lt;li&gt;SPA앱을 구축하는데 특히 Head 태그를 관리하는 일&lt;/li&gt;
-      &lt;li&gt;데이터를 변경하고 가져올때 제대로 된 구조화를 하지 않으면 오히려 내가 힘들다는 것&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;AWS
-    &lt;ul&gt;
-      &lt;li&gt;Route 53
-        &lt;ul&gt;
-          &lt;li&gt;Api gateWay의 Custom doamin을 위해서.&lt;/li&gt;
-          &lt;li&gt;S3의 버킷 접근을 좀더 용이하게 만들기 위해서.&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-      &lt;li&gt;S3
-        &lt;ul&gt;
-          &lt;li&gt;S3에서 버킷 URL을 짧게하기&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-      &lt;li&gt;CloudFront
-        &lt;ul&gt;
-          &lt;li&gt;SPA앱은 존재하지 않는 파일을 요청하니 무조건 403을 내뿜기에 여러가지 세팅이 필요했다.&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-      &lt;li&gt;Lambda
-        &lt;ul&gt;
-          &lt;li&gt;serverless-http를 사용할거면 람다에서 세팅을 하는 경우는 거의 없으며 대부분은 Serverelss.yml을 통해서 해결해야한다 (버킷 억세스 권한 등등)&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;그외
-    &lt;ul&gt;
-      &lt;li&gt;Token 인증
-        &lt;ul&gt;
-          &lt;li&gt;토큰 인증은 앞으로 대다수의 Session 방식을 사용하고 있는 웹에서 앞으로 지향해야할 방향이라고 생각한다.&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-      &lt;li&gt;Vuex
-        &lt;ul&gt;
-          &lt;li&gt;MVC패턴을 벗어나 Redux패턴 즉 Store 기반의 웹은 처음 도입하기에 조금 꺼려졌지만 특히 User의 정보를 담아 다양한 컴포넌트에서 활용을 하면서 사용하니까 너무나도 필요한 존재라는 것을 알게되었다.&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;지금 생각나는 것만 손에 꼽아도 상당히 많은 것들을 배울 수 있었다.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;http://i.tac.photos/p/Skx0M1o3f.png&quot; alt=&quot;고민의 흔적들&quot; /&gt;
-상당히 많은 고민의 흔적들…&lt;/p&gt;
-
-&lt;h2 id=&quot;다음프로젝트는&quot;&gt;다음프로젝트는?&lt;/h2&gt;
-&lt;p&gt;무조건 Firebase를 쓸 생각이다. 데이터베이스를 관리하며 SPA앱을 만들고 거기다가 서버사이드의 RESTful API를 만들며 작업하는건 상당히 많은 시간이 걸린다는 것을 다시 한번 깨우쳤다.&lt;/p&gt;
-
-&lt;p&gt;물론 graphQL을 한번 써서 프로젝트를 해보고 싶긴하지만 다음 프로젝트는 절대로 아니다. 앞으로의 개인프로젝트는 단순히 나의 포트폴리오 용도로 만드는것이 아니라 진짜 수익이 나는 괜찮은 앱을 만들어보고 싶기에 우선은 보여지는 프론트엔드 부분에 많은 고민을 할애하고 싶고 또 기획에 많은 고민을 하고 싶다.&lt;/p&gt;
-
-&lt;h2 id=&quot;마치며&quot;&gt;마치며&lt;/h2&gt;
-&lt;p&gt;서버리스 프로젝트는 너무나도 정말 최고였다. EC2서버를 운영할땐 스케쥴도 상당히 많이 체크해야 했고 동시접속을 얼마나 견딜 수 있을지 동일 요청을 얼마나 버틸지 등 많은 부분을 고민 해야 했다.&lt;/p&gt;
-
-&lt;p&gt;앞으로의 웹은 RESTful이 대세가 이룰것이라고 확신한다 아니 100%다. 물론 과거에는 Node.js개발자나 PHP등 서버사이드 개발자가 해야할 일이 서버관리와 유연한 데이터베이스를 설계하는 일 이었다면&lt;/p&gt;
-
-&lt;p&gt;이제는 분명히 프론트엔드와 백엔드의 무게가 동등 해지고 있다고 생각이 들었다.&lt;/p&gt;
-
-&lt;p&gt;웹을 만든다, 라는 생각을 하면 나는 정말 무조건 드는 생각이 있는데 바로 어떻게 하면 내 서버자원을 유저가 최대한 적게 사용할까?? 라는 고민이었다. 이 고민은 나의 첫 프로젝트였던 Overdoc - 오버워치 데이터 제공 웹을 개발할때도 했던 생각이었는데&lt;/p&gt;
-
-&lt;p&gt;나는 죽어도 내 서버를 호락호락하게…크흠 아무튼 최대한 서버 요청은 적을수록 좋다고 생각한다. 지금까지도 그렇게 생각해왔지만 이번 프로젝트를 하고 나서는 정말 그런 생각이 더욱 커졌다.&lt;/p&gt;
-
-&lt;p&gt;앞으로의 RESTful기반 웹사이트는 당연히 서버리스가 좋다고 생각하고 이런 서버로의 요청을 조금이라고 덜 하기 위해서는 무조건적으로 프론트사이드에서 요청을 최소화 하기 위한 작업들을 많이 해줘야한다고 생각한다.&lt;/p&gt;
-
-&lt;p&gt;그리고 아무래도 이 프로젝트는 그동안 블로그에 글을 작성하며 이미지 업로드 하기가 귀찮았는데.. 그 용도로 쓰면 될것같다.&lt;/p&gt;
-
-&lt;p&gt;혹시라도 이 글을 읽는 분이 계신다면 &lt;a href=&quot;http://tac.photos&quot;&gt;Tac.phtoos&lt;/a&gt;한번 접속해주는 것도…&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;이번 프로젝트로 정말 많은걸 배웠다.&lt;/p&gt;
-&lt;/blockquote&gt;</content><author><name></name></author><category term="커리어" /><category term="Node.js" /><category term="S3" /><category term="Lambda" /><category term="vue.js" /><summary type="html">시작하기 앞서 올해에 들어 SPA를 접하고 여러가지 개발을 하면서 꼭 개인프로젝트 하나를 해야겠다는 생각을 했다. 시작은 정말 거대 했다.</summary></entry><entry><title type="html">AWS의 S3에 CNAME을 연결하기</title><link href="/AWS/how-to-Interlink-s3-and-cname" rel="alternate" type="text/html" title="AWS의 S3에 CNAME을 연결하기" /><published>2018-03-29T00:00:00+09:00</published><updated>2018-03-29T00:00:00+09:00</updated><id>/AWS/how-to-Interlink-s3-and-cname</id><content type="html" xml:base="/AWS/how-to-Interlink-s3-and-cname">&lt;h2 id=&quot;왜&quot;&gt;왜?&lt;/h2&gt;
-&lt;p&gt;버킷을 처음 생성해 그 도메인 그대로 사용하면 상당히 긴 도메인이 나온다. 내가 만들고 있는 프로젝트에 이미지를 공유하는게 주된 목적인데 EX)https://s3.amazonaws.com/test.tac.photos/DASNKFDSANf134ia9s90fd.jpeg 이렇게나 긴 도메인은 보기도 힘들고 복사해서도 길이가 너무 길어서 편하자고 사용한 내 웹사이트에서 오히려&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;왜 이따구로 주소가 길어??&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;라는 불편함을 느낄것 같았다.&lt;/p&gt;
-
-&lt;h2 id=&quot;준비&quot;&gt;준비&lt;/h2&gt;
-&lt;p&gt;우선 버킷의 생성이 필요하다.&lt;/p&gt;
-&lt;ol&gt;
-  &lt;li&gt;내가 원하는 도메인을 구매한다.
-    &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;https://kr.godaddy.com/&quot;&gt;GoDaddy&lt;/a&gt;를 추천한다.&lt;/li&gt;
-      &lt;li&gt;참고로 나는 GoDaddy에서 구매후 네임서버를 ROUTE53으로 이전해서 사용중이다.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;버킷은 내가 사용하려고 하는 도메인의 주소와 일치하게 해서 생성
-    &lt;ul&gt;
-      &lt;li&gt;예) 버킷을 test.domain.com으로 생성한다.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;이렇게 구매와 생성이 끝났다면 거의 모든일을 해냈다.&lt;/p&gt;
-
-&lt;h2 id=&quot;어떻게&quot;&gt;어떻게?&lt;/h2&gt;
-&lt;ol&gt;
-  &lt;li&gt;버킷에 접속한다. (AWS 관리페이지를 통해서)&lt;/li&gt;
-  &lt;li&gt;내가 만든 버킷에 들어간다.&lt;/li&gt;
-  &lt;li&gt;버킷의 속성을 클릭한다.&lt;/li&gt;
-  &lt;li&gt;‘정적 웹 사이트 호스팅’을 클릭한다.&lt;/li&gt;
-  &lt;li&gt;‘이 버킷을 사용하여 웹 사이트를 호스팅합니다’를 체크
-    &lt;ul&gt;
-      &lt;li&gt;인덱스 문서에는 index.html&lt;/li&gt;
-      &lt;li&gt;오류 문서에는 error.html을 입력&lt;/li&gt;
-      &lt;li&gt;(실제 파일이 존재하지 않아도 된다)&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;저장&lt;/li&gt;
-  &lt;li&gt;다시 ‘정적 웹 사이트 호스팅’을 클릭&lt;/li&gt;
-  &lt;li&gt;상단에 엔드포인트를 복사&lt;/li&gt;
-  &lt;li&gt;현재 가지고있는 도메인의 관리 서비스로 이동&lt;/li&gt;
-  &lt;li&gt;CNAME으로 등록
-    &lt;ul&gt;
-      &lt;li&gt;예) test.domain.com이라는 이름으로 CNAME이 가르키는 주소를 아까 복사한 엔드포인트 ‘test.test.com.s3-website-us-east-1.amazonaws.com’와 같은 URL을 입력해준다.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;5분 정도 기다리면 내가 새로 업로드하는 어떤 이미지도 test.domain.com/test.jpg로 접근이 가능하다.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h2 id=&quot;마치며&quot;&gt;마치며&lt;/h2&gt;
-&lt;p&gt;물론 요청을 리다이렉션해서 2개의 버킷을 생성후 하나는 오로지 리다이렉션 정보만 담게도 설정이 가능하다.&lt;/p&gt;
-&lt;blockquote&gt;
-  &lt;p&gt;만약 기존에 사용중인 S3 버킷이 있다면.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;그러나 제일 처음부터 한다면 위에 나와있는 대로 하는게 좋을것 같다.&lt;/p&gt;</content><author><name></name></author><category term="개발일지" /><category term="AWS" /><category term="S3" /><category term="DNS" /><summary type="html">왜? 버킷을 처음 생성해 그 도메인 그대로 사용하면 상당히 긴 도메인이 나온다. 내가 만들고 있는 프로젝트에 이미지를 공유하는게 주된 목적인데 EX)https://s3.amazonaws.com/test.tac.photos/DASNKFDSANf134ia9s90fd.jpeg 이렇게나 긴 도메인은 보기도 힘들고 복사해서도 길이가 너무 길어서 편하자고 사용한 내 웹사이트에서 오히려</summary></entry></feed>
+<p>예를 들어 성적에 관한 데이터베이스를 만든다면</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>이름</th>
+      <th>국어</th>
+      <th>영어</th>
+      <th>수학</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>종민</td>
+      <td>100</td>
+      <td>90</td>
+      <td>100</td>
+    </tr>
+    <tr>
+      <td>준형</td>
+      <td>12</td>
+      <td>32</td>
+      <td>22</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>와 같은 형식으로 만들었을 것이다.</p>
+
+<h3 id="그러나-정규화를-이해하고-나선-조금-달라진다">그러나 정규화를 이해하고 나선 조금 달라진다.</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>이름</th>
+      <th>id</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>종민</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>준형</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>이라는 테이블을 하나 만들고</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>pub_id</th>
+      <th>국어</th>
+      <th>영어</th>
+      <th>수학</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0</td>
+      <td>100</td>
+      <td>90</td>
+      <td>100</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>12</td>
+      <td>32</td>
+      <td>22</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>과 같이 만들것이다.</p>
+
+<p>pub_id란 위의 종민 준형의 id값을 가리키는 Foreign key’FK’가 된다.</p>
+
+<blockquote>
+  <p>즉 관계형 데이터베이스를 관계정 데이터베이스 답게 이해하게 된것이다.</p>
+</blockquote>
+
+<h2 id="이제는-확장성에-대해서-고민할-필요가-없다">이제는 확장성에 대해서 고민할 필요가 없다.</h2>
+
+<p>혹시 아직도 RDS의 확장성에 대해서 고민할 수 있을까? 절대로 그래선 안된다.</p>
+
+<blockquote>
+  <p>만약 내가 새로운 데이터를 추가하고 싶다면 원 테이블을 고민하는게 아니라 새로운 테이블을 만들어 관계를 추가하면 되기 때문이다.</p>
+</blockquote>]]></content><author><name></name></author><category term="개발" /><category term="RDS" /><category term="Mysql" /><summary type="html"><![CDATA[MongoDb를 접하다]]></summary></entry></feed>

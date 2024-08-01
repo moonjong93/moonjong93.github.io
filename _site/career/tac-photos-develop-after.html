@@ -1,35 +1,67 @@
 <!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="shortcut icon" href="/assets/img/favicon.ico" type="image/x-icon" />
-    <link rel="stylesheet" href="/assets/css/style.css">
-    <meta name="description" content="SPA와 serverless-http 그리고 s3">
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="Tac.photos를 개발이야기 - 배운게 많다">
-    <meta property="og:description" content="Moonjong93의 블로그를 한눈에 볼 수 있습니다">
-    <link rel="canonical" href="https://moonjong93.github.io">
-	<link rel="stylesheet"
-	href="/assets/css/hljs/default.css">
-	<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.2/build/highlight.min.js"></script>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      rel="shortcut icon"
+      href="/assets/img/favicon.ico"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" href="/assets/css/style.css" />
+    <meta name="description" content="SPA와 serverless-http 그리고 s3" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Tac.photos를 개발이야기 - 배운게 많다" />
+    <meta
+      property="og:description"
+      content="Moonjong93의 블로그를 한눈에 볼 수 있습니다"
+    />
+    <link rel="canonical" href="https://moonjong93.github.io" />
+    <link rel="stylesheet" href="/assets/css/hljs/default.css" />
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.2/build/highlight.min.js"></script>
     <title>Tac.photos를 개발이야기 - 배운게 많다</title>
-</head>
-<body>
-<div class="home">
-    <a href="/">MoongJong93</a>
-    <a href="/about">About</a>
+  </head>
+  <body>
+    <div class="home">
+  <div class="home-items">
+    <a href="/">
+      <img src="/assets/img/favicon48.png" alt="얼굴 아이콘" width="24" />
+    </a>
+    <ul>
+      <li>
+        <a class="home-link" href="/about">소개</a>
+      </li>
+      <li>
+        <a class="home-link" href="/category/개발">개발</a>
+      </li>
+      <li>
+        <a class="home-link" href="/category/일상">일상</a>
+      </li>
+    </ul>
+  </div>
 </div>
-<header>
-    <div class="title">
+
+    <header>
+      <div class="title">
+        <p></p>
         <h1>Tac.photos를 개발이야기 - 배운게 많다</h1>
         <p>2018-04-23</p>
-    </div>
-</header>
-<div class="container">
-    <article class="post-content">
-        <h2 id="시작하기-앞서">시작하기 앞서</h2>
+        <div class="tags">
+          
+          <span class="tag"> Node.js </span>
+          
+          <span class="tag"> S3 </span>
+          
+          <span class="tag"> Lambda </span>
+          
+          <span class="tag"> vue.js </span>
+          
+        </div>
+      </div>
+    </header>
+    <div class="container">
+      <article class="markdown-body"><h2 id="시작하기-앞서">시작하기 앞서</h2>
 <p>올해에 들어 SPA를 접하고 여러가지 개발을 하면서 꼭 개인프로젝트 하나를 해야겠다는 생각을 했다. 시작은 정말 거대 했다.</p>
 
 <p>애초에 계획은</p>
@@ -165,78 +197,70 @@
 <blockquote>
   <p>이번 프로젝트로 정말 많은걸 배웠다.</p>
 </blockquote>
-
-    </article>
-    <footer>
-        <div class="tags">
-            
-            <span class="tag">
-                Node.js
-            </span>
-            
-            <span class="tag">
-                S3
-            </span>
-            
-            <span class="tag">
-                Lambda
-            </span>
-            
-            <span class="tag">
-                vue.js
-            </span>
-            
-        </div>
+</article>
+      <footer>
         <br />
         <div class="profile">
-    <img class="borderhalf" src="/assets/img/profile.png" alt="profile" width="40">
-    <p>' 게임 불감증이 있어 게임은 30분 밖에 못합니다 그때부터 였을까요.....프로그래밍을 시작한게 '</p>
-    <p>Node.js로 오버워치 데이터 제공 웹을 만들면서 웹 개발에 입문, Node.js, Vue.js를 사용해 웹 개발을 하고 있습니다</p>
+  <img
+    class="borderhalf"
+    src="/assets/img/profile.png"
+    alt="profile-icon"
+    width="40"
+  />
+  <p>여기까지 읽어주셔서 감사합니다.</p>
+
+  <!-- TODO 한글자씩 증가하는 느낌으로.. blink 끝에 달고 -->
+  <!-- <p>' 게임 불감증이 있어 게임은 30분 밖에 못합니다 그때부터 였을까요.....프로그래밍을 시작한게 '</p>
+    <p>Node.js로 오버워치 데이터 제공 웹을 만들면서 웹 개발에 입문, Node.js, Vue.js를 사용해 웹 개발을 하고 있습니다</p> -->
 </div>
+
+<script></script>
+
         <br />
         
-            <span class="arow"><a href="/AWS/how-to-Interlink-s3-and-cname">▲ 이전 - AWS의 S3에 CNAME을 연결하기</a></span>
+        <span class="arrow"
+          >▲ 이전 -
+          <a href="/AWS/how-to-Interlink-s3-and-cname">AWS의 S3에 CNAME을 연결하기</a></span
+        >
+         
+        <span class="arrow"
+          >▼ 다음 -
+          <a href="/development/firestore-knowlage">Firestore 이해하기</a></span
+        >
         
-        
-            <span class="arow"><a href="/development/firestore-knowlage">▼ 다음 - Firestore 이해하기</a></span>
-        
-    </footer>
-    <br />
-    <hr />
-    <br />
-    <div class="coment">
-        
-            <div id="disqus_thread"></div>
-<script>
-/**
-*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
-/*
-var disqus_config = function () {
-this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
-this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-};
-*/
-(function() { // DON'T EDIT BELOW THIS LINE
-var d = document, s = d.createElement('script');
-s.src = 'https://https-moonjong93-github-io.disqus.com/embed.js';
-s.setAttribute('data-timestamp', +new Date());
-(d.head || d.body).appendChild(s);
-})();
-</script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-
-                            
-        
-    </div>
+      </footer>
+      <br />
+      <div class="coment"><div id="comment-light">
+  <script
+    src="https://utteranc.es/client.js"
+    repo="moonjong93/moonjong93.github.io"
+    issue-term="pathname"
+    theme="github-light"
+    crossorigin="anonymous"
+    async
+  ></script>
 </div>
-<footer id="copy">
+
+<div id="comment-dark">
+  <script
+    src="https://utteranc.es/client.js"
+    repo="moonjong93/moonjong93.github.io"
+    issue-term="pathname"
+    theme="github-dark"
+    crossorigin="anonymous"
+    async
+  ></script>
+</div>
+</div>
+      <br />
+    </div>
+    <footer id="copy">
     ⓒ 2017. Moonjong93 all rights reserved.
 </footer>
     <script>
-        document.addEventListener("DOMContentLoaded", function(){
-			hljs.initHighlightingOnLoad();
-        });
+      document.addEventListener("DOMContentLoaded", function () {
+        hljs.initHighlightingOnLoad();
+      });
     </script>
     <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-111530519-1"></script>
@@ -248,5 +272,5 @@ s.setAttribute('data-timestamp', +new Date());
   gtag('config', 'UA-111530519-1');
 </script>
 
-</body>
+  </body>
 </html>

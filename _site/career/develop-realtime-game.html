@@ -1,35 +1,65 @@
 <!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="shortcut icon" href="/assets/img/favicon.ico" type="image/x-icon" />
-    <link rel="stylesheet" href="/assets/css/style.css">
-    <meta name="description" content="첫 외주 프로젝트">
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="리얼타임 웹 개발">
-    <meta property="og:description" content="Moonjong93의 블로그를 한눈에 볼 수 있습니다">
-    <link rel="canonical" href="https://moonjong93.github.io">
-	<link rel="stylesheet"
-	href="/assets/css/hljs/default.css">
-	<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.2/build/highlight.min.js"></script>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      rel="shortcut icon"
+      href="/assets/img/favicon.ico"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" href="/assets/css/style.css" />
+    <meta name="description" content="첫 외주 프로젝트" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="리얼타임 웹 개발" />
+    <meta
+      property="og:description"
+      content="Moonjong93의 블로그를 한눈에 볼 수 있습니다"
+    />
+    <link rel="canonical" href="https://moonjong93.github.io" />
+    <link rel="stylesheet" href="/assets/css/hljs/default.css" />
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.2/build/highlight.min.js"></script>
     <title>리얼타임 웹 개발</title>
-</head>
-<body>
-<div class="home">
-    <a href="/">MoongJong93</a>
-    <a href="/about">About</a>
+  </head>
+  <body>
+    <div class="home">
+  <div class="home-items">
+    <a href="/">
+      <img src="/assets/img/favicon48.png" alt="얼굴 아이콘" width="24" />
+    </a>
+    <ul>
+      <li>
+        <a class="home-link" href="/about">소개</a>
+      </li>
+      <li>
+        <a class="home-link" href="/category/개발">개발</a>
+      </li>
+      <li>
+        <a class="home-link" href="/category/일상">일상</a>
+      </li>
+    </ul>
+  </div>
 </div>
-<header>
-    <div class="title">
+
+    <header>
+      <div class="title">
+        <p></p>
         <h1>리얼타임 웹 개발</h1>
         <p>2017-08-22</p>
-    </div>
-</header>
-<div class="container">
-    <article class="post-content">
-        <h2 id="나의-첫-외주-프로젝트">나의 첫 외주 프로젝트</h2>
+        <div class="tags">
+          
+          <span class="tag"> Socket.io </span>
+          
+          <span class="tag"> Node.js </span>
+          
+          <span class="tag"> Passport.js </span>
+          
+        </div>
+      </div>
+    </header>
+    <div class="container">
+      <article class="markdown-body"><h2 id="나의-첫-외주-프로젝트">나의 첫 외주 프로젝트</h2>
 <p>어쩌면 운이 좋았던 나의 첫 외주 프로젝트 그것은 작은 제안으로 시작되었다. 불과 2년전 unity를 과외했던 경험이 있었는데 그때 내 수업을 들었던 분이 지인이 웹이 필요하다고 하자 나를 추천해 줬던 것이다.</p>
 
 <p>고객의 요청은 이렇다</p>
@@ -89,52 +119,70 @@
 <p>그 밖에도 삽질했던 Passport에서의 session을 관리하는 부분이나 처음 접했던 redis 데이터베이스가 인상적이었다.</p>
 
 <p>다음 프로젝트에서 실시간으로 데이터를 주고 받아야한다, 그리고 해당 데이터가 변동 가능성이 상당히 높다면 그런 부분은 redis로 만들어 보고싶다.</p>
-
-    </article>
-    <footer>
-        <div class="tags">
-            
-            <span class="tag">
-                Socket.io
-            </span>
-            
-            <span class="tag">
-                Node.js
-            </span>
-            
-            <span class="tag">
-                Passport.js
-            </span>
-            
-        </div>
+</article>
+      <footer>
         <br />
         <div class="profile">
-    <img class="borderhalf" src="/assets/img/profile.png" alt="profile" width="40">
-    <p>' 게임 불감증이 있어 게임은 30분 밖에 못합니다 그때부터 였을까요.....프로그래밍을 시작한게 '</p>
-    <p>Node.js로 오버워치 데이터 제공 웹을 만들면서 웹 개발에 입문, Node.js, Vue.js를 사용해 웹 개발을 하고 있습니다</p>
+  <img
+    class="borderhalf"
+    src="/assets/img/profile.png"
+    alt="profile-icon"
+    width="40"
+  />
+  <p>여기까지 읽어주셔서 감사합니다.</p>
+
+  <!-- TODO 한글자씩 증가하는 느낌으로.. blink 끝에 달고 -->
+  <!-- <p>' 게임 불감증이 있어 게임은 30분 밖에 못합니다 그때부터 였을까요.....프로그래밍을 시작한게 '</p>
+    <p>Node.js로 오버워치 데이터 제공 웹을 만들면서 웹 개발에 입문, Node.js, Vue.js를 사용해 웹 개발을 하고 있습니다</p> -->
 </div>
+
+<script></script>
+
         <br />
         
-            <span class="arow"><a href="/career/development-overwatch-crawler">▲ 이전 - 오버워치 공식 사이트 크롤러를 개발하다</a></span>
+        <span class="arrow"
+          >▲ 이전 -
+          <a href="/career/development-overwatch-crawler">오버워치 공식 사이트 크롤러를 개발하다</a></span
+        >
+         
+        <span class="arrow"
+          >▼ 다음 -
+          <a href="/life/star-blog-with-jekyll">지킬과 함께 블로그를 시작합니다!</a></span
+        >
         
-        
-            <span class="arow"><a href="/life/star-blog-with-jekyll">▼ 다음 - 지킬과 함께 블로그를 시작합니다!</a></span>
-        
-    </footer>
-    <br />
-    <hr />
-    <br />
-    <div class="coment">
-        
-    </div>
+      </footer>
+      <br />
+      <div class="coment"><div id="comment-light">
+  <script
+    src="https://utteranc.es/client.js"
+    repo="moonjong93/moonjong93.github.io"
+    issue-term="pathname"
+    theme="github-light"
+    crossorigin="anonymous"
+    async
+  ></script>
 </div>
-<footer id="copy">
+
+<div id="comment-dark">
+  <script
+    src="https://utteranc.es/client.js"
+    repo="moonjong93/moonjong93.github.io"
+    issue-term="pathname"
+    theme="github-dark"
+    crossorigin="anonymous"
+    async
+  ></script>
+</div>
+</div>
+      <br />
+    </div>
+    <footer id="copy">
     ⓒ 2017. Moonjong93 all rights reserved.
 </footer>
     <script>
-        document.addEventListener("DOMContentLoaded", function(){
-			hljs.initHighlightingOnLoad();
-        });
+      document.addEventListener("DOMContentLoaded", function () {
+        hljs.initHighlightingOnLoad();
+      });
     </script>
     <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-111530519-1"></script>
@@ -146,5 +194,5 @@
   gtag('config', 'UA-111530519-1');
 </script>
 
-</body>
+  </body>
 </html>

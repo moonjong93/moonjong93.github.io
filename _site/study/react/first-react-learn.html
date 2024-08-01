@@ -1,35 +1,63 @@
 <!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="shortcut icon" href="/assets/img/favicon.ico" type="image/x-icon" />
-    <link rel="stylesheet" href="/assets/css/style.css">
-    <meta name="description" content="모바일앱 개발을 위해 리액트에 입문했다">
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="리액트 입문 정리">
-    <meta property="og:description" content="Moonjong93의 블로그를 한눈에 볼 수 있습니다">
-    <link rel="canonical" href="https://moonjong93.github.io">
-	<link rel="stylesheet"
-	href="/assets/css/hljs/default.css">
-	<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.2/build/highlight.min.js"></script>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      rel="shortcut icon"
+      href="/assets/img/favicon.ico"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" href="/assets/css/style.css" />
+    <meta name="description" content="모바일앱 개발을 위해 리액트에 입문했다" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="리액트 입문 정리" />
+    <meta
+      property="og:description"
+      content="Moonjong93의 블로그를 한눈에 볼 수 있습니다"
+    />
+    <link rel="canonical" href="https://moonjong93.github.io" />
+    <link rel="stylesheet" href="/assets/css/hljs/default.css" />
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.2/build/highlight.min.js"></script>
     <title>리액트 입문 정리</title>
-</head>
-<body>
-<div class="home">
-    <a href="/">MoongJong93</a>
-    <a href="/about">About</a>
+  </head>
+  <body>
+    <div class="home">
+  <div class="home-items">
+    <a href="/">
+      <img src="/assets/img/favicon48.png" alt="얼굴 아이콘" width="24" />
+    </a>
+    <ul>
+      <li>
+        <a class="home-link" href="/about">소개</a>
+      </li>
+      <li>
+        <a class="home-link" href="/category/개발">개발</a>
+      </li>
+      <li>
+        <a class="home-link" href="/category/일상">일상</a>
+      </li>
+    </ul>
+  </div>
 </div>
-<header>
-    <div class="title">
+
+    <header>
+      <div class="title">
+        <p></p>
         <h1>리액트 입문 정리</h1>
         <p>2018-01-10</p>
-    </div>
-</header>
-<div class="container">
-    <article class="post-content">
-        <h2 id="리액트를-배우려고-하는-이유">리액트를 배우려고 하는 이유</h2>
+        <div class="tags">
+          
+          <span class="tag"> React </span>
+          
+          <span class="tag"> Learn </span>
+          
+        </div>
+      </div>
+    </header>
+    <div class="container">
+      <article class="markdown-body"><h2 id="리액트를-배우려고-하는-이유">리액트를 배우려고 하는 이유</h2>
 <p>사실 웹은 Vue로도 내가 원하는 개발이 가능했다 생각보다 짧은 시간에 배울 수 있었고 나름 합리적인 프레임워크라고 생각한다, 그러나 생각보다 Vue유저가 없었다 그렇게 손해 볼일은 아니지만 나름 아쉬웠던 부분이 있다.</p>
 
 <p>이번에 나는 새로운 프로젝트를 계획하고 있으며 앞으로도 새로운 웹을 출시하고 싶었다. 그러나 사실 대부분의 웹은 시장에 나오면 관심도 못받고 사라지기 일쑤라고 생각한다 모바일 시대이고 기회는 나름 모바일에 있다고 생각이 들었다. 새로운 프로젝트는 그냥 게시판 형식의 간단한 웹이었는데 직접 개발을 하고 나니 ‘과연 누가 이 사이트에 들어올까?’라는 고민이 들었다.</p>
@@ -76,70 +104,70 @@ Dom은 실제 우리에게 보여지는 Html을 뜻하며 React의 문법으로 
 
 <p><strong>그들이 사용하는 데에는 이유가 있다고 생각했다.</strong></p>
 
-
-    </article>
-    <footer>
-        <div class="tags">
-            
-            <span class="tag">
-                React
-            </span>
-            
-            <span class="tag">
-                Learn
-            </span>
-            
-        </div>
+</article>
+      <footer>
         <br />
         <div class="profile">
-    <img class="borderhalf" src="/assets/img/profile.png" alt="profile" width="40">
-    <p>' 게임 불감증이 있어 게임은 30분 밖에 못합니다 그때부터 였을까요.....프로그래밍을 시작한게 '</p>
-    <p>Node.js로 오버워치 데이터 제공 웹을 만들면서 웹 개발에 입문, Node.js, Vue.js를 사용해 웹 개발을 하고 있습니다</p>
+  <img
+    class="borderhalf"
+    src="/assets/img/profile.png"
+    alt="profile-icon"
+    width="40"
+  />
+  <p>여기까지 읽어주셔서 감사합니다.</p>
+
+  <!-- TODO 한글자씩 증가하는 느낌으로.. blink 끝에 달고 -->
+  <!-- <p>' 게임 불감증이 있어 게임은 30분 밖에 못합니다 그때부터 였을까요.....프로그래밍을 시작한게 '</p>
+    <p>Node.js로 오버워치 데이터 제공 웹을 만들면서 웹 개발에 입문, Node.js, Vue.js를 사용해 웹 개발을 하고 있습니다</p> -->
 </div>
+
+<script></script>
+
         <br />
         
-            <span class="arow"><a href="/development/tech/what-is-serverless">▲ 이전 - 서버리스에 관하여</a></span>
+        <span class="arrow"
+          >▲ 이전 -
+          <a href="/development/tech/what-is-serverless">서버리스에 관하여</a></span
+        >
+         
+        <span class="arrow"
+          >▼ 다음 -
+          <a href="/study/react/first-learn-redux">Redux 입문 정리</a></span
+        >
         
-        
-            <span class="arow"><a href="/study/react/first-learn-redux">▼ 다음 - Redux 입문 정리</a></span>
-        
-    </footer>
-    <br />
-    <hr />
-    <br />
-    <div class="coment">
-        
-            <div id="disqus_thread"></div>
-<script>
-/**
-*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
-/*
-var disqus_config = function () {
-this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
-this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-};
-*/
-(function() { // DON'T EDIT BELOW THIS LINE
-var d = document, s = d.createElement('script');
-s.src = 'https://https-moonjong93-github-io.disqus.com/embed.js';
-s.setAttribute('data-timestamp', +new Date());
-(d.head || d.body).appendChild(s);
-})();
-</script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-
-                            
-        
-    </div>
+      </footer>
+      <br />
+      <div class="coment"><div id="comment-light">
+  <script
+    src="https://utteranc.es/client.js"
+    repo="moonjong93/moonjong93.github.io"
+    issue-term="pathname"
+    theme="github-light"
+    crossorigin="anonymous"
+    async
+  ></script>
 </div>
-<footer id="copy">
+
+<div id="comment-dark">
+  <script
+    src="https://utteranc.es/client.js"
+    repo="moonjong93/moonjong93.github.io"
+    issue-term="pathname"
+    theme="github-dark"
+    crossorigin="anonymous"
+    async
+  ></script>
+</div>
+</div>
+      <br />
+    </div>
+    <footer id="copy">
     ⓒ 2017. Moonjong93 all rights reserved.
 </footer>
     <script>
-        document.addEventListener("DOMContentLoaded", function(){
-			hljs.initHighlightingOnLoad();
-        });
+      document.addEventListener("DOMContentLoaded", function () {
+        hljs.initHighlightingOnLoad();
+      });
     </script>
     <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-111530519-1"></script>
@@ -151,5 +179,5 @@ s.setAttribute('data-timestamp', +new Date());
   gtag('config', 'UA-111530519-1');
 </script>
 
-</body>
+  </body>
 </html>

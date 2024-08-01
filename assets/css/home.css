@@ -1,0 +1,33 @@
+.home {
+  padding: 1.2rem 1.4rem;
+}
+
+.home-items {
+  max-width: var(--container-width);
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.home-items > ul {
+  padding-left: 0;
+  padding: 0;
+  margin: 0.8rem;
+  display: flex;
+  align-items: center;
+}
+
+.home-items > ul > li {
+  display: inline-block;
+}
+
+.home-items li + li {
+  margin-left: 1.4rem;
+}
+
+.home-link {
+  color: var(--text-color);
+  font-size: 1.2rem;
+  font-weight: 400;
+}

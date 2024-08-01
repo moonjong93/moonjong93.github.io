@@ -1,35 +1,64 @@
 <!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="shortcut icon" href="/assets/img/favicon.ico" type="image/x-icon" />
-    <link rel="stylesheet" href="/assets/css/style.css">
-    <meta name="description" content="세미나에 참가하다">
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="남궁성 자바스크립트 기초 세미나 정리">
-    <meta property="og:description" content="Moonjong93의 블로그를 한눈에 볼 수 있습니다">
-    <link rel="canonical" href="https://moonjong93.github.io">
-	<link rel="stylesheet"
-	href="/assets/css/hljs/default.css">
-	<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.2/build/highlight.min.js"></script>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      rel="shortcut icon"
+      href="/assets/img/favicon.ico"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" href="/assets/css/style.css" />
+    <meta name="description" content="세미나에 참가하다" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="남궁성 자바스크립트 기초 세미나 정리" />
+    <meta
+      property="og:description"
+      content="Moonjong93의 블로그를 한눈에 볼 수 있습니다"
+    />
+    <link rel="canonical" href="https://moonjong93.github.io" />
+    <link rel="stylesheet" href="/assets/css/hljs/default.css" />
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.2/build/highlight.min.js"></script>
     <title>남궁성 자바스크립트 기초 세미나 정리</title>
-</head>
-<body>
-<div class="home">
-    <a href="/">MoongJong93</a>
-    <a href="/about">About</a>
+  </head>
+  <body>
+    <div class="home">
+  <div class="home-items">
+    <a href="/">
+      <img src="/assets/img/favicon48.png" alt="얼굴 아이콘" width="24" />
+    </a>
+    <ul>
+      <li>
+        <a class="home-link" href="/about">소개</a>
+      </li>
+      <li>
+        <a class="home-link" href="/category/개발">개발</a>
+      </li>
+      <li>
+        <a class="home-link" href="/category/일상">일상</a>
+      </li>
+    </ul>
+  </div>
 </div>
-<header>
-    <div class="title">
+
+    <header>
+      <div class="title">
+        <p></p>
         <h1>남궁성 자바스크립트 기초 세미나 정리</h1>
         <p>2018-10-27</p>
-    </div>
-</header>
-<div class="container">
-    <article class="post-content">
-        <h2 id="남궁성-자바스크립트에-참가하다">남궁성 자바스크립트에 참가하다.</h2>
+        <div class="tags">
+          
+          <span class="tag"> Javascript </span>
+          
+          <span class="tag"> beginer </span>
+          
+        </div>
+      </div>
+    </header>
+    <div class="container">
+      <article class="markdown-body"><h2 id="남궁성-자바스크립트에-참가하다">남궁성 자바스크립트에 참가하다.</h2>
+
 <p>예전에 ‘난 정말 자바를 공부한적이 없다구요’라는 책을 보고 남궁성 자바라는 카페를 가입했었는데 어쩌다보니 자바는 전혀 하지 않고 Jvacsript만 주로 하게되었는데 운 좋게 남궁성님이 운영하는 세미나가 있어서 참가하게 되었다.</p>
 
 <p>물론 처음엔 늦게 신청해서 아쉽게도 참가권에서 밀려났지만 운이 좋게도 한자리 비어서 진행하게되었다.</p>
@@ -37,6 +66,7 @@
 <p>이 글은 내가 이 세미나를 들으며 정리하며 내용을 담기로 했다.</p>
 
 <h2 id="목차">목차</h2>
+
 <ol>
   <li>Javascript 역사</li>
   <li>개발도구의 종류와 장단점 - VS code, Webstorm, Atom 등</li>
@@ -67,6 +97,7 @@
 </ol>
 
 <h2 id="javascript의-역사">Javascript의 역사</h2>
+
 <ul>
   <li>1995년에 Eredan Eich가 발명, ECMA가 1997년에 표준화 했음</li>
 </ul>
@@ -84,98 +115,117 @@
 <p>ECMA5와 ECMA6의 차이는 OOP를 추가했다는 점이며 오늘은 ECMA5위주로 진행을 함</p>
 
 <p>Javascript에서 window 의미하는것은 브라우저를 뜻함</p>
+
 <h2 id="개발도구의-종류와-장단점">개발도구의 종류와 장단점</h2>
 
 <h2 id="변수의-타입과-선언">변수의 타입과 선언</h2>
+
 <h3 id="hoisting">hoisting</h3>
+
 <ul>
-  <li>변수나 함수 선언이 스코프에서 최상단으로 옮겨가는 것
-```javascript
-num = 5;
-var num2 = 1
-console.log(num2);
-var num;
-console.log(num);</li>
+  <li>변수나 함수 선언이 스코프에서 최상단으로 옮겨가는 것</li>
 </ul>
 
-<p>//여기서 num의 선언을 최상단으로 자동으로 올려줌</p>
-<pre><code>권장하지 않는 프로그래밍임
+<pre><code class="language-javascript">num = 5;
+var num2 = 1;
+console.log(num2);
+var num;
+console.log(num);
 
-### Scope
-- 함수 내부가 아니면 전부 전역 (var)
-- 전역 선언에 경우 브라우저에 변수가 저장된다.
-- 지역 변수는 함수 내부에 선언된 선언이 지역변수로 저장된다.
-- 변수 선언을 함수든 어디서든 안하면 전역으로 선언됨
+//여기서 num의 선언을 최상단으로 자동으로 올려줌
+</code></pre>
 
-```javascript
-function sum(a, b){
-    var result = 0;
-    gResult = 0;
-    
-    for(var i=0; i&lt; arguments.length; i++){
-        gResult += arguments[i];
-        console.log(i);
-    }
-    //var i는 호이스팅에 의해서 최상단으로 올라가게됨
+<p>권장하지 않는 프로그래밍임</p>
+
+<h3 id="scope">Scope</h3>
+
+<ul>
+  <li>함수 내부가 아니면 전부 전역 (var)</li>
+  <li>전역 선언에 경우 브라우저에 변수가 저장된다.</li>
+  <li>지역 변수는 함수 내부에 선언된 선언이 지역변수로 저장된다.</li>
+  <li>변수 선언을 함수든 어디서든 안하면 전역으로 선언됨</li>
+</ul>
+
+<pre><code class="language-javascript">function sum(a, b) {
+  var result = 0;
+  gResult = 0;
+
+  for (var i = 0; i &lt; arguments.length; i++) {
+    gResult += arguments[i];
+    console.log(i);
+  }
+  //var i는 호이스팅에 의해서 최상단으로 올라가게됨
 }
 
-console.log(gResult) //undefined
-sum(10, 50)
+console.log(gResult); //undefined
+sum(10, 50);
 // 0
 // 1
-console.log(gResult) // 60;
+console.log(gResult); // 60;
 </code></pre>
+
 <pre><code class="language-javascript">// false인지 ture인지 확인하려면 그냥 타입에 !!해보면됨
 console.log(!!undefined);
 // false
 </code></pre>
 
 <h2 id="연산자">연산자</h2>
+
 <ul>
-  <li>’==’ ‘===’의 차이 ==는 값비교 ===는 타입까지 비교
-    <pre><code class="language-javascript">var num = new Number(0);
+  <li>’==’ ‘===’의 차이 ==는 값비교 ===는 타입까지 비교</li>
+</ul>
+
+<pre><code class="language-javascript">var num = new Number(0);
 var num1 = 0;
-console.log(num === num1)
+console.log(num === num1);
 // false
 // 타입이 다르다 new Number는 객체이기 때문
 </code></pre>
-  </li>
-  <li>결론 ==는 쓰지마라
-    <pre><code class="language-javascript">var num = new Number(0);
+
+<ul>
+  <li>결론 ==는 쓰지마라</li>
+</ul>
+
+<pre><code class="language-javascript">var num = new Number(0);
 var num1 = 0;
 console.log(num == num1);
 // true
 </code></pre>
-    <p>여기에서 num을 자동으로 형변환을 시키기 때문에 좋지 않다.</p>
-    <h2 id="조건문과-반복문">조건문과 반복문</h2>
-  </li>
-</ul>
+
+<p>여기에서 num을 자동으로 형변환을 시키기 때문에 좋지 않다.</p>
+
+<h2 id="조건문과-반복문">조건문과 반복문</h2>
 
 <h2 id="배열">배열</h2>
-<pre><code class="language-javascript">var arr = [1,2,3,4,5];
+
+<pre><code class="language-javascript">var arr = [1, 2, 3, 4, 5];
 arr[6] = 100;
 
 console.log(arr);
 //1,2,3,4,5, ,100
 
-for(var i in arr) console.log(arr[i]);
+for (var i in arr) console.log(arr[i]);
 // empty, undefined는 건너뜀 in의 특징임
 </code></pre>
-<pre><code class="language-javascript">var arr = [1, 10, 20, 11, 12 ,30];
-arr.sort() // 는 사전 정렬이라서 제대로 되지않음
+
+<pre><code class="language-javascript">var arr = [1, 10, 20, 11, 12, 30];
+arr.sort(); // 는 사전 정렬이라서 제대로 되지않음
 // 그래서 이렇게함
-arr.sort( (a, b) =&gt; a - b);
+arr.sort((a, b) =&gt; a - b);
 </code></pre>
 
 <h2 id="dom">DOM</h2>
+
 <ul>
   <li>DOM은 기본적으로 노드로 생성된다.</li>
 </ul>
 
 <h2 id="난-정말-자바를-공부한적이-없다구요">난 정말 자바를 공부한적이 없다구요</h2>
+
 <p>찾아보니 남궁성님이 안쓰셨다. 잘못알고 왔다. 망했다.</p>
 
 <h2 id="후기">후기</h2>
+
 <p>이 글을 읽은 사람이라면 누구나 왜 목차랑 인마 달라 이자식아 라는 생각을 하실 수 있다 그렇다 목차와 다르게 세미나가 진행됐다.</p>
 
 <p>그리고 시간이 모자라서 DOM의 이벤트는 하지 않고 지나갔다.</p>
@@ -199,70 +249,70 @@ arr.sort( (a, b) =&gt; a - b);
 <p>이도저도 아닌 세미나였어서 더 이상 쓸 말이 없다.</p>
 
 <p>책을 사시는것을 추천한다.</p>
-
-    </article>
-    <footer>
-        <div class="tags">
-            
-            <span class="tag">
-                Javascript
-            </span>
-            
-            <span class="tag">
-                beginer
-            </span>
-            
-        </div>
+</article>
+      <footer>
         <br />
         <div class="profile">
-    <img class="borderhalf" src="/assets/img/profile.png" alt="profile" width="40">
-    <p>' 게임 불감증이 있어 게임은 30분 밖에 못합니다 그때부터 였을까요.....프로그래밍을 시작한게 '</p>
-    <p>Node.js로 오버워치 데이터 제공 웹을 만들면서 웹 개발에 입문, Node.js, Vue.js를 사용해 웹 개발을 하고 있습니다</p>
+  <img
+    class="borderhalf"
+    src="/assets/img/profile.png"
+    alt="profile-icon"
+    width="40"
+  />
+  <p>여기까지 읽어주셔서 감사합니다.</p>
+
+  <!-- TODO 한글자씩 증가하는 느낌으로.. blink 끝에 달고 -->
+  <!-- <p>' 게임 불감증이 있어 게임은 30분 밖에 못합니다 그때부터 였을까요.....프로그래밍을 시작한게 '</p>
+    <p>Node.js로 오버워치 데이터 제공 웹을 만들면서 웹 개발에 입문, Node.js, Vue.js를 사용해 웹 개발을 하고 있습니다</p> -->
 </div>
+
+<script></script>
+
         <br />
         
-            <span class="arow"><a href="/study/How-to-understand-javascript-recursion-function">▲ 이전 - 자바스크립트의 재귀함수 어떻게 이해하면 좋을까?</a></span>
+        <span class="arrow"
+          >▲ 이전 -
+          <a href="/study/How-to-understand-javascript-recursion-function">자바스크립트의 재귀함수 어떻게 이해하면 좋을까?</a></span
+        >
+         
+        <span class="arrow"
+          >▼ 다음 -
+          <a href="/study/hello-typescript">타입스크립트 코리아 강좌 정리</a></span
+        >
         
-        
-            <span class="arow"><a href="/study/hello-typescript">▼ 다음 - 타입스크립트 코리아 강좌 정리</a></span>
-        
-    </footer>
-    <br />
-    <hr />
-    <br />
-    <div class="coment">
-        
-            <div id="disqus_thread"></div>
-<script>
-/**
-*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
-/*
-var disqus_config = function () {
-this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
-this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-};
-*/
-(function() { // DON'T EDIT BELOW THIS LINE
-var d = document, s = d.createElement('script');
-s.src = 'https://https-moonjong93-github-io.disqus.com/embed.js';
-s.setAttribute('data-timestamp', +new Date());
-(d.head || d.body).appendChild(s);
-})();
-</script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-
-                            
-        
-    </div>
+      </footer>
+      <br />
+      <div class="coment"><div id="comment-light">
+  <script
+    src="https://utteranc.es/client.js"
+    repo="moonjong93/moonjong93.github.io"
+    issue-term="pathname"
+    theme="github-light"
+    crossorigin="anonymous"
+    async
+  ></script>
 </div>
-<footer id="copy">
+
+<div id="comment-dark">
+  <script
+    src="https://utteranc.es/client.js"
+    repo="moonjong93/moonjong93.github.io"
+    issue-term="pathname"
+    theme="github-dark"
+    crossorigin="anonymous"
+    async
+  ></script>
+</div>
+</div>
+      <br />
+    </div>
+    <footer id="copy">
     ⓒ 2017. Moonjong93 all rights reserved.
 </footer>
     <script>
-        document.addEventListener("DOMContentLoaded", function(){
-			hljs.initHighlightingOnLoad();
-        });
+      document.addEventListener("DOMContentLoaded", function () {
+        hljs.initHighlightingOnLoad();
+      });
     </script>
     <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-111530519-1"></script>
@@ -274,5 +324,5 @@ s.setAttribute('data-timestamp', +new Date());
   gtag('config', 'UA-111530519-1');
 </script>
 
-</body>
+  </body>
 </html>

@@ -1,35 +1,64 @@
 <!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="shortcut icon" href="/assets/img/favicon.ico" type="image/x-icon" />
-    <link rel="stylesheet" href="/assets/css/style.css">
-    <meta name="description" content="RDS의 확장성, 정규화의 이해">
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="MongoDb를 처음 접한 내가, 잘못이해했던 RDS">
-    <meta property="og:description" content="Moonjong93의 블로그를 한눈에 볼 수 있습니다">
-    <link rel="canonical" href="https://moonjong93.github.io">
-	<link rel="stylesheet"
-	href="/assets/css/hljs/default.css">
-	<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.2/build/highlight.min.js"></script>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      rel="shortcut icon"
+      href="/assets/img/favicon.ico"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" href="/assets/css/style.css" />
+    <meta name="description" content="RDS의 확장성, 정규화의 이해" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="MongoDb를 처음 접한 내가, 잘못이해했던 RDS" />
+    <meta
+      property="og:description"
+      content="Moonjong93의 블로그를 한눈에 볼 수 있습니다"
+    />
+    <link rel="canonical" href="https://moonjong93.github.io" />
+    <link rel="stylesheet" href="/assets/css/hljs/default.css" />
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.2/build/highlight.min.js"></script>
     <title>MongoDb를 처음 접한 내가, 잘못이해했던 RDS</title>
-</head>
-<body>
-<div class="home">
-    <a href="/">MoongJong93</a>
-    <a href="/about">About</a>
+  </head>
+  <body>
+    <div class="home">
+  <div class="home-items">
+    <a href="/">
+      <img src="/assets/img/favicon48.png" alt="얼굴 아이콘" width="24" />
+    </a>
+    <ul>
+      <li>
+        <a class="home-link" href="/about">소개</a>
+      </li>
+      <li>
+        <a class="home-link" href="/category/개발">개발</a>
+      </li>
+      <li>
+        <a class="home-link" href="/category/일상">일상</a>
+      </li>
+    </ul>
+  </div>
 </div>
-<header>
-    <div class="title">
+
+    <header>
+      <div class="title">
+        <p></p>
         <h1>MongoDb를 처음 접한 내가, 잘못이해했던 RDS</h1>
         <p>2018-07-13</p>
-    </div>
-</header>
-<div class="container">
-    <article class="post-content">
-        <h2 id="mongodb를-접하다">MongoDb를 접하다</h2>
+        <div class="tags">
+          
+          <span class="tag"> RDS </span>
+          
+          <span class="tag"> Mysql </span>
+          
+        </div>
+      </div>
+    </header>
+    <div class="container">
+      <article class="markdown-body"><h2 id="mongodb를-접하다">MongoDb를 접하다</h2>
+
 <p>그랬다. MognoDb’이하 몽고디비’를 접했었다. 그것은 내가 샀던 Node.js 책에서 저자가 정말 너무나도 추천을 했었고 당시 유행했던 ‘MEAN STACK’ 프로젝트의 구성요소 때문이기도 했었다.</p>
 
 <p>몽고디비는 정말로 핫했고 지금도 물론 너무나도 좋은 데이터베이스임에 분명하다 NoSql중 단연 으뜸이기도 하다</p>
@@ -37,9 +66,11 @@
 <p>Oracle, Mysql, Ms Sql, PostgreSQL, MongoDb라는 순위를 <a href="https://db-engines.com/en/ranking">데이터베이스 랭킹</a>에서 확인 할 수 있다.</p>
 
 <h3 id="mongodb가-가진-장점의-이해">MongoDb가 가진 장점의 이해</h3>
+
 <p>나는 당시에 Nosql이 가진 가장 큰 장점은 ‘확장성’이라고 생각했다. 단지 확장성 하나 때문에 Mysql을 안사용하고 몽고디비를 써야겠다고 생각했다. 그러나 이것은 정말로 큰 오해였다.</p>
 
 <h2 id="mysql에-관심을-가지게된-계기부터">Mysql에 관심을 가지게된 계기부터</h2>
+
 <p>나는 사실 서버도 좋아하고 프론트엔드도 좋아하는 어쩌면 잡 개발자라고 할수 있다 사실 아직은 이렇다할 정체성을 가지지 못하고 있다. 두개다 재밌기 때문인데.</p>
 
 <p>최근 면접에서 단연코 많이 하는 질문은 ‘RDS’에 관한 이해였다.</p>
@@ -51,7 +82,9 @@
 <p>그러나 다음 면접을 위해선 반드시 공부해야겠다고 생각했고 최근까지도 RDS로 토이프로젝트를 만들며 배워보고있다.</p>
 
 <h2 id="rds의-확장성">RDS의 확장성</h2>
+
 <p>정말 확장성이 없을까?</p>
+
 <blockquote>
   <p>그렇다</p>
 </blockquote>
@@ -68,6 +101,7 @@ RDS를 반대로 이해한것이다.</p>
 </blockquote>
 
 <h2 id="데이터베이스의-정규화">데이터베이스의 정규화</h2>
+
 <p>‘정규화’를 이해하지 못했기 때문에 확장성이 없다고 판단한것이었다. 데이터베이스의 정규화란 몇가지의 형식이 있으며 정말로 간단하게 설명하자면</p>
 
 <p>기존에 내가 이해했던 RDS란 하나의 테이블의 모든 데이터를 꾸겨넣는다고 생각했다.</p>
@@ -158,54 +192,76 @@ RDS를 반대로 이해한것이다.</p>
 </blockquote>
 
 <h2 id="이제는-확장성에-대해서-고민할-필요가-없다">이제는 확장성에 대해서 고민할 필요가 없다.</h2>
+
 <p>혹시 아직도 RDS의 확장성에 대해서 고민할 수 있을까? 절대로 그래선 안된다.</p>
 
 <blockquote>
   <p>만약 내가 새로운 데이터를 추가하고 싶다면 원 테이블을 고민하는게 아니라 새로운 테이블을 만들어 관계를 추가하면 되기 때문이다.</p>
 </blockquote>
-
-
-    </article>
-    <footer>
-        <div class="tags">
-            
-            <span class="tag">
-                RDS
-            </span>
-            
-            <span class="tag">
-                Mysql
-            </span>
-            
-        </div>
+</article>
+      <footer>
         <br />
         <div class="profile">
-    <img class="borderhalf" src="/assets/img/profile.png" alt="profile" width="40">
-    <p>' 게임 불감증이 있어 게임은 30분 밖에 못합니다 그때부터 였을까요.....프로그래밍을 시작한게 '</p>
-    <p>Node.js로 오버워치 데이터 제공 웹을 만들면서 웹 개발에 입문, Node.js, Vue.js를 사용해 웹 개발을 하고 있습니다</p>
+  <img
+    class="borderhalf"
+    src="/assets/img/profile.png"
+    alt="profile-icon"
+    width="40"
+  />
+  <p>여기까지 읽어주셔서 감사합니다.</p>
+
+  <!-- TODO 한글자씩 증가하는 느낌으로.. blink 끝에 달고 -->
+  <!-- <p>' 게임 불감증이 있어 게임은 30분 밖에 못합니다 그때부터 였을까요.....프로그래밍을 시작한게 '</p>
+    <p>Node.js로 오버워치 데이터 제공 웹을 만들면서 웹 개발에 입문, Node.js, Vue.js를 사용해 웹 개발을 하고 있습니다</p> -->
 </div>
+
+<script></script>
+
         <br />
         
-            <span class="arow"><a href="/development/firestore-knowlage">▲ 이전 - Firestore 이해하기</a></span>
+        <span class="arrow"
+          >▲ 이전 -
+          <a href="/development/firestore-knowlage">Firestore 이해하기</a></span
+        >
+         
+        <span class="arrow"
+          >▼ 다음 -
+          <a href="/study/I-understand-grahpql">나는 graphql을 이해했다</a></span
+        >
         
-        
-            <span class="arow"><a href="/study/I-understand-grahpql">▼ 다음 - 나는 graphql을 이해했다</a></span>
-        
-    </footer>
-    <br />
-    <hr />
-    <br />
-    <div class="coment">
-        
-    </div>
+      </footer>
+      <br />
+      <div class="coment"><div id="comment-light">
+  <script
+    src="https://utteranc.es/client.js"
+    repo="moonjong93/moonjong93.github.io"
+    issue-term="pathname"
+    theme="github-light"
+    crossorigin="anonymous"
+    async
+  ></script>
 </div>
-<footer id="copy">
+
+<div id="comment-dark">
+  <script
+    src="https://utteranc.es/client.js"
+    repo="moonjong93/moonjong93.github.io"
+    issue-term="pathname"
+    theme="github-dark"
+    crossorigin="anonymous"
+    async
+  ></script>
+</div>
+</div>
+      <br />
+    </div>
+    <footer id="copy">
     ⓒ 2017. Moonjong93 all rights reserved.
 </footer>
     <script>
-        document.addEventListener("DOMContentLoaded", function(){
-			hljs.initHighlightingOnLoad();
-        });
+      document.addEventListener("DOMContentLoaded", function () {
+        hljs.initHighlightingOnLoad();
+      });
     </script>
     <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-111530519-1"></script>
@@ -217,5 +273,5 @@ RDS를 반대로 이해한것이다.</p>
   gtag('config', 'UA-111530519-1');
 </script>
 
-</body>
+  </body>
 </html>

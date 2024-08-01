@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      rel="shortcut icon"
+      href="/assets/img/favicon.ico"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" href="/assets/css/style.css" />
+    <meta name="description" content="SDK화 하면서 겪은 고충" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="어떤 컴포넌트가 사용하기 편헐까?" />
+    <meta
+      property="og:description"
+      content="Moonjong93의 블로그를 한눈에 볼 수 있습니다"
+    />
+    <link rel="canonical" href="https://moonjong93.github.io" />
+    <link rel="stylesheet" href="/assets/css/hljs/default.css" />
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.2/build/highlight.min.js"></script>
+    <title>어떤 컴포넌트가 사용하기 편헐까?</title>
+  </head>
+  <body>
+    <div class="home">
+  <div class="home-items">
+    <a href="/">
+      <img src="/assets/img/favicon48.png" alt="얼굴 아이콘" width="24" />
+    </a>
+    <ul>
+      <li>
+        <a class="home-link" href="/about">소개</a>
+      </li>
+      <li>
+        <a class="home-link" href="/category/개발">개발</a>
+      </li>
+      <li>
+        <a class="home-link" href="/category/일상">일상</a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+    <header>
+      <div class="title">
+        <p></p>
+        <h1>어떤 컴포넌트가 사용하기 편헐까?</h1>
+        <p>2022-12-20</p>
+        <div class="tags">
+          
+          <span class="tag"> grid </span>
+          
+          <span class="tag"> typescript </span>
+          
+        </div>
+      </div>
+    </header>
+    <div class="container">
+      <article class="markdown-body"><p>회사에서 angular-sdk를 맡아서 공통적으로 사용하는 컴포넌트를 sdk화 시키는 작업을 맡은지 1년이 좀 넘었다. 그동안 회사에서 사용하는 컴포넌트들을 리빌딩하면서 느낀점을 적어보려고 한다.</p>
+
+<ol>
+  <li>이것도 있으면 편하겠지?</li>
+  <li>사용자가 사용할때 굳이 위에서 두번 타입을 바꿀 필요 없게 하면 쓰기 더 편하지 않을까?</li>
+</ol>
+
+<p>위의 얘기를 몇가지의 사례를 가지고</p>
+
+<h2 id="이것도-있으면-편하겠지">이것도 있으면 편하겠지?</h2>
+
+<p>컴포넌트를 만들다보면 이런저런 많은 기능이 들어가는 경우가 수두룩 했었다. 특히 그리드에선 그랬는데 <code>virtaul scroll</code> 기능을 추가한 그리드라는 얘기가 무성할 정도로 결국은 많은 기능이 필요했었다. 기억에 남는 몇개의 기능을 얘기해보자면</p>
+
+<ol>
+  <li>IP 국기 플래그 추가</li>
+  <li>너비 조절 사용자 지정(너비 지정한 것을 저장하여야 함)</li>
+  <li>컬럼 드롭다운 사용자 지정</li>
+</ol>
+
+<p>등의 기능이 있었는데 이 기능을 추가하기 위해 <code>컴포넌트 내부</code> 에서 몇가지 작업이 필요했었다. 가령 ip 국기를 추가하기 위해서 ip-table을 탐색해서 확인해야하고 이 로직이 그리드 자체에 들어간것이다.</p>
+
+<p>애초에 이 그리드는 <code>가상 스크롤</code>주제를 가지고 시작한 그리드이다. 근데 이 그리드에서 기능이 여러가지 필요해서 붙이다보니 이벤트 부터 시작해서 <code>총 12개의 파일</code>로 구성된 그리드가 되어버린 것이다.</p>
+
+<p>이렇게 했을때 문제는 다음과 같다.</p>
+
+<ol>
+  <li>컴포넌트의 새로운 기능이 추가될때마다 점점 하나의 컴포넌트가 가져야할 코드가 많아짐</li>
+  <li>당연히 유지보수 어려움</li>
+  <li>코드가 길어짐에 따라서 <code>본연</code>의 기능인 가상 스크롤 기능을 확실히 체크하기 어려움 (QA쪽에도 부하가..)</li>
+</ol>
+
+<p>그렇다면 어떻게 했어야 했을까?</p>
+
+<h3 id="컴포넌트는-그-자체로-둬야-아름답다">컴포넌트는 그 자체로 둬야 아름답다</h3>
+
+<p>컴포넌트는 그 자체로 두어야 한다. <code>가상화 스크롤</code> 이라는 기능에 촛점을 맞췄다면 그것을 만들면 그만인것이다. 그렇지만 항상 기능이 이것저것 따라온다면 아래와 같이 문제를 풀어야 할것이다.</p>
+
+<ul>
+  <li>가상화 스크롤에 들어간 row의 dom을 직접 template기능으로 줄 수 있으면 될것 (이후에는 필요한 기능을 확장해서 사용)</li>
+  <li>너비 조절시 이벤트로 너비 조절된 데이터를 전달</li>
+</ul>
+
+<p>위와 같이 스크롤 기능을 제외하고 특별한 기능이 필요하다면 그에 필요한 <code>재료</code> 를 전달하면 된다. 그렇게되면 특정한 상황에서도 큰 변화 없이 컴포넌트는 <code>유지</code> 될 수 있다.</p>
+
+<h2 id="select-컴포넌트로-보는-사용자-친화-적인-개발이-오히려-불편함을-가져다-준-경우">select 컴포넌트로 보는 사용자 친화? 적인 개발이 오히려 불편함을 가져다 준 경우</h2>
+
+<p>어느날 우리 회사 제품에 select 컴포넌트가 필요해졌다. SDK에서 받아야 할 프로퍼티는 아래와 같았다.</p>
+
+<ul>
+  <li>보여줘야 할 목록의 이름</li>
+  <li>어떤게 선택되었는지 보낼 이벤트</li>
+</ul>
+
+<p>이렇게 사용하는 컴포넌트였는데. (검색 기능 등 이런것은 제외하고)</p>
+
+<p>아래와 같이 프로퍼티를 받았다.</p>
+
+<pre><code class="language-tsx">type SelectItems&lt;T&gt; = {
+  name: string;
+  value: T;
+}[];
+</code></pre>
+
+<p>그리고 이벤트의 타입은 아래와 같았다</p>
+
+<pre><code class="language-tsx">type ItemChangeEvent&lt;T&gt; = {
+  value: T;
+};
+</code></pre>
+
+<p>클릭을 하면 value를 직접 보내주는건데 이렇게 보면 어떤게 문제가 되는지 잘 이해하기 어렵지만.. 왜 굳이 이벤트와 아이템 프로퍼티가 다른지에 대한 설명을 해보자면</p>
+
+<p>내가 원하는 select 컴포넌트는 어떤 배열을 보내던간에 name 프로퍼티에 대한 키를 보내고 (이때 name에 대한 프로퍼티를 새로 받음) value에 대한 키를 보내고 이 키를 가지고 아무 배열 형태의 데이터를 가져오더래도 이를 표시해주기 위함이었다.</p>
+
+<p>즉 사용하기 편하게 하기위해 여러가지 프로퍼티를 받아야 했었는데. 이를 가지고 회사 외부에서 SDK관련 교육을 할때 가장 많이 받은 질문이 이거였다.</p>
+
+<blockquote>
+  <p>Select가 아무것도 안보여요..</p>
+</blockquote>
+
+<p>그래서 나는 대답했다 문서를 보시면 이렇게 받아서 이렇게 보고…..</p>
+
+<p>이 대답과 정확한 select 사용방법을 설명해주기 위해서 SDK 교육의 5분정도를 할애했다는 것이다. 나에게 주어진 시간은 약 2시간이었는데 상당히 긴 시간이었다.</p>
+
+<p>그렇다 이 select 컴포넌트는 이 코드를 잘아는 <code>내부</code> 개발자만 사용하기 편하다는 것이다… 이 마져도 여러번 문서를 번갈아 가며 봐야 할 때가 많았다.</p>
+
+<hr />
+
+<h3 id="그래서-새로운-select는-어떻게-만들었는가">그래서 새로운 select는 어떻게 만들었는가</h3>
+
+<p>아주 간단하게 만들었다. <code>string[]</code> 타입을 받아서 그대로 드롭다운에 표시하고 그것을 클릭하면 클릭한 index를 전달하는 것이다. 오히려 나도 이렇게 사용해보니.. 이렇게 쓰는게 훨씬 편했다.</p>
+</article>
+      <footer>
+        <br />
+        <div class="profile">
+  <img
+    class="borderhalf"
+    src="/assets/img/profile.png"
+    alt="profile-icon"
+    width="40"
+  />
+  <p>여기까지 읽어주셔서 감사합니다.</p>
+
+  <!-- TODO 한글자씩 증가하는 느낌으로.. blink 끝에 달고 -->
+  <!-- <p>' 게임 불감증이 있어 게임은 30분 밖에 못합니다 그때부터 였을까요.....프로그래밍을 시작한게 '</p>
+    <p>Node.js로 오버워치 데이터 제공 웹을 만들면서 웹 개발에 입문, Node.js, Vue.js를 사용해 웹 개발을 하고 있습니다</p> -->
+</div>
+
+<script></script>
+
+        <br />
+        
+        <span class="arrow"
+          >▲ 이전 -
+          <a href="/lie/how-to-learn-open-free-server">어떻게 프리서버를 만드는것을 배웠는지</a></span
+        >
+         
+        <span class="arrow"
+          >▼ 다음 -
+          <a href="/development/blog/why-made-grid-with-virtual-scroll">가상 그리드 만들기</a></span
+        >
+        
+      </footer>
+      <br />
+      <div class="coment"><div id="comment-light">
+  <script
+    src="https://utteranc.es/client.js"
+    repo="moonjong93/moonjong93.github.io"
+    issue-term="pathname"
+    theme="github-light"
+    crossorigin="anonymous"
+    async
+  ></script>
+</div>
+
+<div id="comment-dark">
+  <script
+    src="https://utteranc.es/client.js"
+    repo="moonjong93/moonjong93.github.io"
+    issue-term="pathname"
+    theme="github-dark"
+    crossorigin="anonymous"
+    async
+  ></script>
+</div>
+</div>
+      <br />
+    </div>
+    <footer id="copy">
+    ⓒ 2017. Moonjong93 all rights reserved.
+</footer>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        hljs.initHighlightingOnLoad();
+      });
+    </script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-111530519-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-111530519-1');
+</script>
+
+  </body>
+</html>

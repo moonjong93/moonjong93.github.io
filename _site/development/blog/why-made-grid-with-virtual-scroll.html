@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      rel="shortcut icon"
+      href="/assets/img/favicon.ico"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" href="/assets/css/style.css" />
+    <meta name="description" content="성능 최적화의 길" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="가상 그리드 만들기" />
+    <meta
+      property="og:description"
+      content="Moonjong93의 블로그를 한눈에 볼 수 있습니다"
+    />
+    <link rel="canonical" href="https://moonjong93.github.io" />
+    <link rel="stylesheet" href="/assets/css/hljs/default.css" />
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.2/build/highlight.min.js"></script>
+    <title>가상 그리드 만들기</title>
+  </head>
+  <body>
+    <div class="home">
+  <div class="home-items">
+    <a href="/">
+      <img src="/assets/img/favicon48.png" alt="얼굴 아이콘" width="24" />
+    </a>
+    <ul>
+      <li>
+        <a class="home-link" href="/about">소개</a>
+      </li>
+      <li>
+        <a class="home-link" href="/category/개발">개발</a>
+      </li>
+      <li>
+        <a class="home-link" href="/category/일상">일상</a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+    <header>
+      <div class="title">
+        <p></p>
+        <h1>가상 그리드 만들기</h1>
+        <p>2022-12-20</p>
+        <div class="tags">
+          
+          <span class="tag"> grid </span>
+          
+          <span class="tag"> typescript </span>
+          
+        </div>
+      </div>
+    </header>
+    <div class="container">
+      <article class="markdown-body"><h3 id="데이터-그리드">데이터 그리드</h3>
+
+<p>어떤 데이터를 보여주기 위한 ‘표’ 테이블이라고도 할 수 있다.</p>
+
+<p>내가 일하는 회사 ‘로그프레소’는 많은 ‘로그’나 ‘데이터’ 등을 가공하여 사용자에게 시각화를 통해 해당 로그가 어떤 위험이 있고 어떤 준비를 해야하는지 알려주는 제품이다.</p>
+
+<p>하지만 <code>&lt;table/&gt;</code> 기존 데이터 그리드 방식은 약간 문제가 많았다.</p>
+
+<h2 id="문제점">문제점</h2>
+
+<p>많은 양의 데이터를 보여주면 브라우져가 죽어버리기 때문에 한페이지에 100개의 로우를 담은 페이지만을 보여주어야 한다.</p>
+
+<ol>
+  <li>마찬가지로 컬럼이 많은 경우에도 느려지고 특정 사양의 브라우저에서는 아예 꺼지기도 했기 때문에 그런 데이터는 지양하여 담아야 했다.</li>
+  <li>좌우 너비가 없이 일단 기본 고정폭인 200px로 렌더링되기 때문에 긴 문장의 경우 사용자가 좌우 너비를 넓혀야 했으며 다시 해당 데이터를 불러와도 해당 너비가 저장이 안되어서 계속해서 마우스 드레그를 통해 늘려야 했다.</li>
+</ol>
+
+<h2 id="문제-해결을-위한-기초-지식">문제 해결을 위한 기초 지식</h2>
+
+<ul>
+  <li>table은 많은 데이터가 표시되면 느려진다 (일부만 표시되어야 한다) → 가상 스크롤을 적용해야한다.</li>
+  <li>브라우저 스펙에 맞는 가상 스크롤 스펙 및 폴리필을 정해야했다.
+    <ul>
+      <li>처음 개발할 당시에는 IE11을 현역으로 사용하고있는 고객이 많았다.</li>
+    </ul>
+  </li>
+  <li>렌더링하지 않고 해당 ‘셀’의 너비 및 높이를 알기 위해서는 canvas의 <strong><code>measureText</code> 등을 알아야 했다.</strong></li>
+</ul>
+
+<h3 id="해결하면서-겪은-삽질">해결하면서 겪은 삽질</h3>
+
+<ul>
+  <li>angular에 내장된 virtual scroll은 사용하는곳이 없어 정보찾기도 어렵고 추후 별도의 플랫폼에서 사용할 수 없었다.
+    <ul>
+      <li>당시 이 기능은 angular, angularJS, react, javascript 등이 혼용된 곳에서 SDK로서 사용할 수 있었어야 했다.</li>
+    </ul>
+  </li>
+  <li><code>span</code>을 보이지 않는곳에 렌더링하고 너비를 가져오는것은 생각보다 큰 비용이 발생했다.
+    <ul>
+      <li>canvas의 <code>measureText</code> 를 사용해야만 하는 이유가 되었음</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="angular-react가-아니라-pure-typescript로-개발한-후-wrapper를-통해-angular-react를-지원하게됐던-이유">angular, react가 아니라 pure Typescript로 개발한 후 wrapper를 통해 angular, react를 지원하게됐던 이유</h3>
+
+<ul>
+  <li>회사 내부에는 React를 ‘불신’하는 개발자 분들이 많았다.</li>
+  <li>angular의 virtual scroll은 정보가 찾기 힘들었다.</li>
+  <li>일반적인 곳에서도 동작이 되어야 했다.</li>
+</ul>
+
+<p>위의 이유로 typescript를 통해 개발하게 되었다.</p>
+
+<h2 id="개발">개발</h2>
+
+<h3 id="셀의-개념을-사용한-엑셀-스프레드-시트와-같은-유틸리티로서의-개발이-필요했다">셀의 개념을 사용한 ‘엑셀’, ‘스프레드 시트’와 같은 유틸리티로서의 개발이 필요했다.</h3>
+
+<p>필요한 기능 몇개만 나열해보자면</p>
+
+<ol>
+  <li>셀 클릭한 위치에 데이터를 통한 쿼리 진행</li>
+  <li>특정 셀의 값이 사용자가 요청한 값의 범위에 들어간다면 색상을 사용자가 원하는 색으로 변경 할 수 있어야 했음 (조건부 서식과 같은?)</li>
+  <li><code>editable</code> 기능을 통해 해당 데이터 그리드가 ‘편집’이 가능해야 했다.</li>
+  <li>드레그한 셀의 범위 복사 등</li>
+</ol>
+
+<p>위와 같은 기능은 스프레드 시트에서 직접 드레그해보고 하면서 어떻게 개발하면 좋겠다고 생각했었다.</p>
+
+<h3 id="간단한-설계부터">간단한 설계부터.</h3>
+
+<p>데이터 스토어는 존재해야한다. body를 담당하는 <code>class TableBody</code>와 head를 담당하는 <code>class TableHead</code>는 데이터에 변형을 가해서는 안됐다.</p>
+
+<p>일단 Redux 패턴을 유심있게 본 결과 내린 결론인데. event가 아닌곳에서 데이터를 변형하면 이 변경이 어디에서 발생했는지 알 수 없으므로 모든 변경은 Event가 store에 전달을해서 변경해야 했다. 이구조를 변경해야 한다면 아예 설계 자체가 틀어지므로 이 부분은 확실히 변경이 없게 해두고 공식 스펙으로 정해두고 개발을 시작했다.</p>
+
+<p>간단히 얘기해 store -&gt; event -&gt; body, head와 같은 컴포넌트로 전달하는 방식이다.</p>
+
+<h3 id="비정형-데이터를-그리드에-표시하기-좋은-데이터로-만들기-위해">비정형 데이터를 그리드에 표시하기 좋은 데이터로 만들기 위해.</h3>
+
+<ul>
+  <li>각 셀은 컬럼, 로우의 id를 가지고 있는다. 이후 클릭시 해당 위치를 파악하고 데이터 정제를 하기 쉽게 하기 위함이다. <code>records[rowId][columns[columnId]</code>등으로 접근 할 수 있어야 한다.</li>
+  <li>서버에서 보내주는 데이터는 배열에 담긴 객체였다.
+    <ul>
+      <li>모든 배열을 순회하여 가장 넓은 너비를 가진 셀을 기준으로 너비 값을 store에 보내주어야 했다.</li>
+      <li>배열을 순회하며 값이 사용자가 원하는 범위의 값이라면 색으로 체크 등이 필요한것은 rowId, columnId를 통해 cell로 전달했다.</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="사용자의-스크롤-지점은-과연-어떤-부분일까">사용자의 스크롤 지점은 과연 어떤 부분일까?</h3>
+
+<ul>
+  <li>앞서 언급한 레코드의 배열을 순회하며 전체 container의 너비와 높이를 알 수 있었다.</li>
+  <li>컨테이너를 렌더링하고 그안에 클라이언트에 랜더링된 만큼에 테이블을 렌더링한다.
+    <ul>
+      <li>보여지는 부분만 렌더링 하기 위해서 스크크롤의 크기는 계산한 너비와 높이를 통해 미리 빈 element를 넣어줘서 해결한다.</li>
+    </ul>
+  </li>
+  <li>해당 테이블이 아닌 컨테이너를 스크롤 했을때 기존에 렌더링된 테이블의 row, column은 지우고 새로운 위치의 보여줘야할 위치의 row와 column을 렌더링 해야했다.</li>
+</ul>
+
+<h3 id="보여지는-부분만-렌더링-하기-위해서">보여지는 부분만 렌더링 하기 위해서</h3>
+
+<p>앞서 2번째 언급한 순회한 배열의 width와 height값을 통해 각 셀의 id를 부여했었다. 그리고 해당 id와 height값을 통해 높이에 대한 row계산을 하기위해 배열에 담아 관리했다.</p>
+
+<p>이 배열에는 0~30 → 0(row) 등과 같은 데이터가 담겨져있었는데. 스크롤한 위치에 대해 첫번째 지점과 끝 지점을 찾기위해서 이진 탐색을 통해 검색하여 ‘범위’만 찾았다.</p>
+
+<h3 id="가상그리드를-wrapping하는-angular-component를-개발">가상그리드를 wrapping하는 angular component를 개발</h3>
+
+<ul>
+  <li>angular 컴포넌트는 그리드를 그리기 위한 프로퍼티를 받는 component로 개발한다.</li>
+  <li><code>element</code>를 <code>target</code> 으로 virtual-grid.ts에 전달한다. 전체적인 꼴은 아래와 같다.
+    <pre><code class="language-jsx">this.grid = new Grid({
+			selector: this.container.nativeElement,
+			data: this.data,
+// ...생략
+</code></pre>
+  </li>
+</ul>
+
+<h2 id="개발이-끝나고-난뒤">개발이 끝나고 난뒤</h2>
+
+<ul>
+  <li>서버에서 보내준 배열을 순회할때 너무 많은 records → 1만개 이상의 데이터일때 느려짐 worker를 사용한 계산을 고려했어야 했으나 canvas api 지원 미지수</li>
+  <li>잦은 설계 변경으로 인한 리스크 난잡한 부분들이 추가되어서 리펙토링 할 시간이 없었다는게 아쉽게 느껴짐
+    <ul>
+      <li>셀에 어떤 기능이 필요해요 너비가 어떻게 필요해요 등등.</li>
+    </ul>
+  </li>
+</ul>
+</article>
+      <footer>
+        <br />
+        <div class="profile">
+  <img
+    class="borderhalf"
+    src="/assets/img/profile.png"
+    alt="profile-icon"
+    width="40"
+  />
+  <p>여기까지 읽어주셔서 감사합니다.</p>
+
+  <!-- TODO 한글자씩 증가하는 느낌으로.. blink 끝에 달고 -->
+  <!-- <p>' 게임 불감증이 있어 게임은 30분 밖에 못합니다 그때부터 였을까요.....프로그래밍을 시작한게 '</p>
+    <p>Node.js로 오버워치 데이터 제공 웹을 만들면서 웹 개발에 입문, Node.js, Vue.js를 사용해 웹 개발을 하고 있습니다</p> -->
+</div>
+
+<script></script>
+
+        <br />
+        
+        <span class="arrow"
+          >▲ 이전 -
+          <a href="/development/blog/what-components-easy-use">어떤 컴포넌트가 사용하기 편헐까?</a></span
+        >
+         
+        <span class="arrow"
+          >▼ 다음 -
+          <a href="/development/blog/added-edit-mode-on-grid">그리드에 편집 기능 끼얹기</a></span
+        >
+        
+      </footer>
+      <br />
+      <div class="coment"><div id="comment-light">
+  <script
+    src="https://utteranc.es/client.js"
+    repo="moonjong93/moonjong93.github.io"
+    issue-term="pathname"
+    theme="github-light"
+    crossorigin="anonymous"
+    async
+  ></script>
+</div>
+
+<div id="comment-dark">
+  <script
+    src="https://utteranc.es/client.js"
+    repo="moonjong93/moonjong93.github.io"
+    issue-term="pathname"
+    theme="github-dark"
+    crossorigin="anonymous"
+    async
+  ></script>
+</div>
+</div>
+      <br />
+    </div>
+    <footer id="copy">
+    ⓒ 2017. Moonjong93 all rights reserved.
+</footer>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        hljs.initHighlightingOnLoad();
+      });
+    </script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-111530519-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-111530519-1');
+</script>
+
+  </body>
+</html>

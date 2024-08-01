@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      rel="shortcut icon"
+      href="/assets/img/favicon.ico"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" href="/assets/css/style.css" />
+    <meta name="description" content="기능을 개선 시키기 위한 것들" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="그리드에 편집 기능 끼얹기" />
+    <meta
+      property="og:description"
+      content="Moonjong93의 블로그를 한눈에 볼 수 있습니다"
+    />
+    <link rel="canonical" href="https://moonjong93.github.io" />
+    <link rel="stylesheet" href="/assets/css/hljs/default.css" />
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.2/build/highlight.min.js"></script>
+    <title>그리드에 편집 기능 끼얹기</title>
+  </head>
+  <body>
+    <div class="home">
+  <div class="home-items">
+    <a href="/">
+      <img src="/assets/img/favicon48.png" alt="얼굴 아이콘" width="24" />
+    </a>
+    <ul>
+      <li>
+        <a class="home-link" href="/about">소개</a>
+      </li>
+      <li>
+        <a class="home-link" href="/category/개발">개발</a>
+      </li>
+      <li>
+        <a class="home-link" href="/category/일상">일상</a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+    <header>
+      <div class="title">
+        <p></p>
+        <h1>그리드에 편집 기능 끼얹기</h1>
+        <p>2023-03-02</p>
+        <div class="tags">
+          
+          <span class="tag"> grid </span>
+          
+          <span class="tag"> typescript </span>
+          
+        </div>
+      </div>
+    </header>
+    <div class="container">
+      <article class="markdown-body"><h2 id="목차">목차</h2>
+
+<ol>
+  <li>왜 필요한가?</li>
+  <li>필요한 기능
+    <ul>
+      <li>복사 후 붙여넣기 (테이블과 같은 정형 데이터는 ,등으로 분류)</li>
+      <li>하나의 셀 편집 기능</li>
+    </ul>
+  </li>
+  <li>어떻게 구현했는지?
+    <ul>
+      <li>복사 후 붙여넣기
+        <ul>
+          <li>붙여넣기 한 text를 , 또는 \t 단위로 잘라냄 개행은 \n</li>
+        </ul>
+      </li>
+      <li>편집기능
+        <ul>
+          <li>가지고 있는 Position에 TextInput 끼어넣기</li>
+        </ul>
+      </li>
+      <li>원본데이터 업데이트 및 컴포넌트 사용하는 곳에 업데이트 알림
+        <ul>
+          <li>javascript의 깊은 복사와… 얇은 복사의 슬픔</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>이때와 지금과 다른점
+    <ul>
+      <li>map을 사용하면 어떨까?</li>
+    </ul>
+  </li>
+</ol>
+
+<h3 id="왜-필요한가">왜 필요한가?</h3>
+
+<p>JDBC로 mariaDB 또는 mysql의 데이터베이스 연결 후 데이터를 추가하거나 업데이트하는 일이 필요해졌다. 그 데이터의 양이 1개 2개 라면 상관없지만 적게는 100개 많게는 10,000개 이상의 데이터를 데이터베이스에 직접 적재하는 과정이 필요했고 이 데이터를 클라이언트에서 추가해서 배열 형식으로 보내주면 서버는 이를받아 데이터베이스에 직접 추가하는 방식이었다.</p>
+
+<h3 id="필요한-기능">필요한 기능</h3>
+
+<p><strong>선행기능</strong></p>
+
+<ul>
+  <li>셀 선택 기능
+    <ul>
+      <li>붙여넣거나 편집할 위치를 알기 위해 선택하는 셀 자체의 위치를 알아야한다.</li>
+    </ul>
+  </li>
+  <li>드래그 선택
+    <ul>
+      <li>드래그 한 영역의 범위를 알아야 선택된 영역의 범위를 덮을 수 있다.</li>
+    </ul>
+  </li>
+</ul>
+
+<p><strong>아무</strong> <strong>웹사이트 내의 있는 테이블 데이터를 복사 할 수 있어야 했다.</strong></p>
+
+<p>테이블은 \t, \n, \, 등으로 개행 등을 구분한다.</p>
+
+<ul>
+  <li>\n은 하나의 배열 공간을 차지하고</li>
+  <li>\t는 하나의 컬럼값의 해당하므로 객체안의 데이터이다</li>
+  <li>\,은 오브젝트안의 값이다.</li>
+</ul>
+
+<p><strong>편집기능은 쉬워야 한다.</strong></p>
+
+<ul>
+  <li>사용자의 특정 키 입력에 따라 수정 모드로 진입, 나가기 할 수 있어야한다.
+    <ul>
+      <li>enter, esc 등</li>
+      <li>알파벳의 키코드</li>
+    </ul>
+  </li>
+</ul>
+
+<p><strong>원본 데이터를 업데이트 및 컴포넌트 사용자가 알아야 한다.</strong></p>
+
+<ul>
+  <li>편집시 변경 점을 알려주어야 함</li>
+</ul>
+
+<h3 id="구현을-하며-문제점">구현을 하며 문제점</h3>
+
+<ul>
+  <li>javascript의 복사는 주소만 카피하므로 변경 데이터를 비교하는데 어려움이 있다.</li>
+  <li>한글의 자모음이 끝나는 부분에서 enter키의 타이밍은 영문과 다르다.</li>
+</ul>
+
+<h3 id="이때의-코드를-변경하고-싶은것">이때의 코드를 변경하고 싶은것</h3>
+
+<ul>
+  <li>그냥 javascript의 map을 사용했다면 어떨까?</li>
+</ul>
+</article>
+      <footer>
+        <br />
+        <div class="profile">
+  <img
+    class="borderhalf"
+    src="/assets/img/profile.png"
+    alt="profile-icon"
+    width="40"
+  />
+  <p>여기까지 읽어주셔서 감사합니다.</p>
+
+  <!-- TODO 한글자씩 증가하는 느낌으로.. blink 끝에 달고 -->
+  <!-- <p>' 게임 불감증이 있어 게임은 30분 밖에 못합니다 그때부터 였을까요.....프로그래밍을 시작한게 '</p>
+    <p>Node.js로 오버워치 데이터 제공 웹을 만들면서 웹 개발에 입문, Node.js, Vue.js를 사용해 웹 개발을 하고 있습니다</p> -->
+</div>
+
+<script></script>
+
+        <br />
+        
+        <span class="arrow"
+          >▲ 이전 -
+          <a href="/development/blog/why-made-grid-with-virtual-scroll">가상 그리드 만들기</a></span
+        >
+         
+        <span class="arrow"
+          >▼ 다음 -
+          <a href="/%EA%B0%9C%EB%B0%9C/rebuild-blog/">심심한 블로그 2.0</a></span
+        >
+        
+      </footer>
+      <br />
+      <div class="coment"><div id="comment-light">
+  <script
+    src="https://utteranc.es/client.js"
+    repo="moonjong93/moonjong93.github.io"
+    issue-term="pathname"
+    theme="github-light"
+    crossorigin="anonymous"
+    async
+  ></script>
+</div>
+
+<div id="comment-dark">
+  <script
+    src="https://utteranc.es/client.js"
+    repo="moonjong93/moonjong93.github.io"
+    issue-term="pathname"
+    theme="github-dark"
+    crossorigin="anonymous"
+    async
+  ></script>
+</div>
+</div>
+      <br />
+    </div>
+    <footer id="copy">
+    ⓒ 2017. Moonjong93 all rights reserved.
+</footer>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        hljs.initHighlightingOnLoad();
+      });
+    </script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-111530519-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-111530519-1');
+</script>
+
+  </body>
+</html>

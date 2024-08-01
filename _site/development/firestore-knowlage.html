@@ -1,41 +1,73 @@
 <!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="shortcut icon" href="/assets/img/favicon.ico" type="image/x-icon" />
-    <link rel="stylesheet" href="/assets/css/style.css">
-    <meta name="description" content="Firebase의 새로운 데이터베이스">
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="Firestore 이해하기">
-    <meta property="og:description" content="Moonjong93의 블로그를 한눈에 볼 수 있습니다">
-    <link rel="canonical" href="https://moonjong93.github.io">
-	<link rel="stylesheet"
-	href="/assets/css/hljs/default.css">
-	<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.2/build/highlight.min.js"></script>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      rel="shortcut icon"
+      href="/assets/img/favicon.ico"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" href="/assets/css/style.css" />
+    <meta name="description" content="Firebase의 새로운 데이터베이스" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Firestore 이해하기" />
+    <meta
+      property="og:description"
+      content="Moonjong93의 블로그를 한눈에 볼 수 있습니다"
+    />
+    <link rel="canonical" href="https://moonjong93.github.io" />
+    <link rel="stylesheet" href="/assets/css/hljs/default.css" />
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.2/build/highlight.min.js"></script>
     <title>Firestore 이해하기</title>
-</head>
-<body>
-<div class="home">
-    <a href="/">MoongJong93</a>
-    <a href="/about">About</a>
+  </head>
+  <body>
+    <div class="home">
+  <div class="home-items">
+    <a href="/">
+      <img src="/assets/img/favicon48.png" alt="얼굴 아이콘" width="24" />
+    </a>
+    <ul>
+      <li>
+        <a class="home-link" href="/about">소개</a>
+      </li>
+      <li>
+        <a class="home-link" href="/category/개발">개발</a>
+      </li>
+      <li>
+        <a class="home-link" href="/category/일상">일상</a>
+      </li>
+    </ul>
+  </div>
 </div>
-<header>
-    <div class="title">
+
+    <header>
+      <div class="title">
+        <p></p>
         <h1>Firestore 이해하기</h1>
         <p>2018-06-25</p>
-    </div>
-</header>
-<div class="container">
-    <article class="post-content">
-        <h2 id="순서">순서</h2>
+        <div class="tags">
+          
+          <span class="tag"> 서버리스 </span>
+          
+          <span class="tag"> Firebase </span>
+          
+          <span class="tag"> Firestore </span>
+          
+        </div>
+      </div>
+    </header>
+    <div class="container">
+      <article class="markdown-body"><h2 id="순서">순서</h2>
+
 <ul>
   <li>Firebase의 등장 배경</li>
   <li>그래서 등장한 Firestore</li>
 </ul>
 
 <h2 id="firebase의-등장-배경">Firebase의 등장 배경</h2>
+
 <p>정말 간단히 말하자면 클라이언트 개발자의 새로운 개발을 위해 생겼다고 볼 수 있다. 지금은 물론 구글의 인수 이후로 정말 날개를 단듯 MLkit이라던지 내부적으로도 많은 업데이트를 진행하고 있지만 기본적인 출발은 ‘시작을 빠르게’라는 취지로 누구나 웹 개발, 앱 개발을 더 이상 서버까지 고민하지 말고 만들자. 라는 출발이었다</p>
 
 <p>그 출발은 괜찮았다 Firebase(이하 ‘파이어베이스’)의 요금은 정말로 합리적이었으며 내부적으로 제공하는 Storage와 Authentications등은 데이터베이스 하나로 파이어베이스를 사용하는 것이 아니라 그 외에 부가적인 부분에서도 많은 이득을 챙길 수 있게 되었다.</p>
@@ -45,6 +77,7 @@
 <p>그러나 매끄럽게 가능했다. 파이어베이스 실시간 데이터베이스는 더욱 더 그러했다. 별다른 서버사이드 코드없이도 이제 프로토타입 그리고 어느정도 규모있는 앱까지는 충분히 만들어 볼만 했다.</p>
 
 <h3 id="어느정도에-주목하자">‘어느정도’에 주목하자</h3>
+
 <p>물론 이 글을 읽는 당신이 개인 개발자고 개인으로서 결과물이 어느정도 훌륭해서 금전적인 이득을 얻는 수준의 ‘규모’에서는 전혀 문제될게 없었다.</p>
 
 <p>그래서인지 해외에서도 개인이 앱을 만들어 먹고사는 ‘개인 개발자’에게 있어서는 정말로 괜찮은 서비스이었다.</p>
@@ -60,6 +93,7 @@
 <p>아니 정말 괜찮은 서비스임에 분명했지만, Query의 부재 그리고 속도 등의 이슈로 규모가 조금 있는 서비스라면 사용을 자제하는것이 좋다고 생각이 들었다.</p>
 
 <h1 id="그래서-등장한-firestore">그래서 등장한 Firestore</h1>
+
 <p>지금은 물론 ‘Beta’서비스 이긴 하지만 말 그대로 ‘등 - 장’했다.</p>
 
 <p>모름지기 개발자라면 ‘프레임워크, 라이브러리에 대한 의존성이 없어야해!’라고 말씀하셨던 선배님의 말씀이 떠오르지만 Firestore(이하 ‘파이어스토어’)에는 조금 의존을 해보고 싶었다.</p>
@@ -67,6 +101,7 @@
 <p>그동안 존재하지 않았던 Query와 더욱 더 강력해진 Rule과 이제 더 이상은 파이어베이스를 사용하지 않아도 괜찮다!</p>
 
 <p>파이어스토어의 몇가지 특징을 얘기하자면</p>
+
 <ul>
   <li>빠른 NosSql 데이터 베이스
     <ul>
@@ -90,6 +125,7 @@
 <p>거기다가 Functions의 연동을 통한다면 기존에 우리가 사용하던 데이터베이스들에 내장되어있던 Skip등의 기능이 사용가능하다는 점이 있다.</p>
 
 <h3 id="내가-생각하는-가장-중요한-rule">내가 생각하는 가장 중요한 ‘Rule’</h3>
+
 <p>그러나 파이어베이스, 스토어 사용에 있어서 가장 중요한 점은 Rule이다 바로 Rule이 Rule을 어떻게 사용하느냐에 따라 여러분의 서비스는 굳이 의미 없는 파이어스토어 사용이 될 수 도있으며 반대로 매우 매끄러운 사용이 가능해진다</p>
 
 <blockquote>
@@ -121,77 +157,74 @@
 <p>라는 말을 찾아 볼 수 있는데 서버 개발자의 월급은 하늘에서 떨어지는줄 아는 사람이 많다. 생각보다 서버개발자의 임금은 높다. 데이터베이스를 매끄럽게 설계해야하는 그들은 당연히 받아가야할 임금을 받아가는 것이고 아까는 정말 단순하게 Token으로 인증하는 것을 말했지만 실제 데이터베이스 설계에선 어쩌면 더욱 많은 절차가 필요할지도 모른다.</p>
 
 <h2 id="그래서">그래서</h2>
+
 <p>일단 함 써보세요 진짜 Rule만 잘 이해하면 이만한 서버리스 프로젝트가 없을겁니다.</p>
 
 <p>그러나 최근 AWS에 <a href="https://aws.amazon.com/ko/appsync/">AppSync</a>가 GraphQL을 도입해 비슷한 서비스를 하고 있으니 한번 찾아보시는 것도 추천합니다.</p>
-
-    </article>
-    <footer>
-        <div class="tags">
-            
-            <span class="tag">
-                서버리스
-            </span>
-            
-            <span class="tag">
-                Firebase
-            </span>
-            
-            <span class="tag">
-                Firestore
-            </span>
-            
-        </div>
+</article>
+      <footer>
         <br />
         <div class="profile">
-    <img class="borderhalf" src="/assets/img/profile.png" alt="profile" width="40">
-    <p>' 게임 불감증이 있어 게임은 30분 밖에 못합니다 그때부터 였을까요.....프로그래밍을 시작한게 '</p>
-    <p>Node.js로 오버워치 데이터 제공 웹을 만들면서 웹 개발에 입문, Node.js, Vue.js를 사용해 웹 개발을 하고 있습니다</p>
+  <img
+    class="borderhalf"
+    src="/assets/img/profile.png"
+    alt="profile-icon"
+    width="40"
+  />
+  <p>여기까지 읽어주셔서 감사합니다.</p>
+
+  <!-- TODO 한글자씩 증가하는 느낌으로.. blink 끝에 달고 -->
+  <!-- <p>' 게임 불감증이 있어 게임은 30분 밖에 못합니다 그때부터 였을까요.....프로그래밍을 시작한게 '</p>
+    <p>Node.js로 오버워치 데이터 제공 웹을 만들면서 웹 개발에 입문, Node.js, Vue.js를 사용해 웹 개발을 하고 있습니다</p> -->
 </div>
+
+<script></script>
+
         <br />
         
-            <span class="arow"><a href="/career/tac-photos-develop-after">▲ 이전 - Tac.photos를 개발이야기 - 배운게 많다</a></span>
+        <span class="arrow"
+          >▲ 이전 -
+          <a href="/career/tac-photos-develop-after">Tac.photos를 개발이야기 - 배운게 많다</a></span
+        >
+         
+        <span class="arrow"
+          >▼ 다음 -
+          <a href="/study/I-was-wrong-understand-RDS">MongoDb를 처음 접한 내가, 잘못이해했던 RDS</a></span
+        >
         
-        
-            <span class="arow"><a href="/study/I-was-wrong-understand-RDS">▼ 다음 - MongoDb를 처음 접한 내가, 잘못이해했던 RDS</a></span>
-        
-    </footer>
-    <br />
-    <hr />
-    <br />
-    <div class="coment">
-        
-            <div id="disqus_thread"></div>
-<script>
-/**
-*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
-/*
-var disqus_config = function () {
-this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
-this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-};
-*/
-(function() { // DON'T EDIT BELOW THIS LINE
-var d = document, s = d.createElement('script');
-s.src = 'https://https-moonjong93-github-io.disqus.com/embed.js';
-s.setAttribute('data-timestamp', +new Date());
-(d.head || d.body).appendChild(s);
-})();
-</script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-
-                            
-        
-    </div>
+      </footer>
+      <br />
+      <div class="coment"><div id="comment-light">
+  <script
+    src="https://utteranc.es/client.js"
+    repo="moonjong93/moonjong93.github.io"
+    issue-term="pathname"
+    theme="github-light"
+    crossorigin="anonymous"
+    async
+  ></script>
 </div>
-<footer id="copy">
+
+<div id="comment-dark">
+  <script
+    src="https://utteranc.es/client.js"
+    repo="moonjong93/moonjong93.github.io"
+    issue-term="pathname"
+    theme="github-dark"
+    crossorigin="anonymous"
+    async
+  ></script>
+</div>
+</div>
+      <br />
+    </div>
+    <footer id="copy">
     ⓒ 2017. Moonjong93 all rights reserved.
 </footer>
     <script>
-        document.addEventListener("DOMContentLoaded", function(){
-			hljs.initHighlightingOnLoad();
-        });
+      document.addEventListener("DOMContentLoaded", function () {
+        hljs.initHighlightingOnLoad();
+      });
     </script>
     <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-111530519-1"></script>
@@ -203,5 +236,5 @@ s.setAttribute('data-timestamp', +new Date());
   gtag('config', 'UA-111530519-1');
 </script>
 
-</body>
+  </body>
 </html>

@@ -1,29 +1,37 @@
 <!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="description" content="웹 개발자 Moongjon93의 블로그입니다, 개발을 하며 겪는일을 작성하고 있습니다">
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="Moonjong93 :: index">
-    <meta property="og:description" content="Moonjong93의 블로그를 한눈에 볼 수 있습니다">
-    <meta property="og:image" content="/assets/img/profile.png">
-    <meta property="og:url" content="https://moonjong93.github.io/">
-    <link rel="shortcut icon" href="/assets/img/favicon.ico" type="image/x-icon" />
-    <link rel="stylesheet" href="/assets/css/style.css">
-    <link rel="canonical" href="https://moonjong93.github.io">
-    <title>MoonJong93 :: {{ page.title }}</title>
-</head>
-<body>
-    {% include top.html %}
-    {{ content }}
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta
+      name="description"
+      content="심심한 블로그입니다. 개발 이야기와 일상 이야기를 다루고있어요."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="심심한 블로그 :: 홈" />
+    <meta
+      property="og:description"
+      content="심심한 블로그, 개발 이야기와 일상 이야기"
+    />
+    <meta property="og:image" content="/assets/img/profile.png" />
+    <meta property="og:url" content="https://moonjong93.github.io/" />
+    <link
+      rel="shortcut icon"
+      href="/assets/img/favicon.ico"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" href="/assets/css/style.css" />
+    <link rel="canonical" href="https://moonjong93.github.io" />
+    <title>심심한 블로그 :: {{ page.title }}</title>
+  </head>
+  <body>
+    {% include top.html %} {{ content }}
     <script>
-        document.addEventListener("DOMContentLoaded", function(){
-            document.getElementsByClassName('container')[0].style.opacity = 1;
-        });
+      document.addEventListener("DOMContentLoaded", function () {
+        document.getElementsByClassName("container")[0].style.opacity = 1;
+      });
     </script>
-    {% include copy.html%}
-    {% include analytics.html %}
-</body>
+    {% include copy.html%} {% include analytics.html %}
+  </body>
 </html>
