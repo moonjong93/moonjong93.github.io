@@ -113,22 +113,19 @@ a:hover {
 }
 
 @media screen and (max-width: 768px) {
-  header {
-    width: 100% !important;
-    height: 100% !important;
-    padding: 1rem !important;
-  }
-  h1 {
-    font-size: 1.5em !important;
+  .title {
+    padding: 4rem 0.4rem;
   }
 
-  .note-list {
-    width: 230px !important;
+  .container {
+    padding: 0 0.4rem;
   }
-  .note-content {
-    width: 230px !important;
+
+  .home {
+    padding: 0 0.4rem;
   }
-  article.post-content {
-    font-size: 0.9em !important;
+
+  h1 {
+    font-size: 2rem !important;
   }
 }
