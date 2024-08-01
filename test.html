@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Physics Line</title>
+    <style>
+      body {
+        margin: 0;
+        overflow: hidden;
+      }
+      canvas {
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="canvas"></canvas>
+  </body>
+</html>
+
+<script>
+  const canvas = document.getElementById("canvas");
+  const ctx = canvas.getContext("2d");
+
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+
+  const car = {
+    x: canvas.width / 2,
+    y: canvas.height / 2,
+    width: 50,
+    height: 100,
+    angle: 0,
+    speed: 0,
+    maxSpeed: 5,
+    acceleration: 0.1,
+    friction: 0.05,
+    rotationSpeed: 0.03,
+  };
+
+  const keys = {
+    up: false,
+    down: false,
+    left: false,
+    right: false,
+  };
+  const path = []; // 자동차 경로를 기록할 배열
+
+  window.addEventListener("keydown", (e) => {
+    switch (e.key) {
+      case "ArrowUp":
+      case "w":
+        keys.up = true;
+        break;
+      case "ArrowDown":
+      case "s":
+        keys.down = true;
+        break;
+      case "ArrowLeft":
+      case "a":
+        keys.left = true;
+        break;
+      case "ArrowRight":
+      case "d":
+        keys.right = true;
+        break;
+    }
+  });
+
+  window.addEventListener("keyup", (e) => {
+    switch (e.key) {
+      case "ArrowUp":
+      case "w":
+        keys.up = false;
+        break;
+      case "ArrowDown":
+      case "s":
+        keys.down = false;
+        break;
+      case "ArrowLeft":
+      case "a":
+        keys.left = false;
+        break;
+      case "ArrowRight":
+      case "d":
+        keys.right = false;
+        break;
+    }
+  });
+
+  function update() {
+    if (keys.up) {
+      car.speed = Math.min(car.speed + car.acceleration, car.maxSpeed);
+    } else if (keys.down) {
+      car.speed = Math.max(car.speed - car.acceleration, -car.maxSpeed);
+    } else {
+      car.speed *= 1 - car.friction;
+    }
+
+    if (keys.left) {
+      car.angle -= car.rotationSpeed;
+    }
+    if (keys.right) {
+      car.angle += car.rotationSpeed;
+    }
+
+    car.x += car.speed * Math.cos(car.angle);
+    car.y += car.speed * Math.sin(car.angle);
+
+    if (car.x < 0) car.x = canvas.width;
+    if (car.x > canvas.width) car.x = 0;
+    if (car.y < 0) car.y = canvas.height;
+    if (car.y > canvas.height) car.y = 0;
+
+    // 현재 위치를 경로에 추가
+    if (car.speed > 1) path.push({ x: car.x, y: car.y });
+
+    // 경로 배열의 길이를 제한하여 메모리 사용을 관리
+    if (path.length > 1000) {
+      path.shift();
+    }
+  }
+
+  function draw() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    // 경로를 그리기
+    ctx.fillStyle = "rgba(0, 0, 255, 0.5)"; // 반투명한 파란색 잉크
+    for (let i = 0; i < path.length; i++) {
+      ctx.beginPath();
+      ctx.arc(path[i].x, path[i].y, 5, 0, 2 * Math.PI);
+      ctx.fill();
+    }
+
+    // 자동차를 그리기
+    ctx.save();
+    ctx.translate(car.x, car.y);
+    ctx.rotate(car.angle);
+    ctx.fillStyle = "blue";
+    ctx.fillRect(-car.width / 2, -car.height / 2, car.width, car.height);
+    ctx.restore();
+  }
+
+  function animate() {
+    update();
+    draw();
+    requestAnimationFrame(animate);
+  }
+
+  animate();
+  // TODO path 모양으로 하트를 만들고 그거에 가장 근접하게 만들면 %가 올라가게..
+</script>
