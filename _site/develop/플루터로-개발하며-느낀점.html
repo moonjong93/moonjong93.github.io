@@ -135,23 +135,33 @@
          
       </footer>
       <br />
-      <div class="coment"><script
-  src="https://giscus.app/client.js"
-  data-repo="moonjong93/moonjong93.github.io"
-  data-repo-id="MDEwOlJlcG9zaXRvcnkxMTQ5NzI1MzM="
-  data-category="Q&A"
-  data-category-id="DIC_kwDOBtpXdc4ChVrs"
-  data-mapping="pathname"
-  data-strict="0"
-  data-reactions-enabled="1"
-  data-emit-metadata="0"
-  data-input-position="bottom"
-  data-theme="dark"
-  data-lang="ko"
-  data-loading="lazy"
-  crossorigin="anonymous"
-  async
-></script>
+      <div class="coment"><script>
+  let isDark =
+    window.matchMedia &&
+    window.matchMedia("(prefers-color-scheme: dark)").matches;
+  let attributes = {
+    src: "https://giscus.app/client.js",
+    "data-repo": "moonjong93/moonjong93.github.io",
+    "data-repo-id": "MDEwOlJlcG9zaXRvcnkxMTQ5NzI1MzM=",
+    "data-category": "Q&A",
+    "data-category-id": "DIC_kwDOBtpXdc4ChVrs",
+    "data-mapping": "pathname",
+    "data-reactions-enabled": "1",
+    "data-emit-metadata": "0",
+    "data-theme": isDark ? "dark" : "light",
+    "data-input-position": "bottom",
+    "data-lang": "en",
+    crossorigin: "anonymous",
+    "data-loading": "lazy",
+    async: "",
+  };
+
+  let script = document.createElement("script");
+  Object.entries(attributes).forEach(([key, value]) =>
+    script.setAttribute(key, value)
+  );
+  document.body.querySelector(".container").appendChild(script);
+</script>
 </div>
       <br />
     </div>
