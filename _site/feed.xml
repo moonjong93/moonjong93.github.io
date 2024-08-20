@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-08-01T23:25:13+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">종민</title><subtitle>개발로그 및 일상</subtitle><entry><title type="html">플루터로 앱을 개발하면 어떨까?</title><link href="http://localhost:4000/develop/%ED%94%8C%EB%A3%A8%ED%84%B0%EB%A1%9C-%EA%B0%9C%EB%B0%9C%ED%95%98%EB%A9%B0-%EB%8A%90%EB%82%80%EC%A0%90" rel="alternate" type="text/html" title="플루터로 앱을 개발하면 어떨까?" /><published>2024-08-01T00:00:00+09:00</published><updated>2024-08-01T00:00:00+09:00</updated><id>http://localhost:4000/develop/%ED%94%8C%EB%A3%A8%ED%84%B0%EB%A1%9C-%EA%B0%9C%EB%B0%9C%ED%95%98%EB%A9%B0-%EB%8A%90%EB%82%80%EC%A0%90</id><content type="html" xml:base="http://localhost:4000/develop/%ED%94%8C%EB%A3%A8%ED%84%B0%EB%A1%9C-%EA%B0%9C%EB%B0%9C%ED%95%98%EB%A9%B0-%EB%8A%90%EB%82%80%EC%A0%90"><![CDATA[<h2 id="플루터로-무엇을-했는가">플루터로 무엇을 했는가?</h2>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2024-08-20T13:54:00+09:00</updated><id>/feed.xml</id><title type="html">종민</title><subtitle>개발로그 및 일상</subtitle><entry><title type="html">플루터로 앱을 개발하면 어떨까?</title><link href="/develop/%ED%94%8C%EB%A3%A8%ED%84%B0%EB%A1%9C-%EA%B0%9C%EB%B0%9C%ED%95%98%EB%A9%B0-%EB%8A%90%EB%82%80%EC%A0%90" rel="alternate" type="text/html" title="플루터로 앱을 개발하면 어떨까?" /><published>2024-08-01T00:00:00+09:00</published><updated>2024-08-01T00:00:00+09:00</updated><id>/develop/%ED%94%8C%EB%A3%A8%ED%84%B0%EB%A1%9C-%EA%B0%9C%EB%B0%9C%ED%95%98%EB%A9%B0-%EB%8A%90%EB%82%80%EC%A0%90</id><content type="html" xml:base="/develop/%ED%94%8C%EB%A3%A8%ED%84%B0%EB%A1%9C-%EA%B0%9C%EB%B0%9C%ED%95%98%EB%A9%B0-%EB%8A%90%EB%82%80%EC%A0%90"><![CDATA[<h2 id="플루터로-무엇을-했는가">플루터로 무엇을 했는가?</h2>
 
 <p>두개의 앱을 안드로이드 마켓에 올려 출시했다.
 하나의 앱은 yolkTalk 지금보면 부끄럽지만 처음 sqlite를 접하고 이런 저런 기능도 생각하며 만들었는데 하다보니 이런게 좋을것 같고 저게 좋을것 같고 여러가지 생각이 들다가 일단 올해안에 하나라도 출시해보자 라는 생각으로 달렸고 마무리 하게되었다.
@@ -52,7 +52,7 @@
 
 <h3 id="그래서-쓴다는건지">그래서 쓴다는건지…</h3>
 
-<p>아마도 쓸것 같다. 아예 안쓰지는 않을것 같은데 정말 간단한 앱에 한해서는 계속해서 사용할것 같다. 기본적으로 제공하는 위젯이 너무 매력이있고 개발 시간을 단축시켜준다. 그러나 앱의 크기가 커지고 무거워 진다면 많이 고민해볼것 같다.</p>]]></content><author><name></name></author><category term="개발" /><summary type="html"><![CDATA[플루터로 무엇을 했는가?]]></summary></entry><entry><title type="html">심심한 블로그 2.0</title><link href="http://localhost:4000/%EA%B0%9C%EB%B0%9C/rebuild-blog/" rel="alternate" type="text/html" title="심심한 블로그 2.0" /><published>2023-03-09T00:00:00+09:00</published><updated>2023-03-09T00:00:00+09:00</updated><id>http://localhost:4000/%EA%B0%9C%EB%B0%9C/rebuild-blog</id><content type="html" xml:base="http://localhost:4000/%EA%B0%9C%EB%B0%9C/rebuild-blog/"><![CDATA[<h2 id="블로그를-개편하자">블로그를 개편하자</h2>
+<p>아마도 쓸것 같다. 아예 안쓰지는 않을것 같은데 정말 간단한 앱에 한해서는 계속해서 사용할것 같다. 기본적으로 제공하는 위젯이 너무 매력이있고 개발 시간을 단축시켜준다. 그러나 앱의 크기가 커지고 무거워 진다면 많이 고민해볼것 같다.</p>]]></content><author><name></name></author><category term="개발" /><summary type="html"><![CDATA[플루터로 무엇을 했는가?]]></summary></entry><entry><title type="html">심심한 블로그 2.0</title><link href="/%EA%B0%9C%EB%B0%9C/rebuild-blog/" rel="alternate" type="text/html" title="심심한 블로그 2.0" /><published>2023-03-09T00:00:00+09:00</published><updated>2023-03-09T00:00:00+09:00</updated><id>/%EA%B0%9C%EB%B0%9C/rebuild-blog</id><content type="html" xml:base="/%EA%B0%9C%EB%B0%9C/rebuild-blog/"><![CDATA[<h2 id="블로그를-개편하자">블로그를 개편하자</h2>
 
 <p>오래되고 오래되었다… 중간에 잠깐 그냥 노션에 하면 어떨까? 했지만 방문자 추적도 안되고 무엇보다 검색에 허용도 안되고.. 사실 재미도 없다. 그런 이유로 블로그를 개편해보자.</p>
 
@@ -82,7 +82,7 @@
 <ul class="task-list">
   <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />블로그 디자인 변경</li>
   <li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" disabled="disabled" />페이지네이션 없애기</li>
-</ul>]]></content><author><name></name></author><category term="개발" /><summary type="html"><![CDATA[블로그를 개편하자]]></summary></entry><entry><title type="html">그리드에 편집 기능 끼얹기</title><link href="http://localhost:4000/develop/blog/added-edit-mode-on-grid" rel="alternate" type="text/html" title="그리드에 편집 기능 끼얹기" /><published>2023-03-02T00:00:00+09:00</published><updated>2023-03-02T00:00:00+09:00</updated><id>http://localhost:4000/develop/blog/added-edit-mode-on-grid</id><content type="html" xml:base="http://localhost:4000/develop/blog/added-edit-mode-on-grid"><![CDATA[<h2 id="목차">목차</h2>
+</ul>]]></content><author><name></name></author><category term="개발" /><summary type="html"><![CDATA[블로그를 개편하자]]></summary></entry><entry><title type="html">그리드에 편집 기능 끼얹기</title><link href="/develop/blog/added-edit-mode-on-grid" rel="alternate" type="text/html" title="그리드에 편집 기능 끼얹기" /><published>2023-03-02T00:00:00+09:00</published><updated>2023-03-02T00:00:00+09:00</updated><id>/develop/blog/added-edit-mode-on-grid</id><content type="html" xml:base="/develop/blog/added-edit-mode-on-grid"><![CDATA[<h2 id="목차">목차</h2>
 
 <ol>
   <li>왜 필요한가?</li>
@@ -177,97 +177,7 @@
 
 <ul>
   <li>그냥 javascript의 map을 사용했다면 어떨까?</li>
-</ul>]]></content><author><name></name></author><category term="개발" /><category term="grid" /><category term="typescript" /><summary type="html"><![CDATA[목차]]></summary></entry><entry><title type="html">어떤 컴포넌트가 사용하기 편헐까?</title><link href="http://localhost:4000/develop/blog/what-components-easy-use" rel="alternate" type="text/html" title="어떤 컴포넌트가 사용하기 편헐까?" /><published>2022-12-20T00:00:00+09:00</published><updated>2022-12-20T00:00:00+09:00</updated><id>http://localhost:4000/develop/blog/what-components-easy-use</id><content type="html" xml:base="http://localhost:4000/develop/blog/what-components-easy-use"><![CDATA[<p>회사에서 angular-sdk를 맡아서 공통적으로 사용하는 컴포넌트를 sdk화 시키는 작업을 맡은지 1년이 좀 넘었다. 그동안 회사에서 사용하는 컴포넌트들을 리빌딩하면서 느낀점을 적어보려고 한다.</p>
-
-<ol>
-  <li>이것도 있으면 편하겠지?</li>
-  <li>사용자가 사용할때 굳이 위에서 두번 타입을 바꿀 필요 없게 하면 쓰기 더 편하지 않을까?</li>
-</ol>
-
-<p>위의 얘기를 몇가지의 사례를 가지고</p>
-
-<h2 id="이것도-있으면-편하겠지">이것도 있으면 편하겠지?</h2>
-
-<p>컴포넌트를 만들다보면 이런저런 많은 기능이 들어가는 경우가 수두룩 했었다. 특히 그리드에선 그랬는데 <code>virtaul scroll</code> 기능을 추가한 그리드라는 얘기가 무성할 정도로 결국은 많은 기능이 필요했었다. 기억에 남는 몇개의 기능을 얘기해보자면</p>
-
-<ol>
-  <li>IP 국기 플래그 추가</li>
-  <li>너비 조절 사용자 지정(너비 지정한 것을 저장하여야 함)</li>
-  <li>컬럼 드롭다운 사용자 지정</li>
-</ol>
-
-<p>등의 기능이 있었는데 이 기능을 추가하기 위해 <code>컴포넌트 내부</code> 에서 몇가지 작업이 필요했었다. 가령 ip 국기를 추가하기 위해서 ip-table을 탐색해서 확인해야하고 이 로직이 그리드 자체에 들어간것이다.</p>
-
-<p>애초에 이 그리드는 <code>가상 스크롤</code>주제를 가지고 시작한 그리드이다. 근데 이 그리드에서 기능이 여러가지 필요해서 붙이다보니 이벤트 부터 시작해서 <code>총 12개의 파일</code>로 구성된 그리드가 되어버린 것이다.</p>
-
-<p>이렇게 했을때 문제는 다음과 같다.</p>
-
-<ol>
-  <li>컴포넌트의 새로운 기능이 추가될때마다 점점 하나의 컴포넌트가 가져야할 코드가 많아짐</li>
-  <li>당연히 유지보수 어려움</li>
-  <li>코드가 길어짐에 따라서 <code>본연</code>의 기능인 가상 스크롤 기능을 확실히 체크하기 어려움 (QA쪽에도 부하가..)</li>
-</ol>
-
-<p>그렇다면 어떻게 했어야 했을까?</p>
-
-<h3 id="컴포넌트는-그-자체로-둬야-아름답다">컴포넌트는 그 자체로 둬야 아름답다</h3>
-
-<p>컴포넌트는 그 자체로 두어야 한다. <code>가상화 스크롤</code> 이라는 기능에 촛점을 맞췄다면 그것을 만들면 그만인것이다. 그렇지만 항상 기능이 이것저것 따라온다면 아래와 같이 문제를 풀어야 할것이다.</p>
-
-<ul>
-  <li>가상화 스크롤에 들어간 row의 dom을 직접 template기능으로 줄 수 있으면 될것 (이후에는 필요한 기능을 확장해서 사용)</li>
-  <li>너비 조절시 이벤트로 너비 조절된 데이터를 전달</li>
-</ul>
-
-<p>위와 같이 스크롤 기능을 제외하고 특별한 기능이 필요하다면 그에 필요한 <code>재료</code> 를 전달하면 된다. 그렇게되면 특정한 상황에서도 큰 변화 없이 컴포넌트는 <code>유지</code> 될 수 있다.</p>
-
-<h2 id="select-컴포넌트로-보는-사용자-친화-적인-개발이-오히려-불편함을-가져다-준-경우">select 컴포넌트로 보는 사용자 친화? 적인 개발이 오히려 불편함을 가져다 준 경우</h2>
-
-<p>어느날 우리 회사 제품에 select 컴포넌트가 필요해졌다. SDK에서 받아야 할 프로퍼티는 아래와 같았다.</p>
-
-<ul>
-  <li>보여줘야 할 목록의 이름</li>
-  <li>어떤게 선택되었는지 보낼 이벤트</li>
-</ul>
-
-<p>이렇게 사용하는 컴포넌트였는데. (검색 기능 등 이런것은 제외하고)</p>
-
-<p>아래와 같이 프로퍼티를 받았다.</p>
-
-<pre><code class="language-tsx">type SelectItems&lt;T&gt; = {
-  name: string;
-  value: T;
-}[];
-</code></pre>
-
-<p>그리고 이벤트의 타입은 아래와 같았다</p>
-
-<pre><code class="language-tsx">type ItemChangeEvent&lt;T&gt; = {
-  value: T;
-};
-</code></pre>
-
-<p>클릭을 하면 value를 직접 보내주는건데 이렇게 보면 어떤게 문제가 되는지 잘 이해하기 어렵지만.. 왜 굳이 이벤트와 아이템 프로퍼티가 다른지에 대한 설명을 해보자면</p>
-
-<p>내가 원하는 select 컴포넌트는 어떤 배열을 보내던간에 name 프로퍼티에 대한 키를 보내고 (이때 name에 대한 프로퍼티를 새로 받음) value에 대한 키를 보내고 이 키를 가지고 아무 배열 형태의 데이터를 가져오더래도 이를 표시해주기 위함이었다.</p>
-
-<p>즉 사용하기 편하게 하기위해 여러가지 프로퍼티를 받아야 했었는데. 이를 가지고 회사 외부에서 SDK관련 교육을 할때 가장 많이 받은 질문이 이거였다.</p>
-
-<blockquote>
-  <p>Select가 아무것도 안보여요..</p>
-</blockquote>
-
-<p>그래서 나는 대답했다 문서를 보시면 이렇게 받아서 이렇게 보고…..</p>
-
-<p>이 대답과 정확한 select 사용방법을 설명해주기 위해서 SDK 교육의 5분정도를 할애했다는 것이다. 나에게 주어진 시간은 약 2시간이었는데 상당히 긴 시간이었다.</p>
-
-<p>그렇다 이 select 컴포넌트는 이 코드를 잘아는 <code>내부</code> 개발자만 사용하기 편하다는 것이다… 이 마져도 여러번 문서를 번갈아 가며 봐야 할 때가 많았다.</p>
-
-<hr />
-
-<h3 id="그래서-새로운-select는-어떻게-만들었는가">그래서 새로운 select는 어떻게 만들었는가</h3>
-
-<p>아주 간단하게 만들었다. <code>string[]</code> 타입을 받아서 그대로 드롭다운에 표시하고 그것을 클릭하면 클릭한 index를 전달하는 것이다. 오히려 나도 이렇게 사용해보니.. 이렇게 쓰는게 훨씬 편했다.</p>]]></content><author><name></name></author><category term="개발" /><category term="grid" /><category term="typescript" /><summary type="html"><![CDATA[회사에서 angular-sdk를 맡아서 공통적으로 사용하는 컴포넌트를 sdk화 시키는 작업을 맡은지 1년이 좀 넘었다. 그동안 회사에서 사용하는 컴포넌트들을 리빌딩하면서 느낀점을 적어보려고 한다.]]></summary></entry><entry><title type="html">가상 그리드 만들기</title><link href="http://localhost:4000/develop/blog/why-made-grid-with-virtual-scroll" rel="alternate" type="text/html" title="가상 그리드 만들기" /><published>2022-12-20T00:00:00+09:00</published><updated>2022-12-20T00:00:00+09:00</updated><id>http://localhost:4000/develop/blog/why-made-grid-with-virtual-scroll</id><content type="html" xml:base="http://localhost:4000/develop/blog/why-made-grid-with-virtual-scroll"><![CDATA[<h3 id="데이터-그리드">데이터 그리드</h3>
+</ul>]]></content><author><name></name></author><category term="개발" /><category term="grid" /><category term="typescript" /><summary type="html"><![CDATA[목차]]></summary></entry><entry><title type="html">가상 그리드 만들기</title><link href="/develop/blog/why-made-grid-with-virtual-scroll" rel="alternate" type="text/html" title="가상 그리드 만들기" /><published>2022-12-20T00:00:00+09:00</published><updated>2022-12-20T00:00:00+09:00</updated><id>/develop/blog/why-made-grid-with-virtual-scroll</id><content type="html" xml:base="/develop/blog/why-made-grid-with-virtual-scroll"><![CDATA[<h3 id="데이터-그리드">데이터 그리드</h3>
 
 <p>어떤 데이터를 보여주기 위한 ‘표’ 테이블이라고도 할 수 있다.</p>
 
@@ -396,7 +306,97 @@
       <li>셀에 어떤 기능이 필요해요 너비가 어떻게 필요해요 등등.</li>
     </ul>
   </li>
-</ul>]]></content><author><name></name></author><category term="개발" /><category term="grid" /><category term="typescript" /><summary type="html"><![CDATA[데이터 그리드]]></summary></entry><entry><title type="html">어떻게 프리서버를 만드는것을 배웠는지</title><link href="http://localhost:4000/lie/how-to-learn-open-free-server" rel="alternate" type="text/html" title="어떻게 프리서버를 만드는것을 배웠는지" /><published>2020-09-03T00:00:00+09:00</published><updated>2020-09-03T00:00:00+09:00</updated><id>http://localhost:4000/lie/how-to-learn-open-free-server</id><content type="html" xml:base="http://localhost:4000/lie/how-to-learn-open-free-server"><![CDATA[<p>프리서버 운영은 엄연한 불법 행위 입니다.</p>
+</ul>]]></content><author><name></name></author><category term="개발" /><category term="grid" /><category term="typescript" /><summary type="html"><![CDATA[데이터 그리드]]></summary></entry><entry><title type="html">어떤 컴포넌트가 사용하기 편헐까?</title><link href="/develop/blog/what-components-easy-use" rel="alternate" type="text/html" title="어떤 컴포넌트가 사용하기 편헐까?" /><published>2022-12-20T00:00:00+09:00</published><updated>2022-12-20T00:00:00+09:00</updated><id>/develop/blog/what-components-easy-use</id><content type="html" xml:base="/develop/blog/what-components-easy-use"><![CDATA[<p>회사에서 angular-sdk를 맡아서 공통적으로 사용하는 컴포넌트를 sdk화 시키는 작업을 맡은지 1년이 좀 넘었다. 그동안 회사에서 사용하는 컴포넌트들을 리빌딩하면서 느낀점을 적어보려고 한다.</p>
+
+<ol>
+  <li>이것도 있으면 편하겠지?</li>
+  <li>사용자가 사용할때 굳이 위에서 두번 타입을 바꿀 필요 없게 하면 쓰기 더 편하지 않을까?</li>
+</ol>
+
+<p>위의 얘기를 몇가지의 사례를 가지고</p>
+
+<h2 id="이것도-있으면-편하겠지">이것도 있으면 편하겠지?</h2>
+
+<p>컴포넌트를 만들다보면 이런저런 많은 기능이 들어가는 경우가 수두룩 했었다. 특히 그리드에선 그랬는데 <code>virtaul scroll</code> 기능을 추가한 그리드라는 얘기가 무성할 정도로 결국은 많은 기능이 필요했었다. 기억에 남는 몇개의 기능을 얘기해보자면</p>
+
+<ol>
+  <li>IP 국기 플래그 추가</li>
+  <li>너비 조절 사용자 지정(너비 지정한 것을 저장하여야 함)</li>
+  <li>컬럼 드롭다운 사용자 지정</li>
+</ol>
+
+<p>등의 기능이 있었는데 이 기능을 추가하기 위해 <code>컴포넌트 내부</code> 에서 몇가지 작업이 필요했었다. 가령 ip 국기를 추가하기 위해서 ip-table을 탐색해서 확인해야하고 이 로직이 그리드 자체에 들어간것이다.</p>
+
+<p>애초에 이 그리드는 <code>가상 스크롤</code>주제를 가지고 시작한 그리드이다. 근데 이 그리드에서 기능이 여러가지 필요해서 붙이다보니 이벤트 부터 시작해서 <code>총 12개의 파일</code>로 구성된 그리드가 되어버린 것이다.</p>
+
+<p>이렇게 했을때 문제는 다음과 같다.</p>
+
+<ol>
+  <li>컴포넌트의 새로운 기능이 추가될때마다 점점 하나의 컴포넌트가 가져야할 코드가 많아짐</li>
+  <li>당연히 유지보수 어려움</li>
+  <li>코드가 길어짐에 따라서 <code>본연</code>의 기능인 가상 스크롤 기능을 확실히 체크하기 어려움 (QA쪽에도 부하가..)</li>
+</ol>
+
+<p>그렇다면 어떻게 했어야 했을까?</p>
+
+<h3 id="컴포넌트는-그-자체로-둬야-아름답다">컴포넌트는 그 자체로 둬야 아름답다</h3>
+
+<p>컴포넌트는 그 자체로 두어야 한다. <code>가상화 스크롤</code> 이라는 기능에 촛점을 맞췄다면 그것을 만들면 그만인것이다. 그렇지만 항상 기능이 이것저것 따라온다면 아래와 같이 문제를 풀어야 할것이다.</p>
+
+<ul>
+  <li>가상화 스크롤에 들어간 row의 dom을 직접 template기능으로 줄 수 있으면 될것 (이후에는 필요한 기능을 확장해서 사용)</li>
+  <li>너비 조절시 이벤트로 너비 조절된 데이터를 전달</li>
+</ul>
+
+<p>위와 같이 스크롤 기능을 제외하고 특별한 기능이 필요하다면 그에 필요한 <code>재료</code> 를 전달하면 된다. 그렇게되면 특정한 상황에서도 큰 변화 없이 컴포넌트는 <code>유지</code> 될 수 있다.</p>
+
+<h2 id="select-컴포넌트로-보는-사용자-친화-적인-개발이-오히려-불편함을-가져다-준-경우">select 컴포넌트로 보는 사용자 친화? 적인 개발이 오히려 불편함을 가져다 준 경우</h2>
+
+<p>어느날 우리 회사 제품에 select 컴포넌트가 필요해졌다. SDK에서 받아야 할 프로퍼티는 아래와 같았다.</p>
+
+<ul>
+  <li>보여줘야 할 목록의 이름</li>
+  <li>어떤게 선택되었는지 보낼 이벤트</li>
+</ul>
+
+<p>이렇게 사용하는 컴포넌트였는데. (검색 기능 등 이런것은 제외하고)</p>
+
+<p>아래와 같이 프로퍼티를 받았다.</p>
+
+<pre><code class="language-tsx">type SelectItems&lt;T&gt; = {
+  name: string;
+  value: T;
+}[];
+</code></pre>
+
+<p>그리고 이벤트의 타입은 아래와 같았다</p>
+
+<pre><code class="language-tsx">type ItemChangeEvent&lt;T&gt; = {
+  value: T;
+};
+</code></pre>
+
+<p>클릭을 하면 value를 직접 보내주는건데 이렇게 보면 어떤게 문제가 되는지 잘 이해하기 어렵지만.. 왜 굳이 이벤트와 아이템 프로퍼티가 다른지에 대한 설명을 해보자면</p>
+
+<p>내가 원하는 select 컴포넌트는 어떤 배열을 보내던간에 name 프로퍼티에 대한 키를 보내고 (이때 name에 대한 프로퍼티를 새로 받음) value에 대한 키를 보내고 이 키를 가지고 아무 배열 형태의 데이터를 가져오더래도 이를 표시해주기 위함이었다.</p>
+
+<p>즉 사용하기 편하게 하기위해 여러가지 프로퍼티를 받아야 했었는데. 이를 가지고 회사 외부에서 SDK관련 교육을 할때 가장 많이 받은 질문이 이거였다.</p>
+
+<blockquote>
+  <p>Select가 아무것도 안보여요..</p>
+</blockquote>
+
+<p>그래서 나는 대답했다 문서를 보시면 이렇게 받아서 이렇게 보고…..</p>
+
+<p>이 대답과 정확한 select 사용방법을 설명해주기 위해서 SDK 교육의 5분정도를 할애했다는 것이다. 나에게 주어진 시간은 약 2시간이었는데 상당히 긴 시간이었다.</p>
+
+<p>그렇다 이 select 컴포넌트는 이 코드를 잘아는 <code>내부</code> 개발자만 사용하기 편하다는 것이다… 이 마져도 여러번 문서를 번갈아 가며 봐야 할 때가 많았다.</p>
+
+<hr />
+
+<h3 id="그래서-새로운-select는-어떻게-만들었는가">그래서 새로운 select는 어떻게 만들었는가</h3>
+
+<p>아주 간단하게 만들었다. <code>string[]</code> 타입을 받아서 그대로 드롭다운에 표시하고 그것을 클릭하면 클릭한 index를 전달하는 것이다. 오히려 나도 이렇게 사용해보니.. 이렇게 쓰는게 훨씬 편했다.</p>]]></content><author><name></name></author><category term="개발" /><category term="grid" /><category term="typescript" /><summary type="html"><![CDATA[회사에서 angular-sdk를 맡아서 공통적으로 사용하는 컴포넌트를 sdk화 시키는 작업을 맡은지 1년이 좀 넘었다. 그동안 회사에서 사용하는 컴포넌트들을 리빌딩하면서 느낀점을 적어보려고 한다.]]></summary></entry><entry><title type="html">어떻게 프리서버를 만드는것을 배웠는지</title><link href="/lie/how-to-learn-open-free-server" rel="alternate" type="text/html" title="어떻게 프리서버를 만드는것을 배웠는지" /><published>2020-09-03T00:00:00+09:00</published><updated>2020-09-03T00:00:00+09:00</updated><id>/lie/how-to-learn-open-free-server</id><content type="html" xml:base="/lie/how-to-learn-open-free-server"><![CDATA[<p>프리서버 운영은 엄연한 불법 행위 입니다.</p>
 
 <blockquote>
   <p>저작권법 제101조의4(프로그램코드역분석) ① 정당한 권한에 의하여 프로그램을 이용하는 자 또는 그의 허락을 받은 자는 호환에 필요한 정보를 쉽게 얻을 수 없고 그 획득이 불가피한 경우에는 해당 프로그램의 호환에 필요한 부분에 한하여 프로그램의 저작재산권자의 허락을 받지 아니하고 프로그램코드역분석을 할 수 있다.</p>
@@ -472,7 +472,7 @@
 
 <p>아무튼 이렇게 해서 라그나로크 프리서버를 여는 방법을 배웠고 이후에 리니지, 바람의 나라 등을 중학교때 까지 한번 한번씩 열었었다.</p>
 
-<p>그런데 내가 성인이 되서도 mysql을 만질줄이야!</p>]]></content><author><name></name></author><category term="개발" /><category term="자랑 아님" /><summary type="html"><![CDATA[프리서버 운영은 엄연한 불법 행위 입니다.]]></summary></entry><entry><title type="html">타입스크립트 코리아 강좌 정리</title><link href="http://localhost:4000/study/hello-typescript" rel="alternate" type="text/html" title="타입스크립트 코리아 강좌 정리" /><published>2018-10-30T00:00:00+09:00</published><updated>2018-10-30T00:00:00+09:00</updated><id>http://localhost:4000/study/hello-typescript</id><content type="html" xml:base="http://localhost:4000/study/hello-typescript"><![CDATA[<h1 id="1-typescirpt-에-관하여">1. Typescirpt 에 관하여</h1>
+<p>그런데 내가 성인이 되서도 mysql을 만질줄이야!</p>]]></content><author><name></name></author><category term="개발" /><category term="자랑 아님" /><summary type="html"><![CDATA[프리서버 운영은 엄연한 불법 행위 입니다.]]></summary></entry><entry><title type="html">타입스크립트 코리아 강좌 정리</title><link href="/study/hello-typescript" rel="alternate" type="text/html" title="타입스크립트 코리아 강좌 정리" /><published>2018-10-30T00:00:00+09:00</published><updated>2018-10-30T00:00:00+09:00</updated><id>/study/hello-typescript</id><content type="html" xml:base="/study/hello-typescript"><![CDATA[<h1 id="1-typescirpt-에-관하여">1. Typescirpt 에 관하여</h1>
 
 <blockquote>
   <p>tpyscript 는 자바스크립트를 포함한 프로그래밍 언어</p>
@@ -1563,7 +1563,7 @@ function hello(obj: Person | Car) {
 
 <p>타입스크립트를 막연하게 어렵다고만 생각했었는데 오히려 프로그램을 작성하는데 있어서 더욱더 안정성이 있다는것은 이 강좌를 통해서 확실히 알게되었다.</p>
 
-<p>실제로 직접 가서 참여한 세미나보다도 상당히 훌륭했고 예제들 역시 상당히 훌륭했다.</p>]]></content><author><name></name></author><category term="개발" /><category term="Typescript" /><category term="beginer" /><summary type="html"><![CDATA[1. Typescirpt 에 관하여]]></summary></entry><entry><title type="html">남궁성 자바스크립트 기초 세미나 정리</title><link href="http://localhost:4000/study/namgungsung_beginer_javascript_semina" rel="alternate" type="text/html" title="남궁성 자바스크립트 기초 세미나 정리" /><published>2018-10-27T00:00:00+09:00</published><updated>2018-10-27T00:00:00+09:00</updated><id>http://localhost:4000/study/namgungsung_beginer_javascript_semina</id><content type="html" xml:base="http://localhost:4000/study/namgungsung_beginer_javascript_semina"><![CDATA[<h2 id="남궁성-자바스크립트에-참가하다">남궁성 자바스크립트에 참가하다.</h2>
+<p>실제로 직접 가서 참여한 세미나보다도 상당히 훌륭했고 예제들 역시 상당히 훌륭했다.</p>]]></content><author><name></name></author><category term="개발" /><category term="Typescript" /><category term="beginer" /><summary type="html"><![CDATA[1. Typescirpt 에 관하여]]></summary></entry><entry><title type="html">남궁성 자바스크립트 기초 세미나 정리</title><link href="/study/namgungsung_beginer_javascript_semina" rel="alternate" type="text/html" title="남궁성 자바스크립트 기초 세미나 정리" /><published>2018-10-27T00:00:00+09:00</published><updated>2018-10-27T00:00:00+09:00</updated><id>/study/namgungsung_beginer_javascript_semina</id><content type="html" xml:base="/study/namgungsung_beginer_javascript_semina"><![CDATA[<h2 id="남궁성-자바스크립트에-참가하다">남궁성 자바스크립트에 참가하다.</h2>
 
 <p>예전에 ‘난 정말 자바를 공부한적이 없다구요’라는 책을 보고 남궁성 자바라는 카페를 가입했었는데 어쩌다보니 자바는 전혀 하지 않고 Jvacsript만 주로 하게되었는데 운 좋게 남궁성님이 운영하는 세미나가 있어서 참가하게 되었다.</p>
 
@@ -1754,7 +1754,7 @@ arr.sort((a, b) =&gt; a - b);
 
 <p>이도저도 아닌 세미나였어서 더 이상 쓸 말이 없다.</p>
 
-<p>책을 사시는것을 추천한다.</p>]]></content><author><name></name></author><category term="개발" /><category term="Javascript" /><category term="beginer" /><summary type="html"><![CDATA[남궁성 자바스크립트에 참가하다.]]></summary></entry><entry><title type="html">자바스크립트의 재귀함수 어떻게 이해하면 좋을까?</title><link href="http://localhost:4000/study/How-to-understand-javascript-recursion-function" rel="alternate" type="text/html" title="자바스크립트의 재귀함수 어떻게 이해하면 좋을까?" /><published>2018-08-24T00:00:00+09:00</published><updated>2018-08-24T00:00:00+09:00</updated><id>http://localhost:4000/study/How-to-understand-javascript-recursion-function</id><content type="html" xml:base="http://localhost:4000/study/How-to-understand-javascript-recursion-function"><![CDATA[<h2 id="재귀함수-recursion-function">재귀함수 (Recursion function)</h2>
+<p>책을 사시는것을 추천한다.</p>]]></content><author><name></name></author><category term="개발" /><category term="Javascript" /><category term="beginer" /><summary type="html"><![CDATA[남궁성 자바스크립트에 참가하다.]]></summary></entry><entry><title type="html">자바스크립트의 재귀함수 어떻게 이해하면 좋을까?</title><link href="/study/How-to-understand-javascript-recursion-function" rel="alternate" type="text/html" title="자바스크립트의 재귀함수 어떻게 이해하면 좋을까?" /><published>2018-08-24T00:00:00+09:00</published><updated>2018-08-24T00:00:00+09:00</updated><id>/study/How-to-understand-javascript-recursion-function</id><content type="html" xml:base="/study/How-to-understand-javascript-recursion-function"><![CDATA[<h2 id="재귀함수-recursion-function">재귀함수 (Recursion function)</h2>
 
 <p>재귀함수는 말 그대로 함수 내에서 자기 자신을 다시 또 호출하면서 로직을 수행하는 함수를 말한다. 재귀함수를 응용하는데 있어서 많은 글들을 읽어봤지만 사실 그렇게 크게 와닿는 글은 없었던것 같다.</p>
 
@@ -1885,7 +1885,7 @@ document.write(result);
 }
 </code></pre>
 
-<p>위 처럼 해결할 수 있다.</p>]]></content><author><name></name></author><category term="개발" /><category term="Javascript" /><category term="Recursion" /><summary type="html"><![CDATA[재귀함수 (Recursion function)]]></summary></entry><entry><title type="html">나는 graphql을 이해했다</title><link href="http://localhost:4000/study/I-understand-grahpql" rel="alternate" type="text/html" title="나는 graphql을 이해했다" /><published>2018-08-16T00:00:00+09:00</published><updated>2018-08-16T00:00:00+09:00</updated><id>http://localhost:4000/study/I-understand-grahpql</id><content type="html" xml:base="http://localhost:4000/study/I-understand-grahpql"><![CDATA[<h2 id="graphql은-무엇일까">Graphql은 무엇일까?</h2>
+<p>위 처럼 해결할 수 있다.</p>]]></content><author><name></name></author><category term="개발" /><category term="Javascript" /><category term="Recursion" /><summary type="html"><![CDATA[재귀함수 (Recursion function)]]></summary></entry><entry><title type="html">나는 graphql을 이해했다</title><link href="/study/I-understand-grahpql" rel="alternate" type="text/html" title="나는 graphql을 이해했다" /><published>2018-08-16T00:00:00+09:00</published><updated>2018-08-16T00:00:00+09:00</updated><id>/study/I-understand-grahpql</id><content type="html" xml:base="/study/I-understand-grahpql"><![CDATA[<h2 id="graphql은-무엇일까">Graphql은 무엇일까?</h2>
 
 <p>대다수의 블로그를 보면 마치 정말 전지전능한 실제 기술같았다. 왜냐면 꼭 파이어베이스와 같이 서버리스 플랫폼에서 제공하는 플랫폼의 ‘라이벌’이라고 얘길 해서 나는 Firebase(‘이하’ 파이어베이스) 같이 별다른 설정 없이 사용할 수 있는줄 알았다.</p>
 
